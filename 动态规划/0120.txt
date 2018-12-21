@@ -1,0 +1,117 @@
+网址：https://leetcode.com/problems/triangle/description/
+题目：120. Triangle
+
+Given a triangle（三角形）, find the minimum path sum from top to bottom. Each step you may move to adjacent（邻近的） numbers on the row below（在下面）.
+
+For example, given the following triangle
+[
+     [2],
+    [3,4],
+   [6,5,7],
+  [4,1,8,3]
+]
+The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+
+Note:
+Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+
+
+解释：
+思考：
+注意：
+编码：
+时间：2018 年 3 月 21 日
+
+
+第 1 版：没有记忆化搜索的版本。
+
+```python
+class Solution:
+
+    def __init__(self):
+        self.triangle = None
+
+    def _pass_way(self, i, j):
+
+        '''
+
+        :param i: 表示第几层
+        :param j: 表示第几个索引，j<=i
+        :return:
+        '''
+
+        if i == 0:
+            return self.triangle[0][0]
+
+        res = float("inf")
+        if j == 0:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, 0))
+        elif j == i:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1))
+        else:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1),
+                      self.triangle[i][j] + self._pass_way(i - 1, j))
+        return res
+
+    def minimumTotal(self, triangle):
+        """
+        :type triangle: List[List[int]]
+        :rtype: int
+        """
+        self.triangle = triangle
+        res = float("inf")
+        n = len(self.triangle)
+        for i in range(n):
+            res = min(res, self._pass_way(n - 1, i))
+
+        return res
+```
+
+第 2 版：加入了记忆化搜索以后，就奇迹般地通过了
+
+```python
+class Solution:
+
+    def __init__(self):
+        self.triangle = None
+        self.memo = []
+
+    def _pass_way(self, i, j):
+
+        '''
+
+        :param i: 表示第几层
+        :param j: 表示第几个索引，j<=i
+        :return:
+        '''
+        if i == 0:
+            return self.triangle[0][0]
+
+        if self.memo[i][j] is not None:
+            return self.memo[i][j]
+
+        res = float("inf")
+        if j == 0:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, 0))
+        elif j == i:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1))
+        else:
+            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1),
+                      self.triangle[i][j] + self._pass_way(i - 1, j))
+        self.memo[i][j] = res
+        return self.memo[i][j]
+
+    def minimumTotal(self, triangle):
+        """
+        :type triangle: List[List[int]]
+        :rtype: int
+        """
+        self.triangle = triangle
+        res = float("inf")
+        n = len(self.triangle)
+        for i in range(1, n + 1):
+            self.memo.append([None] * i)
+        for i in range(n):
+            res = min(res, self._pass_way(n - 1, i))
+        return res
+```

@@ -1,0 +1,96 @@
+网址：https://leetcode.com/problems/climbing-stairs/description/
+
+题目：
+You are climbing a stair case. It takes n steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Note: Given n will be a positive integer.
+
+
+Example 1:
+
+Input: 2
+Output:  2
+Explanation:  There are two ways to climb to the top.
+
+1. 1 step + 1 step
+2. 2 steps
+Example 2:
+
+Input: 3
+Output:  3
+Explanation:  There are three ways to climb to the top.
+
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+
+解释：爬楼梯问题，返回有多少种不同的方法爬完这 n 个台阶，Each time you can either climb 1 or 2 steps. 是这个问题的关键。
+思考：分析问题过程中，我们发现这是一个递归问题，进而发现这个递归结构中存在许多重叠子问题，所以既可以使用记忆化搜索，也可以使用动态规划来解决。最终我们发现，这个问题其实和斐波那契数列问题完全等价。
+注意：
+编码：
+时间：2018 年 3 月 21 日
+
+笔记：
+
+版本1：不合格的递归版本，但是我们通过这个版本的思考可以帮助我们画出递归结构树，从而发现重叠子问题。
+
+（插图说明这个问题的递归子结构数，标出重叠子问题。）
+
+class Solution:
+
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 0:
+            return 1
+        if n == 1:
+            return 1
+        return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+
+版本2：加入了缓存的递归版本
+
+class Solution:
+    memo = None
+
+    def _climbStairs(self, n):
+        if Solution.memo[n] != -1:
+            return Solution.memo[n]
+
+        if n == 0:
+            return 1
+        if n == 1:
+            return 1
+        Solution.memo[n] = self._climbStairs(n - 1) + self._climbStairs(n - 2)
+        return Solution.memo[n]
+
+    def climbStairs(self, n):
+        Solution.memo = [-1] * (n + 1)
+        return self._climbStairs(n)
+
+版本3：在记忆化搜索的分析思路下，写出的动态规划版本。
+
+思考过程：爬 0 个台阶，有 1 种爬法；
+爬 1 个台阶，有 1 种爬法；
+爬 2 个台阶，有 2 种爬法；
+爬 3 个台阶，（2，1） + （1，2）；
+爬 4 个台阶，（3，1） + （2，2）；
+爬 5 个台阶，（4，1） + （3，2）；
+爬 6 个调节，（5，1） + （4，2）；
+以此类推，其中，（i，j）表示首先爬 i 个台阶的所有不同爬法，然后再爬 j 个台阶的不同爬法。
+
+
+class Solution:
+
+    def climbStairs(self, n):
+        if n == 0:
+            return 1
+        memo = [-1] * (n + 1)
+        memo[0] = 1
+        memo[1] = 1
+        for i in range(2, n + 1):
+            memo[i] = memo[i - 1] + memo[i - 2]
+        return memo[n]
