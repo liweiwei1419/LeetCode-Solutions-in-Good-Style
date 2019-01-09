@@ -1,0 +1,25 @@
+import math
+
+
+def square(x, a):
+    return x ** 2 - a
+
+
+def my_sqrt(a):
+    x0 = 1
+    learning_rate = 0.01
+    eplison = 1e-16
+
+    for _ in range(1000):
+        last_x0 = x0
+        x0 = x0 - learning_rate * (square(x0, a))
+        if abs(last_x0 - x0) < eplison:
+            print("循环了 {} 次以后收敛。".format(_))
+            break
+    return x0
+
+
+if __name__ == '__main__':
+    res = math.sqrt(78)
+    print(res)  # 8.831760866327848
+    print(my_sqrt(78))
