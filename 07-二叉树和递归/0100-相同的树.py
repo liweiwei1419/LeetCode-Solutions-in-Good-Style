@@ -2,6 +2,7 @@
 # 判断两棵二叉树是否一样。
 # 典型的使用递归解决的问题。
 
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -26,4 +27,5 @@ class Solution(object):
         if q is None:
             return False
 
-        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        return p.val == q.val and self.isSameTree(
+            p.left, q.left) and self.isSameTree(p.right, q.right)

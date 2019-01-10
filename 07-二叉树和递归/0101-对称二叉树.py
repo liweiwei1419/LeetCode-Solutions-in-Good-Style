@@ -28,4 +28,5 @@ class Solution(object):
             return True
         if left_node is None or right_node is None or left_node.val != right_node.val:
             return False
-        return self.__helper(left_node.left, right_node.right) and self.__helper(left_node.right, right_node.left)
+        return self.__helper(left_node.left, right_node.right) and self.__helper(
+            left_node.right, right_node.left)

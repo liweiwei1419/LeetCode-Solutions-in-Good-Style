@@ -9,6 +9,7 @@ class TreeNode:
 #
 # 说明: 叶子节点是指没有子节点的节点。
 
+
 class Solution:
     def hasPathSum(self, root, sum):
         """

@@ -7,6 +7,7 @@ class TreeNode:
 # 257. 二叉树的所有路径
 # 给定一个二叉树，返回所有从根节点到叶子节点的路径。
 
+
 class Solution:
 
     # 深度优先遍历，我感觉最好理解
@@ -28,11 +29,11 @@ class Solution:
         if node.left is None and node.right is None:
             res.append(pre + str(node.val))
             return
+        # 通过参数传递的方式，就没有显式的回溯的过程了
         if node.left:
             self.__helper(node.left, pre + str(node.val) + '->', res)
         if node.right:
             self.__helper(node.right, pre + str(node.val) + '->', res)
-
 
 
 if __name__ == '__main__':
