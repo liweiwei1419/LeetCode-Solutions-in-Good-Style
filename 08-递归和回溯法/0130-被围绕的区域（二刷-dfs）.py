@@ -10,22 +10,19 @@ class Solution:
         :type board: List[List[str]]
         :rtype: void Do not return anything, modify board in-place instead.
         """
-
-        # 一开始是常规的代码
+        global m, n, directions
         m = len(board)
         if m == 0:
             return
         n = len(board[0])
-
         directions = [(-1, 0), (0, -1), (1, 0), (0, 1)]
 
-        for row in range(m):
-            self.__dfs(board, row, 0, m, n, directions)
-            self.__dfs(board, row, n - 1, m, n, directions)
-
-        for col in range(1, n - 1):
-            self.__dfs(board, 0, col, m, n, directions)
-            self.__dfs(board, m - 1, col, m, n, directions)
+        for row_index in range(m):
+            self.__flood_fill(board, row_index, 0)
+            self.__flood_fill(board, row_index, n - 1)
+        for col_index in range(1, n - 1):
+            self.__flood_fill(board, 0, col_index)
+            self.__flood_fill(board, m - 1, col_index)
 
         for i in range(m):
             for j in range(n):
@@ -34,15 +31,13 @@ class Solution:
                 if board[i][j] == '-':
                     board[i][j] = 'O'
 
-    def __dfs(self, board, i, j, m, n, directions):
-        # 把 'O' 变成一个别的符号，然后扩散开来
-        # 这里相当于 marked
-        if 0 <= i < m and 0 <= j < n and board[i][j] == 'O':
-            board[i][j] = '-'
+    def __flood_fill(self, board, x, y):
+        if 0 <= x < m and 0 <= y < n and board[x][y] == 'O':
+            board[x][y] = '-'
             for direction in directions:
-                new_x = i + direction[0]
-                new_y = j + direction[1]
-                self.__dfs(board, new_x, new_y, m, n, directions)
+                new_x = x + direction[0]
+                new_y = y + direction[1]
+                self.__flood_fill(board, new_x, new_y)
 
 
 if __name__ == '__main__':
@@ -50,14 +45,14 @@ if __name__ == '__main__':
     #          ['X', 'O', 'O', 'X'],
     #          ['X', 'X', 'O', 'X'],
     #          ['X', 'O', 'X', 'X']]
-    # board = [['O', 'O', 'O'],
-    #          ['O', 'O', 'O'],
-    #          ['O', 'O', 'O']]
+    board = [['O', 'O', 'O'],
+             ['O', 'O', 'O'],
+             ['O', 'O', 'O']]
 
-    board = [["X", "O", "X", "O", "X", "O"],
-             ["O", "X", "O", "X", "O", "X"],
-             ["X", "O", "X", "O", "X", "O"],
-             ["O", "X", "O", "X", "O", "X"]]
+    # board = [["X", "O", "X", "O", "X", "O"],
+    #          ["O", "X", "O", "X", "O", "X"],
+    #          ["X", "O", "X", "O", "X", "O"],
+    #          ["O", "X", "O", "X", "O", "X"]]
     solution = Solution()
     solution.solve(board)
     for row in board:
