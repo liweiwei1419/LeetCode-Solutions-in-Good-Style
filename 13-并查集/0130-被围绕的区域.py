@@ -12,6 +12,7 @@ class Solution:
         :type board: List[List[str]]
         :rtype: void Do not return anything, modify board in-place instead.
         """
+
         # 使用并查集
         class UnionFind:
             def __init__(self, n):
@@ -42,9 +43,11 @@ class Solution:
         if m == 0:
             return
         n = len(board[0])
+
         def get_index(x, y):
             return x * n + y
-        directions = [(1, 0), (0, 1)]
+
+        directions = [(-1, 0), (0, -1), (1, 0), (0, 1)]
         uf = UnionFind(m * n + 1)
         for i in range(m):
             for j in range(n):
@@ -59,9 +62,11 @@ class Solution:
                             new_j = j + direction[1]
                             if board[new_i][new_j] == 'O':
                                 uf.union(get_index(i, j), get_index(new_i, new_j))
-        for i in range(m):
-            for j in range(n):
-                if not uf.is_connected(get_index(i, j), m * n):
+
+
+        for i in range(1, m - 1):
+            for j in range(1, n - 1):
+                if board[i][j] == 'O' and not uf.is_connected(get_index(i, j), m * n):
                     board[i][j] = 'X'
 
 
@@ -74,10 +79,21 @@ if __name__ == '__main__':
     #          ['O', 'O', 'O'],
     #          ['O', 'O', 'O']]
 
-    board = [["X", "O", "X", "O", "X", "O"],
-             ["O", "X", "O", "X", "O", "X"],
-             ["X", "O", "X", "O", "X", "O"],
-             ["O", "X", "O", "X", "O", "X"]]
+    # board = [["X", "O", "X", "O", "X", "O"],
+    #          ["O", "X", "O", "X", "O", "X"],
+    #          ["X", "O", "X", "O", "X", "O"],
+    #          ["O", "X", "O", "X", "O", "X"]]
+
+    board = [["X", "O", "O", "X", "X", "X", "O", "X", "O", "O"],
+             ["X", "O", "X", "X", "X", "X", "X", "X", "X", "X"],
+             ["X", "X", "X", "X", "O", "X", "X", "X", "X", "X"],
+             ["X", "O", "X", "X", "X", "O", "X", "X", "X", "O"],
+             ["O", "X", "X", "X", "O", "X", "O", "X", "O", "X"],
+             ["X", "X", "O", "X", "X", "O", "O", "X", "X", "X"],
+             ["O", "X", "X", "O", "O", "X", "O", "X", "X", "O"],
+             ["O", "X", "X", "X", "X", "X", "O", "X", "X", "X"],
+             ["X", "O", "O", "X", "X", "O", "X", "X", "O", "O"],
+             ["X", "X", "X", "O", "O", "X", "O", "X", "X", "O"]]
     solution = Solution()
     import time
 
