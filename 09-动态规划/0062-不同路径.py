@@ -10,7 +10,7 @@ class Solution(object):
         dp = [1] * n
         for row in range(m - 1):
             for col in range(1, n):
-                dp[col] += dp[col-1]
+                dp[col] += dp[col - 1]
         return dp[-1]
 
 

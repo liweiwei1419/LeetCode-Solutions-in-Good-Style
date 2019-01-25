@@ -1,34 +1,28 @@
-# @Time    : 18/4/12 下午3:19
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
 
     def __init__(self):
         self.cache = None
 
-    def _partition(self, nums, index, j):
-        '''
+    def __try_partition(self, nums, index, sum_):
+        """
         f(i,j) = f(i-1,j) || f(i,j-nums[i])
         :param nums:
         :param index:
         :param C:
         :return:
-        '''
-        if j == 0:
+        """
+        if sum_ == 0:
             return True
-        if index < 0 or j < 0:
+        if index < 0 or sum_ < 0:
             return False
 
-        if self.cache[index][j] != 0:
-            return self.cache[index][j]
+        if self.cache[index][sum_] != 0:
+            return self.cache[index][sum_]
 
-        res = self._partition(nums, index - 1, j)
-        if nums[index] <= j:
-            res = res or self._partition(nums, index - 1, j - nums[index])
-        self.cache[index][j] = res
+        res = self.__try_partition(nums, index - 1, sum_)
+        if nums[index] <= sum_:
+            res = res or self.__try_partition(nums, index - 1, sum_ - nums[index])
+        self.cache[index][sum_] = res
         return res
 
     def canPartition(self, nums):
@@ -40,28 +34,28 @@ class Solution:
         l = len(nums)
         if l == 0:
             return False
+        # 特判：如果价值为奇数，不可以，直接返回 False
         s = sum(nums)
-        if s % 2 == 1:
+        if s & 1 == 1:
             return False
         half = s // 2
-
-        print('l',l)
-        print('half',half)
-
         self.cache = [[0 for _ in range(half + 1)] for _ in range(l)]
-
-        # print(self.cache)
-        return self._partition(nums, l - 1, half)
+        return self.__try_partition(nums, l - 1, half)
 
 
 if __name__ == '__main__':
     # nums = [1, 5, 11, 5]
     import time
+
     begin = time.time()
-    nums = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]
+    nums = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+            100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+            100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+            100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+            100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
     print(len(nums))
     s = Solution()
     res = s.canPartition(nums)
     end = time.time()
-    print(end-begin)
+    print(end - begin)
     print(res)

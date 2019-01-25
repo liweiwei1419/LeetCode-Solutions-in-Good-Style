@@ -16,13 +16,18 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
+        left = 1
+        right = len(nums) - 1
 
-        start = 1
-        end = len(nums) - 1
+        # 特别注意：在二分法取中点的算法中，如果有一条分支，不能排除 mid
+        # 在写 while 循环的时候，就不能把 = 写进去，否则会出现死循环，
+        # 这一点要特别注意
 
-        while start < end:
+        # 注意，千万不能写 while left <= right，会进入死循环
+        # 因为下面有一个分支是 left = mid
+        while left < right:
             # 取中点有两种方式，偏左和偏右
-            mid = start + (end - start + 1) // 2  # 4
+            mid = left + (right - left + 1) // 2  # 4
             count = 0
             for num in nums:
                 if num < mid:
@@ -31,13 +36,13 @@ class Solution:
                 # 比 4 小的个数，最多就只能是 3
                 # 所以重复的肯定不是 [1,2,3]
                 # 因为左边不变，所以取中点的时候，就要偏右
-                start = mid
+                left = mid
             else:
                 # 比 4 小的个数，达到 4 或者更多
                 # 重复的就落在 [1,2,3]
-                end = mid - 1
+                right = mid - 1
         # 跳出循环肯定是因为 start = end
-        return start
+        return left
 
 
 if __name__ == '__main__':

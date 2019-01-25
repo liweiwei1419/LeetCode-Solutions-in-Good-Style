@@ -12,6 +12,7 @@ class Solution:
     # 本解法参考了：https://blog.csdn.net/dreamgchuan/article/details/51204603
     # 本解法参考了：https://blog.csdn.net/dreamgchuan/article/details/51204603
 
+    # is_edge 这个设计不太好，不如给并查集设置一个"富裕"的结点，把边上的 "O" 都指向它
 
     def solve(self, board):
         """

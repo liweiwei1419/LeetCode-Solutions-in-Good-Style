@@ -1,6 +1,3 @@
-# @Time    : 18/4/11 下午4:10
-
-
 class Solution:
 
     def __rob_helper(self, nums):

@@ -7,13 +7,13 @@ class Solution:
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
-        nums3 = nums1.copy()
+        nums3 = nums1[:]
 
         i = 0
         j = 0
 
         for k in range(m + n):
-            if i == m:  # i 用完了
+            if i == m:
                 nums1[k] = nums2[j]
                 j += 1
             elif j == n:

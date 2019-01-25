@@ -1,9 +1,3 @@
-# @Time    : 18/4/12 下午4:13
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
 
     def canPartition(self, nums):
@@ -12,16 +6,19 @@ class Solution:
         :rtype: bool
         """
 
+        # 物品的数量
         l = len(nums)
         if l == 0:
             return False
         s = sum(nums)
+        # 背包的容量
         half = s // 2
-        if s % 2 == 1:
+        if s & 1 == 1:
             return False
-
         dp = [[0 for _ in range(half + 1)] for _ in range(l)]
 
+        # 其实使用一维数组就可以了
+        # 先写第 1 行：看看第 1 个数是不是能够填满这个背包
         for i in range(half + 1):
             dp[0][i] = False if nums[0] != i else True
         for i in range(1, l):

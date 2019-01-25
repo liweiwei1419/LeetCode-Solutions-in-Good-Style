@@ -1,9 +1,3 @@
-# @Time    : 18/4/10 下午10:50
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
 
     def uniquePathsWithObstacles(self, obstacleGrid):

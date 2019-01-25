@@ -10,7 +10,7 @@ class Solution(object):
         n = len(grid[0])
 
         for col in range(1, n):
-            # 第 0 行特殊处理，不要忘记了
+            # 第 0 行特殊处理
             grid[0][col] += grid[0][col - 1]
         for row in range(1, m):
             grid[row][0] += grid[row - 1][0]

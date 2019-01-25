@@ -1,9 +1,3 @@
-# @Time    : 18/3/22 上午12:34
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
     def minPathSum(self, grid):
         """

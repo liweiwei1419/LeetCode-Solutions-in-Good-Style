@@ -13,6 +13,7 @@ class Solution:
             return []
         nums.sort()
         res = []
+
         def dfs(max_count, begin, path):
             if max_count == len(path):
                 res.append(path.copy())

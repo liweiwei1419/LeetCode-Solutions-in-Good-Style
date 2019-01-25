@@ -42,6 +42,9 @@ class Solution(object):
                     union_find_set.union(j, i)
         counter = 0
         # print(union_find_set.parent)
+        # 自己的父亲是自己的话，这个结点就是根结点，是老大，是 boss
+        # boss 的特点就是，他上面没有人，例如：李彦宏、马云
+        # 数一数有几个老大，就有几个朋友圈
         for index, parent in enumerate(union_find_set.parent):
             if index == parent:
                 counter += 1

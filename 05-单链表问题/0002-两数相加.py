@@ -16,7 +16,7 @@ class Solution:
         cur_node = dummy_node
         s = 0
 
-        # 只要二者之一为空，就加下去
+        # 只要二者之一非空，就加下去
         while l1 or l2:
             if l1:
                 s += l1.val

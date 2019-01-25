@@ -1,9 +1,3 @@
-# @Time    : 18/4/9 上午10:27
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
     def integerBreak(self, n):
         """

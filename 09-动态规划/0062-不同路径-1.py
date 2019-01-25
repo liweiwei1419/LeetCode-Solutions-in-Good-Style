@@ -1,9 +1,3 @@
-# @Time    : 18/4/10 下午9:07
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
 
     def uniquePaths(self, m, n):
