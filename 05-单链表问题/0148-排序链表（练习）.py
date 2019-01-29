@@ -5,6 +5,8 @@ class ListNode:
         self.next = None
 
 
+# 这里有个小陷阱，如果遇到问题，不要着急，代码调试就好了
+
 class Solution:
     def sortList(self, head):
         """
@@ -19,14 +21,18 @@ class Solution:
 
         slow = head
         fast = head
-        while fast.next and fast.next.next:
+        while fast and fast.next:
+            p = slow
             slow = slow.next
             fast = fast.next.next
-        head2 = slow.next
-        slow.next = None
+
+        p.next = None
+
+        # print_node_list(head)
+        # print_node_list(head2)
 
         lnode = self.sortList(head)
-        rnode = self.sortList(head2)
+        rnode = self.sortList(slow)
 
         return self.__merge_two_sorted_list(lnode, rnode)
 
@@ -42,3 +48,29 @@ class Solution:
         else:
             head2.next = self.__merge_two_sorted_list(head1, head2.next)
             return head2
+
+
+def create_node_list(arr):
+    head = ListNode(arr[0])
+    cur = head
+    for i in range(1, len(arr)):
+        cur.next = ListNode(arr[i])
+        cur = cur.next
+    return head
+
+
+def print_node_list(head):
+    while head:
+        print(head.val, '->', end=' ')
+        head = head.next
+    print('NULL')
+
+
+if __name__ == '__main__':
+    arr = [4, 2, 1, 3]
+    head = create_node_list(arr)
+    print_node_list(head)
+
+    solution = Solution()
+    result = solution.sortList(head)
+    print_node_list(result)

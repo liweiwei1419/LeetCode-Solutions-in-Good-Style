@@ -1,7 +1,4 @@
-# @Time    : 18/4/11 下午12:26
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
+# 参考解答：https://blog.csdn.net/geekmanong/article/details/50320937
 
 class Solution:
     def __init__(self):

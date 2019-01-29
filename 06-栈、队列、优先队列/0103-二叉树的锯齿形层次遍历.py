@@ -24,6 +24,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def zigzagLevelOrder(self, root):
         """

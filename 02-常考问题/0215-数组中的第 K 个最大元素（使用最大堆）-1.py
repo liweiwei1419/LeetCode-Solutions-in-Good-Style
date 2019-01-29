@@ -8,13 +8,11 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-
-        nums = [-_ for _ in nums]
-        # 默认是最小堆
-        heapq.heapify(nums)
+        l = [(-num, num) for num in nums]
+        heapq.heapify(l)
         for _ in range(k):
-            res = heapq.heappop(nums)
-        return -res
+            _, res = heapq.heappop(l)
+        return res
 
 
 if __name__ == '__main__':

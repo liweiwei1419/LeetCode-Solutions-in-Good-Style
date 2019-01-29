@@ -26,13 +26,14 @@ class Solution(object):
                 elif s < target:
                     l += 1
                 else:
+                    # 如果已经等于 target 的话, 肯定是最接近的，根据题目要求，返回这三个数的和
                     return target
         return res
 
 
 if __name__ == '__main__':
-    nums = [-1, 0, 1, 1, 55]
-    target = 3
+    nums = [-1, 2, 1, -4]
+    target = 0
     solution = Solution()
     result = solution.threeSumClosest(nums, target)
     print(result)

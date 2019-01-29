@@ -16,6 +16,7 @@ class Solution:
         # 这一步在 nums2 里面的操作就变少了
         return list({x for x in nums2 if x in s})
 
+
 # 解法2：
 # return list(set(nums1) & set(nums2))
 

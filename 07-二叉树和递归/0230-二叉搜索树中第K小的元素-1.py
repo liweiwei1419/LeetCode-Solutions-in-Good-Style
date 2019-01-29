@@ -16,7 +16,7 @@ class Solution:
             # 不是空，才继续遍历
             self.kthSmallest(root.left, k)
         self.counter += 1
-        print(root.val)
+        # print(root.val)
         if self.counter == k:
             # 注意：千万不能在这里返回，后序遍历还要继续进行下去
             self.res = root.val

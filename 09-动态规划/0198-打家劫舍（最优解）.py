@@ -1,4 +1,3 @@
-# @Time    : 18/4/11 下午12:56
 class Solution:
 
     def rob(self, nums):

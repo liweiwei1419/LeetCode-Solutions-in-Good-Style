@@ -7,6 +7,7 @@
 # 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
 # 【判断的条件是"下一个结点"】
 
+
 class Solution(object):
     def deleteDuplicates(self, head):
         """

@@ -7,6 +7,7 @@ class TreeNode:
 
 # 这种写法比 3 更好一些，在入栈的时候，就判断结点是不是空，非空才入栈
 
+
 class Solution:
     def kthSmallest(self, root, k):
         stack = [(1, root)]

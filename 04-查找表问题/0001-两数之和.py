@@ -5,23 +5,24 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        map = dict()
 
-        for index, num in enumerate(nums):
-            if target - num not in map.keys():
-                map[num] = index
+        l = len(nums)
+        if l < 2:
+            return []
+        map = dict()
+        res = []
+        for i in range(l):
+            if nums[i] not in map:
+                map[target - nums[i]] = i
             else:
-                result = []
-                result.append(index)
-                result.append(map[target - num])
-                return result
+                res.append(i)
+                res.append(map[nums[i]])
+        return res
 
 
 if __name__ == '__main__':
     nums = [2, 7, 11, 15]
     target = 9
-
     solution = Solution()
-
     result = solution.twoSum(nums, target)
     print(result)
