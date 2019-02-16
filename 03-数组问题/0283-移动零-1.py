@@ -8,7 +8,6 @@ class Solution:
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-
         not_zero_end = 0  # 不包括末尾元素
         for j in range(len(nums)):
             if nums[j] != 0:

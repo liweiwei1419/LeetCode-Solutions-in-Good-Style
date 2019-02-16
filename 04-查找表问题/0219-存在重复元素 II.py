@@ -14,16 +14,20 @@ class Solution:
         # 使得 nums [i] = nums [j]，
         # 并且 i 和 j 的差的绝对值最大为 k。
 
-        # 其实很简单，先判断 nums [i] = nums [j]
+        # 先判断 nums [i] = nums [j]
         # 然后判断索引值是否相等，所以索引值可以用 map 存起来。
+
+        size = len(nums)
+        if size == 0:
+            return False
+
         map = dict()
-        for index, num in enumerate(nums):
-            if map.get(num) is not None:  # 说明 nums [i] = nums [j]
-                if index - map.get(num) <= k:
-                    # 只要存在就返回了，其实并不难
-                    return True
+        for index in range(size):
+            if nums[index] in map and index - map[nums[index]] <= k:
+                # 只要存在就返回了，
+                return True
             # 更新为最新的索引
-            map[num] = index
+            map[nums[index]] = index
         return False
 
 

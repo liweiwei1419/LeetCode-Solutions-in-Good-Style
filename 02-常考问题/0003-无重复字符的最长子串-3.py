@@ -1,4 +1,4 @@
-# 滑动窗口的做法
+# 滑动窗口
 class Solution:
     def lengthOfLongestSubstring(self, s):
         """

@@ -6,17 +6,20 @@
 # 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
 class Solution:
+
+    # 贪心算法
+
     def maxProfit(self, prices):
         """
         :type prices: List[int]
         :rtype: int
         """
 
-        l = len(prices)
-        if l == 0:
+        size = len(prices)
+        if size == 0:
             return 0
         max_profit = 0
-        for i in range(1, l):
+        for i in range(1, size):
             if prices[i] - prices[i - 1] > 0:
                 max_profit += (prices[i] - prices[i - 1])
         return max_profit

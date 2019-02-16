@@ -9,21 +9,16 @@ class Solution:
         :rtype: void Do not return anything, modify nums in-place instead.
         """
 
-        # [0, not_zero_end） 保持都非 0，
-        # [not_zero_end, len-1] 为 0
-        not_zero_end = 0 # 表示下一个非零元素的位置
+        # 循环不变量保持 [0, j） 保持都非 0，
+        # [j, len-1] 为 0
+        # j 表示下一个非零元素的位置
+        j = 0
 
         for i in range(len(nums)):
+            # 遇到 0 放过，不是 0 的交换到前面去
             if nums[i] != 0:
-                self.__swap(nums, not_zero_end, i)
-                not_zero_end += 1
-
-    def __swap(self, nums, index1, index2):
-        if index1 == index2:
-            return
-        temp = nums[index1]
-        nums[index1] = nums[index2]
-        nums[index2] = temp
+                nums[j], nums[i] = nums[i], nums[j]
+                j += 1
 
 
 if __name__ == "__main__":

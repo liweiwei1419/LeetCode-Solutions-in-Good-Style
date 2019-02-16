@@ -8,8 +8,12 @@ class Solution:
         :type val: int
         :rtype: int
         """
-        j = 0 # 下一个保存数组元素的位置
-        for i in range(len(nums)):
+        # 下一个保存数组元素的位置
+        size = len(nums)
+        if size == 0:
+            return 0
+        j = 0
+        for i in range(size):
             if nums[i] != val:
                 # 就移动到前面去
                 nums[i], nums[j] = nums[j], nums[i]

@@ -24,4 +24,5 @@ class Solution:
         if left + 1 == right:
             return min(nums[left], nums[right])
         mid = left + (right - left) // 2
-        return min(self.__findMin(nums, left, mid), self.__findMin(nums, mid + 1, right))
+        return min(self.__findMin(nums, left, mid),
+                   self.__findMin(nums, mid + 1, right))

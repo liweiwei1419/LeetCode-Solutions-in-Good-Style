@@ -23,6 +23,7 @@ class Solution:
                 j += 1
         return result
 
+
 # 使用 HashMap 的写法
 # https://gist.github.com/liweiwei1419/74ee4bc1d1443425ff6cc17df271a700
 

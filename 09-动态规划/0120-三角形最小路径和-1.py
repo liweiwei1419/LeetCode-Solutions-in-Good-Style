@@ -1,16 +1,10 @@
-# @Time    : 18/3/21 下午10:41
-# @Author  : liweiwei1419
-# @Site    : http://www.liwei.party/
-# @Contact : liweiwei1419@gmail.com
-
-
 class Solution:
 
     def __init__(self):
         self.triangle = None
         self.memo = []
 
-    def _pass_way(self, i, j):
+    def __pass_way(self, i, j):
         """
         :param i: 表示第几层
         :param j: 表示第几个索引，j<=i
@@ -25,12 +19,12 @@ class Solution:
         res = float("inf")
         # 最左边的点，
         if j == 0:
-            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, 0))
+            res = min(res, self.triangle[i][j] + self.__pass_way(i - 1, 0))
         elif j == i:
-            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1))
+            res = min(res, self.triangle[i][j] + self.__pass_way(i - 1, j - 1))
         else:
-            res = min(res, self.triangle[i][j] + self._pass_way(i - 1, j - 1),
-                      self.triangle[i][j] + self._pass_way(i - 1, j))
+            res = min(res, self.triangle[i][j] + self.__pass_way(i - 1, j - 1),
+                      self.triangle[i][j] + self.__pass_way(i - 1, j))
         self.memo[i][j] = res
         return self.memo[i][j]
 
@@ -45,7 +39,7 @@ class Solution:
         for i in range(1, n + 1):
             self.memo.append([None] * i)
         for i in range(n):
-            res = min(res, self._pass_way(n - 1, i))
+            res = min(res, self.__pass_way(n - 1, i))
         return res
 
 

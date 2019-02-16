@@ -49,17 +49,12 @@ class Solution:
 
         for index, c in enumerate(s):
             if c in map:
-                # 更新 pointer 的位置
-                # 【pointer 的位置只能越来越后】
-                # 【pointer 的位置只能越来越后】
-                # 【pointer 的位置只能越来越后】
+                # 更新 pointer 的位置，pointer 的位置只能越来越后
                 pointer = max(pointer, map[c] + 1)
-                # 调试代码
-                # print('point：', pointer)
+
             # 从 [pointer,i] 这个区间里，都没有重复的字符串
             # [3,4,5,6] 这个区间一共有 6-3+1=4 个元素
             # 每一次都要更新 map 和 max_len
-            # 【max_len】 也一定只会越来越大
             max_len = max(max_len, index - pointer + 1)
             # 不论怎么样都要更新 map
             map[c] = index

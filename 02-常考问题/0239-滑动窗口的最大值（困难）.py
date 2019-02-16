@@ -11,24 +11,23 @@ class Solution:
         :type k: int
         :rtype: List[int]
         """
-        if len(nums) == 0:
+        size = len(nums)
+        if size == 0:
             return []
 
-        # 用双端队列的思想解决这个问题
-        # 这个 Window 保存的是索引
+        # 用双端队列的思想解决这个问题，这个 Window 保存的是索引
         window = []
         res = []
 
-        for i, x in enumerate(nums):
+        for i in range(size):
             if i >= k and window[0] <= i - k:
-                # 只要是出了滑动窗口的部分，并且
-                # 左边的索引不能用
-
+                # 只要是出了滑动窗口的部分，并且左边的索引不能用
                 # window 存的是索引
                 # 特别注意：只有这种情况，才去掉 window 的第 1 个
                 window.pop(0)
-            while window and nums[window[-1]] <= x:
-                window.pop()  # 这一行代码就是去掉 window 的最后一个元素
+            while window and nums[window[-1]] <= nums[i]:
+                # 这一行代码去掉 window 的最后一个元素
+                window.pop()
 
             window.append(i)
             if i >= k - 1:

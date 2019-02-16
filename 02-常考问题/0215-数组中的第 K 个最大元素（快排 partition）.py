@@ -11,7 +11,12 @@ class Solution:
         :type k: int
         :rtype: int
         """
+        size = len(nums)
+        if size < k:
+            raise Exception('程序出错')
 
+        # [0,1,2,3,4,5]
+        # 第 k 大元素的索引是 len(nums) - k
         left = 0
         right = len(nums) - 1
 
@@ -27,9 +32,8 @@ class Solution:
     def __partition(self, nums, left, right):
         """
         partition 是必须要会的子步骤，一定要非常熟练
-        典型的例子就是：[3,7,8,1,2,4]
+        在 [left, right] 这个区间执行 partition
         遇到比第一个元素大的或等于的，就放过，遇到小的，就交换
-        在 [left,right] 这个区间执行 partition
         :param nums:
         :param left:
         :param right:

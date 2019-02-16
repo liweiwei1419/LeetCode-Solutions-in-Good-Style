@@ -5,15 +5,11 @@ class Solution:
         :type target: int
         :rtype: int
         """
-
         size = len(nums)
-
         if size == 0:
             return -1
-
         l = 0
         r = size - 1
-
         while l < r:
             mid = l + (r - l + 1) // 2
             if nums[mid] <= target:

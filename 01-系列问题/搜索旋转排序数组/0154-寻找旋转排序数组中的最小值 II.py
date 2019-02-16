@@ -14,11 +14,11 @@ class Solution:
         size = len(nums)
         if size == 0:
             return Exception('程序出错')
+
         l = 0
         r = size - 1
         while l < r:
             mid = l + (r - l) // 2
-
             if nums[mid] < nums[r]:
                 # mid 有可能是最小值
                 # [7,8,1,2,3]

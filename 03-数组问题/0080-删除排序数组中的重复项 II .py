@@ -1,14 +1,19 @@
 class Solution(object):
+
+    # 推荐写法
+
     def removeDuplicates(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        l = len(nums)
-        if l <= 2:
-            return l
+        size = len(nums)
+        if size <= 2:
+            return size
+        # counter 表示下一个要覆盖的索引
         counter = 2
-        for i in range(2, l):
+        # 索引为 0 和 1 的数一定会被保留，因此遍历从索引 2 开始
+        for i in range(2, size):
             if nums[i] != nums[counter - 2]:
                 nums[counter] = nums[i]
                 counter += 1

@@ -10,6 +10,7 @@ class Solution(object):
         l = len(s)
         if l <= 1:
             return s
+        # 二维 dp 问题
         dp = [[False for _ in range(l)] for _ in range(l)]
 
         longest_l = 1
