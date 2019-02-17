@@ -5,6 +5,7 @@
 # 每行中的整数从左到右按升序排列。
 # 每行的第一个整数大于前一行的最后一个整数。
 
+
 class Solution(object):
     def searchMatrix(self, matrix, target):
         """
