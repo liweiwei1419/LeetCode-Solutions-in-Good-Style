@@ -35,7 +35,7 @@
 
 题解地址：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/。
 
-### LeetCode 第 41 题：第 k 个排列
+### LeetCode 第 60 题：第 k 个排列
 
 ![LeetCode 第 41 题：第 k 个排列](https://liweiwei1419.github.io/images/leetcode-solution/leetcode-0060.gif)
 
@@ -57,7 +57,7 @@
 
 ![LeetCode 第 300 题：最长上升子序列-二分法](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0300.gif)
 
-![LeetCode 第 300 题：最长上升子序列-动态规划](https://liweiwei1419.github.io/images/leetcode-solution-new/0023/LeetCode-0300-dp.gif)
+![LeetCode 第 300 题：最长上升子序列-动态规划](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/LeetCode-0300-dp.gif)
 
 题解地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/。
 
