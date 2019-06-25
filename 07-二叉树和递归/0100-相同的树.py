@@ -11,6 +11,9 @@ class TreeNode(object):
 
 
 class Solution(object):
+
+    # 递归
+
     def isSameTree(self, p, q):
         """
         :type p: TreeNode

@@ -1,12 +1,8 @@
 # 5. 最长回文子串
 # 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
 
-class Solution(object):
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
         size = len(s)
         if size <= 1:
             return s
@@ -21,7 +17,7 @@ class Solution(object):
             for j in range(i):
                 # 状态转移方程：如果头尾字符相等并且中间也是回文
                 # 或者中间的长度小于等于 1
-                if s[j] == s[i] and (j >= i - 2 or dp[j + 1][i - 1]):
+                if s[j] == s[i] and (i - j <= 2 or dp[j + 1][i - 1]):
                     dp[j][i] = True
                     if i - j + 1 > longest_l:
                         longest_l = i - j + 1

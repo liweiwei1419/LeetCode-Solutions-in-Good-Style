@@ -12,6 +12,7 @@ class Solution:
         """
         if num <= 0:
             return False
+        # 整除说明 num 有这个质数因子，因此要把这个质数因子除掉
         while num % 2 == 0:
             num //= 2
         while num % 3 == 0:

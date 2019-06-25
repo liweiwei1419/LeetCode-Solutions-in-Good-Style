@@ -18,6 +18,7 @@ class Solution:
         :type q: TreeNode
         :rtype: TreeNode
         """
+        # 介于二者之间
         if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
             return root
         if root.val < p.val and root.val < q.val:

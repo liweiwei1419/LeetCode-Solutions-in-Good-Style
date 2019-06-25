@@ -8,7 +8,7 @@ class ListNode:
 # 这里有个小陷阱，如果遇到问题，不要着急，代码调试就好了
 
 class Solution:
-    def sortList(self, head):
+    def sortList(self, head: ListNode) -> ListNode:
         """
         :type head: ListNode
         :rtype: ListNode
@@ -16,24 +16,20 @@ class Solution:
 
         if head is None or head.next is None:
             return head
-
         # 找到中点
-
         slow = head
         fast = head
         while fast and fast.next:
+            # 这里要保存一下前一个指针
             p = slow
             slow = slow.next
             fast = fast.next.next
 
         p.next = None
-
         # print_node_list(head)
         # print_node_list(head2)
-
         lnode = self.sortList(head)
         rnode = self.sortList(slow)
-
         return self.__merge_two_sorted_list(lnode, rnode)
 
     def __merge_two_sorted_list(self, head1, head2):

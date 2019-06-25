@@ -4,9 +4,9 @@
 # 给定课程总量以及它们的先决条件，判断是否可能完成所有课程的学习？
 class Solution(object):
 
-    # 思想：该方法的每一步总是输出当前无前趋（即入度为零）的顶点
+    # 思想：该方法的每一步总是输出当前无前趋（即入度为零）的结点
 
-    def canFinish(self, numCourses, prerequisites):
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         """
         :type numCourses: int 课程门数
         :type prerequisites: List[List[int]] 课程与课程之间的关系
@@ -15,10 +15,16 @@ class Solution(object):
         # 特判
         if numCourses == 0:
             return False
+        clen = len(prerequisites)
+        if clen == 0:
+            # 没有课程，当然可以完成课程的学习
+            return True
 
-        # 邻接表，使用 Set 是为了去重
+        # 步骤1：构建邻接表、统计每个顶点的入度
+
+        # 邻接表，使用散列表是为了去重
         adj = [set() for _ in range(numCourses)]
-        # 入度数组
+        # 入度数组，记录了指向它的结点的个数
         in_degrees = [0 for _ in range(numCourses)]
 
         # 想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们: [0,1]

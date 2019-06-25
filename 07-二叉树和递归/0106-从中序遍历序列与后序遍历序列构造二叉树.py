@@ -21,11 +21,11 @@ class Solution:
         if len(inorder) == 1:
             # 这里要返回结点，而不是返回具体的数
             return TreeNode(inorder[0])
-
+        # 后序遍历的最后一个结点就是根结点
         root = TreeNode(postorder[-1])
-
+        # 在中序遍历中找到根结点的索引，得到左右子树的一个划分
         pos = inorder.index(postorder[-1])
-
+        # 这里的列表切片使用的是复制值，使用了一些空间，因此空间复杂度是 O(N)
         root.left = self.buildTree(inorder[:pos], postorder[:pos])
         root.right = self.buildTree(inorder[pos + 1:], postorder[pos:-1])
         return root
@@ -46,3 +46,14 @@ if __name__ == '__main__':
     solution = Solution()
     root = solution.buildTree(inorder, postorder)
     validate(root)
+
+    arr1 = [1, 2, 3, 4]
+    arr2 = arr1[2:3]
+
+    print(arr1)
+    print(arr2)
+
+    arr2[0] = 100
+
+    print(arr1)
+    print(arr2)

@@ -5,19 +5,19 @@ class Solution:
         :type target: int
         :rtype: List[List[int]]
         """
-        length = len(candidates)
-        if length == 0:
+        size = len(candidates)
+        if size == 0:
             return []
         # 排序为了后续剪枝
         candidates.sort()
         res = []
-        self.__dfs(candidates, length, 0, [], target, res)
+        self.__dfs(candidates, size, 0, [], target, res)
         return res
 
-    def __dfs(self, candidates, length, start, path, residue, res):
+    def __dfs(self, candidates, size, start, path, residue, res):
         """
         :param candidates: 无重复元素的数组
-        :param length: 数组的长度，避免一直 len(candidates)
+        :param size: 数组的长度，避免一直使用 len(candidates)
         :param start: 从 candidates 索引的第几位开始考虑
         :param path: 深度优先搜索沿途经过的路径
         :param residue: 剩余值
@@ -28,13 +28,13 @@ class Solution:
             res.append(path[:])
             return
 
-        for index in range(start, length):
+        for index in range(start, size):
             # 因为我们已经将数组预处理成升序数组，一旦发现当前遍历的数比剩余值还大，循环就可以停止了
             if residue - candidates[index] < 0:
                 break
             path.append(candidates[index])
             # 注意：因为数字可以无限制重复被选取，因此起始位置还是自己
-            self.__dfs(candidates, length, index, path, residue - candidates[index], res)
+            self.__dfs(candidates, size, index, path, residue - candidates[index], res)
             path.pop()
 
 

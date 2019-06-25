@@ -9,7 +9,7 @@ class Solution:
         if left == -1:
             return [-1, -1]
 
-        right = self.__find_uo_bound(nums, target)
+        right = self.__find_up_bound(nums, target)
         return [left, right]
 
     def __find_lower_bound(self, nums, target):
@@ -31,7 +31,7 @@ class Solution:
             return -1
         return l
 
-    def __find_uo_bound(self, nums, target):
+    def __find_up_bound(self, nums, target):
         # 找到大于等于 target 的最后 1 个元素的索引
         size = len(nums)
         if size == 0:

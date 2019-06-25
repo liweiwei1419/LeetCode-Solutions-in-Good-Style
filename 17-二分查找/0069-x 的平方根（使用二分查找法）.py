@@ -26,7 +26,9 @@ class Solution:
         :type x: int
         :rtype: int
         """
+        # 为了照顾到 0 把左边界设置为 0
         l = 0
+        # 为了照顾到 1 把右边界设置为 x // 2 + 1
         r = x // 2 + 1
         while l <= r:
             m = l + (r - l) // 2

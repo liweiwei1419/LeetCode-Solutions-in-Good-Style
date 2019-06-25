@@ -30,7 +30,8 @@ class Solution:
             # 可以结算了
             res.append(pre)
             return
-
+        # print(digits[index])
+        # print(self.digits_array[int(digits[index])])
         s = self.digits_array[int(digits[index])]
         for alpha in s:
             self.__dfs(digits, index + 1, pre + alpha, res)

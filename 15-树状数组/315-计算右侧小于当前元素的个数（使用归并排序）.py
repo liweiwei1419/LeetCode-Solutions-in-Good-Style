@@ -11,6 +11,7 @@
 # 6 的右侧有 1 个更小的元素 (1).
 # 1 的右侧有 0 个更小的元素.
 
+# 前有序数组中元素出列的时候，计算逆序个数
 
 class Solution:
     def countSmaller(self, nums):
@@ -37,9 +38,7 @@ class Solution:
             return
         mid = left + (right - left) // 2
 
-        # 计算一下左边
         self.__helper(nums, left, mid, temp, indexes, res)
-        # 计算一下右边
         self.__helper(nums, mid + 1, right, temp, indexes, res)
 
         if nums[indexes[mid]] <= nums[indexes[mid + 1]]:

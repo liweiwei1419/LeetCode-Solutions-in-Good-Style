@@ -1,5 +1,6 @@
 # 17. Letter Combinations of a Phone Number
-# 比上一个版本多了打印的输出
+# 比上一个版本多了打印的输出，用于调试
+
 
 class Solution:
     digits_array = [" ", "", "abc", "def", "ghi", "jkl", "mno",

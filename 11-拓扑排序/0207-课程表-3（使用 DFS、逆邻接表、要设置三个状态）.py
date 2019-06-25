@@ -6,7 +6,7 @@ class Solution(object):
 
     # 这里使用逆邻接表
 
-    def canFinish(self, numCourses, prerequisites):
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         """
         :type numCourses: int 课程门数
         :type prerequisites: List[List[int]] 课程与课程之间的关系
@@ -44,7 +44,7 @@ class Solution(object):
         :param vertex: 结点的索引
         :param inverse_adj: 逆邻接表，记录的是当前结点的前驱结点的集合
         :param visited: 记录了结点是否被访问过，2 表示当前正在 DFS 这个结点
-        :return: 是否有环
+        :return: 是否有环，返回 True 表示这个有向图有环
         """
         # 2 表示这个结点正在访问
         if visited[vertex] == 2:

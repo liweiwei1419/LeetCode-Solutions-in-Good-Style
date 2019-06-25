@@ -18,7 +18,6 @@ class Solution:
         :type nums: List[int]
         :rtype: TreeNode
         """
-
         if len(nums) == 0:
             return None
         return self.__helper(nums, 0, len(nums) - 1)

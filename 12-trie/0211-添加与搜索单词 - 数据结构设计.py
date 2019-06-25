@@ -12,7 +12,7 @@ class WordDictionary(object):
     class Node:
         def __init__(self):
             self.is_word = False
-            self.dict = dict()
+            self.next = dict()
 
     def __init__(self):
         """
@@ -26,12 +26,11 @@ class WordDictionary(object):
         :type word: str
         :rtype: void
         """
-
         cur_node = self.root
         for alpha in word:
-            if alpha not in cur_node.dict:
-                cur_node.dict[alpha] = WordDictionary.Node()
-            cur_node = cur_node.dict[alpha]
+            if alpha not in cur_node.next:
+                cur_node.next[alpha] = WordDictionary.Node()
+            cur_node = cur_node.next[alpha]
         if not cur_node.is_word:
             cur_node.is_word = True
 
@@ -49,17 +48,17 @@ class WordDictionary(object):
             return node.is_word
         alpha = word[index]
         if alpha == '.':
-            for next in node.dict:
-                if self.match(node.dict[next], word, index + 1):
+            for next in node.next:
+                if self.match(node.next[next], word, index + 1):
                     return True
             # 注意：这里要返回
             return False
         else:
             # 注意：这里要使用 else
-            if alpha not in node.dict:
+            if alpha not in node.next:
                 return False
             # 注意：这里要使用 return 返回
-            return self.match(node.dict[alpha], word, index + 1)
+            return self.match(node.next[alpha], word, index + 1)
 
 
 # Your WordDictionary object will be instantiated and called as such:

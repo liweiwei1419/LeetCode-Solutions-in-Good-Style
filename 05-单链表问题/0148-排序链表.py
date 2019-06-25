@@ -6,7 +6,7 @@ class ListNode:
 
 
 class Solution:
-    def sortList(self, head):
+    def sortList(self, head: ListNode) -> ListNode:
         """
         :type head: ListNode
         :rtype: ListNode
@@ -16,9 +16,10 @@ class Solution:
             return head
 
         # 找到中点
-
         slow = head
         fast = head
+        # 使用这种方式，当结点个数为 2 个时候，slow 在左结点
+        # 不会导致死循环
         while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next

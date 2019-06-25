@@ -1,11 +1,31 @@
 # 208. 实现 Trie (前缀树)
+# 实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。
+#
+# 示例:
+#
+# Trie trie = new Trie();
+#
+# trie.insert("apple");
+# trie.search("apple");   // 返回 true
+# trie.search("app");     // 返回 false
+# trie.startsWith("app"); // 返回 true
+# trie.insert("app");
+# trie.search("app");     // 返回 true
+# 说明:
+#
+# 你可以假设所有的输入都是由小写字母 a-z 构成的。
+# 保证所有输入均为非空字符串。
+#
+# 来源：力扣（LeetCode）
+# 链接：https://leetcode-cn.com/problems/implement-trie-prefix-tree
+# 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 
-class Trie(object):
+class Trie:
     class Node:
         def __init__(self):
             self.is_word = False
-            self.dict = dict()
+            self.next = dict()
 
     def __init__(self):
         """
@@ -21,10 +41,10 @@ class Trie(object):
         """
         cur_node = self.root
         for alpha in word:
-            if alpha not in cur_node.dict:
-                cur_node.dict[alpha] = Trie.Node()
-            # 这里不要写成 else ，那就大错特错了
-            cur_node = cur_node.dict[alpha]
+            if alpha not in cur_node.next:
+                cur_node.next[alpha] = Trie.Node()
+            # 这里不要写成 else，不论当前字母在不在 next 中，指针都要变化
+            cur_node = cur_node.next[alpha]
         if not cur_node.is_word:
             cur_node.is_word = True
 
@@ -36,10 +56,10 @@ class Trie(object):
         """
         cur_node = self.root
         for alpha in word:
-            if alpha not in cur_node.dict:
+            if alpha not in cur_node.next:
                 return False
             else:
-                cur_node = cur_node.dict[alpha]
+                cur_node = cur_node.next[alpha]
         return cur_node.is_word
 
     def startsWith(self, prefix):
@@ -50,10 +70,10 @@ class Trie(object):
         """
         cur_node = self.root
         for alpha in prefix:
-            if alpha not in cur_node.dict:
+            if alpha not in cur_node.next:
                 return False
             else:
-                cur_node = cur_node.dict[alpha]
+                cur_node = cur_node.next[alpha]
         return True
 
 

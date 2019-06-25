@@ -33,8 +33,8 @@ class Solution:
                 # 交换
                 self.__swap(nums, i, nums[i] - 1)
 
+        # print(nums)
         # 再遍历一次，没有放对的就是你要找的
-
         for i in range(len(nums)):
             # value： [1,2,3,4]
             # index： [0,1,2,3]
@@ -45,3 +45,11 @@ class Solution:
 
     def __swap(self, nums, index1, index2):
         nums[index1], nums[index2] = nums[index2], nums[index1]
+
+
+if __name__ == '__main__':
+    nums = [4, 4, 4, 3, 2, 31]
+
+    solution = Solution()
+    res = solution.firstMissingPositive(nums)
+    print(res)

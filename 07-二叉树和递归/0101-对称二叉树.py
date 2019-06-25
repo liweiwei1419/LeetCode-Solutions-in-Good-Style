@@ -14,6 +14,9 @@ class TreeNode(object):
 # https://leetcode.com/problems/symmetric-tree/solution/
 
 class Solution(object):
+
+    # 递归
+
     def isSymmetric(self, root):
         """
         :type root: TreeNode
