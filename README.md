@@ -1,5 +1,7 @@
 # LeetCode-Solution-Python
 
+## 说明
+
 这个代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode](https://leetcode.com/problemset/all/) 上做的练习，[这里](https://github.com/liweiwei1419/LeetCode-Solution-Java)是对应的 Java 仓库的地址。
 
 建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的使用体验。
@@ -9,6 +11,8 @@
 题目根据类别放在不同的文件夹下，方便自己复习和以后使用。
 
 所有的代码都是通过 LeetCode 在线测评系统检测的，至少是正确的代码，但不一定是时间复杂度和空间复杂度最优的。
+
+## 代码编写原则
 
 我在写代码的过程中会比较注意的地方有：
 
@@ -24,7 +28,7 @@
 
 6、对于一些比较经典的问题，我还写了题解，制作了动画，可以在以下的链接中找到。
 
-## 刷题过程中在 LeetCode 中文版提交的题解
+## 刷题过程中在 LeetCode 中文版提交的题解和动画
 
 
 ### LeetCode 第 23 题：合并 K 个排序链表
@@ -90,8 +94,6 @@
 ![LeetCode 第 1081 题：不同字符的最小子序列](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-1081.gif)
 
 题解地址：https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/solution/tan-xin-suan-fa-zhan-wei-yan-ma-python-dai-ma-java/。
-
-
 
 ## 刷题过程中形成的文章
 
