@@ -61,6 +61,13 @@
 
 题解地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/。
 
+### LeetCode 第 315 题：计算右侧小于当前元素的个数
+
+![归并排序](https://liweiwei1419.github.io/images/leetcode-solution-new/0315/merge-sort.gif)
+
+![树状数组](https://liweiwei1419.github.io/images/leetcode-solution-new/0315/fenwick-tree.gif)
+
+
 ### LeetCode 第 421 题：数组中两个数的最大异或值
 
 ![LeetCode 第 421 题：数组中两个数的最大异或值](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0421.gif)

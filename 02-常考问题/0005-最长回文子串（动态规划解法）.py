@@ -22,11 +22,14 @@ class Solution:
                     if i - j + 1 > longest_l:
                         longest_l = i - j + 1
                         res = s[j:i + 1]
+
+        for item in dp:
+            print(item)
         return res
 
 
 if __name__ == '__main__':
     solution = Solution()
-    s = 'babad'
+    s = 'aaaaaa'
     result = solution.longestPalindrome(s)
     print(result)

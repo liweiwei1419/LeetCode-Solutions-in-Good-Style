@@ -6,7 +6,7 @@
 
 
 class Solution:
-    def findMin(self, nums):
+    def findMin(self, nums: List[int]) -> int:
         """
         :type nums: List[int]
         :rtype: int
@@ -19,14 +19,14 @@ class Solution:
         r = size - 1
         while l < r:
             mid = l + (r - l) // 2
-            if nums[mid] < nums[r]:
-                # mid 有可能是最小值
-                # [7,8,1,2,3]
-                r = mid
-            elif nums[mid] > nums[r]:
+            if nums[mid] > nums[r]:
                 # mid 肯定不是最小值
                 # [7,8,9,10,11,1,2,3]
                 l = mid + 1
+            elif nums[mid] < nums[r]:
+                # mid 有可能是最小值
+                # [7,8,1,2,3]
+                r = mid
             else:
                 # 都有可能，所以就把 r 排除了
                 # [1,1,1,1,1,0,1]
