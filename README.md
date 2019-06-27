@@ -2,6 +2,10 @@
 
 这个代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode](https://leetcode.com/problemset/all/) 上做的练习，[这里](https://github.com/liweiwei1419/LeetCode-Solution-Java)是对应的 Java 仓库的地址。
 
+建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的使用体验。
+
+![Octotree 插件](https://liweiwei1419.github.io/images/leetcode-solution-new/Octotree.png)
+
 题目根据类别放在不同的文件夹下，方便自己复习和以后使用。
 
 所有的代码都是通过 LeetCode 在线测评系统检测的，至少是正确的代码，但不一定是时间复杂度和空间复杂度最优的。
