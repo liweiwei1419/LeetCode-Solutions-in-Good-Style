@@ -78,6 +78,11 @@
 
 题解地址：https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/li-yong-yi-huo-yun-suan-de-xing-zhi-tan-xin-suan-f/。
 
+### LeetCode 第 1079 题：活字印刷
+
+![LeetCode 第 1079 题：活字印刷](https://liweiwei1419.github.io/images/leetcode-solution-new/1079/1079.gif)
+
+题解地址：https://leetcode-cn.com/problems/letter-tile-possibilities/solution/hui-su-suan-fa-python-dai-ma-by-liweiwei1419/。
 
 ### LeetCode 第 1080 题：根到叶路径上的不足节点
 
