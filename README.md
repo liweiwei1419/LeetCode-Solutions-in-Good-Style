@@ -29,31 +29,31 @@
 
 ### LeetCode 第 23 题：合并 K 个排序链表
 
-![LeetCode 第 23 题：合并 K 个排序链表](https://liweiwei1419.github.io/images/leetcode-solution-new/0023/LeetCode-0023.gif)
+![LeetCode 第 23 题：合并 K 个排序链表](https://liweiwei1419.github.io/images/leetcode-solution-new/0023/0023.gif)
 
 题解地址：https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/tan-xin-suan-fa-you-xian-dui-lie-fen-zhi-fa-python/。
 
 ### LeetCode 第 41 题：缺失的第一个正数
 
-![LeetCode 第 41 题：缺失的第一个正数](https://liweiwei1419.github.io/images/leetcode-solution-new/0041/41.gif)
+![LeetCode 第 41 题：缺失的第一个正数](https://liweiwei1419.github.io/images/leetcode-solution-new/0041/0041.gif)
 
 题解地址：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/。
 
 ### LeetCode 第 60 题：第 k 个排列
 
-![LeetCode 第 41 题：第 k 个排列](https://liweiwei1419.github.io/images/leetcode-solution/leetcode-0060.gif)
+![LeetCode 第 60 题：第 k 个排列](https://liweiwei1419.github.io/images/leetcode-solution-new/0060/0060.gif)
 
 题解地址：https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/。
 
 ### LeetCode 第 148 题：单链表自底向上的“归并排序”
 
-![LeetCode 第 148 题：单链表自底向上的“归并排序”](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0148.gif)
+![LeetCode 第 148 题：单链表自底向上的“归并排序”](https://liweiwei1419.github.io/images/leetcode-solution-new/0148/0148.gif)
 
 题解地址：https://leetcode-cn.com/problems/sort-list/solution/zi-di-xiang-shang-de-gui-bing-pai-xu-java-dai-ma-b/。
 
 ### LeetCode 第 287 题：寻找重复数
 
-![LeetCode 第 287 题：寻找重复数](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0287.gif)
+![LeetCode 第 287 题：寻找重复数](https://liweiwei1419.github.io/images/leetcode-solution-new/0287/0287.gif)
 
 题解地址：https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/。
 
