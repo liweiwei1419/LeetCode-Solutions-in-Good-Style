@@ -35,7 +35,7 @@
 
 ### LeetCode 第 41 题：缺失的第一个正数
 
-![LeetCode 第 41 题：缺失的第一个正数](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0041.gif)
+![LeetCode 第 41 题：缺失的第一个正数](https://liweiwei1419.github.io/images/leetcode-solution-new/0041/41.gif)
 
 题解地址：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/。
 
@@ -59,9 +59,9 @@
 
 ### LeetCode 第 300 题：最长上升子序列
 
-![LeetCode 第 300 题：最长上升子序列-二分法](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0300.gif)
+![LeetCode 第 300 题：最长上升子序列-二分法](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/0300-greed-binary-search.gif)
 
-![LeetCode 第 300 题：最长上升子序列-动态规划](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/LeetCode-0300-dp.gif)
+![LeetCode 第 300 题：最长上升子序列-动态规划](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/0300-dp.gif)
 
 题解地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/。
 
@@ -74,20 +74,20 @@
 
 ### LeetCode 第 421 题：数组中两个数的最大异或值
 
-![LeetCode 第 421 题：数组中两个数的最大异或值](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-0421.gif)
+![LeetCode 第 421 题：数组中两个数的最大异或值](https://liweiwei1419.github.io/images/leetcode-solution/0421/0421.gif)
 
 题解地址：https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/li-yong-yi-huo-yun-suan-de-xing-zhi-tan-xin-suan-f/。
 
 
 ### LeetCode 第 1080 题：根到叶路径上的不足节点
 
-![LeetCode 第 1080  题：根到叶路径上的不足节点](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-1080.gif)
+![LeetCode 第 1080  题：根到叶路径上的不足节点](https://liweiwei1419.github.io/images/leetcode-solution/1080/1080.gif)
 
 题解地址：https://leetcode-cn.com/problems/insufficient-nodes-in-root-to-leaf-paths/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liweiw/。
 
 ### LeetCode 第 1081 题：不同字符的最小子序列
 
-![LeetCode 第 1081 题：不同字符的最小子序列](https://liweiwei1419.github.io/images/leetcode-solution/LeetCode-1081.gif)
+![LeetCode 第 1081 题：不同字符的最小子序列](https://liweiwei1419.github.io/images/leetcode-solution/1081/1081.gif)
 
 题解地址：https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/solution/tan-xin-suan-fa-zhan-wei-yan-ma-python-dai-ma-java/。
 
