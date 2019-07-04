@@ -52,17 +52,18 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O':
-                    # 把所有不被 'X' 包围的 'O'放在同一个集合里
+                    # 把所有与边界相连的 'O' 与和虚拟结点合并
                     if i == 0 or j == 0 or i == m - 1 or j == n - 1:
                         uf.union(get_index(i, j), m * n)
                     else:
-                        # 向 4 个方向找，只用看 4 个方向，不要和回溯算法混淆了
+                        # 向 2 个方向找，只用看 2 个方向，不要和回溯算法混淆了
                         for direction in directions:
                             new_i = i + direction[0]
                             new_j = j + direction[1]
+                            # 是 'O' 且与 'O' 相连的 'O' ，合并一下
                             if board[new_i][new_j] == 'O':
                                 uf.union(get_index(i, j), get_index(new_i, new_j))
-
+        # 如果是 'O'，且不与虚拟结点相连，就把它改成 'X'
         for i in range(1, m - 1):
             for j in range(1, n - 1):
                 if board[i][j] == 'O' and not uf.is_connected(get_index(i, j), m * n):

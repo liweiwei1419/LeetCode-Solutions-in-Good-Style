@@ -4,6 +4,9 @@
 
 # 路径压缩的并查集版本
 
+from typing import List
+
+
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:
         """
@@ -16,7 +19,7 @@ class Solution:
             def __init__(self, n):
                 self.count = n
                 self.parent = [i for i in range(n)]
-                self.rank = [1 for i in range(n)]
+                self.rank = [1 for _ in range(n)]
 
             def get_count(self):
                 return self.count

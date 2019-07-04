@@ -35,7 +35,7 @@ class Solution:
         return self.__dfs(nums, used, n, k, 0, [])
 
     def __factorial(self, n):
-        # 这种编码方式包括了 0 的阶乘是 0 这种情况
+        # 这种编码方式包括了 0 的阶乘是 1 这种情况
         res = 1
         while n:
             res *= n

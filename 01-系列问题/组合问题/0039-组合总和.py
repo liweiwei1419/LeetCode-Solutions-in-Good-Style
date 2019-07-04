@@ -1,4 +1,7 @@
 class Solution:
+
+    # 关键在于画图分析：
+
     def combinationSum(self, candidates, target):
         """
         :type candidates: List[int]

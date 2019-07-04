@@ -3,14 +3,11 @@
 # ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
 # 请找出其中最小的元素。
 # 注意数组中可能存在重复的元素。
+from typing import List
 
 
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
         size = len(nums)
         if size == 0:
             return Exception('程序出错')

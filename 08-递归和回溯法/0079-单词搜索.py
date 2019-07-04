@@ -2,6 +2,7 @@
 # 给定一个二维网格和一个单词，找出该单词是否存在于网格中。
 #
 # 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+from typing import List
 
 
 class Solution:
@@ -11,7 +12,8 @@ class Solution:
 
     directions = [(0, -1), (-1, 0), (0, 1), (1, 0)]
 
-    def exist(self, board, word):
+    def exist(self, board: List[List[str]], word: str) -> bool:
+
         """
         :type board: List[List[str]]
         :type word: str
@@ -19,6 +21,8 @@ class Solution:
         """
 
         m = len(board)
+        if m == 0:
+            return False
         n = len(board[0])
 
         marked = [[False for _ in range(n)] for _ in range(m)]
@@ -42,6 +46,7 @@ class Solution:
             for direction in self.directions:
                 new_x = start_x + direction[0]
                 new_y = start_y + direction[1]
+                # 注意：如果这一次 search word 成功的话，就返回
                 if 0 <= new_x < m and 0 <= new_y < n and \
                         not marked[new_x][new_y] and \
                         self.__search_word(board, word,

@@ -4,7 +4,7 @@ class Solution:
         dp[1] = 1
 
         for i in range(2, n + 1):
-            dp[i] = 9999
+            dp[i] = 9999999999
             for j in range(1, i):
                 if i - j * j < 0:
                     break
@@ -14,6 +14,6 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    n = 12
+    n = 8829
     result = solution.numSquares(n)
     print(result)

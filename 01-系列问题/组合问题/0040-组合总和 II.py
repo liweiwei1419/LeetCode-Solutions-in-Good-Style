@@ -9,7 +9,7 @@ class Solution:
         if length == 0:
             return []
         candidates.sort()
-        print(candidates)
+        # print(candidates)
         res = []
 
         self.__dfs(candidates, length, 0, [], target, res)

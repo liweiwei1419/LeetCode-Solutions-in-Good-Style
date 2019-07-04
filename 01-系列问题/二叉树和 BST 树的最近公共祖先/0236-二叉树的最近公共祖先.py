@@ -1,6 +1,5 @@
 # 236. 二叉树的最近公共祖先
 
-# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x

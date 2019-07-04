@@ -1,6 +1,9 @@
 # 199. 二叉树的右视图
 # 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
 
+from typing import List
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -9,13 +12,7 @@ class TreeNode:
 
 
 class Solution:
-
-    def rightSideView(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-
+    def rightSideView(self, root: TreeNode) -> List[int]:
         def dfs(node, res, depth):
             if node is None:
                 return
