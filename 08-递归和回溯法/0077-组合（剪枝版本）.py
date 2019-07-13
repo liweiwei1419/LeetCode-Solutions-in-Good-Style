@@ -1,14 +1,12 @@
 # 77. 组合
 # 题目描述提示帮助提交记录社区讨论阅读解答
 # 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
+from typing import List
+
+
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        """
-        :type n: int
-        :type k: int
-        :rtype: List[List[int]]
-        """
-        # 先把不符合条件的情况去掉
+        # 特判
         if n <= 0 or k <= 0 or k > n:
             return []
         res = []
@@ -20,6 +18,7 @@ class Solution:
             res.append(pre[:])
             return
 
+        # 注意：这里 i 的上限是归纳得到的
         for i in range(start, n - (k - len(pre)) + 2):
             pre.append(i)
             self.__dfs(i + 1, k, n, pre, res)

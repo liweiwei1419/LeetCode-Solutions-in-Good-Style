@@ -1,19 +1,49 @@
-# 220. 存在重复元素 III
-# 给定一个整数数组，判断数组中是否有两个不同的索引 i 和 j，
-# 使得 nums [i] 和 nums [j] 的差的绝对值最大为 t，
-# 并且 i 和 j 之间的差的绝对值最大为 ķ。
+from typing import List
 
-
-# 滑动窗口 + BST
 
 class Solution:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+
+        size = len(nums)
+        # 特判
+        if size == 0 or k <= 0 or t < 0:
+            return False
+
+        # 初始化自定义的 bst
+        bst = Solution.BST()
+
+        # 一个一个加进去
+        for i in range(size):
+            # 检测逻辑：
+            # 以当前数为中心，向左边扩展，看看 set 里有没有大于等于 nums[i] - t 的元素
+            # 大于等于 nums[i] - t ，在这个数上面，故使用天花板函数 ceiling
+            ceiling = bst.ceiling(nums[i] - t)
+            # 在 nums[i] 为中心，半径为 t 的左边有元素，因此直接返回 true 即可
+            if ceiling is not None and ceiling <= nums[i]:
+                return True
+
+            # 以当前数为中心，向左边扩展，看看 set 里有没有小于等于 nums[i] + t 的元素
+            # 小于等于 nums[i] + t ，在这个数下面，故使用地板函数 floor
+
+            floor = bst.floor(nums[i] + t)
+            if floor is not None and nums[i] <= floor:
+                return True
+
+            # 加进去的逻辑
+            bst.insert(nums[i])
+            # 当 k = 3 时，[0,1,2,3,4]，i = 3 的时候就要把 i = 0 删掉了
+            if i >= k:
+                bst.remove(nums[i - k])
+
+        return False
+
     class TreeNode:
         def __init__(self, x):
             self.val = x
             self.left = None
             self.right = None
 
-    class bst:
+    class BST:
         def __init__(self):
             self.root = None
 
@@ -141,44 +171,9 @@ class Solution:
                 return temp_val
             return node.val
 
-    def containsNearbyAlmostDuplicate(self, nums, k, t):
-        """
-        :type nums: List[int]
-        :type k: int
-        :type t: int
-        :rtype: bool
-        """
-        # 思路：滑动窗口
-
-        size = len(nums)
-        if size <= 1 or k <= 0:
-            return False
-        bst = Solution.bst()
-
-        for i in range(size):
-            # 体会这个过程：我先查询一次，就好像这个数我放到 bst 中一样
-            # 如果符合题意，就直接返回了
-            # 如果不符合题意，移除最左边的元素，放入当前遍历的元素
-
-            floor = bst.floor(nums[i])
-            if floor is not None and nums[i] - floor <= t:
-                return True
-
-            ceiling = bst.ceiling(nums[i])
-            if ceiling is not None and ceiling - nums[i] <= t:
-                return True
-            # 注意这里：先移除最左边的，然后插入
-            # 或者先加入，再移除最左边的，其实都可以
-            # 总之要保证
-            if i >= k:
-                bst.remove(nums[i - k])
-            bst.insert(nums[i])
-
-        return False
-
 
 if __name__ == '__main__':
-    nums = [8, 4, 0, 2]
+    nums = [3, 6, 0, 2]
     # nums = [1, 5, 8, 14, 19, 24, 37, 48]
     k = 2  # 索引差
     t = 2  # 数值差

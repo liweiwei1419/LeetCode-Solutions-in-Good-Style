@@ -5,25 +5,22 @@ class TreeNode:
         self.right = None
 
 
+# 这种写法是错的
+
 class Solution:
-    def __init__(self):
-        self.counter = 0
-        self.res = 0
 
     def kthSmallest(self, root, k):
         # 使用递归的方法，中序遍历
         if root.left:
             # 不是空，才继续遍历
-            self.kthSmallest(root.left, k)
-        self.counter += 1
-        # print(root.val)
-        if self.counter == k:
-            # 注意：千万不能在这里返回，后序遍历还要继续进行下去
-            self.res = root.val
-            return
+            return self.kthSmallest(root.left, k)
+
+        k -= 1
+        if k == 0:
+            return root.val
+
         if root.right:
-            self.kthSmallest(root.right, k)
-        return self.res
+            return self.kthSmallest(root.right, k)
 
 
 if __name__ == '__main__':

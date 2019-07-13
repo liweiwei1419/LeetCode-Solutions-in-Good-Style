@@ -21,41 +21,43 @@ class Solution:
         # 找大于等于 target 的第 1 个数的索引，小于一定不符合要求
         size = len(nums)
 
-        l = 0
-        r = size - 1
-        while l < r:
+        left = 0
+        right = size - 1
+        while left < right:
             # 根据分支逻辑，这里选择左中位数
-            mid = l + (r - l) // 2
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
             # 因为找大于等于 target 的第 1 个数，因此小于一定不符合要求
             # 把它写在分支的前面
             if nums[mid] < target:
-                l = mid + 1
+                left = mid + 1
             else:
-                r = mid
+                right = mid
         # 因为有可能不存在目标元素，最后一定要单独判断一下
-        if nums[l] != target:
+        if nums[left] != target:
             return -1
-        return l
+        return left
 
     def __find_up_bound(self, nums, target):
         # 找小于等于 target 的最后 1 个数的索引，大于一定不符合要求
         # 因为有可能不存在，最后一定要单独判断一下
         size = len(nums)
-        l = 0
-        r = size - 1
-        while l < r:
+        left = 0
+        right = size - 1
+        while left < right:
             # 根据分支逻辑，这里选择右中位数
-            mid = l + (r - l + 1) // 2
+            # mid = left + (right - left + 1) // 2
+            mid = (left + right + 1) >> 1
             # 因为找小于等于 target 的最后 1 个数，因此大于一定不符合要求
             # 把它写在分支的前面
             if nums[mid] > target:
-                r = mid - 1
+                right = mid - 1
             else:
-                l = mid
+                left = mid
         # 因为有可能不存在目标元素，最后一定要单独判断一下
-        if nums[l] != target:
+        if nums[left] != target:
             return -1
-        return l
+        return left
 
 
 if __name__ == '__main__':

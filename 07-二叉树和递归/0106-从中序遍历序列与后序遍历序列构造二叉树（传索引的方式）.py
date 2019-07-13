@@ -1,5 +1,7 @@
-# Definition for a binary tree node.
-class TreeNode(object):
+from typing import List
+
+
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
@@ -7,16 +9,12 @@ class TreeNode(object):
 
 
 class Solution:
+
     def __init__(self):
         self.inorder = None
         self.postorder = None
 
-    def buildTree(self, inorder, postorder):
-        """
-        :type inorder: List[int]
-        :type postorder: List[int]
-        :rtype: TreeNode
-        """
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         assert len(inorder) == len(postorder)
         size = len(inorder)
 

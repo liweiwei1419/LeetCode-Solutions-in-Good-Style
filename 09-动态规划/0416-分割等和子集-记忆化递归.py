@@ -7,13 +7,12 @@ class Solution:
         """
         给定 nums 表示给出的容量，考虑索引区间 [0, index] ，是否能够得到 sum_
         分类讨论的标准就是要不要 nums[index] 这个物品
-        f(i,j) = f(i-1,j) or f(i,j-nums[i])
+        f(i,j) = f(i - 1,j) or f(i - 1,j-nums[i])
         :param nums:
         :param index:
         :param C:
         :return:
         """
-
         # 先写递归终止条件
         if C == 0:
             return True
@@ -36,7 +35,6 @@ class Solution:
         :type nums: List[int]
         :rtype: bool
         """
-
         l = len(nums)
         if l == 0:
             return False

@@ -4,12 +4,12 @@ from typing import List
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         size = len(nums)
-        l = 1
-        r = size - 1
+        left = 1
+        right = size - 1
 
-        while l < r:
-            mid = l + (r - l) // 2
-
+        while left < right:
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
             counter = 0
             for num in nums:
                 if num <= mid:
@@ -22,9 +22,9 @@ class Solution:
             # 此时，不排除中位数的分支逻辑好想，因此写在前面
 
             if counter > mid:
-                r = mid
+                right = mid
             else:
                 # 我认为这个逻辑太难想了，但我知道这样写一定对
-                l = mid + 1
+                left = mid + 1
 
-        return l
+        return left

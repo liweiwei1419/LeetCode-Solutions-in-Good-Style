@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         # 桶排序，数字 i 应该在索引 i - 1 上，否则交换

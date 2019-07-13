@@ -6,36 +6,42 @@
 # 思路：指针对撞
 
 
-class Solution(object):
-    def threeSum(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+from typing import List
+
+
+class Solution:
+
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        size = len(nums)
         res = []
+
+        # 排序是前提
         nums.sort()
-        for i in range(len(nums) - 2):
+
+        for i in range(size - 2):
+            # 剪枝去重
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
-            # 用指针对撞的方式
-            l = i + 1
-            r = len(nums) - 1
+            # 双指针对撞
+            left = i + 1
+            right = size - 1
             # 不能等于，等于就变成取一样的数了
-            while l < r:
-                s = nums[i] + nums[l] + nums[r]
+            while left < right:
+                s = nums[i] + nums[left] + nums[right]
+
                 if s > 0:
-                    r -= 1
+                    right -= 1
                 elif s < 0:
-                    l += 1
+                    left += 1
                 else:
-                    res.append([nums[i], nums[l], nums[r]])
+                    res.append([nums[i], nums[left], nums[right]])
                     # 注意：这一步在去重，是第一种解法 set 做不到的
-                    while l < r and nums[l] == nums[l + 1]:
-                        l += 1
-                    while l < r and nums[r] == nums[r - 1]:
-                        r -= 1
-                    l += 1
-                    r -= 1
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
         return res
 
 

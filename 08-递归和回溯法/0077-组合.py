@@ -1,6 +1,9 @@
 # 77. 组合
 # 题目描述提示帮助提交记录社区讨论阅读解答
 # 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
+from typing import List
+
+
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         """
@@ -12,12 +15,12 @@ class Solution:
         if n <= 0 or k <= 0 or k > n:
             return []
         res = []
-        self.__dfs(1, k, n, [], res);
+        self.__dfs(1, k, n, [], res)
         return res
 
     def __dfs(self, start, k, n, pre, res):
         # 当前已经找到的组合存储在 pre 中，需要从 start 开始搜索新的元素
-
+        # 在第 k 层结算
         if len(pre) == k:
             res.append(pre[:])
             return
@@ -25,6 +28,7 @@ class Solution:
         for i in range(start, n + 1):
             pre.append(i)
             # 因为已经把 i 加入到 pre 中，下一轮就从 i + 1 开始
+            # 注意和全排列问题的区别，因为按顺序选择，因此无须使用 used 数组
             self.__dfs(i + 1, k, n, pre, res)
             # 回溯的时候，状态重置
             pre.pop()

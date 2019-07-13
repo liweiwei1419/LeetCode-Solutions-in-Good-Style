@@ -1,13 +1,15 @@
 from typing import List
 
+
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         size = len(nums)
-        l = 1
-        r = size - 1
+        left = 1
+        right = size - 1
 
-        while l < r:
-            mid = l + (r - l + 1) // 2
+        while left < right:
+            # mid = left + (right - left + 1) // 2
+            mid = (left + right + 1) >> 1
 
             counter = 0
             for num in nums:
@@ -17,8 +19,8 @@ class Solution:
             if counter >= mid:
                 # 如果小于 4 的个数等于 4 或者更多
                 # 那么重复的数一定位于 1、2、3
-                r = mid - 1
+                right = mid - 1
             else:
-                l = mid
+                left = mid
 
-        return l
+        return left

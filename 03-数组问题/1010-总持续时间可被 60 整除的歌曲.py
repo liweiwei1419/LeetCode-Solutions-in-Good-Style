@@ -1,6 +1,10 @@
+from typing import List
+
+
 class Solution:
 
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        # 预处理：把数组中的元素全都模 60
         time = [t % 60 for t in time]
 
         from collections import defaultdict

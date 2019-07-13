@@ -1,32 +1,32 @@
+from typing import List
+
+
 class Solution:
-    def lengthOfLIS(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def lengthOfLIS(self, nums: List[int]) -> int:
         size = len(nums)
         if size < 2:
             return size
         # 最长上升子序列
-        lis = []
+        tail = []
         for num in nums:
             # 找到大于等于 num 的第 1 个数
-            l = 0
-            # 因为有可能新加的这个数，比之前所有的数都大，所以右边界是当前 lis 的长度
-            r = len(lis)
-            while l < r:
-                mid = l + (r - l) // 2
-                if lis[mid] >= num:
-                    r = mid
+            left = 0
+            # 因为有可能新加的这个数，比之前所有的数都大，所以右边界是当前 tail 的长度
+            right = len(tail)
+            while left < right:
+                # mid = left + (right - left) // 2
+                mid = (left + right) >> 1
+                if tail[mid] >= num:
+                    right = mid
                 else:
-                    l = mid + 1
-            if l == len(lis):
-                lis.append(num)
+                    left = mid + 1
+            if left == len(tail):
+                tail.append(num)
             else:
                 # 大于等于 num 的第 1 个数变小
                 # 这样后面才有可能接上更多的数，是贪心算法的思想
-                lis[l] = num
-        return len(lis)
+                tail[left] = num
+        return len(tail)
 
 
 if __name__ == '__main__':

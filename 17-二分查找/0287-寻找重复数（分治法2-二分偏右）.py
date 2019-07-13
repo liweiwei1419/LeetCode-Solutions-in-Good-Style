@@ -4,17 +4,17 @@
 # 可知至少存在一个重复的整数。
 # 假设只有一个重复的整数，找出这个重复的数。
 
-class Solution:
+from typing import List
 
-    def findDuplicate(self, nums):
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
         """
         【不修改数组找出重复的数字】
         给定一个包含 n + 1 个整数的数组 nums，
         其数字都在 1 到 n 之间（包括 1 和 n），
         可知至少存在一个重复的整数。
         假设只有一个重复的整数，找出这个重复的数。
-        :type nums: List[int]
-        :rtype: int
         """
         left = 1
         right = len(nums) - 1
@@ -27,7 +27,8 @@ class Solution:
         # 因为下面有一个分支是 left = mid
         while left < right:
             # 取中点有两种方式，偏左和偏右
-            mid = left + (right - left + 1) // 2  # 4
+            # mid = left + (right - left + 1) // 2  # 4
+            mid = (left + right + 1) >> 1
             count = 0
             for num in nums:
                 if num < mid:

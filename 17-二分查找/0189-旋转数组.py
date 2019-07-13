@@ -1,13 +1,13 @@
+from typing import List
+
+
 class Solution:
-    def rotate(self, nums, k):
+    def rotate(self, nums: List[int], k: int) -> None:
         """
-        :type nums: List[int]
-        :type k: int
-        :rtype: void Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
 
         # 先处理极端情况
-
         if len(nums) == 0 or k <= 0:
             return
 

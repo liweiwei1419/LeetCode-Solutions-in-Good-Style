@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def sortColors(self, nums):
+    def sortColors(self, nums: List[int]) -> None:
         size = len(nums)
 
         # 循环不变量的定义：

@@ -1,13 +1,8 @@
-class Solution:
-    def fourSumCount(self, A, B, C, D):
-        """
-        :type A: List[int]
-        :type B: List[int]
-        :type C: List[int]
-        :type D: List[int]
-        :rtype: int
-        """
+from typing import List
 
+
+class Solution:
+    def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
         map = dict()
         for num3 in C:
             for num4 in D:

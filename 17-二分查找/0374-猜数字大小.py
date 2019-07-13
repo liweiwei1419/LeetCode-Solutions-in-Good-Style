@@ -7,12 +7,14 @@ def guess(num):
 
 class Solution(object):
     def guessNumber(self, n):
-        l = 1
-        r = n
-        while l < r:
-            mid = l + ((r - l) >> 1)
+        left = 1
+        right = n
+        while left < right:
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
             if guess(mid) == 1:
-                l = mid + 1
+                left = mid + 1
             else:
-                r = mid
-        return l
+                right = mid
+        # 最后剩下的数一定是所求，无需后处理
+        return left

@@ -1,12 +1,9 @@
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-# 141. 环形链表
-# 给定一个链表，判断链表中是否有环。
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
-# 下面给出了使用快慢指针最容易理解的代码
+# 思想：快慢指针（推荐）
 
 class Solution(object):
 

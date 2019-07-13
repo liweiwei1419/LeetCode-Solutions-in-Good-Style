@@ -4,13 +4,11 @@
 # 请找出其中最小的元素。
 # 你可以假设数组中不存在重复元素。
 
+from typing import List
+
 
 class Solution:
-    def findMin(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def findMin(self, nums: List[int]) -> int:
         size = len(nums)
         if size == 0:
             raise Exception('程序出错')
@@ -23,6 +21,7 @@ class Solution:
             return nums[left]
         if left + 1 == right:
             return min(nums[left], nums[right])
-        mid = left + (right - left) // 2
+        # mid = left + (right - left) // 2
+        mid = (left + right) >> 1
         return min(self.__findMin(nums, left, mid),
                    self.__findMin(nums, mid + 1, right))

@@ -1,10 +1,13 @@
 # 分别统计 0、1、2 出现的次数，然后再对数组重新赋值
 # 桶排序
+
+from typing import List
+
+
 class Solution:
-    def sortColors(self, nums):
+    def sortColors(self, nums: List[int]) -> None:
         """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
         counter = [0] * 3
         for num in nums:

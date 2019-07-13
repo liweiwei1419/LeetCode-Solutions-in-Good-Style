@@ -1,9 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def containsDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+    def containsDuplicate(self, nums: List[int]) -> bool:
         s = set()
         for num in nums:
             if num in s:

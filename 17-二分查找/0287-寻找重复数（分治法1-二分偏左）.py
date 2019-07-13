@@ -1,9 +1,9 @@
+from typing import List
+
+
 class Solution:
-    def findDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def findDuplicate(self, nums: List[int]) -> int:
+
         left = 1
         right = len(nums) - 1
 
@@ -16,7 +16,9 @@ class Solution:
         while left < right:
             # 因为在循环过程中，右边界可能不变，就要使用左偏中点
             # [1,2] 时，
-            mid = left + (right - left) // 2
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
+
             count = 0
             for num in nums:
                 if num <= mid:

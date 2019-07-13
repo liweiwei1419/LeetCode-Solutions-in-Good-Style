@@ -2,8 +2,7 @@
 # https://leetcode.com/problems/search-a-2d-matrix-ii/discuss/66139/6-9-lines-C++Python-Solutions-with-Explanations
 
 
-class Solution(object):
-
+class Solution:
     def searchMatrix(self, matrix, target):
         """
         :type matrix: List[List[int]]

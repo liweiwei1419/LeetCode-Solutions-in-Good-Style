@@ -5,14 +5,11 @@
 # 每行中的整数从左到右按升序排列。
 # 每行的第一个整数大于前一行的最后一个整数。
 
+from typing import List
 
-class Solution(object):
-    def searchMatrix(self, matrix, target):
-        """
-        :type matrix: List[List[int]]
-        :type target: int
-        :rtype: bool
-        """
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m = len(matrix)
         if m == 0:
             return False
@@ -21,16 +18,19 @@ class Solution(object):
         if n == 0:
             return False
 
-        l = 0
-        r = m * n - 1
+        left = 0
+        right = m * n - 1
 
-        while l < r:
-            mid = l + (r - l) // 2
+        while left < right:
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
+
             if matrix[mid // n][mid % n] < target:
-                l = mid + 1
+                left = mid + 1
             else:
-                r = mid
-        return matrix[l // n][l % n] == target
+                right = mid
+        # 后处理
+        return matrix[left // n][left % n] == target
 
 
 if __name__ == '__main__':

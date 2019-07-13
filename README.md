@@ -98,8 +98,6 @@
 
 ## 刷题过程中形成的文章
 
-### LeetCode 数组专题
-
 | 第 1 章 数组                                                 | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/03-%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | LeetCode 数组专题 1：二分查找                                | [链接地址](https://liweiwei1419.github.io/blog/2018/10/14/leetcode-solution/array1/) |

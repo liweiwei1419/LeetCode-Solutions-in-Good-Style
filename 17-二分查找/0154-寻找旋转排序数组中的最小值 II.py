@@ -12,21 +12,23 @@ class Solution:
         if size == 0:
             return Exception('程序出错')
 
-        l = 0
-        r = size - 1
-        while l < r:
-            mid = l + (r - l) // 2
-            if nums[mid] > nums[r]:
+        left = 0
+        right = size - 1
+        while left < right:
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
+            if nums[mid] > nums[right]:
                 # mid 肯定不是最小值
                 # [7,8,9,10,11,1,2,3]
-                l = mid + 1
-            elif nums[mid] < nums[r]:
+                left = mid + 1
+            elif nums[mid] < nums[right]:
                 # mid 有可能是最小值
                 # [7,8,1,2,3]
-                r = mid
+                right = mid
             else:
-                # 都有可能，所以就把 r 排除了
+                # 都有可能，所以就把 right 排除了
                 # [1,1,1,1,1,0,1]
-                assert nums[mid] == nums[r]
-                r = r - 1
-        return nums[l]
+                assert nums[mid] == nums[right]
+                right = right - 1
+        # 无需后处理
+        return nums[left]

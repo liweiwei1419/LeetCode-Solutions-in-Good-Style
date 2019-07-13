@@ -3,17 +3,18 @@ class Solution:
         if x == 0:
             return 0
 
-        l = 1
-        r = x // 2
-        while l < r:
+        left = 1
+        right = x // 2
+        while left < right:
             # 调试代码开始：为了仔细观察区间左右端点，我们每进入一次循环，让线程休眠 1 秒
             import time
             time.sleep(1)
-            print('调试代码，观察区间左右端点、中位数，和进入的分支： l = {} , r = {} , '.format(l, r), end='')
+            print('调试代码，观察区间左右端点、中位数，和进入的分支： left = {} , right = {} , '.format(left, right), end='')
             # 调试代码结束
 
             # 错误代码，在分支左区间不发生收缩的情况下，中位数应该取右中位数
-            mid = l + (r - l) // 2
+            # mid = left + (right - left) // 2
+            mid = (left + right) >> 1
 
             # 调试代码
             print('mid = {} ,'.format(mid), end=' ')
@@ -21,13 +22,13 @@ class Solution:
 
             if square > x:
                 # 调试代码
-                print('进入 r = mid - 1 这个分支。')
-                r = mid - 1
+                print('进入 right = mid - 1 这个分支。')
+                right = mid - 1
             else:
                 # 调试代码
-                print('进入 l = mid 这个分支。')
-                l = mid
-        return l
+                print('进入 left = mid 这个分支。')
+                left = mid
+        return left
 
 
 if __name__ == '__main__':
