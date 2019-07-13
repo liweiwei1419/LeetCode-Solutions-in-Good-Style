@@ -2,17 +2,23 @@
 
 ## 说明
 
-这个代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode](https://leetcode.com/problemset/all/) 上做的练习，[这里](https://github.com/liweiwei1419/LeetCode-Solution-Java)是对应的 Java 仓库的地址。
-
-建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的使用体验。
++ 这个代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode（英文版）](https://leetcode.com/problemset/all/) 和 [LeetCode（中文版）](https://leetcode-cn.com/) 上做的练习， 。
++ 所有的代码都是通过 LeetCode 在线测评系统检测的，至少是正确的代码，但不一定是时间复杂度和空间复杂度最优的。
++ 建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
 
 ![Octotree 插件](https://liweiwei1419.github.io/images/leetcode-solution-new/Octotree.png)
 
-题目根据类别放在不同的文件夹下，方便自己复习和以后使用。
+## 配套资源
 
-所有的代码都是通过 LeetCode 在线测评系统检测的，至少是正确的代码，但不一定是时间复杂度和空间复杂度最优的。
++ 对应的 Java 仓库的地址，传送门：[https://github.com/liweiwei1419/LeetCode-Solution-Java](https://github.com/liweiwei1419/LeetCode-Solution-Java)
 
-## 代码编写风格
+说明：现在刷题，尤其是写题解，绝大多数问题都会写两个语言的代码，Java 是我的母语，Python 是我的新欢。
+
++ 发布在 LeetCode 中文版上的题解配图使用的 PPT，传送门：[https://github.com/liweiwei1419/LeetCode-Solution-PPT](https://github.com/liweiwei1419/LeetCode-Solution-PPT)
+
+说明：做了 PPT 或者动画的题目，一般在 LeetCode 中文版的题解区都能看到我写的题解。
+
+## 编码风格
 
 在代码编写的过程中，我比较注意的地方有：
 
@@ -23,78 +29,6 @@
 + 为了保证易读性，编码的时候会写上注释，有时注释甚至是啰嗦且多余的，还有一点，我怕以后自己再看的时候都看不懂当初是怎么写的。
 
 对于一些比较经典的问题，我还写了题解，制作了动画，可以在以下的链接中找到。
-
-## 刷题过程中在 LeetCode 中文版提交的题解和动画
-
-
-### LeetCode 第 23 题：合并 K 个排序链表
-
-![LeetCode 第 23 题：合并 K 个排序链表](https://liweiwei1419.github.io/images/leetcode-solution-new/0023/0023.gif)
-
-题解地址：https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/tan-xin-suan-fa-you-xian-dui-lie-fen-zhi-fa-python/。
-
-### LeetCode 第 41 题：缺失的第一个正数
-
-![LeetCode 第 41 题：缺失的第一个正数](https://liweiwei1419.github.io/images/leetcode-solution-new/0041/0041.gif)
-
-题解地址：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/。
-
-### LeetCode 第 60 题：第 k 个排列
-
-![LeetCode 第 60 题：第 k 个排列](https://liweiwei1419.github.io/images/leetcode-solution-new/0060/0060.gif)
-
-题解地址：https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/。
-
-### LeetCode 第 148 题：单链表自底向上的“归并排序”
-
-![LeetCode 第 148 题：单链表自底向上的“归并排序”](https://liweiwei1419.github.io/images/leetcode-solution-new/0148/0148.gif)
-
-题解地址：https://leetcode-cn.com/problems/sort-list/solution/zi-di-xiang-shang-de-gui-bing-pai-xu-java-dai-ma-b/。
-
-### LeetCode 第 287 题：寻找重复数
-
-![LeetCode 第 287 题：寻找重复数](https://liweiwei1419.github.io/images/leetcode-solution-new/0287/0287.gif)
-
-题解地址：https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/。
-
-### LeetCode 第 300 题：最长上升子序列
-
-![LeetCode 第 300 题：最长上升子序列-二分法](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/0300-greed-binary-search.gif)
-
-![LeetCode 第 300 题：最长上升子序列-动态规划](https://liweiwei1419.github.io/images/leetcode-solution-new/0300/0300-dp.gif)
-
-题解地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/。
-
-### LeetCode 第 315 题：计算右侧小于当前元素的个数
-
-![归并排序](https://liweiwei1419.github.io/images/leetcode-solution-new/0315/merge-sort.gif)
-
-![树状数组](https://liweiwei1419.github.io/images/leetcode-solution-new/0315/fenwick-tree.gif)
-
-
-### LeetCode 第 421 题：数组中两个数的最大异或值
-
-![LeetCode 第 421 题：数组中两个数的最大异或值](https://liweiwei1419.github.io/images/leetcode-solution-new/0421/0421.gif)
-
-题解地址：https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/li-yong-yi-huo-yun-suan-de-xing-zhi-tan-xin-suan-f/。
-
-### LeetCode 第 1079 题：活字印刷
-
-![LeetCode 第 1079 题：活字印刷](https://liweiwei1419.github.io/images/leetcode-solution-new/1079/1079.gif)
-
-题解地址：https://leetcode-cn.com/problems/letter-tile-possibilities/solution/hui-su-suan-fa-python-dai-ma-by-liweiwei1419/。
-
-### LeetCode 第 1080 题：根到叶路径上的不足节点
-
-![LeetCode 第 1080  题：根到叶路径上的不足节点](https://liweiwei1419.github.io/images/leetcode-solution-new/1080/1080.gif)
-
-题解地址：https://leetcode-cn.com/problems/insufficient-nodes-in-root-to-leaf-paths/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liweiw/。
-
-### LeetCode 第 1081 题：不同字符的最小子序列
-
-![LeetCode 第 1081 题：不同字符的最小子序列](https://liweiwei1419.github.io/images/leetcode-solution-new/1081/1081.gif)
-
-题解地址：https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/solution/tan-xin-suan-fa-zhan-wei-yan-ma-python-dai-ma-java/。
 
 ## 刷题过程中形成的文章
 
