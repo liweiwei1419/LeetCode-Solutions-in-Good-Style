@@ -10,11 +10,11 @@ from typing import List
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # [[]] 针对这种情况，要特判
         m = len(matrix)
         if m == 0:
             return False
         n = len(matrix[0])
-        # [[]] 针对这种情况，要特判
         if n == 0:
             return False
 

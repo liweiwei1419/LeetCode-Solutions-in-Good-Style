@@ -11,25 +11,32 @@
 # 输入: numbers = [2, 7, 11, 15], target = 9
 # 输出: [1,2]
 # 解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
-
-
 from typing import List
 
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        # 有序数组，index1 必须小于 index2，用指针对撞是最合适的
-
         size = len(numbers)
-        if size < 2:
-            return []
-        l = 0
-        r = size - 1
-        while l < r:
-            if numbers[l] + numbers[r] == target:
-                return [l + 1, r + 1]
-            elif numbers[l] + numbers[r] < target:
-                l += 1
+        for left in range(size - 1):
+            right = self.__binary_search(numbers, left + 1, size - 1, target - numbers[left])
+            if right != -1:
+                return [left + 1, right + 1]
+
+    def __binary_search(self, numbers, left, right, target):
+        # 在子区间 [left, right] 找 target
+        while left < right:
+            mid = (left + right) >> 1
+            if numbers[mid] < target:
+                left = mid + 1
             else:
-                r -= 1
-        return []
+                right = mid
+        return left if numbers[left] == target else -1
+
+
+if __name__ == '__main__':
+    numbers = [2, 7, 11, 15]
+    target = 9
+
+    solution = Solution()
+    res = solution.twoSum(numbers, target)
+    print(res)

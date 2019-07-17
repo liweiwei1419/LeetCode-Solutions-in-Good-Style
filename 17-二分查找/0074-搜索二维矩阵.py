@@ -6,13 +6,11 @@
 # 每行的第一个整数大于前一行的最后一个整数。
 
 
-class Solution(object):
-    def searchMatrix(self, matrix, target):
-        """
-        :type matrix: List[List[int]]
-        :type target: int
-        :rtype: bool
-        """
+from typing import List
+
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m = len(matrix)
         if m == 0:
             return False

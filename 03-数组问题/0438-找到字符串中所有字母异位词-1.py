@@ -16,24 +16,24 @@ class Solution:
         # 滑动窗口的大小
         plen = len(p)
         slen = len(s)
-        l = 0
-        r = 0
+        left = 0
+        right = 0
         same = plen
         res = []
-        while r < slen:
-            if wordcount[s[r]] > 0:
-                # 表示 s[r+1] 在 p 里面
+        while right < slen:
+            if wordcount[s[right]] > 0:
+                # 表示 s[right+1] 在 p 里面
                 same -= 1
-            wordcount[s[r]] -= 1
-            r += 1
+            wordcount[s[right]] -= 1
+            right += 1
             if same == 0:
-                res.append(l)
-            if r - l == plen:
-                if wordcount[s[l]] >= 0:
+                res.append(left)
+            if right - left == plen:
+                if wordcount[s[left]] >= 0:
                     same += 1
                 # 左边要出
-                wordcount[s[l]] += 1
-                l += 1
+                wordcount[s[left]] += 1
+                left += 1
         return res
 
 

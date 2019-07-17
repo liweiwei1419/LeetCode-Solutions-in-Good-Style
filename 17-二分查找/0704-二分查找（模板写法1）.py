@@ -9,16 +9,13 @@ class Solution:
         left = 0
         right = size - 1
         while left < right:
-            # mid = left + (right - left + 1) // 2
             mid = (left + right + 1) >> 1
-            if nums[mid] <= target:
-                # mid 在，因此，不能排除 mid
-                left = mid
-            else:
-                assert nums[mid] > target
-                # mid 不在，所以可以排除 mid
+            if nums[mid] > target:
+                # mid 一定不是目标数，目标数肯定比 mid 小
                 right = mid - 1
-        # 后处理，为了避免不存在的情况出现，最后要判断一下
+            else:
+                left = mid
+        # 后处理，因为目标数有可能不存在在数组中，因此最后单独做判断
         if nums[left] == target:
             return left
         return -1

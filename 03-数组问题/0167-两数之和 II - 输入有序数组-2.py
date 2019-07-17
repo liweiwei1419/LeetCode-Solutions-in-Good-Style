@@ -11,25 +11,27 @@
 # 输入: numbers = [2, 7, 11, 15], target = 9
 # 输出: [1,2]
 # 解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
-
-
 from typing import List
 
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        # 有序数组，index1 必须小于 index2，用指针对撞是最合适的
 
         size = len(numbers)
-        if size < 2:
-            return []
-        l = 0
-        r = size - 1
-        while l < r:
-            if numbers[l] + numbers[r] == target:
-                return [l + 1, r + 1]
-            elif numbers[l] + numbers[r] < target:
-                l += 1
+
+        left = 0
+        right = size - 1
+
+        while left < right:
+            if numbers[left] + numbers[right] > target:
+                right -= 1
+            elif numbers[left] + numbers[right] < target:
+                left += 1
             else:
-                r -= 1
-        return []
+                return [left + 1, right + 1]
+
+
+if __name__ == '__main__':
+    a = 2147483646
+    print(a)
+    print(a + 1)

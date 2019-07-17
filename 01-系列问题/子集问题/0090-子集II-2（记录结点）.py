@@ -6,18 +6,22 @@ class Solution:
         size = len(nums)
         if size == 0:
             return []
+        # 关键 1：排序是为了后面剪枝去重
         nums.sort()
+        path = []
         res = []
-        self.__dfs(nums, 0, size, [], res)
+        self.__dfs(nums, 0, size, path, res)
         return res
 
     def __dfs(self, nums, start, size, path, res):
+        # 关键 3：记录每个结点的路径
         res.append(path[:])
-        for i in range(start, size):
-            if i > start and nums[i - 1] == nums[i]:
+        for index in range(start, size):
+            # 关键 2：剪枝的常见操作
+            if index > start and nums[index - 1] == nums[index]:
                 continue
-            path.append(nums[i])
-            self.__dfs(nums, i + 1, size, path, res)
+            path.append(nums[index])
+            self.__dfs(nums, index + 1, size, path, res)
             path.pop()
 
 

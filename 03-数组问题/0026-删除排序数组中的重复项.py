@@ -9,9 +9,10 @@ class Solution:
         if size == 0:
             return 0
         # 接下来要赋值的那个元素
-        j = 0
-        for i in range(1, size):
-            if nums[i] != nums[j]:
-                j += 1
-                nums[j] = nums[i]
-        return j + 1
+        next = 0
+        for index in range(1, size):
+            if nums[index] != nums[next]:
+                next += 1
+                nums[next] = nums[index]
+        # 当前在最后一个位置上，+ 1 才是新数组的长度
+        return next + 1

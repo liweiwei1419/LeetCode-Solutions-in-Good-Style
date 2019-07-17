@@ -1,13 +1,8 @@
+from typing import List
+
+
 class Solution:
-
-    # 关键在于画图分析：
-
-    def combinationSum(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         size = len(candidates)
         if size == 0:
             return []

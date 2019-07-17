@@ -1,26 +1,23 @@
+from typing import List
+
+
 class Solution:
-    def combinationSum2(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        length = len(candidates)
-        if length == 0:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        size = len(candidates)
+        if size == 0:
             return []
         candidates.sort()
-        # print(candidates)
         res = []
 
-        self.__dfs(candidates, length, 0, [], target, res)
+        self.__dfs(candidates, size, 0, [], target, res)
         return res
 
-    def __dfs(self, candidates, length, start, path, residue, res):
+    def __dfs(self, candidates, size, start, path, residue, res):
         if residue == 0:
             res.append(path[:])
             return
 
-        for index in range(start, length):
+        for index in range(start, size):
             if candidates[index] > residue:
                 break
 
@@ -34,7 +31,7 @@ class Solution:
             path.append(candidates[index])
             # 这里要传入 index + 1，因为当前元素不能被重复使用
             # 如果 index + 1 越界，传递到下一个方法中，什么也不执行
-            self.__dfs(candidates, length, index + 1, path, residue - candidates[index], res)
+            self.__dfs(candidates, size, index + 1, path, residue - candidates[index], res)
             path.pop()
 
 
