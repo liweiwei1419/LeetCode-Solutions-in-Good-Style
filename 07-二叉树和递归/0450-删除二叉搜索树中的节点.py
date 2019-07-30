@@ -1,9 +1,9 @@
-# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+
 
 # 方法1：用左子树中最大结点的代替自己
 
@@ -37,7 +37,6 @@ class Solution:
             root.left = None
             return new_root
 
-
         # 找到左子树中最大的
         predecessor = self.__maximum(root.left)
         predecessor_copy = TreeNode(predecessor.val)
@@ -46,7 +45,6 @@ class Solution:
         root.left = None
         root.right = None
         return predecessor_copy
-
 
     def __remove_max(self, node):
         if node.right is None:
