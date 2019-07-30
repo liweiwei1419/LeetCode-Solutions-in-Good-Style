@@ -3,23 +3,21 @@
 
 
 # 动态规划
-class Solution(object):
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+
+from typing import List
+
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
         size = len(nums)
         if size == 0:
             return 0
-        # 以索引 i 结尾的最大子数组的和
-        end_i_max = nums[0]
-
-        res = nums[0]
+        # 起名叫 pre 表示的意思是“上一个状态”的值
+        pre = nums[0]
+        res = pre
         for i in range(1, size):
-            # 例：[-3,1]
-            end_i_max = max(nums[i], end_i_max + nums[i])
-            res = max(res, end_i_max)
+            pre = max(nums[i], pre + nums[i])
+            res = max(res, pre)
         return res
 
 
