@@ -6,12 +6,17 @@ class Solution:
         size = len(prices)
         if size < 1:
             return 0
-        min_val = prices[0]
-        max_profit = 0
+
+        dp = [[None for _ in range(size)] for _ in range(2)]
+
+        dp[0][0] = 0
+        dp[1][0] = -prices[0]
+
         for i in range(1, size):
-            min_val = min(min_val, prices[i])
-            max_profit = max(max_profit, prices[i] - min_val)
-        return max_profit
+            dp[0][i] = max(dp[0][i - 1], dp[1][i - 1] + prices[i])
+            dp[1][i] = max(dp[1][i - 1], - prices[i])
+        # print(dp)
+        return dp[0][size - 1]
 
 
 if __name__ == '__main__':
