@@ -1,27 +1,24 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        size = len(s)
         # 特判
-        if size < 2:
-            return size
-
+        l = len(s)
+        if l < 2:
+            return l
         # dp[i] 表示以 s[i] 结尾的最长不重复子串的长度
         # 因为自己肯定是不重复子串，所以初始值设置为 1
-        dp = [1 for _ in range(size)]
-        d = dict()
-
-        d[s[0]] = 0
-        # 因为要考虑 dp[i - 1]，索引得从 1 开始，故 d[s[0]] = 0 得先写上
-        for i in range(1, size):
-            if s[i] in d:
-                if dp[i - 1] >= i - d[s[i]]:
-                    dp[i] = i - d[s[i]]
-                else:
+        dp = [1 for _ in range(l)]
+        map = dict()
+        map[s[0]] = 0
+        for i in range(1, l):
+            if s[i] in map:
+                if i - map[s[i]] > dp[i - 1]:
                     dp[i] = dp[i - 1] + 1
+                else:
+                    dp[i] = i - map[s[i]]
             else:
                 dp[i] = dp[i - 1] + 1
             # 设置字符与索引键值对
-            d[s[i]] = i
+            map[s[i]] = i
         # 最后拉通看一遍最大值
         return max(dp)
 

@@ -1,7 +1,7 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        size = len(s)
         # 特判
+        size = len(s)
         if size < 2:
             return size
 
@@ -9,15 +9,10 @@ class Solution:
         # 因为自己肯定是不重复子串，所以初始值设置为 1
         dp = [1 for _ in range(size)]
         d = dict()
-
         d[s[0]] = 0
-        # 因为要考虑 dp[i - 1]，索引得从 1 开始，故 d[s[0]] = 0 得先写上
         for i in range(1, size):
-            if s[i] in d:
-                if dp[i - 1] >= i - d[s[i]]:
-                    dp[i] = i - d[s[i]]
-                else:
-                    dp[i] = dp[i - 1] + 1
+            if s[i] in d and dp[i - 1] >= i - d[s[i]]:
+                dp[i] = i - d[s[i]]
             else:
                 dp[i] = dp[i - 1] + 1
             # 设置字符与索引键值对
