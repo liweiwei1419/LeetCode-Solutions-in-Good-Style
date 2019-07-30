@@ -16,6 +16,7 @@ class Solution:
     #        x+1,y
     # 方向数组，它表示了相对于当前位置的 4 个方向的横、纵坐标的偏移量，这是一个常见的技巧
     directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+    # directions = [(0, 1), (1, 0)]
 
     def numIslands(self, grid: List[List[str]]) -> int:
         m = len(grid)
