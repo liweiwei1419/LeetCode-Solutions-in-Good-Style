@@ -1,5 +1,6 @@
 from typing import List
 
+# 中间元素和右边界比较
 
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:
@@ -35,8 +36,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    nums = [1, 3]
-    target = 3
+    nums = [3, 1]
+    target = 1
     solution = Solution()
 
     result = solution.search(nums, target)
