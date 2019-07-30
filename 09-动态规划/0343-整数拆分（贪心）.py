@@ -1,10 +1,5 @@
 class Solution:
     def integerBreak(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-
         if n == 2:
             return 1
         if n == 3:
