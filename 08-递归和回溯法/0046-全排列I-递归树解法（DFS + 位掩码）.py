@@ -22,7 +22,7 @@ class Solution:
     def __dfs(self, nums, index, size, pre, state, res):
         # 先写递归终止条件
         if index == size:
-            res.append(pre[:])
+            res.append(pre.copy())
             return
 
         for i in range(size):
