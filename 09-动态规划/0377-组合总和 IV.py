@@ -1,10 +1,7 @@
+from typing import List
+
 class Solution:
-    def combinationSum4(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+    def combinationSum4(self, nums: List[int], target: int) -> int:
 
         size = len(nums)
         if size == 0 or target <= 0:
