@@ -18,7 +18,7 @@ class Solution:
         if len(candidates) == 0:
             return []
         candidates.sort()
-        print(candidates)
+        # print(candidates)
         res = []
         self.__dfs(candidates, target, 0, [], res)
         return res
