@@ -1,20 +1,16 @@
+from typing import List
 
-# Definition for a binary tree node.
-class TreeNode(object):
+
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
+# 递归求解
 
-class Solution(object):
-
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
-
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
         res = []
         # 前面先讨论递归到底的情况情况
         if root is None:

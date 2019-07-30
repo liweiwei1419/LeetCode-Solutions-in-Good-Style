@@ -1,18 +1,15 @@
-# Definition for a binary tree node.
-class TreeNode(object):
+from typing import List
+
+
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
 
-class Solution(object):
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
-
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
         res = []
         if root is None:
             return res
@@ -36,14 +33,11 @@ class Solution(object):
             return
         if node.left:
             self.__helper(node.left, path, res)
-
             # 【重点】：回溯的时候，要记得弹出
             # 左边结点都看过了，所以 path 要弹出
             path.pop()
-
         if node.right:
             self.__helper(node.right, path, res)
-
             # 【重点】：回溯的时候，要记得弹出
             # 右边结点都看过了，所以 path 要弹出
             path.pop()

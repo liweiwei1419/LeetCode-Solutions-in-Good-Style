@@ -3,6 +3,9 @@
 # Definition for a binary tree node.
 
 
+from typing import List
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -11,12 +14,7 @@ class TreeNode:
 
 
 class Solution:
-
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
         res = []
 
         if root is None:

@@ -1,19 +1,15 @@
+from typing import List
 
-# Definition for a binary tree node.
-class TreeNode(object):
+
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
 
-class Solution(object):
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
-
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
         def helper(root, path, res):
             if root is None:
                 return True
@@ -25,6 +21,7 @@ class Solution(object):
                 res.append('->'.join(path))
             # 关键
             path.pop()
+            # False 代表空集
             return False
 
         res = []
