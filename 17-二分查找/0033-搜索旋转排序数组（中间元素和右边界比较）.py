@@ -10,6 +10,7 @@
 # 你的算法时间复杂度必须是 O(log n) 级别。
 from typing import List
 
+# 中间元素和右边界比较
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:

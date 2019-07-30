@@ -12,6 +12,9 @@ from typing import List
 
 
 class Solution:
+
+    # 中间元素和右边界比较，传统二分查找法模板
+
     def search(self, nums: List[int], target: int) -> int:
         size = len(nums)
         if size == 0:
