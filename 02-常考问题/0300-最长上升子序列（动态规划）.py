@@ -1,6 +1,8 @@
 # 300. 最长上升子序列
 # 给定一个无序的整数数组，找到其中最长上升子序列的长度。
 
+from typing import List
+
 
 class Solution:
 
@@ -9,11 +11,7 @@ class Solution:
     # 以数组  [10, 9, 2, 5, 3, 7, 101, 18] 为例：
     # dp 的值： 1  1  1  2  2  3  4    4
 
-    def lengthOfLIS(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def lengthOfLIS(self, nums: List[int]) -> int:
         size = len(nums)
         if size <= 1:
             return size
@@ -24,6 +22,7 @@ class Solution:
                     # + 1 的位置不要加错了
                     dp[i] = max(dp[i], dp[j] + 1)
         # 最后要全部走一遍，看最大值
+        # print(dp)
         return max(dp)
 
 
