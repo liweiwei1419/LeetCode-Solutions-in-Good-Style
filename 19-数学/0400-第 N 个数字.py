@@ -1,9 +1,5 @@
 class Solution:
-    def findNthDigit(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+    def findNthDigit(self, n: int) -> int:
         # 特判：如果 n 小于 10 ，直接返回就可以了
         if n < 10:
             return n
