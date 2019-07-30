@@ -13,6 +13,7 @@ class Solution:
         return res
 
     def __dfs(self, candidates, size, start, path, residue, res):
+        # print('residue', residue)
         if residue == 0:
             res.append(path[:])
             return
