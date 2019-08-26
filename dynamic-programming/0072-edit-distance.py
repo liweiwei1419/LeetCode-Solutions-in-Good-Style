@@ -1,4 +1,8 @@
 class Solution:
+
+    # 状态定义很关键，类似状态定义的技巧 LeetCode 第 10 题
+    #
+
     def minDistance(self, word1: str, word2: str) -> int:
         m = len(word1)
         n = len(word2)
@@ -14,16 +18,12 @@ class Solution:
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 if word1[i - 1] == word2[j - 1]:
-                    same = dp[i - 1][j - 1]
-                    dp[i][j] = same
+                    dp[i][j] = dp[i - 1][j - 1]
                 else:
                     m_plus_one = dp[i - 1][j] + 1
                     n_plus_one = dp[i][j - 1] + 1
-                    m_n_plus_one = dp[i - 1][j - 1] + 1
-                    dp[i][j] = min(m_plus_one, n_plus_one, m_n_plus_one)
-        # 调试代码
-        # for row in dp:
-        #     print(row)
+                    m_change_one = dp[i - 1][j - 1] + 1
+                    dp[i][j] = min(m_plus_one, n_plus_one, m_change_one)
         return dp[m][n]
 
 
