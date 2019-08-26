@@ -1,7 +1,7 @@
 class Solution:
 
     # 状态定义很关键，类似状态定义的技巧 LeetCode 第 10 题
-    #
+    # dp[i][j]：word1 的前 i 个字符匹配到 word2 的前 j 个字符的最少操作数。
 
     def minDistance(self, word1: str, word2: str) -> int:
         m = len(word1)
