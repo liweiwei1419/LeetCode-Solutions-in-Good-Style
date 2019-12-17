@@ -41,7 +41,7 @@ public class Solution {
         if (len == 0) {
             return null;
         }
-        Comparator<ListNode> comparator = (a, b) -> a.val - b.val;
+        Comparator<ListNode> comparator = Comparator.comparingInt(a -> a.val);
         PriorityQueue<ListNode> priorityQueue = new PriorityQueue<>(comparator);
         for (int i = 0; i < len; i++) {
             // 注意：这里要注意到测试用例中，ListNode 为 null 的特殊情况，空节点是一定不能放入优先队列的，把空节点放入优先队列没有意义
