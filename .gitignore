@@ -3,3 +3,6 @@ Solutions/
 临时空间/
 测试/
 test/
+*.iml
+*.class
+*/*/out/
