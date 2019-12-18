@@ -6,3 +6,6 @@ test/
 *.iml
 *.class
 */*/out/
+*/*/cmake-build-debug/
+cmake-build-*/
+CMakeLists.txt
