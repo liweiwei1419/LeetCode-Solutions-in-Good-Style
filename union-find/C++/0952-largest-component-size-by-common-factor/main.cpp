@@ -30,9 +30,14 @@ public:
 class Solution {
 public:
     int largestComponentSize(vector<int> &A) {
+        // 遍历一遍找到最大元素
         int n = *max_element(begin(A), end(A));
+        // 因为数组要包括最后一个元素，所以 + 1
         UnionFind unionFind(n + 1);
 
+        // 对于每一个数，遍历它所有的公因子
+        // 如果能够被整除，把这两个因子做一个合并
+        // 这个时候，代表元就是那些公因子
         for (int a: A) {
             for (int k = 2; k <= sqrt(a); k++) {
                 if (a % k == 0) {
@@ -41,6 +46,9 @@ public:
                 }
             }
         }
+
+        // 写成这样比较难理解
+        // 就是找 叶子 最多的那个结点，即 包含子结点最多的那个 root
         unordered_map<int, int> hashMap;
         int res = 1;
         for (int a:A) {
