@@ -1,4 +1,5 @@
-public interface Queue {
+public interface PriorityQueue {
+
 
     /**
      * 队列是否为空
@@ -41,5 +42,4 @@ public interface Queue {
      * @param item
      */
     void replace(int item);
-
 }
