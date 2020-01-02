@@ -1,13 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/22 12:10 上午
- */
 public class Solution8 {
-
-    // 计数排序 CountingSort
 
     private static final int OFFSET = 50000;
 
@@ -39,12 +33,5 @@ public class Solution8 {
             count[nums[i] + OFFSET]--;
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 4, 4, 5, 6, 1};
-        Solution solution = new Solution();
-        List<Integer> res = solution.sortArray(nums);
-        System.out.println(res);
     }
 }

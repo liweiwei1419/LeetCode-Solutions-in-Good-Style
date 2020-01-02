@@ -2,12 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author liweiwei1419
- * @date 2019/10/9 4:26 下午
+ * 归并排序
  */
 public class Solution3 {
-
-    // 归并排序
 
     /**
      * 列表大小等于或小于该大小，将优先于 mergesort 使用插入排序
@@ -18,12 +15,7 @@ public class Solution3 {
         int len = nums.length;
         int[] temp = new int[len];
         mergeSort(nums, 0, len - 1, temp);
-
-        List<Integer> res = new ArrayList<>(len);
-        for (int i = 0; i < len; i++) {
-            res.add(nums[i]);
-        }
-        return res;
+        return arr2List(nums, len);
     }
 
     private void mergeSort(int[] nums, int left, int right, int[] temp) {
@@ -69,9 +61,7 @@ public class Solution3 {
      */
     private void mergeOfTwoSortedArray(int[] nums, int left, int mid, int right, int[] temp) {
         // 全局使用一个 temp 数组，避免多次创建和销毁
-        for (int i = left; i <= right; i++) {
-            temp[i] = nums[i];
-        }
+        System.arraycopy(nums, left, temp, left, right + 1 - left);
 
         int i = left;
         int j = mid + 1;
@@ -95,4 +85,11 @@ public class Solution3 {
         }
     }
 
+    private List<Integer> arr2List(int[] nums, int len) {
+        List<Integer> res = new ArrayList<>(len);
+        for (int num : nums) {
+            res.add(num);
+        }
+        return res;
+    }
 }

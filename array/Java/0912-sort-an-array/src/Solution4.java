@@ -1,12 +1,7 @@
-import java.util.Arrays;
-
 /**
- * @author liweiwei1419
- * @date 2019/10/9 4:26 下午
+ *
  */
 public class Solution4 {
-
-    // 归并排序
 
     private int[] temp;
 
@@ -38,8 +33,8 @@ public class Solution4 {
      * @param right
      */
     private void mergeOfTwoSortedArray(int[] nums, int left, int mid, int right) {
-        for (int i = left; i <= right; i++) {
-            temp[i] = nums[i];
+        if (right + 1 - left >= 0) {
+            System.arraycopy(nums, left, temp, left, right + 1 - left);
         }
 
         int i = left;
@@ -62,12 +57,5 @@ public class Solution4 {
                 j++;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {5, 2, 3, 1};
-        Solution4 solution4 = new Solution4();
-        int[] res = solution4.sortArray(nums);
-        System.out.println(Arrays.toString(res));
     }
 }

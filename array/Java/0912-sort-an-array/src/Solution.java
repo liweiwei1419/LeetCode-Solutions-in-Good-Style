@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author liweiwei1419
- * @date 2019/10/9 4:20 下午
+ * 选择排序：每一轮选择最小元素交换到未排定部分的开头
+ * 思想：贪心算法
+ * 技巧：遍历一遍选出最值的算法，称之为打擂台算法，也叫假设修正法
+ * 非稳定排序
  */
 public class Solution {
-
-    // 选择排序
 
     public List<Integer> sortArray(int[] nums) {
         int len = nums.length;
@@ -20,10 +20,13 @@ public class Solution {
             }
             swap(nums, i, minIndex);
         }
+        return arr2List(nums, len);
+    }
 
+    private List<Integer> arr2List(int[] nums, int len) {
         List<Integer> res = new ArrayList<>(len);
-        for (int i = 0; i < len; i++) {
-            res.add(nums[i]);
+        for (int num : nums) {
+            res.add(num);
         }
         return res;
     }

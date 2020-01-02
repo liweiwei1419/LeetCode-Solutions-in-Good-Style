@@ -1,18 +1,5 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/12 8:21 下午
- */
 public class Solution5 {
 
-    // 选择排序
-
-    /**
-     * 时间复杂度：O(N^2)，N 是数组的长度
-     * 空间复杂度：O(1)，只使用了常数个变量
-     *
-     * @param nums
-     * @return
-     */
     public int[] sortArray(int[] nums) {
         int len = nums.length;
         for (int i = 0; i < len - 1; i++) {
