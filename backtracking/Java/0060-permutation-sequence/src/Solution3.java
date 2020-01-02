@@ -1,44 +1,29 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// 既然没有回溯，就不用 used 数组
-
 public class Solution3 {
 
     public String getPermutation(int n, int k) {
-        int[] nums = new int[n];
-        boolean[] used = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-            used[i] = false;
+        // 先算出所有的阶乘值
+        int[] factorial = new int[n];
+        factorial[0] = 1;
+        for (int i = 1; i < n; i++) {
+            factorial[i] = factorial[i - 1] * i;
         }
-        int[] factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
-        List<String> pre = new ArrayList<>();
-        return dfs(nums, used, n, k, 0, pre, factorial);
-    }
 
-    private String dfs(int[] nums, boolean[] used, int n, int k, int depth, List<String> pre, int[] factorial) {
-        if (depth == n) {
-            StringBuilder sb = new StringBuilder();
-            for (String c : pre) {
-                sb.append(c);
-            }
-            return sb.toString();
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 1; i <= n; ++i) {
+            nums.add(i);
         }
-        int ps = factorial[n - 1 - depth];
-        for (int i = 0; i < n; i++) {
-            if (used[i]) {
-                continue;
-            }
-            if (ps < k) {
-                k -= ps;
-                continue;
-            }
-            pre.add(nums[i] + "");
-            used[i] = true;
-            return dfs(nums, used, n, k, depth + 1, pre, factorial);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = n - 1; i >= 0; i--) {
+            // 确定每一位应该是剩余数字中的第几个
+            int index = (k - 1) / factorial[i];
+            // 每次实际使用的数字是集合中的第 index 个数字
+            stringBuilder.append(nums.remove(index));
+            k -= index * factorial[i];
         }
-        // 如果参数正确的话，代码不会走到这里
-        throw new RuntimeException("参数错误");
+        return stringBuilder.toString();
     }
 }

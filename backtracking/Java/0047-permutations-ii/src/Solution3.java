@@ -53,8 +53,8 @@ public class Solution3 {
 
     public static void main(String[] args) {
         int[] nums = {3, 3, 0, 3};
-        Solution solution = new Solution();
-        List<List<Integer>> permuteUnique = solution.permuteUnique(nums);
+        Solution3 solution3 = new Solution3();
+        List<List<Integer>> permuteUnique = solution3.permuteUnique(nums);
         System.out.println(permuteUnique);
     }
 }

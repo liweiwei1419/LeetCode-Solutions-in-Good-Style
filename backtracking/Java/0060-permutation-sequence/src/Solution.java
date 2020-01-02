@@ -1,51 +1,71 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution {
 
+    /**
+     * 记录数字是否使用过
+     */
+    private boolean[] used;
+
+    /**
+     * 阶乘数组
+     */
+    private int[] factorial;
+
+    private int n;
+    private int k;
+    /**
+     * 从根结点到叶子结点的路径
+     */
+    private List<Integer> path;
+
     public String getPermutation(int n, int k) {
-        int[] nums = new int[n];
-        boolean[] used = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-            used[i] = false;
+        this.n = n;
+        this.k = k;
+        used = new boolean[n + 1];
+        Arrays.fill(used, false);
+
+        // 计算阶乘数组
+        factorial = new int[n + 1];
+        factorial[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial[i] = factorial[i - 1] * i;
         }
-        List<String> pre = new ArrayList<>();
-        return dfs(nums, used, n, k, 0, pre);
+
+        path = new ArrayList<>(n);
+        dfs(0);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer c : path) {
+            stringBuilder.append(c);
+        }
+        return stringBuilder.toString();
     }
 
-    private int factorial(int n) {
-        // 这种编码方式包括了 0 的阶乘是 1 这种情况
-        int res = 1;
-        while (n > 0) {
-            res *= n;
-            n -= 1;
+    /**
+     * @param index 在这一步之前已经选择了几个数字，其值恰好等于这一步需要确定的索引位置
+     * @return
+     */
+    private void dfs(int index) {
+        if (index == n) {
+            return;
         }
-        return res;
-    }
 
-    private String dfs(int[] nums, boolean[] used, int n, int k, int depth, List<String> pre) {
-        if (depth == n) {
-            StringBuilder sb = new StringBuilder();
-            for (String c : pre) {
-                sb.append(c);
-            }
-            return sb.toString();
-        }
-        int ps = factorial(n - 1 - depth);
-        for (int i = 0; i < n; i++) {
+        // 还未确定的数字的全排列的个数，第 1 次进入的时候是 n - 1
+        int cnt = factorial[n - 1 - index];
+        for (int i = 1; i <= n; i++) {
             if (used[i]) {
                 continue;
             }
-            if (ps < k) {
-                k -= ps;
+            if (cnt < k) {
+                k -= cnt;
                 continue;
             }
-            pre.add(nums[i] + "");
+            path.add(i);
             used[i] = true;
-            return dfs(nums, used, n, k, depth + 1, pre);
+            dfs(index + 1);
         }
-        // 如果参数正确的话，代码不会走到这里
-        throw new RuntimeException("参数错误");
     }
 }

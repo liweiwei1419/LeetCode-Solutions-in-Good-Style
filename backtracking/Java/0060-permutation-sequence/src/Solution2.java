@@ -1,42 +1,33 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Solution2 {
 
     public String getPermutation(int n, int k) {
-        int[] nums = new int[n];
-        boolean[] used = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-            used[i] = false;
-        }
-        int[] factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
-        List<String> pre = new ArrayList<>();
-        return dfs(nums, used, n, k, 0, pre, factorial);
-    }
+        // 注意：相当于在 n 个数字的全排列中找到索引为 k - 1 的那个数，因此 k 先减 1
+        k --;
 
-    private String dfs(int[] nums, boolean[] used, int n, int k, int depth, List<String> pre, int[] factorial) {
-        if (depth == n) {
-            StringBuilder sb = new StringBuilder();
-            for (String c : pre) {
-                sb.append(c);
-            }
-            return sb.toString();
+        int[] factorial = new int[n];
+        factorial[0] = 1;
+        // 先算出所有的阶乘值
+        for (int i = 1; i < n; i++) {
+            factorial[i] = factorial[i - 1] * i;
         }
-        int ps = factorial[n - 1 - depth];
-        for (int i = 0; i < n; i++) {
-            if (used[i]) {
-                continue;
-            }
-            if (ps < k) {
-                k -= ps;
-                continue;
-            }
-            pre.add(nums[i] + "");
-            used[i] = true;
-            return dfs(nums, used, n, k, depth + 1, pre, factorial);
+
+        // 因为要频繁做删除，使用链表
+        List<Integer> nums = new LinkedList<>();
+        for (int i = 1; i <= n; i++) {
+            nums.add(i);
         }
-        // 如果参数正确的话，代码不会走到这里
-        throw new RuntimeException("参数错误");
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        // i 表示剩余的数字个数，初始化为 n - 1
+        for (int i = n - 1; i >= 0; i--) {
+            int index = k / factorial[i] ;
+            stringBuilder.append(nums.remove(index));
+            k -= index * factorial[i];
+        }
+        return stringBuilder.toString();
     }
 }

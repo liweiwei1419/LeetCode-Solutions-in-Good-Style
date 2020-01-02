@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -44,10 +46,11 @@ public class Solution3 {
         if (n == 0) {
             return res;
         }
-        Queue<Node> queue = new LinkedList<>();
+        Deque<Node> queue = new ArrayDeque<>();
         queue.offer(new Node("", n, n));
         // 总共需要拼凑的字符总数是 2 * n
         n = 2 * n;
+
         while (n > 0) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {

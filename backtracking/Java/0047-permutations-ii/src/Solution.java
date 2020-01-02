@@ -1,8 +1,12 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution {
+
+    // 时间复杂度: O(n^n)
+    // 空间复杂度: O(n)
 
     public List<List<Integer>> permuteUnique(int[] nums) {
         int len = nums.length;
@@ -11,45 +15,37 @@ public class Solution {
             return res;
         }
         boolean[] used = new boolean[len];
-        backtrack(nums, 0, len, used, new Stack<Integer>(), res);
+        Deque<Integer> stack = new ArrayDeque<>();
+        backtrack(nums, 0, len, used, stack, res);
         return res;
     }
 
     /**
      * @param nums
-     * @param depth
+     * @param index
      * @param len
      * @param used
-     * @param path
+     * @param stack
      * @param res
      */
-    private void backtrack(int[] nums, int depth, int len, boolean[] used, Stack<Integer> path, List<List<Integer>> res) {
-        if (depth == len) {
-            res.add(new ArrayList<>(path));
-
+    private void backtrack(int[] nums, int index, int len, boolean[] used, Deque<Integer> stack, List<List<Integer>> res) {
+        if (index == len) {
+            res.add(new ArrayList<>(stack));
             return;
         }
         for (int i = 0; i < len; i++) {
             if (!used[i]) {
-                // 在这里"剪枝"，used[i - 1] 前面加不加感叹号均可
-                if (i > 0 && nums[i - 1] == nums[i] && used[i - 1]) {
+                // 在这里"剪枝"，used[i - 1] 前面加加感叹号剪枝更彻底
+                if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) {
                     continue;
                 }
                 used[i] = true;
-                path.add(nums[i]);
-                // depth + 1 不要写成 i + 1，所以递归函数的语义很重要
-                backtrack(nums, depth + 1, len, used, path, res);
-                path.pop();
+                stack.add(nums[i]);
+                // 注意：index + 1 不要写成 i + 1
+                backtrack(nums, index + 1, len, used, stack, res);
+                stack.pop();
                 used[i] = false;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 1, 2};
-        // [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
-        Solution solution = new Solution();
-        List<List<Integer>> res = solution.permuteUnique(nums);
-        System.out.println(res);
     }
 }
