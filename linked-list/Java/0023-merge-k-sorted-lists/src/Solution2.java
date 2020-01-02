@@ -1,35 +1,44 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class Solution2 {
 
-    // 代码同 Solution，添加了注释，另外传入优先队列的比较器的语法不同，仅此而已
-
     public ListNode mergeKLists(ListNode[] lists) {
-        int len = lists.length;
-        if (len == 0) {
+        int size = lists.length;
+        if (size == 0) {
             return null;
         }
-        PriorityQueue<ListNode> priorityQueue = new PriorityQueue<>(len, Comparator.comparingInt(a -> a.val));
-        ListNode dummyNode = new ListNode(-1);
-        ListNode curNode = dummyNode;
-        for (ListNode list : lists) {
-            if (list != null) {
-                // 这一步很关键，不能也没有必要将空对象添加到优先队列中
-                priorityQueue.add(list);
+
+        ListNode res = lists[0];
+        for (int i = 1; i < size; i++) {
+            if (lists[i] != null) {
+                res = mergeTwoSortLinkedList(res, lists[i]);
             }
         }
-        while (!priorityQueue.isEmpty()) {
-            // 优先队列非空才能出队
-            ListNode node = priorityQueue.poll();
-            // 当前节点的 next 指针指向出队元素
-            curNode.next = node;
-            // 当前指针向前移动一个元素，指向了刚刚出队的那个元素
-            curNode = curNode.next;
-            if (curNode.next != null) {
-                // 只有非空节点才能加入到优先队列中
-                priorityQueue.add(curNode.next);
+        return res;
+    }
+
+    private ListNode mergeTwoSortLinkedList(ListNode list1, ListNode list2) {
+        ListNode dummyNode = new ListNode(-1);
+        ListNode p1 = list1;
+        ListNode p2 = list2;
+        ListNode curNode = dummyNode;
+        // 两者都不为空的时候，才有必要进行比较
+        while (p1 != null && p2 != null) {
+            if (p1.val < p2.val) {
+                // 指针修改发生在这里
+                curNode.next = p1;
+                p1 = p1.next;
+            } else {
+                // 指针修改发生在这里
+                curNode.next = p2;
+                p2 = p2.next;
             }
+            curNode = curNode.next;
+        }
+        // 跳出循环是因为 p1 == null 或者 p2 == null
+        if (p1 == null) {
+            curNode.next = p2;
+        }
+        if (p2 == null) {
+            curNode.next = p1;
         }
         return dummyNode.next;
     }

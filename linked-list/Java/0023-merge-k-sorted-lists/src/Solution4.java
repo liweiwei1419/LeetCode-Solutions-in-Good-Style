@@ -1,42 +1,34 @@
-class Solution4 {
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
-    // 同 Solution3 分治思想
+class Solution4 {
 
     public ListNode mergeKLists(ListNode[] lists) {
         int len = lists.length;
         if (len == 0) {
             return null;
         }
-        return mergeKLists(lists, 0, len - 1);
-    }
 
-    private ListNode mergeKLists(ListNode[] lists, int l, int r) {
-        if (l >= r) {
-            return lists[l];
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(len, Comparator.comparingInt(o -> o.val));
+        for (int i = 0; i < len; i++) {
+            if (lists[i] != null) {
+                minHeap.offer(lists[i]);
+            }
         }
-        int mid = l + (r - l) / 2;
-        ListNode listNode1 = mergeKLists(lists, l, mid);
-        ListNode listNode2 = mergeKLists(lists, mid + 1, r);
-        return mergeTwoSortedListNode(listNode1, listNode2);
-    }
 
-    private ListNode mergeTwoSortedListNode(ListNode listNode1, ListNode listNode2) {
-        // 先处理递归到底的情况
-        if (listNode1 == null) {
-            return listNode2;
+        ListNode dummyNode = new ListNode(-1);
+        ListNode curNode = dummyNode;
+        while (!minHeap.isEmpty()){
+            ListNode top = minHeap.poll();
+            curNode.next = top;
+
+            curNode = curNode.next;
+
+            if (top.next != null){
+                minHeap.offer(top.next);
+            }
         }
-        if (listNode2 == null) {
-            return listNode1;
-        }
-        if (listNode1.val < listNode2.val) {
-            // 把问题转化为一个更小的问题
-            listNode1.next = mergeTwoSortedListNode(listNode1.next, listNode2);
-            return listNode1;
-        } else {
-            // 把问题转化为一个更小的问题
-            listNode2.next = mergeTwoSortedListNode(listNode1, listNode2.next);
-            return listNode2;
-        }
+        return dummyNode.next;
     }
 
     public static void main(String[] args) {
@@ -54,4 +46,6 @@ class Solution4 {
         ListNode mergeKLists = solution4.mergeKLists(lists);
         System.out.println(mergeKLists);
     }
+
+
 }

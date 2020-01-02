@@ -26,7 +26,7 @@ public class Solution2 {
             // 只要非空当前位置非空，就进行一次 merge，merge 以后尝试放到下一格，如果下一格非空就继续合并
             // 合并以后再尝试放到下一格，直到下一格为空，直接放在那个为空的下一格就好
             while (counter[i] != null) {
-                ListNode newMergeNode = mergeOfTwoSortedListNode(carryNode, counter[i]);
+                ListNode newMergeNode = mergeTwoSortLinkedList(carryNode, counter[i]);
                 counter[i] = null;
                 i++;
                 carryNode = newMergeNode;
@@ -44,7 +44,7 @@ public class Solution2 {
         ListNode res = null;
         for (int i = 0; i <= maxIndex; i++) {
             if (counter[i] != null) {
-                res = mergeOfTwoSortedListNode(res, counter[i]);
+                res = mergeTwoSortLinkedList(res, counter[i]);
             }
         }
         return res;
@@ -53,28 +53,34 @@ public class Solution2 {
     /**
      * 归并两个已经排好序的单链表，是我们非常熟悉的操作了，可以递归完成，也可以穿针引线，这里我们递归完成
      *
-     * @param l1 顺序存放的单链表1
-     * @param l2 顺序存放的单链表2
+     * @param list1 顺序存放的单链表1
+     * @param list2 顺序存放的单链表2
      * @return 合并以后的单链表
      */
-    private ListNode mergeOfTwoSortedListNode(ListNode l1, ListNode l2) {
-        ListNode dummyNode = new ListNode(0);
+    private ListNode mergeTwoSortLinkedList(ListNode list1, ListNode list2) {
+        ListNode dummyNode = new ListNode(-1);
+        ListNode p1 = list1;
+        ListNode p2 = list2;
         ListNode curNode = dummyNode;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                curNode.next = l1;
-                l1 = l1.next;
+        // 两者都不为空的时候，才有必要进行比较
+        while (p1 != null && p2 != null) {
+            if (p1.val < p2.val) {
+                // 指针修改发生在这里
+                curNode.next = p1;
+                p1 = p1.next;
             } else {
-                curNode.next = l2;
-                l2 = l2.next;
+                // 指针修改发生在这里
+                curNode.next = p2;
+                p2 = p2.next;
             }
             curNode = curNode.next;
         }
-        if (l1 != null) {
-            curNode.next = l1;
+        // 跳出循环是因为 p1 == null 或者 p2 == null
+        if (p1 == null) {
+            curNode.next = p2;
         }
-        if (l2 != null) {
-            curNode.next = l2;
+        if (p2 == null) {
+            curNode.next = p1;
         }
         return dummyNode.next;
     }

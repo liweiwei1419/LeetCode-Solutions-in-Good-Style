@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.PriorityQueue;
 
 class ListNode {
@@ -37,30 +40,26 @@ class ListNode {
 public class Solution {
 
     public ListNode mergeKLists(ListNode[] lists) {
-        int len = lists.length;
-        if (len == 0) {
-            return null;
-        }
+        List<Integer> arr = new ArrayList<>();
 
-        // 默认是最小堆
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(len, Comparator.comparingInt(a -> a.val));
-        for (int i = 0; i < len; i++) {
-            // 注意：这里要注意到测试用例中，ListNode 为 null 的特殊情况，空节点是一定不能放入优先队列的，把空节点放入优先队列没有意义
-            if (lists[i] != null) {
-                minHeap.add(lists[i]);
+        for (ListNode listNode : lists) {
+            if (listNode != null) {
+                ListNode curNode = listNode;
+                while (curNode != null) {
+                    arr.add(curNode.val);
+                    curNode = curNode.next;
+                }
             }
         }
+
+        Collections.sort(arr);
 
         ListNode dummyNode = new ListNode(-1);
         ListNode curNode = dummyNode;
-        while (!minHeap.isEmpty()) {
-            ListNode top = minHeap.poll();
-            curNode.next = top;
+        int size = arr.size();
+        for (int i = 0; i < size; i++) {
+            curNode.next = new ListNode(arr.get(i));
             curNode = curNode.next;
-
-            if (top.next != null) {
-                minHeap.offer(top.next);
-            }
         }
         return dummyNode.next;
     }

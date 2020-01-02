@@ -1,39 +1,36 @@
-class Solution5 {
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class Solution5 {
+
+    // 添加了注释，另外传入优先队列的比较器的语法不同，仅此而已
 
     public ListNode mergeKLists(ListNode[] lists) {
         int len = lists.length;
         if (len == 0) {
             return null;
         }
-        return mergeKLists(lists, 0, len - 1);
-    }
-
-    private ListNode mergeKLists(ListNode[] lists, int l, int r) {
-        if (l == r) {
-            return lists[l];
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(len, Comparator.comparingInt(a -> a.val));
+        ListNode dummyNode = new ListNode(-1);
+        ListNode curNode = dummyNode;
+        for (ListNode list : lists) {
+            if (list != null) {
+                // 这一步很关键，不能也没有必要将空对象添加到优先队列中
+                minHeap.add(list);
+            }
         }
-        int mid = l + (r - l) / 2;
-        ListNode listNodeLeft = mergeKLists(lists, l, mid);
-        ListNode listNoderight = mergeKLists(lists, mid + 1, r);
-        // 于是问题转化成合并两个有序链表的问题了，我们可以穿针引线，也可以继续递归解决这个子问题，请见 LeetCode 第 21 题，
-        // 这里我们使用继续递归解决，
-        // 因为使用穿针引线，每一次调用这个方法的时候，都需要创建一个虚拟的头结点，归并次数有些多的时候，是不划算的
-        return mergeTwoSortedListNode(listNodeLeft, listNoderight);
-    }
-
-    private ListNode mergeTwoSortedListNode(ListNode node1, ListNode node2) {
-        if (node1 == null) {
-            return node2;
+        while (!minHeap.isEmpty()) {
+            // 优先队列非空才能出队
+            ListNode node = minHeap.poll();
+            // 当前节点的 next 指针指向出队元素
+            curNode.next = node;
+            // 当前指针向前移动一个元素，指向了刚刚出队的那个元素
+            curNode = curNode.next;
+            if (curNode.next != null) {
+                // 只有非空节点才能加入到优先队列中
+                minHeap.add(curNode.next);
+            }
         }
-        if (node2 == null) {
-            return node1;
-        }
-        if (node1.val < node2.val) {
-            node1.next = mergeTwoSortedListNode(node1.next, node2);
-            return node1;
-        } else {
-            node2.next = mergeTwoSortedListNode(node1, node2.next);
-            return node2;
-        }
+        return dummyNode.next;
     }
 }
