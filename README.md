@@ -61,7 +61,7 @@
 2、网课与自媒体
 
 + 某课网 liuyubobobo 老师的算法与数据结构系列课程。我本人就是学习刘老师的课程入坑算法与数据结构的。（刘老师的课程是精心准备过，且是收费的，请大家自行判断是否需要购买。）
-+ 可以在哔哩哩哔和 youtub 上搜索一些优秀的自媒体，听他们讲题也是很不错的学习途径，我常听的自媒体有：花花酱，程序员刀刀，一俩三四五、lee215215、胡小旭-_-、喂你脚下有坑、代码会说话等。
++ 可以在哔哩哩哔和 youtub 上搜索一些优秀的自媒体，听他们讲题也是很不错的学习途径，我常收看的自媒体有：花花酱，程序员刀刀，一俩三四五、lee215215、胡小旭-_-、喂你脚下有坑、代码会说话等。
 
 3、优秀的博客、公众号
 
@@ -108,6 +108,38 @@
 > 希望我们程序员不再是别人眼里的刻板印象。我们也是艺术家，我们也是闷骚的。
 >
 > 希望我们大家都能在自己的工作领域里有所成绩。很高兴和大家成为朋友。
+
+## 题解分类（正在更新）
+
+### 栈
+
+| 题目序号                                                     | 题解                                                         | 知识点   | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---- |
+| [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
+| [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [负负得正，peek 和 pop 时，依次将队首元素出队，放到队尾](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |          |      |
+
+### 链表
+
+| 题目序号                                                     | 题解                                                         | 知识点   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+| [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/) | [穿针引线](https://leetcode-cn.com/problems/rotate-list/solution/chuan-zhen-yin-xian-by-liweiwei1419/) | 穿针引线 |
+
+### 二分查找
+
+| 题目序号                                                     | 题解                                                         |                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------- |
+| [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [使用二分法在候选区间里定位目标数值（C++、Java、Python）](https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/) | 使用二分法定位一个有范围的整数。 |
+
+### 动态规划
+
+| 题目序号                                                     | 题解                                                         | 知识点                                                    | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------------- | ---- |
+| [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103799112) |                                                           |      |
+| [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | [Manacher 算法 + 动态规划 （Java、C++、Python）](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/) | 使用动态规划的方法得到子串的回文性质                      |      |
+| [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [动态规划（0-1 背包问题）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/) | 很重要的动态规划模型，必须掌握                            |      |
+| [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | [暴力枚举 + 动态规划 + 差分思想](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103772951) |                                                           |      |
+| [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | [暴力搜索 + 贪心算法 + 动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773246) |                                                           |      |
+| [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103773822) | 1、从后向前写可以把状态压缩到一维；2、分解成两个 121 题。 |      |
 
 ## 配套资源
 
