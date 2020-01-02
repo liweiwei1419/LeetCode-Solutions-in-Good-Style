@@ -1,14 +1,17 @@
+import java.util.Arrays;
 import java.util.Random;
 
-/**
- * @author liweiwei1419
- */
 public class MaxHeap implements Queue {
 
     /**
      * 为了计算左右子结点的索引方便，0 号索引不存放数据的
      */
     private int[] data;
+
+    /**
+     * 堆中能够存储的元素的最大数量（为简化问题，不考虑动态扩展）
+     */
+    private int capacity;
 
     /**
      * 当前堆中存储的元素的个数
@@ -34,19 +37,6 @@ public class MaxHeap implements Queue {
         return data[1];
     }
 
-    @Override
-    public void replace(int item) {
-        if (isEmpty()) {
-            throw new IllegalArgumentException("堆为空。");
-        }
-        data[1] = item;
-        siftUp(1);
-    }
-
-    /**
-     * 堆中能够存储的元素的最大数量（为简化问题，不考虑动态扩展）
-     */
-    private int capacity;
 
     public MaxHeap(int capacity) {
         // 初始化最大堆
@@ -54,6 +44,31 @@ public class MaxHeap implements Queue {
         data = new int[capacity + 1];
         size = 0;
         this.capacity = capacity;
+    }
+
+    private void heapify(int[] arr) {
+        System.arraycopy(arr, 0, data, 1, size);
+
+        for (int i = 2; i <= size; i++) {
+            siftUp(i);
+        }
+    }
+
+    public MaxHeap(int[] arr) {
+        size = arr.length;
+        capacity = size + 1;
+        data = new int[capacity];
+
+        heapify(arr);
+    }
+
+    @Override
+    public void replace(int item) {
+        if (isEmpty()) {
+            throw new IllegalArgumentException("堆为空。");
+        }
+        data[1] = item;
+        siftUp(1);
     }
 
     private void siftUp(int k) {
@@ -137,18 +152,26 @@ public class MaxHeap implements Queue {
 
     public static void main(String[] args) {
         MaxHeap maxHeap = new MaxHeap(1000);
-        Random random = new Random();
+//        Random random = new Random();
+//
+//        for (int i = 0; i < 20; i++) {
+//            // 生成 [0, upBound) 之前的整数
+//            int randomInt = random.nextInt(100);
+//            maxHeap.offer(randomInt);
+//        }
+//
+//        while (!maxHeap.isEmpty()) {
+//            System.out.println(maxHeap.poll());
+//        }
 
-        for (int i = 0; i < 20; i++) {
-            // 生成 [0, upBound) 之前的整数
-            int randomInt = random.nextInt(100);
-            maxHeap.offer(randomInt);
-        }
-
-        while (!maxHeap.isEmpty()) {
-            System.out.println(maxHeap.poll());
-        }
+        maxHeap.offer(167);
+        maxHeap.offer(167);
+        maxHeap.offer(170);
+        maxHeap.offer(172);
+        maxHeap.offer(178);
+        maxHeap.offer(179);
+        maxHeap.offer(186);
+        System.out.println(Arrays.toString(maxHeap.data));
     }
-
 }
 

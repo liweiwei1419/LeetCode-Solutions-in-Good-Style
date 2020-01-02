@@ -130,6 +130,22 @@ public class MinHeap implements Queue {
         siftDown(1);
     }
 
+    private void heapify(int[] arr) {
+        System.arraycopy(arr, 0, data, 1, size);
+
+        for (int k = size / 2; k >= 1; k--) {
+            siftDown(k);
+        }
+    }
+
+    public MinHeap(int[] arr) {
+        size = arr.length;
+        capacity = size + 1;
+        data = new int[capacity];
+
+        heapify(arr);
+    }
+
     private void swap(int[] data, int index1, int index2) {
         int temp = data[index1];
         data[index1] = data[index2];

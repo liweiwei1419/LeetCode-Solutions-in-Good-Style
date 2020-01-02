@@ -1,5 +1,4 @@
-public interface PriorityQueue {
-
+public interface Queue {
 
     /**
      * 队列是否为空

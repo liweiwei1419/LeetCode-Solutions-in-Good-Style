@@ -1,12 +1,13 @@
-/**
- * 使用了反向查找技术
- */
-public class IndexMaxHeap2 {
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class IndexMaxHeap  {
+
+
 
     private int[] data;
 
     private int[] indexes;
-    private int[] reverses;
 
     private int size;
 
@@ -27,10 +28,10 @@ public class IndexMaxHeap2 {
 
     private int capacity;
 
-    public IndexMaxHeap2(int capacity) {
+    public IndexMaxHeap(int capacity) {
         data = new int[capacity + 1];
+
         indexes = new int[capacity + 1];
-        reverses = new int[capacity + 1];
 
         size = 0;
         this.capacity = capacity;
@@ -38,7 +39,7 @@ public class IndexMaxHeap2 {
 
 
     /**
-     * 比较的是 data 的值，交换的是 indexes
+     * 比较的是 data 的值，修改的是 indexes
      *
      * @param k
      */
@@ -48,21 +49,12 @@ public class IndexMaxHeap2 {
         while (k > 1) {
             if (data[indexes[k / 2]] < tempValue) {
                 indexes[k] = indexes[k / 2];
-
-                reverses[indexes[k / 2]] = k;
-
                 k /= 2;
             } else {
                 break;
             }
         }
         indexes[k] = tempIndex;
-        reverses[tempIndex] = k;
-    }
-
-    public boolean contains(int index) {
-        return index + 1 >= 1 && index + 1 <= capacity && reverses[index + 1] == 0;
-
     }
 
     public void offer(int index, int item) {
@@ -70,18 +62,18 @@ public class IndexMaxHeap2 {
             throw new IllegalArgumentException("堆空间已满。");
         }
 
-        if (!contains(index)) {
+        // 转换成内部数组的索引
+        index++;
+
+        if (index < 1 || index > capacity || indexes[index] != 0) {
             throw new IllegalArgumentException("用户提供的 index 不合法。");
         }
 
-        // 转换成内部数组的索引
-        index++;
         data[index] = item;
-
-        indexes[size + 1] = index;
-        reverses[index] = size + 1;
+        indexes[index] = index;
 
         size++;
+        // 考虑将它上移
         siftUp(size);
     }
 
@@ -98,11 +90,9 @@ public class IndexMaxHeap2 {
                 break;
             }
             indexes[k] = indexes[j];
-            reverses[indexes[j]] = k;
             k = j;
         }
         indexes[k] = tempIndex;
-        reverses[tempIndex] = k;
     }
 
     /**
@@ -136,16 +126,18 @@ public class IndexMaxHeap2 {
     }
 
     public void change(int i, int item) {
-        i = i + 1;
+        i++;
         data[i] = item;
         // 找到 index[j] = i，j 表示 data[i] 在堆中的位置
         // 之后 shiftUp(j)，在 shiftDown(j)
-
-        int j = reverses[i];
-
-        // 找到了 j
-        siftDown(j);
-        siftUp(j);
+        for (int j = 1; j <= size; j++) {
+            if (indexes[j] == i) {
+                // 找到了 j
+                siftDown(j);
+                siftUp(j);
+                return;
+            }
+        }
     }
 
     private void swap(int[] data, int index1, int index2) {
