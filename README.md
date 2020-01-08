@@ -10,7 +10,7 @@
 
 ## 项目说明
 
-+ 本代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode（中文版）](https://leetcode-cn.com/) 上做的练习 。最开始的时候只有 Python 代码、然后陆续添加 Java 代码和 C++ 版本的代码。Java 是我的编程入门语言，Python 是学习人工智能以后学习的语言，C++ 就只是在刷题的时候用，因为有 Java 的基础，编写边学。
++ 本代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode（中文版）](https://leetcode-cn.com/) 上做的练习 。最开始的时候只有 Python 代码、然后陆续添加 Java 代码和 C++ 版本的代码。Java 是我的编程入门语言，Python 是学习人工智能以后学习的语言，C++ 就只是在刷题的时候用，因为有 Java 的基础，边写边学。
 
 + 所有的代码都是通过  [LeetCode（中文版）](https://leetcode-cn.com/) 在线测评系统检测的，至少是正确的代码，但本人水平有限，所在代码仅供参考，欢迎您与我交流。
 
@@ -26,7 +26,7 @@
 
 2、遵循代码规范
 
-本人遵守的代码规范和工具如下：
+我遵守的代码规范和使用的工具如下：
 
 | 编程语言 | 代码规范                                                     | 工具                                                         |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -126,9 +126,57 @@
 
 ### 二分查找
 
-| 题目序号                                                     | 题解                                                         |                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------- |
-| [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [使用二分法在候选区间里定位目标数值（C++、Java、Python）](https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/) | 使用二分法定位一个有范围的整数。 |
+| 题目序号                                                     | 题解                                                         | 知识点                                                       | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
+| [704. 二分查找](https://leetcode-cn.com/problems/binary-search/) |                                                              |                                                              |      |
+| [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [二分查找](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/si-lu-hen-jian-dan-xi-jie-fei-mo-gui-de-er-fen-cha/) |                                                              |      |
+| [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | [二分法](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/er-fen-fa-python-dai-ma-java-dai-ma-by-liweiwei141/) |                                                              |      |
+| [81. 搜索旋转排序数组 II](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/) | [二分查找](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/solution/er-fen-cha-zhao-by-liweiwei1419/) |                                                              |      |
+| [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/) | [二分查找 + 分治法](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/solution/er-fen-fa-fen-zhi-fa-python-dai-ma-java-dai-ma-by-/) |                                                              |      |
+| [154. 寻找旋转排序数组中的最小值 II](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/) | [二分查找 + 分治法](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/solution/er-fen-fa-fen-zhi-fa-python-dai-ma-by-liweiwei1419/) |                                                              |      |
+| [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/) | [十分好用的二分查找法模板](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) |                                                              |      |
+| [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | [二分查找 + 牛顿法（Python 代码、Java 代码）](https://leetcode-cn.com/problems/sqrtx/solution/er-fen-cha-zhao-niu-dun-fa-python-dai-ma-by-liweiw/) |                                                              |      |
+| [275. H指数 II](https://leetcode-cn.com/problems/h-index-ii/) | [减而治之、二分查找](https://leetcode-cn.com/problems/h-index-ii/solution/jian-er-zhi-zhi-er-fen-cha-zhao-by-liweiwei1419-2/) |                                                              |      |
+| [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | [动态规划 、贪心算法 + 二分](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |                                                              |      |
+| [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | [贪心算法、二分查找（Python 代码、Java 代码）](https://leetcode-cn.com/problems/russian-doll-envelopes/solution/tan-xin-suan-fa-er-fen-cha-zhao-python-dai-ma-java/) |                                                              |      |
+| [374. 猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/) | [借本题说一说取中位数的写法（Python 代码、Java 代码）](https://leetcode-cn.com/problems/guess-number-higher-or-lower/solution/shi-fen-hao-yong-de-er-fen-cha-zhao-fa-mo-ban-pyth/) |                                                              |      |
+| [436. 寻找右区间](https://leetcode-cn.com/problems/find-right-interval/) | [二分查找、二分搜索树](https://leetcode-cn.com/problems/find-right-interval/solution/er-fen-cha-zhao-hong-hei-shu-by-liweiwei1419/) |                                                              |      |
+| [410. 分割数组的最大值](https://leetcode-cn.com/problems/split-array-largest-sum/) |                                                              |                                                              |      |
+| [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/) | [二分查找定位速度（C++、Java、Python）](https://leetcode-cn.com/problems/koko-eating-bananas/solution/er-fen-cha-zhao-ding-wei-su-du-by-liweiwei1419/) |                                                              |      |
+| [1095. 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array/) | [十分好用的二分查找法模板（Python 代码、Java 代码）](https://leetcode-cn.com/problems/find-in-mountain-array/solution/shi-yong-chao-hao-yong-de-er-fen-fa-mo-ban-python-/) |                                                              |      |
+| [1237. 找出给定方程的正整数解](https://leetcode-cn.com/problems/find-positive-integer-solution-for-a-given-equation/) |                                                              |                                                              |      |
+| [1283. 使结果不超过阈值的最小除数](https://leetcode-cn.com/problems/find-the-smallest-divisor-given-a-threshold/) | [二分查找定位除数](https://leetcode-cn.com/problems/find-the-smallest-divisor-given-a-threshold/solution/er-fen-cha-zhao-ding-wei-chu-shu-by-liweiwei1419/) |                                                              |      |
+| [1292. 元素和小于等于阈值的正方形的最大边长](https://leetcode-cn.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/) |                                                              |                                                              |      |
+| [1300. 转变数组后最接近目标值的数组和](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/) | [二分查找](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/solution/er-fen-cha-zhao-by-liweiwei1419-2/) |                                                              |      |
+| [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [使用二分法在候选区间里定位目标数值（C++、Java、Python）](https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/) | 使用二分法定位一个有范围的整数。                             |      |
+| [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | [二分查找定位短数组的“边界线”](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/he-bing-yi-hou-zhao-gui-bing-guo-cheng-zhong-zhao-/) | 二分查找里最难的问题，主要弄清楚：1、为什么是在短数组里找边界；2、边界条件的判断。 |      |
+
+### 回溯算法
+
+### 
+
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) |      |        |      |
+| [17 .电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) |      |        |      |
+| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) |      |        |      |
+| [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) |      |        |      |
+| [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) |      |        |      |
+| [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      |      |        |      |
+| [60. 第k个排列](https://leetcode-cn.com/problems/permutation-sequence/) |      |        |      |
+| [77. 组合](https://leetcode-cn.com/problems/combinations/)   |      |        |      |
+| [78. 子集](https://leetcode-cn.com/problems/subsets/)        |      |        |      |
+| [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)  |      |        |      |
+| [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) |      |        |      |
+| [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/) |      |        |      |
+
+
+
+
+
+
+
+
 
 ### 动态规划
 
@@ -140,6 +188,15 @@
 | [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | [暴力枚举 + 动态规划 + 差分思想](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103772951) |                                                           |      |
 | [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | [暴力搜索 + 贪心算法 + 动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773246) |                                                           |      |
 | [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103773822) | 1、从后向前写可以把状态压缩到一维；2、分解成两个 121 题。 |      |
+| [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) | [CDSN](https://blog.csdn.net/lw_power/article/details/103818533) |                                                           |      |
+
+### 优先队列
+
+| 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
+| [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
+
+
 
 ## 配套资源
 
