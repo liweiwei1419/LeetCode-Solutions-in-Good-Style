@@ -4,18 +4,26 @@ public class Solution2 {
 
     public int findTargetSumWays(int[] nums, int S) {
         int len = nums.length;
-        int sum = S;
+
+        if (len == 0) {
+            return 0;
+        }
+
+        int sum = 0;
         for (int num : nums) {
             sum += num;
         }
-        int target = sum;
-        if (len == 0 || (target & 1) == 1) {
+
+        if (S > sum) {
             return 0;
         }
+
+        int target = sum + S;
+        if ((target & 1) != 0) {
+            return 0;
+        }
+
         target >>>= 1;
-        if (target > sum) {
-            return 0;
-        }
 
         int[][] dp = new int[len][target + 1];
         dp[0][0] = 1;
@@ -38,9 +46,13 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {42, 24, 30, 14, 38, 27, 12, 29, 43, 42, 5, 18, 0, 1, 12, 44, 45, 50, 21, 47};
-        int S = 38;
+        // int[] nums = {42, 24, 30, 14, 38, 27, 12, 29, 43, 42, 5, 18, 0, 1, 12, 44, 45, 50, 21, 47};
+        // int S = 38;
         // 5602
+
+        int[] nums = {1, 2, 7, 9, 981};
+        int S = 1000000000;
+
         Solution2 solution2 = new Solution2();
         int res = solution2.findTargetSumWays(nums, S);
         System.out.println(res);

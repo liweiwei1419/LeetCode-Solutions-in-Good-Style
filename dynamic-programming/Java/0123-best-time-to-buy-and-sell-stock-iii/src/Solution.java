@@ -1,13 +1,12 @@
 public class Solution {
-    public int maxProfit(int[] prices) {
 
+    public int maxProfit(int[] prices) {
         int len = prices.length;
         if (len < 2) {
             return 0;
         }
 
         // dp[i][j] ，表示 [0, i] 区间里，状态为 j 的最大收益
-        // 注意：这个状态具有前缀性质
         // j = 0：什么都不操作
         // j = 1：第 1 次买入一支股票
         // j = 2：第 1 次卖出一支股票
@@ -19,12 +18,9 @@ public class Solution {
         dp[0][0] = 0;
         dp[0][1] = -prices[0];
 
-        // 2、3、4 状态都还没有发生，因此应该赋值为一个不可能的数
-        // 不能赋值为 -1，因为 [5,4,3,2,1] 这种测试用例，在状态转移的时候，就是负数
+        // 3 状态都还没有发生，因此应该赋值为一个不可能的数
         for (int i = 0; i < len; i++) {
-            dp[i][2] = Integer.MIN_VALUE;
             dp[i][3] = Integer.MIN_VALUE;
-            dp[i][4] = Integer.MIN_VALUE;
         }
 
         // 状态转移只有 2 种情况：
@@ -35,16 +31,10 @@ public class Solution {
             dp[i][0] = 0;
             dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
             dp[i][2] = Math.max(dp[i - 1][2], dp[i - 1][1] + prices[i]);
-
-            if (dp[i - 1][2] != Integer.MIN_VALUE) {
-                dp[i][3] = Math.max(dp[i - 1][3], dp[i - 1][2] - prices[i]);
-            }
-
-            if (dp[i - 1][3] != Integer.MIN_VALUE) {
-                dp[i][4] = Math.max(dp[i - 1][4], dp[i - 1][3] + prices[i]);
-            }
+            dp[i][3] = Math.max(dp[i - 1][3], dp[i - 1][2] - prices[i]);
+            dp[i][4] = Math.max(dp[i - 1][4], dp[i - 1][3] + prices[i]);
         }
-        // 最后要注意：最大值只发生在不持股的时候，因此来源有 3 个：j = 0 ,j = 2, j = 4
+        // 最大值只发生在不持股的时候，因此来源有 3 个：j = 0 ,j = 2, j = 4
         return Math.max(0, Math.max(dp[len - 1][2], dp[len - 1][4]));
     }
 

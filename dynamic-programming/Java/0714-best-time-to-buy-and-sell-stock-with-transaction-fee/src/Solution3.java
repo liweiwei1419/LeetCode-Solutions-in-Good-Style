@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/23 5:16 下午
- */
 public class Solution3 {
 
     // 使用差分数组来做

@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/23 5:03 下午
- */
 public class Solution {
 
     // 和张心翮的写法一样
@@ -30,7 +26,7 @@ public class Solution {
 
         // 第 3 步：思考输出是什么
         // 所有的天数里面，不持有股票的最大值
-        return Math.max(dp[len - 1][0], dp[len - 1][1]);
+        return dp[len - 1][0];
     }
 
     public static void main(String[] args) {

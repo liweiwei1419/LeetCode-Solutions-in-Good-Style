@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/23 5:03 下午
- */
 public class Solution2 {
 
     public int maxProfit(int[] prices, int fee) {
@@ -24,7 +20,7 @@ public class Solution2 {
             dp[0] = Math.max(dp[0], dp[1] + prices[i] - fee);
             dp[1] = Math.max(dp[1], dp[0] - prices[i]);
         }
-        return Math.max(dp[0], dp[1]);
+        return dp[0];
     }
 
     public static void main(String[] args) {

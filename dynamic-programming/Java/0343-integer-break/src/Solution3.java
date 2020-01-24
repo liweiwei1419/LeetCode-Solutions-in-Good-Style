@@ -1,15 +1,21 @@
+// 找规律的解法
 public class Solution3 {
 
     public int integerBreak(int n) {
-        int[] dp = new int[n + 1];
-        dp[0] = 0;
-        dp[1] = 0;
-        dp[2] = 1;
-        for (int i = 3; i <= n; i++) {
-            for (int j = 2; j < i; j++) {
-                dp[i] = Math.max(dp[i], Math.max(dp[j] * (i - j), j * (i - j)));
-            }
+        if (n == 2 || n == 3) {
+            return n - 1;
         }
-        return dp[n];
+        int res = 1;
+        while (n > 4) {
+            res *= 3;
+            n -= 3;
+        }
+        return res * n;
+    }
+
+    public static void main(String[] args) {
+        Solution3 s = new Solution3();
+        int maxBreak = s.integerBreak(4);
+        System.out.println(maxBreak);
     }
 }

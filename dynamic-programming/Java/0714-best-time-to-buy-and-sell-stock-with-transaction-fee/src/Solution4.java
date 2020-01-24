@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/23 6:21 下午
- */
 public class Solution4 {
 
     // 参考资料：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/solution/ti-hao-122mei-you-shou-xu-fei-jia-yi-dian-dong-xi-/
