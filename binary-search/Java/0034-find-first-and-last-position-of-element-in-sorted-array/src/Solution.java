@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/9/19 9:10 下午
- */
 public class Solution {
 
     public int[] searchRange(int[] nums, int target) {
@@ -10,22 +6,25 @@ public class Solution {
             return new int[]{-1, -1};
         }
 
-        int lowerBound = findLowerBound(nums, len, target);
-        if (lowerBound == -1) {
+        int firstPosition = searchFirstPosition(nums, len, target);
+        if (firstPosition == -1) {
             return new int[]{-1, -1};
         }
-        int upBound = findUpBound(nums, len, target);
-        return new int[]{lowerBound, upBound};
+        int lastPosition = searchLastPosition(nums, len, target);
+        return new int[]{firstPosition, lastPosition};
     }
 
-    private int findLowerBound(int[] nums, int len, int target) {
+    private int searchFirstPosition(int[] nums, int len, int target) {
         int left = 0;
         int right = len - 1;
         while (left < right) {
             int mid = (left + right) >>> 1;
             if (nums[mid] < target) {
+                // mid 以及 mid 的左边一定不是目标元素第 1 次出现的位置
+                // 下一轮搜索的区间是 `[mid + 1, right]`
                 left = mid + 1;
             } else {
+                // 下一轮搜索的区间是 `[left, mid]`
                 right = mid;
             }
         }
@@ -35,18 +34,20 @@ public class Solution {
         return -1;
     }
 
-    private int findUpBound(int[] nums, int len, int target) {
+    private int searchLastPosition(int[] nums, int len, int target) {
         int left = 0;
         int right = len - 1;
         while (left < right) {
             int mid = (left + right + 1) >>> 1;
             if (nums[mid] > target) {
+                // mid 以及 mid 的右边一定不是目标元素最后一次出现的位置
+                // 下一轮搜索的区间是 `[left, mid - 1]`
                 right = mid - 1;
             } else {
+                // 下一轮搜索的区间是 `[mid, right]`
                 left = mid;
             }
         }
-        // 因为先 findLowerBound 才走到这里，保证了 target 一定在 nums 中，因此无需后处理
         return left;
     }
 }

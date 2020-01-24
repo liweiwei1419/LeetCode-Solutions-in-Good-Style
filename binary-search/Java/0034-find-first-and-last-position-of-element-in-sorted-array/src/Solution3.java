@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/14 8:57 下午
- */
 public class Solution3 {
 
     // 帮助网友调试的程序
