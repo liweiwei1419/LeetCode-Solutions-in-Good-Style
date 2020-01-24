@@ -29,7 +29,7 @@ public class Solution2 {
         slow.next = null;
 
         // 当链表只有 2 个结点的时候，pre 指针此时为 null，不用递归构造左子树
-        if(pre != null){
+        if (pre != null) {
             pre.next = null;
             root.left = sortedListToBST(head);
         }
