@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/2 3:23 下午
- */
 public class Solution2 {
 
     public int search(int[] nums, int target) {
