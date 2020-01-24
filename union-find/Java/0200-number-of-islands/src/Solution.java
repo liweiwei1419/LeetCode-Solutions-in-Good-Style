@@ -1,6 +1,7 @@
 public class Solution {
 
     private class UnionFind {
+
         private int[] parent;
         /**
          * 连通分量个数
@@ -17,6 +18,7 @@ public class Solution {
 
         public int find(int x) {
             while (x != parent[x]) {
+                // 只实现了路径压缩，并且是隔代压缩
                 parent[x] = parent[parent[x]];
                 x = parent[x];
             }
@@ -31,6 +33,10 @@ public class Solution {
             }
             parent[rootX] = rootY;
             count--;
+        }
+
+        public int getCount() {
+            return count;
         }
     }
 
@@ -75,6 +81,6 @@ public class Solution {
             }
 
         }
-        return unionFind.count - 1;
+        return unionFind.getCount() - 1;
     }
 }
