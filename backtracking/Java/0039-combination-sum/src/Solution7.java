@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution7 {
 
@@ -28,9 +27,9 @@ public class Solution7 {
                 break;
             }
 
-            stack.push(candidates[i]);
+            stack.addLast(candidates[i]);
             dfs(candidates, residue, len, i, stack, res);
-            stack.pop();
+            stack.removeLast();
             residue += candidates[i];
         }
     }

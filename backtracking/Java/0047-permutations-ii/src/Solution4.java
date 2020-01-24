@@ -14,22 +14,22 @@ public class Solution4 {
             numsArr.add(num);
         }
         int len = nums.length;
-        backtracking(len, numsArr, res, 0);
+        dfs(len, numsArr, res, 0);
         return res;
 
     }
 
-    private void backtracking(int len, List<Integer> nums,
+    private void dfs(int len, List<Integer> nums,
                               List<List<Integer>> res, int index) {
-
         if (index == len) {
             res.add(new ArrayList<>(nums));
             return;
         }
+
         for (int i = index; i < len; i++) {
             if (!isRepeat(nums, index, i)) {
                 Collections.swap(nums, index, i);
-                backtracking(len, nums, res, index + 1);
+                dfs(len, nums, res, index + 1);
                 Collections.swap(nums, index, i);
             }
         }

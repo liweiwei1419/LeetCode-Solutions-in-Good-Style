@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/29 9:36 上午
- */
 public class Solution6 {
 
     // 广度优先遍历

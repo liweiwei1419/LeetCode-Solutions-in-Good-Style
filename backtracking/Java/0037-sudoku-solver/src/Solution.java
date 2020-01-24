@@ -1,14 +1,10 @@
 import java.util.Arrays;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/28 10:21 下午
- */
 public class Solution {
-    boolean solved;
-    boolean[][] rows;
-    boolean[][] cols;
-    boolean[][] blocks;
+    private boolean solved;
+    private boolean[][] rows;
+    private boolean[][] cols;
+    private boolean[][] blocks;
 
     public void solveSudoku(char[][] board) {
         solved = false;

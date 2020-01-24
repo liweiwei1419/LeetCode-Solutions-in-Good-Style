@@ -10,7 +10,7 @@ public class Solution {
             return res;
         }
         String[] digitsMap = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        findCombinations(digits, digitsMap, 0, "", res);
+        dfs(digits, digitsMap, 0, "", res);
         return res;
     }
 
@@ -19,7 +19,7 @@ public class Solution {
      * @param start  从原始字符串的第几位开始搜索
      * @param pre    已经得到的子串
      */
-    private void findCombinations(String digits, String[] digitsMap, int start, String pre, List<String> res) {
+    private void dfs(String digits, String[] digitsMap, int start, String pre, List<String> res) {
         // 先写递归终止条件
         if (start == digits.length()) {
             // 由于字符串的特殊性，pre 每次都是新的，因此无需再创建拷贝
@@ -32,10 +32,9 @@ public class Solution {
         int len = nextStr.length();
         for (int i = 0; i < len; i++) {
             // 注意：这里没有状态重置
-            findCombinations(digits, digitsMap, start + 1, pre + nextStr.charAt(i), res);
+            dfs(digits, digitsMap, start + 1, pre + nextStr.charAt(i), res);
         }
     }
-
 
     public static void main(String[] args) {
         Solution solution = new Solution();

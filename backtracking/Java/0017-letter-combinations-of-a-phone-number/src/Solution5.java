@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/26 9:29 上午
- */
 public class Solution5 {
 
     public List<String> letterCombinations(String digits) {

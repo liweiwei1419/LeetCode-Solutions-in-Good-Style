@@ -1,6 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 // 剪枝优化版本：
 public class Solution3 {
@@ -11,23 +12,25 @@ public class Solution3 {
         if (n <= 0 || k <= 0 || n < k) {
             return result;
         }
-        findCombinations(n, k, 1, new Stack<>());
+        Deque<Integer> path = new ArrayDeque<>(k);
+        dfs(n, k, 1, path);
         return result;
     }
 
-    // p 可以声明成一个栈
+    // path 可以声明成一个栈
     // i 的极限值满足： n - i + 1 = (k - pre.size())。
     // 【关键】n - i + 1 是闭区间 [i,n] 的长度。
     // k - pre.size() 是剩下还要寻找的数的个数。
-    private void findCombinations(int n, int k, int index, Stack<Integer> p) {
-        if (p.size() == k) {
-            result.add(new ArrayList<>(p));
+    private void dfs(int n, int k, int index, Deque<Integer> path) {
+        if (path.size() == k) {
+            result.add(new ArrayList<>(path));
             return;
         }
-        for (int i = index; i <= n - (k - p.size()) + 1; i++) {
-            p.push(i);
-            findCombinations(n, k, i + 1, p);
-            p.pop();
+
+        for (int i = index; i <= n - (k - path.size()) + 1; i++) {
+            path.push(i);
+            dfs(n, k, i + 1, path);
+            path.pop();
         }
     }
 

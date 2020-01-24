@@ -6,25 +6,36 @@ import java.util.List;
 
 public class Solution {
 
-    // residue 表示剩余，这个值一开始等于 target，基于题目中说明的"所有数字（包括目标数）都是正整数"这个条件
-    // residue 在递归遍历中，只会越来越小
-
-    private void findCombinationSum2(int[] candidates, int begin, int len, int residue, Deque<Integer> stack, List<List<Integer>> res) {
+    /**
+     * @param candidates 候选数组
+     * @param len
+     * @param begin      从候选数组的 begin 位置开始搜索
+     * @param residue    表示剩余，这个值一开始等于 target，基于题目中说明的"所有数字（包括目标数）都是正整数"这个条件
+     * @param path       从根结点到叶子结点的路径
+     * @param res
+     */
+    private void dfs(int[] candidates, int len, int begin, int residue, Deque<Integer> path, List<List<Integer>> res) {
         if (residue == 0) {
-            res.add(new ArrayList<>(stack));
+            res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = begin; i < len && residue - candidates[i] >= 0; i++) {
-            // 这一步之所以能够生效，其前提是数组一定是排好序的，这样才能保证：
-            // 在递归调用的统一深度（层）中，一个元素只使用一次。
-            // 这一步剪枝操作基于 candidates 数组是排序数组的前提下
+        for (int i = begin; i < len; i++) {
+            // 大剪枝
+            if (residue - candidates[i] < 0) {
+                break;
+            }
+
+            // 小剪枝
             if (i > begin && candidates[i] == candidates[i - 1]) {
                 continue;
             }
-            stack.push(candidates[i]);
-            // 【关键】因为元素不可以重复使用，这里递归传递下去的是 i + 1 而不是 i
-            findCombinationSum2(candidates, i + 1, len, residue - candidates[i], stack, res);
-            stack.pop();
+
+            path.addLast(candidates[i]);
+
+            // 因为元素不可以重复使用，这里递归传递下去的是 i + 1 而不是 i
+            dfs(candidates, len, i + 1, residue - candidates[i], path, res);
+
+            path.removeLast();
         }
     }
 
@@ -34,9 +45,12 @@ public class Solution {
         if (len == 0) {
             return res;
         }
+
         // 先将数组排序，这一步很关键
         Arrays.sort(candidates);
-        findCombinationSum2(candidates, 0, len, target, new ArrayDeque<>(), res);
+
+        Deque<Integer> path = new ArrayDeque<>(len);
+        dfs(candidates, len, 0, target, path, res);
         return res;
     }
 }

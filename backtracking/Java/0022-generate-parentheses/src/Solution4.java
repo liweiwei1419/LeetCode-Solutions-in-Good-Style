@@ -1,12 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/1 7:29 下午
- */
 public class Solution4 {
-
 
     // 把结果集保存在动态规划的数组里
 
@@ -32,7 +27,6 @@ public class Solution4 {
                         cur.add("(" + s1 + ")" + s2);
                     }
                 }
-
             }
             dp.add(cur);
         }

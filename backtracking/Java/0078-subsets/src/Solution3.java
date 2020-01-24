@@ -1,17 +1,18 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution3 {
 
     // 回溯，同 Solution2
 
-    private void backtracking(int[] nums, int begin, int len, Stack<Integer> stack, List<List<Integer>> res) {
-        res.add(new ArrayList<>(stack));
+    private void dfs(int[] nums, int begin, int len, Deque<Integer> path, List<List<Integer>> res) {
+        res.add(new ArrayList<>(path));
         for (int i = begin; i < len; i++) {
-            stack.add(nums[i]);
-            backtracking(nums, i + 1, len, stack, res);
-            stack.pop();
+            path.addLast(nums[i]);
+            dfs(nums, i + 1, len, path, res);
+            path.removeLast();
         }
     }
 
@@ -21,8 +22,8 @@ public class Solution3 {
         if (len == 0) {
             return res;
         }
-        Stack<Integer> stack = new Stack<>();
-        backtracking(nums, 0, len, stack, res);
+        Deque<Integer> path = new ArrayDeque<>();
+        dfs(nums, 0, len, path, res);
         return res;
     }
 

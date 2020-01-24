@@ -2,7 +2,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution7 {
 
@@ -12,27 +11,27 @@ public class Solution7 {
         if (len == 0) {
             return res;
         }
-        Deque<Integer> stack = new ArrayDeque<>();
-        backtracking(nums, 0, len, stack, res);
+        Deque<Integer> path = new ArrayDeque<>();
+        dfs(nums, 0, len, path, res);
         return res;
     }
 
-    private void backtracking(int[] nums,
-                              int index,
-                              int len,
-                              Deque<Integer> stack,
-                              List<List<Integer>> res) {
+    private void dfs(int[] nums,
+                     int index,
+                     int len,
+                     Deque<Integer> stack,
+                     List<List<Integer>> res) {
         if (index == len) {
             res.add(new ArrayList<>(stack));
             return;
         }
         // 当前数可选，也可以不选
         // 选了有，进入下一层
-        stack.add(nums[index]);
-        backtracking(nums, index + 1, len, stack, res);
-        stack.pop();
+        stack.addLast(nums[index]);
+        dfs(nums, index + 1, len, stack, res);
+        stack.removeLast();
 
         // 不选，直接进入下一层
-        backtracking(nums, index + 1, len, stack, res);
+        dfs(nums, index + 1, len, stack, res);
     }
 }

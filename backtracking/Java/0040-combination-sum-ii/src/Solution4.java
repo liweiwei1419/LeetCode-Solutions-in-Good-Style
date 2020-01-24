@@ -11,27 +11,29 @@ public class Solution4 {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(candidates);
         int len = candidates.length;
-        dfs(candidates, target, 0, len, new ArrayDeque<>(), res);
+        dfs(candidates, target, 0, len, new ArrayDeque<>(len), res);
         return res;
     }
 
-    private void dfs(int[] candidates, int residue, int start, int len, Deque<Integer> stack,
+    private void dfs(int[] candidates, int residue, int start, int len, Deque<Integer> path,
                      List<List<Integer>> res) {
         if (residue == 0) {
-            res.add(new ArrayList<>(stack));
+            res.add(new ArrayList<>(path));
             return;
         }
+
         for (int i = start; i < len; i++) {
             if (residue - candidates[i] < 0) {
                 break;
             }
-            // 注意：这里不能写 i > 0
+
             if (i > start && candidates[i] == candidates[i - 1]) {
                 continue;
             }
-            stack.push(candidates[i]);
-            dfs(candidates, residue - candidates[i], i + 1, len, stack, res);
-            stack.pop();
+
+            path.addLast(candidates[i]);
+            dfs(candidates, residue - candidates[i], i + 1, len, path, res);
+            path.removeLast();
         }
     }
 }

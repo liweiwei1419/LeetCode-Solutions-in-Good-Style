@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,16 +22,16 @@ public class Solution3 {
             if (start == s.length()) {
                 res.add(transformToString(pre));
             }
-        } else {
-            for (int i = 0; i < 3 && start + i < s.length(); i++) {
-                String currentNum = s.substring(start, start + i + 1);
-                if (judgeStringIfIpNum(currentNum)) {
-                    splitTime++;
-                    pre.add(currentNum);
-                    splitStringToIp(s, start + i + 1, splitTime, pre);
-                    pre.remove(pre.size() - 1);
-                    splitTime--;
-                }
+            return;
+        }
+        for (int i = 0; i < 3 && start + i < s.length(); i++) {
+            String currentNum = s.substring(start, start + i + 1);
+            if (judgeStringIfIpNum(currentNum)) {
+                splitTime++;
+                pre.add(currentNum);
+                splitStringToIp(s, start + i + 1, splitTime, pre);
+                pre.remove(pre.size() - 1);
+                splitTime--;
             }
         }
     }
@@ -61,12 +60,4 @@ public class Solution3 {
         return Integer.valueOf(s) <= 255;
     }
 
-    public static void main(String[] args) {
-        String num = "010010";
-        Solution solution = new Solution();
-        List<String> restoreIpAddresses = solution.restoreIpAddresses(num);
-        for (String s : restoreIpAddresses) {
-            System.out.println(s);
-        }
-    }
 }

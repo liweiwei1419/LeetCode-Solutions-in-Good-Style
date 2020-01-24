@@ -1,18 +1,15 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Solution3 {
 
     private List<List<Integer>> res = new ArrayList<>();
     private boolean[] used;
 
-    private void findPermuteUnique(int[] nums, int depth, Stack<Integer> stack) {
-        if (depth == nums.length) {
+    private void dfs(int[] nums, int len, int depth, Stack<Integer> stack) {
+        if (depth == len) {
             res.add(new ArrayList<>(stack));
             return;
         }
@@ -26,7 +23,7 @@ public class Solution3 {
                 }
                 used[i] = true;
                 stack.add(nums[i]);
-                findPermuteUnique(nums, depth + 1, stack);
+                dfs(nums, len, depth + 1, stack);
                 stack.pop();
                 used[i] = false;
             }
@@ -47,7 +44,7 @@ public class Solution3 {
         // nums = Arrays.stream(numsBoxed).mapToInt(Integer::valueOf).toArray();
 
         used = new boolean[len];
-        findPermuteUnique(nums, 0, new Stack<>());
+        dfs(nums, len ,0, new Stack<>());
         return res;
     }
 

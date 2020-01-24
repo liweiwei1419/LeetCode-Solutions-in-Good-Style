@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution2 {
 
@@ -12,9 +11,9 @@ public class Solution2 {
     private int[] nums;
     private int n;
 
-    private void findPermuteUnique(int depth, Deque<Integer> stack) {
+    private void dfs(int depth, Deque<Integer> path) {
         if (depth == n) {
-            res.add(new ArrayList<>(stack));
+            res.add(new ArrayList<>(path));
             return;
         }
 
@@ -24,9 +23,9 @@ public class Solution2 {
                     continue;
                 }
                 used[i] = true;
-                stack.add(nums[i]);
-                findPermuteUnique(depth + 1, stack);
-                stack.pop();
+                path.addLast(nums[i]);
+                dfs(depth + 1, path);
+                path.removeLast();
                 used[i] = false;
             }
         }
@@ -41,7 +40,7 @@ public class Solution2 {
         Arrays.sort(nums);
         this.nums = nums;
         used = new boolean[len];
-        findPermuteUnique(0, new ArrayDeque<>());
+        dfs(0, new ArrayDeque<>(len));
         return res;
     }
 }

@@ -1,11 +1,11 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
-public class Solution5 {
+public class Solution6 {
 
-    class Node {
+    private class Node {
         /**
          * 当前得到的字符串
          */
@@ -26,25 +26,31 @@ public class Solution5 {
         }
     }
 
+    // 注意：这是深度优先遍历
+
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
         if (n == 0) {
             return res;
         }
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(new Node("", n, n));
 
-        while (!queue.isEmpty()) {
+        // 查看了 Stack 源码，官方推荐使用 Deque 对象，
+        // 注意：只使用栈相关的接口，即 `addLast()` 和 `removeLast()`
 
-            Node curNode = queue.poll();
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.addLast(new Node("", n, n));
+
+        while (!stack.isEmpty()) {
+
+            Node curNode = stack.removeLast();
             if (curNode.left == 0 && curNode.right == 0) {
                 res.add(curNode.res);
             }
             if (curNode.left > 0) {
-                queue.offer(new Node(curNode.res + "(", curNode.left - 1, curNode.right));
+                stack.addLast(new Node(curNode.res + "(", curNode.left - 1, curNode.right));
             }
             if (curNode.right > 0 && curNode.left < curNode.right) {
-                queue.offer(new Node(curNode.res + ")", curNode.left, curNode.right - 1));
+                stack.addLast(new Node(curNode.res + ")", curNode.left, curNode.right - 1));
             }
         }
         return res;

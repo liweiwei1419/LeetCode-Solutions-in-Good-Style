@@ -22,16 +22,15 @@ public class Solution2 {
                 res.add(transformToString(pre));
                 return;
             }
-        } else {
-            for (int i = 0; i < 3 && start + i < s.length(); i++) {
-                String currentNum = s.substring(start, start + i + 1);
-                if (judgeStringIfIpNum(currentNum)) {
-                    splitTime++;
-                    pre.add(currentNum);
-                    splitStringToIp(s, start + i + 1, splitTime, pre);
-                    pre.remove(pre.size() - 1);
-                    splitTime--;
-                }
+        }
+        for (int i = 0; i < 3 && start + i < s.length(); i++) {
+            String currentNum = s.substring(start, start + i + 1);
+            if (judgeStringIfIpNum(currentNum)) {
+                splitTime++;
+                pre.add(currentNum);
+                splitStringToIp(s, start + i + 1, splitTime, pre);
+                pre.remove(pre.size() - 1);
+                splitTime--;
             }
         }
     }

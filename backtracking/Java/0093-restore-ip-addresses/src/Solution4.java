@@ -52,8 +52,8 @@ public class Solution4 {
     }
 
     public static void main(String[] args) {
-        // String input = "25525511135";
-        String input = "0000";
+        String input = "25525511135";
+        // String input = "0000";
         List<String> result = new Solution().restoreIpAddresses(input);
         System.out.println(result);
     }

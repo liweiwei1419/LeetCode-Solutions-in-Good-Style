@@ -1,5 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -9,31 +11,32 @@ public class Solution3 {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(candidates);
         int len = candidates.length;
-        dfs(candidates, target, 0, len, new Stack<>(), res);
+        dfs(candidates, target, 0, len, new ArrayDeque<>(len), res);
         return res;
     }
 
-    private void dfs(int[] candidates, int residue, int start, int len, Stack<Integer> stack,
+    private void dfs(int[] candidates, int residue, int start, int len, Deque<Integer> path,
                      List<List<Integer>> res) {
         if (residue == 0) {
-            res.add(new ArrayList<>(stack));
+            res.add(new ArrayList<>(path));
             return;
         }
+
         for (int i = start; i < len; i++) {
             if (residue - candidates[i] < 0) {
                 break;
             }
-            // 注意：这里不能写 i > 0
+
             if (i > start && candidates[i] == candidates[i - 1]) {
                 continue;
             }
-            // 如果是复制进去的就没有必要回溯
+
             residue -= candidates[i];
-            stack.add(candidates[i]);
+            path.addLast(candidates[i]);
 
-            dfs(candidates, residue, i + 1, len, stack, res);
+            dfs(candidates, residue, i + 1, len, path, res);
 
-            stack.pop();
+            path.removeLast();
             residue += candidates[i];
         }
     }

@@ -12,7 +12,7 @@ public class Solution4 {
         if (digits.length() == 0) {
             return result;
         }
-        findCombinations(digits, 0, "");
+        dfs(digits, 0, "");
         return result;
     }
 
@@ -24,7 +24,7 @@ public class Solution4 {
      * @param pre    pre 保存了从 digits[0,...,index-1] 翻译得到的其中一个字符串
      *               这里 pre.length == index 的结果为 true
      */
-    private void findCombinations(String digits, int index, String pre) {
+    private void dfs(String digits, int index, String pre) {
         // 0 对应空格，1 不对应任何字母，这里虽然写上了，但是只是占了一个位置
         String[] digitsMap = new String[]{" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         // 先处理递归到底的情况
@@ -38,7 +38,7 @@ public class Solution4 {
         // assert c >= '0' || c <= '9' || c != '1';
         String currStr = digitsMap[digits.charAt(index) - '0'];
         for (int i = 0; i < currStr.length(); i++) {
-            findCombinations(digits, index + 1, pre + currStr.charAt(i));
+            dfs(digits, index + 1, pre + currStr.charAt(i));
         }
     }
 

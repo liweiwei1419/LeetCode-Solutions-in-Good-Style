@@ -1,12 +1,10 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
 public class Solution {
-
-    // 时间复杂度: O(n^n)
-    // 空间复杂度: O(n)
 
     public List<List<Integer>> permuteUnique(int[] nums) {
         int len = nums.length;
@@ -14,38 +12,46 @@ public class Solution {
         if (len == 0) {
             return res;
         }
+
+        // 修改 1：排序（升序或者降序都可以），为了剪枝方便
+        Arrays.sort(nums);
+
         boolean[] used = new boolean[len];
-        Deque<Integer> stack = new ArrayDeque<>();
-        backtrack(nums, 0, len, used, stack, res);
+        // 使用 Deque 是 Java 官方 Stack 类的建议
+        Deque<Integer> path = new ArrayDeque<>(len);
+        dfs(nums, len, 0, used, path, res);
         return res;
     }
 
-    /**
-     * @param nums
-     * @param index
-     * @param len
-     * @param used
-     * @param stack
-     * @param res
-     */
-    private void backtrack(int[] nums, int index, int len, boolean[] used, Deque<Integer> stack, List<List<Integer>> res) {
-        if (index == len) {
-            res.add(new ArrayList<>(stack));
+    private void dfs(int[] nums, int len, int depth, boolean[] used, Deque<Integer> path, List<List<Integer>> res) {
+        if (depth == len) {
+            res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = 0; i < len; i++) {
-            if (!used[i]) {
-                // 在这里"剪枝"，used[i - 1] 前面加加感叹号剪枝更彻底
-                if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) {
-                    continue;
-                }
-                used[i] = true;
-                stack.add(nums[i]);
-                // 注意：index + 1 不要写成 i + 1
-                backtrack(nums, index + 1, len, used, stack, res);
-                stack.pop();
-                used[i] = false;
+
+        for (int i = 0; i < len; ++i) {
+            if (used[i]) {
+                continue;
             }
+
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                continue;
+            }
+
+            path.addLast(nums[i]);
+            used[i] = true;
+
+            dfs(nums, len, depth + 1, used, path, res);
+
+            used[i] = false;
+            path.removeLast();
         }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = {1, 1, 2};
+        List<List<Integer>> res = solution.permuteUnique(nums);
+        System.out.println(res);
     }
 }

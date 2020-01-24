@@ -2,24 +2,23 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution4 {
 
-    private void backtracking(int[] nums, int len,
-                              int maxCount, int begin,
-                              Deque<Integer> stack,
-                              List<List<Integer>> res) {
-        if (maxCount == stack.size()) {
-            res.add(new ArrayList<>(stack));
+    private void dfs(int[] nums, int len,
+                     int maxCount, int begin,
+                     Deque<Integer> path,
+                     List<List<Integer>> res) {
+        if (maxCount == path.size()) {
+            res.add(new ArrayList<>(path));
             return;
         }
         for (int i = begin; i < len; i++) {
             // 包括当前这个元素
-            stack.add(nums[i]);
-            backtracking(nums, len, maxCount, i + 1, stack, res);
+            path.addLast(nums[i]);
+            dfs(nums, len, maxCount, i + 1, path, res);
             // 不包括当前这个元素
-            stack.pop();
+            path.removeLast();
         }
     }
 
@@ -34,7 +33,7 @@ public class Solution4 {
         // 第 2 轮一共找 1 个元素
         // 最后 1 轮一共找 len 个元素
         for (int i = 0; i <= len; i++) {
-            backtracking(nums, len, i, 0, new ArrayDeque<>(), res);
+            dfs(nums, len, i, 0, new ArrayDeque<>(), res);
         }
         return res;
     }

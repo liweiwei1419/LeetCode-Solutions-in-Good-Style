@@ -7,13 +7,13 @@ public class Solution2 {
 
     // 回溯
 
-    private void backtracking(int[] nums, int begin, int len, Deque<Integer> stack, List<List<Integer>> res) {
+    private void dfs(int[] nums, int begin, int len, Deque<Integer> stack, List<List<Integer>> res) {
         // 在遍历的过程中，收集
         res.add(new ArrayList<>(stack));
         for (int i = begin; i < len; i++) {
-            stack.add(nums[i]);
-            backtracking(nums, i + 1, len, stack, res);
-            stack.pop();
+            stack.addLast(nums[i]);
+            dfs(nums, i + 1, len, stack, res);
+            stack.removeLast();
         }
     }
 
@@ -23,7 +23,8 @@ public class Solution2 {
         if (len == 0) {
             return res;
         }
-        backtracking(nums, 0, len, new ArrayDeque<>(), res);
+        Deque<Integer> path = new ArrayDeque<>();
+        dfs(nums, 0, len, path, res);
         return res;
     }
 

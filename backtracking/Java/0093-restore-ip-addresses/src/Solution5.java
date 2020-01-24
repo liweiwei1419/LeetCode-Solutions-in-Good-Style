@@ -1,14 +1,25 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * @author liwei
- * @date 2019/8/28 4:53 PM
- */
 public class Solution5 {
 
-    private boolean judgeIfIPSegment(String ipSegment) {
+    public List<String> restoreIpAddresses(String s) {
+        int len = s.length();
+        List<String> res = new ArrayList<>();
+        // 剪枝
+        if (len == 0 || len > 12) {
+            return res;
+        }
+
+        Deque<String> path = new ArrayDeque<>(len);
+        dfs(s, len, 0, 0, path, res);
+        return res;
+    }
+
+    private boolean judgeIfIpSegment(String ipSegment) {
         // 大于 1 位的时候，不能以 0 开头
         if (ipSegment.length() > 1 && ipSegment.startsWith("0")) {
             return false;
@@ -16,47 +27,29 @@ public class Solution5 {
         return Integer.parseInt(ipSegment) <= 255;
     }
 
-    private void backtracking(int split, int begin) {
-        // 先写递归终止条件
+    private void dfs(String s, int len, int split, int begin, Deque<String> path, List<String> res) {
         if (split == 4 && begin == s.length()) {
-            res.add(String.join(".", stack));
+            res.add(String.join(".", path));
             return;
         }
 
+        // 看到剩下的不够了，就退出（剪枝）
         if (len - begin < (4 - split) || len - begin > 3 * (4 - split)) {
             return;
         }
         for (int i = 1; i <= 3; i++) {
+            // 剪枝
             if (begin + i > len) {
                 break;
             }
-            // 可能成为 ip 段的字符串
+            // 可能成为 ip 段的字符串，不包括 begin + i 这个数值
             String segment = s.substring(begin, begin + i);
-            if (judgeIfIPSegment(segment)) {
-                stack.add(segment);
-                backtracking(split + 1, begin + i);
-                stack.pop();
+            if (judgeIfIpSegment(segment)) {
+                path.addLast(segment);
+                dfs(s, len, split + 1, begin + i, path, res);
+                path.removeLast();
             }
         }
-    }
-
-    private String s;
-    private Stack<String> stack;
-    private List<String> res;
-    private int len;
-
-    public List<String> restoreIpAddresses(String s) {
-        res = new ArrayList<>();
-        this.len = s.length();
-
-        if (this.len == 0 || this.len > 12) {
-            return res;
-        }
-        this.s = s;
-        this.stack = new Stack<>();
-
-        backtracking(0, 0);
-        return res;
     }
 
 

@@ -5,13 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/1 4:59 下午
- */
 public class Solution3 {
 
-    class Node {
+    private class Node {
         /**
          * 当前得到的字符串
          */
@@ -46,7 +42,8 @@ public class Solution3 {
         if (n == 0) {
             return res;
         }
-        Deque<Node> queue = new ArrayDeque<>();
+
+        Queue<Node> queue = new LinkedList<>();
         queue.offer(new Node("", n, n));
         // 总共需要拼凑的字符总数是 2 * n
         n = 2 * n;
