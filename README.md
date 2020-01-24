@@ -126,15 +126,17 @@
 
 ### 二分查找
 
+知识点讲解：[用“排除法”（减治思想）写二分查找问题、与其它二分查找模板的比较](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)、[哔哩哔哩](https://www.bilibili.com/video/av83911694?p=1)
+
 | 题目序号                                                     | 题解                                                         | 知识点                                                       | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | [704. 二分查找](https://leetcode-cn.com/problems/binary-search/) |                                                              |                                                              |      |
-| [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [二分查找](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/si-lu-hen-jian-dan-xi-jie-fei-mo-gui-de-er-fen-cha/) |                                                              |      |
+| [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [「力扣」题解](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/si-lu-hen-jian-dan-xi-jie-fei-mo-gui-de-er-fen-cha/)、[CSDN](https://blog.csdn.net/lw_power/article/details/104066739)、[哔哩哔哩](https://www.bilibili.com/video/av83911694?p=3) | 二分查找找边界。                                             |      |
 | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/) | [二分法](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/er-fen-fa-python-dai-ma-java-dai-ma-by-liweiwei141/) |                                                              |      |
 | [81. 搜索旋转排序数组 II](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/) | [二分查找](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/solution/er-fen-cha-zhao-by-liweiwei1419/) |                                                              |      |
 | [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/) | [二分查找 + 分治法](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/solution/er-fen-fa-fen-zhi-fa-python-dai-ma-java-dai-ma-by-/) |                                                              |      |
 | [154. 寻找旋转排序数组中的最小值 II](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/) | [二分查找 + 分治法](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/solution/er-fen-fa-fen-zhi-fa-python-dai-ma-by-liweiwei1419/) |                                                              |      |
-| [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/) | [十分好用的二分查找法模板](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) |                                                              |      |
+| [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/) | [十分好用的二分查找法模板](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)、[哔哩哔哩](https://www.bilibili.com/video/av83911694?p=2) |                                                              |      |
 | [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)    | [二分查找 + 牛顿法（Python 代码、Java 代码）](https://leetcode-cn.com/problems/sqrtx/solution/er-fen-cha-zhao-niu-dun-fa-python-dai-ma-by-liweiw/) |                                                              |      |
 | [275. H指数 II](https://leetcode-cn.com/problems/h-index-ii/) | [减而治之、二分查找](https://leetcode-cn.com/problems/h-index-ii/solution/jian-er-zhi-zhi-er-fen-cha-zhao-by-liweiwei1419-2/) |                                                              |      |
 | [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | [动态规划 、贪心算法 + 二分](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |                                                              |      |
@@ -153,6 +155,8 @@
 
 ### 回溯算法
 
+知识点讲解：
+
 | 题目序号                                                     | 题解 | 知识点 | 代码 |
 | ------------------------------------------------------------ | ---- | ------ | ---- |
 | [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) |      |        |      |
@@ -169,6 +173,8 @@
 | [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/) |      |        |      |
 
 ### 动态规划
+
+知识点讲解：
 
 | 题目序号                                                     | 题解                                                         | 知识点                                                    | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------------- | ---- |
