@@ -105,7 +105,7 @@
 
 > 希望我们程序员都能够通过自己的努力，实现自己的理想。
 >
-> 希望我们程序员不再是别人眼里的刻板印象。我们也是艺术家，我们也是闷骚的。
+> 希望我们程序员不再是别人眼里的刻板印象，我们也是艺术家。
 >
 > 希望我们大家都能在自己的工作领域里有所成绩。很高兴和大家成为朋友。
 
@@ -153,8 +153,6 @@
 
 ### 回溯算法
 
-### 
-
 | 题目序号                                                     | 题解 | 知识点 | 代码 |
 | ------------------------------------------------------------ | ---- | ------ | ---- |
 | [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) |      |        |      |
@@ -169,14 +167,6 @@
 | [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)  |      |        |      |
 | [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) |      |        |      |
 | [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/) |      |        |      |
-
-
-
-
-
-
-
-
 
 ### 动态规划
 
@@ -195,8 +185,6 @@
 | 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
 | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
-
-
 
 ## 配套资源
 
