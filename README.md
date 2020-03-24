@@ -267,9 +267,43 @@
 
 ### 优先队列
 
+注意：了解「堆」作为「优先队列」的实现是有必要的，这样才会理解 `remove` 、`replace` 这些编码的细节，使用堆的时候才会更加有效。
+
 | 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
 | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
+| 295                                                          |                                                              |              |      |
+| 0347-top-k-frequent-elements                                 |                                                              |              |      |
+| 0703-kth-largest-element-in-a-stream                         |                                                              |              |      |
+| 0973-k-closest-points-to-origin                              |                                                              |              |      |
+| 1296-divide-array-in-sets-of-k-consecutive-numbers           |                                                              |              |      |
+
+### 贪心算法
+
+0012-integer-to-roman
+
+0452-minimum-number-of-arrows-to-burst-balloons（贪心算法）
+
+0455-assign-cookies
+
+
+
+### 并查集
+
+
+
+0128-longest-consecutive-sequence
+0200-number-of-islands
+0399-evaluate-division
+0547-friend-circles
+0765-couples-holding-hands
+0990-satisfiability-of-equality-equations
+0952-largest-component-size-by-common-factor
+1319-number-of-operations-to-make-network-connected
+
+
+
+
 
 ## 配套资源
 
