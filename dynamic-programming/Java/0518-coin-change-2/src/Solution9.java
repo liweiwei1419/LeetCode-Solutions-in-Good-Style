@@ -1,4 +1,4 @@
-public class Solution4 {
+public class Solution9 {
 
     public int change(int amount, int[] coins) {
         int len = coins.length;

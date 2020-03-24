@@ -1,63 +1,67 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class Solution3 {
 
-    private List<String> resInt = new ArrayList<>();
-    private List<String> res = new ArrayList<>();
-
     public List<String> restoreIpAddresses(String s) {
-        if (s == null || s.length() > 12 || s.length() <= 0) {
+        int len = s.length();
+        List<String> res = new ArrayList<>();
+        if (len > 12 || len <= 4) {
             return res;
         }
-        int splitTime = 0;
-        splitStringToIp(s, 0, splitTime, resInt);
+        int splitTimes = 0;
+
+        Deque<String> path = new ArrayDeque<>(4);
+        dfs(s, len, 0, splitTimes, path, res);
         return res;
     }
 
 
-    private void splitStringToIp(String s, int start, int splitTime, List<String> pre) {
-        // 这道题我失误在递归终止条件没有想清楚
-        if (splitTime == 4) {
-            if (start == s.length()) {
-                res.add(transformToString(pre));
+    private void dfs(String s, int len, int start, int splitTimes, Deque<String> pre, List<String> res) {
+        if (start == len) {
+            if (splitTimes == 4) {
+                res.add(String.join(".", pre));
             }
             return;
         }
-        for (int i = 0; i < 3 && start + i < s.length(); i++) {
-            String currentNum = s.substring(start, start + i + 1);
-            if (judgeStringIfIpNum(currentNum)) {
-                splitTime++;
-                pre.add(currentNum);
-                splitStringToIp(s, start + i + 1, splitTime, pre);
-                pre.remove(pre.size() - 1);
-                splitTime--;
+
+        for (int i = 0; i < 3; i++) {
+            if (start + i >= len){
+                break;
+            }
+
+            if (judgeStringIfIpNum(s,start,start + i)) {
+                String currentNum = s.substring(start, start + i + 1);
+                pre.addLast(currentNum);
+                dfs(s, len,start + i + 1, splitTimes + 1, pre,res);
+                pre.removeLast();
             }
         }
     }
 
-    private String transformToString(List<String> list) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            if (i == list.size() - 1) {
-                sb.append(list.get(i));
-            } else {
-                sb.append(list.get(i)).append(".");
-            }
-        }
-        return sb.toString();
-    }
-
-    // 这个函数要写清楚
-    private boolean judgeStringIfIpNum(String s) {
-        int len = s.length();
-        if (s == null || len == 0 || len > 3) {
+    private boolean judgeStringIfIpNum(String s, int left, int right) {
+        int len = right - left + 1;
+        if (len > 1 && s.charAt(left) == '0') {
             return false;
         }
-        if (len > 1 && s.startsWith("0")) {
-            return false;
+
+        int res = 0;
+        while (left <= right) {
+            res = res * 10 + s.charAt(left) - '0';
+            left++;
         }
-        return Integer.valueOf(s) <= 255;
+        return res >= 0 && res <= 255;
     }
 
+
+    public static void main(String[] args) {
+        String num = "010010";
+        Solution3 solution3 = new Solution3();
+        List<String> restoreIpAddresses = solution3.restoreIpAddresses(num);
+        for (String s : restoreIpAddresses) {
+            System.out.println(s);
+        }
+    }
 }

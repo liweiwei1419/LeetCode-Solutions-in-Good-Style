@@ -61,4 +61,11 @@ public class Solution {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        int[] heights = new int[]{2, 1, 5, 6, 2, 3};
+        Solution solution = new Solution();
+        int res = solution.largestRectangleArea(heights);
+        System.out.println(res);
+    }
 }

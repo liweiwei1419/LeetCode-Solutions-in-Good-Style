@@ -1,9 +1,5 @@
 import java.util.Arrays;
 
-/**
- * @author liwei
- * @date 2019/7/1 8:06 AM
- */
 public class Solution3 {
 
     // 使用计数排序（不保证稳定性）

@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -9,16 +11,18 @@ public class Solution4 {
         if (root == null) {
             return res;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.empty()) {
-            TreeNode top = stack.pop();
+
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.addLast(root);
+        while (!stack.isEmpty()) {
+
+            TreeNode top = stack.removeLast();
             res.add(top.val);
             if (top.right != null) {
-                stack.push(top.right);
+                stack.addLast(top.right);
             }
             if (top.left != null) {
-                stack.push(top.left);
+                stack.addLast(top.left);
             }
         }
         return res;

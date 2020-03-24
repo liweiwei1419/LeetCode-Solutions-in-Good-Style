@@ -1,16 +1,25 @@
+/**
+ * @author liweiwei1419
+ * @date 2019/10/15 10:30 上午
+ */
 public class Solution3 {
-
-    // 从前向后
-
+    /**
+     * 贪心算法
+     *
+     * @param nums
+     * @return
+     */
     public boolean canJump(int[] nums) {
         int len = nums.length;
-        int end = 0;
-        for (int i = 0; i < len; i++) {
-            if (i > end) {
-                return false;
-            }
-            end = Math.max(end, i + nums[i]);
+        if (len < 1) {
+            return false;
         }
-        return true;
+        int lastPosition = len - 1;
+        for (int i = len - 1; i >= 0; i--) {
+            if (i + nums[i] >= lastPosition) {
+                lastPosition = i;
+            }
+        }
+        return lastPosition == 0;
     }
 }

@@ -1,48 +1,45 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution {
 
-    private void backtracking(int[] nums,
-                              int maxCount,
-                              int begin,
-                              int len,
-                              boolean[] used,
-                              Stack<Integer> stack,
-                              List<List<Integer>> res) {
-        if (maxCount == stack.size()) {
-            res.add(new ArrayList<>(stack));
-            return;
-        }
-        for (int i = begin; i < len; i++) {
-            if (!used[i]) {
-                // 去重都有这一步加上排序
-                if (i > begin && nums[i] == nums[i - 1]) {
-                    continue;
-                }
-                used[i] = true;
-                stack.push(nums[i]);
-                backtracking(nums, maxCount, i + 1, len, used, stack, res);
-                stack.pop();
-                used[i] = false;
-            }
-        }
-    }
-
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        int len = nums.length;
         List<List<Integer>> res = new ArrayList<>();
+        int len = nums.length;
         if (len == 0) {
             return res;
         }
-        // 排序很关键
+
+        // 排序是为了后面剪枝
         Arrays.sort(nums);
-        boolean[] marked = new boolean[len];
-        for (int i = 0; i <= len; i++) {
-            backtracking(nums, i, 0, len, marked, new Stack<>(), res);
-        }
+
+        Deque<Integer> path = new ArrayDeque<>();
+        dfs(nums, 0, len, path, res);
         return res;
+    }
+
+    private void dfs(int[] nums, int begin, int len, Deque<Integer> path, List<List<Integer>> res) {
+        res.add(new ArrayList<>(path));
+        for (int i = begin; i < len; i++) {
+            // 剪枝条件，不能写成 i > 0
+            if (i > begin && nums[i] == nums[i - 1]){
+                continue;
+            }
+
+            path.addLast(nums[i]);
+            // 从 i + 1 开始继续枚举，按顺序枚举，所以不会重复
+            dfs(nums, i + 1, len, path, res);
+            path.removeLast();
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = new int[]{1, 2, 2};
+        List<List<Integer>> res = solution.subsetsWithDup(nums);
+        System.out.println(res);
     }
 }

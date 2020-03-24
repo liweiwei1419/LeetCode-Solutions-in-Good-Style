@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -17,7 +19,10 @@ public class Solution {
     // 该方法体现的思路，可以应用于前序遍历、中序遍历和后序遍历
 
     private enum Action {
-        GO, ADDTORESULT
+        // 递归执行
+        GO,
+        // 添加到结果集
+        ADDTORESULT
     }
 
     private class Command {
@@ -35,21 +40,22 @@ public class Solution {
         if (root == null) {
             return res;
         }
-        Stack<Command> stack = new Stack<>();
-        stack.add(new Command(Action.GO, root));
+        Deque<Command> stack = new ArrayDeque<>();
+        stack.addLast(new Command(Action.GO, root));
         while (!stack.isEmpty()) {
-            Command command = stack.pop();
+            Command command = stack.removeLast();
             if (command.action == Action.ADDTORESULT) {
                 res.add(command.node.val);
-            } else {
-                if (command.node.right != null) {
-                    stack.add(new Command(Action.GO, command.node.right));
-                }
-                if (command.node.left != null) {
-                    stack.add(new Command(Action.GO, command.node.left));
-                }
-                stack.add(new Command(Action.ADDTORESULT, command.node));
+                continue;
             }
+
+            if (command.node.right != null) {
+                stack.add(new Command(Action.GO, command.node.right));
+            }
+            if (command.node.left != null) {
+                stack.add(new Command(Action.GO, command.node.left));
+            }
+            stack.add(new Command(Action.ADDTORESULT, command.node));
         }
         return res;
     }

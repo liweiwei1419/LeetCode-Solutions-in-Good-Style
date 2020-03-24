@@ -1,6 +1,6 @@
-public class Solution3 {
+import java.util.Arrays;
 
-    // 动态规划，记录左边和最大长度
+public class Solution3 {
 
     public String longestPalindrome(String s) {
         // 特判
@@ -8,28 +8,36 @@ public class Solution3 {
         if (len < 2) {
             return s;
         }
+
         int maxLen = 1;
-        int start = 0;
-        // dp[j][i] 表示 s[j][i] 是否是回文串
+        int begin = 0;
+
+        // dp[i][j] 表示 s[i, j] 是否是回文串
         boolean[][] dp = new boolean[len][len];
 
-        for (int right = 0; right < len; right++) {
-            for (int left = 0; left <= right; left++) {
-                if (left == right) {
-                    dp[left][right] = true;
-                    break;
-                }
-                // 小心越界问题，即 left + 1 < right - 1，即 left < right-2
-                if (s.charAt(left) == s.charAt(right) && (left >= right - 2 || dp[left + 1][right - 1])) {
-                    dp[left][right] = true;
-                    // 此时，区间长度为 right-left+1
-                    if (right - left + 1 > maxLen) {
-                        maxLen = right - left + 1;
-                        start = left;
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        for (int j = len - 1; j >= 1; j--) {
+            for (int i = j - 1; j >= 0; j--) {
+
+
+                if (s.charAt(i) != s.charAt(j)) {
+                    dp[i][j] = false;
+                } else {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
                     }
+                }
+
+                if (dp[i][j] && j - i + 1 > maxLen) {
+                    maxLen = j - i + 1;
+                    begin = i;
                 }
             }
         }
-        return s.substring(start, start + maxLen);
+        return s.substring(begin, begin + maxLen);
     }
 }

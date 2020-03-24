@@ -2,7 +2,7 @@
 
 ## 项目更名说明
 
-+ 更名为“Well-Formed”意为“格式良好”。我一直认为代码的可读性是非常重要的，代码可读的前提是“格式良好”，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们即使是刷题这种纯粹是“自娱自乐”的项目，也能够做到格式良好，方便他人和自己阅读。
++ 更名为 Well-Formed 意为「格式良好」。我个人觉得代码的可读性是非常重要的，代码可读的前提是「格式良好」，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们，即使是刷题这种纯粹是「自娱自乐」的项目，也能够做到格式良好，方便他人和自己阅读。
 
 **补充说明**：本人英语水平有限，想不到更好的名字，如果您有更好的想法，也欢迎告诉我，我一直都在为起名这件事情犯愁。
 
@@ -52,24 +52,24 @@
 
 我个人学习的资源如下，**仅供大家参考**。
 
-1、书本
+### 1、书本
 
 + 《算法 4》：一本颜值很高的书，使用 Java 编写，示例清楚，配图优雅。很适合新手学习。缺点是：翻译欠缺，有些代码是封装过的，阅读起来让人摸不着头脑，给出的示例代码不规范。
 
 + 《算法导论》：当做工具书学习，其中的“动态规划”、“贪心算法”、“计数排序”、“基数排序”、“循环不变量”、“KMP”算法是讲解很细致的。缺点就是过于学术，不太适合算法和数据结构的入门教程。
 
-2、网课与自媒体
+### 2、网课与自媒体
 
 + 某课网 liuyubobobo 老师的算法与数据结构系列课程。我本人就是学习刘老师的课程入坑算法与数据结构的。（刘老师的课程是精心准备过，且是收费的，请大家自行判断是否需要购买。）
 + 可以在哔哩哩哔和 youtub 上搜索一些优秀的自媒体，听他们讲题也是很不错的学习途径，我常收看的自媒体有：花花酱，程序员刀刀，一俩三四五、lee215215、胡小旭-_-、喂你脚下有坑、代码会说话等。
 
-3、优秀的博客、公众号
+### 3、优秀的博客、公众号
 
 + 在 2018 年，有一个制作算法动画的项目和公众号火了起来，让人耳目一新。公众号的名字叫“五分钟学算法”，博主叫“程序员吴师兄”，我在这个公众号上学习了很多东西，我现在的博客模板也是在吴师兄原来用的模板基础上做了修改。“程序员吴师兄”在很多平台上都可以搜索到他，欢迎大家关注。
 
-4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
+#### 4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
 
-本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。当然在群里提问，会有大佬、巨佬回答你的哟。
+本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟。
 
 ## 刷题建议
 
@@ -109,9 +109,75 @@
 >
 > 希望我们大家都能在自己的工作领域里有所成绩。很高兴和大家成为朋友。
 
+## 我在「力扣」圈子里回答的问题
+
+[刷题刷到绝望该怎么办？](https://leetcode-cn.com/circle/discuss/xFI0Il/view/ReA0Nq/)
+
+[大家使用什么样的刷题策略？](https://leetcode-cn.com/circle/discuss/wgBYj3/view/Rz1g5s/)
+
+[在java和c#中A[m-1\]=A[m-- - 1];而在C中A[m-1]!=A[m-- - 1];](https://leetcode-cn.com/circle/discuss/FNDDj1/view/5vanNC/)
+
+[应届生选择大厂还是创业公司](https://leetcode-cn.com/circle/discuss/LG5laG/view/4kh1Wh/)
+
+[小白来请教怎么学习算法](https://leetcode-cn.com/circle/discuss/CQu45C/view/tvdg5X/)
+
+[对于工作党来说，刷题的意义除了面试，还有什么?](https://leetcode-cn.com/circle/discuss/QXnn1F/view/efegCA/)
+
+[如何写好题解？](https://leetcode-cn.com/circle/discuss/VuqJk1/view/HqlaSu/)
+
+[大家都是如何刷 LeetCode 的？](https://leetcode-cn.com/circle/discuss/nRXySQ/view/if4vpv/)
+
 ## 题解分类（正在更新）
 
-### 栈
+### 数组
+
+> 数组的问题可以作为「新手场」，因为这些问题只需要掌握编程语言的基础知识就可以完成。
+
+以下这些问题都是很容易想到思路的问题，即使没有学习过相关的数据结构和算法知识。
+
+| 题目序号                                                     | 题解                                                         | 知识点                                     | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------ | ---- |
+| [26. 删除排序数组中的重复项（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array) |                                                              |                                            |      |
+| [27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/) |                                                              |                                            |      |
+| [66. 加一（简单）](https://leetcode-cn.com/problems/plus-one/) |                                                              | 常规问题，纯粹考察编程基本功。             |      |
+| [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | [从后向前归并](https://leetcode-cn.com/problems/merge-sorted-array/solution/si-xiang-mei-you-chuang-xin-de-di-fang-zhu-yao-ti-/) | 常规操作，常考问题，注意这里从后向前归并。 |      |
+| [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) |                                                              | 记住这个旋转三次的操作。                   |      |
+| [215. 数组中的第K个最大元素（中等）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |                                                              | 很常见的问题，多次出现，一定要掌握。       |      |
+| [283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes) |                                                              | 掌握循环不变式，编写代码更加容易           |      |
+| [451. 根据字符出现频率排序（中等）](https://leetcode-cn.com/problems/sort-characters-by-frequency) |                                                              | 和排序相关的经典问题，做法不唯一。         |      |
+| [912. 排序数组（中等）](https://leetcode-cn.com/problems/sort-an-array) |                                                              | 可以用于学习排序问题。                     |      |
+|                                                              |                                                              |                                            |      |
+|                                                              |                                                              |                                            |      |
+|                                                              |                                                              |                                            |      |
+|                                                              |                                                              |                                            |      |
+
+
+
+
+
+#### 循环不变量
+
+> 循环不变量用于证明算法的有效性，也是编码正确的理论依据。
+>
+> 循环不变量定义帮助分清先加还是先赋值，还有一些边界条件。定义清楚循环不变量以后，代码的编写就会很轻松。
+>
+> 建议把「循环不变量」作为注释写在代码里，以方便自己调试和他人阅读。
+
+| 题目序号                                                     | 题解                                                         | 知识点                                         | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------------------------- | ---- |
+| [26. 删除排序数组中的重复项（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array) |                                                              |                                                |      |
+| [27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/) |                                                              |                                                |      |
+| [75. 颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/) | [快速排序 partition 过程（重点在设计循环不变量）](https://leetcode-cn.com/problems/sort-colors/solution/kuai-su-pai-xu-partition-guo-cheng-she-ji-xun-huan/) | 著名的「荷兰国旗」问题。                       |      |
+| [215. 数组中的第K个最大元素（简单）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | **常考的高频问题，一定要会做，重点掌握思想。** |      |
+|                                                              |                                                              |                                                |      |
+|                                                              |                                                              |                                                |      |
+|                                                              |                                                              |                                                |      |
+|                                                              |                                                              |                                                |      |
+|                                                              |                                                              |                                                |      |
+
+
+
+#### 栈
 
 | 题目序号                                                     | 题解                                                         | 知识点   | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---- |

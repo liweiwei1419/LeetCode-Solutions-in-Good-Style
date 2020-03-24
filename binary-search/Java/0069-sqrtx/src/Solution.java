@@ -1,19 +1,25 @@
 public class Solution {
 
-    // 时间复杂度：O(log N)，这里 N = x
-    // 空间复杂度：O(1)
-
     public int mySqrt(int x) {
-        long left = 0;
-        long right = x;
+        if (x == 0) {
+            return 0;
+        }
+        if (x == 1) {
+            return 1;
+        }
+
+        int left = 1;
+        int right = x / 2;
         while (left < right) {
-            long mid = (left + right + 1) / 2;
-            if (mid > x / mid) {
+            int mid = left + (right - left + 1) / 2;
+            if (mid * mid > x) {
+                // 下一轮搜索的区间是 [left, mid - 1]
                 right = mid - 1;
             } else {
+                // 下一轮搜索的区间是 [mid, right]
                 left = mid;
             }
         }
-        return (int) left;
+        return left;
     }
 }

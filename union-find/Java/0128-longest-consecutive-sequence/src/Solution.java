@@ -11,6 +11,7 @@ public class Solution {
             int len = nums.length;
             parent = new HashMap<>(len);
             size = new HashMap<>(len);
+
             for (int num : nums) {
                 parent.put(num, num);
                 size.put(num, 1);

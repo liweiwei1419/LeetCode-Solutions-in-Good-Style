@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution3 {
 
     public int fib(int N) {
         if (N < 2) {

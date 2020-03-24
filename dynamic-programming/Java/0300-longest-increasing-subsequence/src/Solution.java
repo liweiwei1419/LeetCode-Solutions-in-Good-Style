@@ -31,7 +31,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+        int[] nums = {11, 12, 13, 14, 15, 16, 1, 2, 3, 4, 1, 5, 6, 7, 1, 8};
+        // int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         Solution solution = new Solution();
         int res = solution.lengthOfLIS(nums);
         System.out.println(res);

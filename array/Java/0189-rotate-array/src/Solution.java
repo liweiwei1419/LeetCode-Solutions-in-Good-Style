@@ -1,9 +1,5 @@
 import java.util.Arrays;
 
-/**
- * @author liweiwei1419
- * @date 2019/10/8 4:29 下午
- */
 public class Solution {
 
     private void reverse(int[] nums, int left, int right) {
@@ -22,7 +18,7 @@ public class Solution {
 
     public void rotate(int[] nums, int k) {
         int len = nums.length;
-        // [1,2,3,4,5,6,7] 向右旋转 7 位也是一样的
+        // [1, 2, 3, 4, 5, 6, 7]向右旋转 7 位也是一样的
         if (len == 0 || k % len == 0) {
             return;
         }

@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/19 4:06 下午
- */
 public class Solution {
 
     public int searchInsert(int[] nums, int target) {
@@ -9,17 +5,19 @@ public class Solution {
         if (len == 0) {
             return 0;
         }
-        int left = 0;
-        int right = len;
 
+        if (nums[len - 1] < target) {
+            return len;
+        }
+        int left = 0;
+        int right = len - 1;
         while (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = left + (right - left) / 2;
+            // 当 nums[mid] 严格小于目标元素时，不是解
             if (nums[mid] < target) {
+                // 下一轮搜索的区间 [mid + 1, right]
                 left = mid + 1;
-            } else if (nums[mid] == target) {
-                return mid;
             } else {
-                // nums[mid] > target
                 right = mid;
             }
         }

@@ -46,5 +46,18 @@ public class Solution {
             fast = fast.next.next;
         }
         return slow;
+
+        if (a == b) {
+            return res;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6};
+        // int[] arr = new int[]{1, 2, 3, 4, 5};
+        ListNode head = new ListNode(arr);
+        Solution solution = new Solution();
+        ListNode res = solution.middleNode(head);
+        System.out.println(res);
     }
 }

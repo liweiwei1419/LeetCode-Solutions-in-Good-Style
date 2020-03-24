@@ -29,6 +29,7 @@ public class Solution {
         if (len == 1) {
             return nums[0];
         }
-        return Math.max(tryRob(Arrays.copyOfRange(nums, 0, len - 2 + 1)), tryRob(Arrays.copyOfRange(nums, 1, len - 1 + 1)));
+        return Math.max(tryRob(Arrays.copyOfRange(nums, 0, len - 2 + 1)),
+                tryRob(Arrays.copyOfRange(nums, 1, len - 1 + 1)));
     }
 }

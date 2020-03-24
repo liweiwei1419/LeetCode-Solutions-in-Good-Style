@@ -1,9 +1,5 @@
 import java.util.Arrays;
 
-/**
- * @author liweiwei1419
- * @date 2019/10/15 7:03 下午
- */
 public class Solution2 {
 
     // 向右旋转

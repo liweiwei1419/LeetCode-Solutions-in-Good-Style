@@ -5,8 +5,6 @@ public class Solution2 {
 
     private Map<TreeNode, Integer> memo;
 
-    // Solution 方法 + 记忆化递归
-
     private int tryRob(TreeNode node) {
         if (node == null) {
             return 0;

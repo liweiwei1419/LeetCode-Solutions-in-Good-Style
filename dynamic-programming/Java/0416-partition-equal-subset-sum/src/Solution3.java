@@ -2,9 +2,6 @@ public class Solution3 {
 
     public boolean canPartition(int[] nums) {
         int len = nums.length;
-        if (len == 0) {
-            return false;
-        }
 
         int sum = 0;
         for (int num : nums) {
@@ -16,21 +13,19 @@ public class Solution3 {
         }
 
         int target = sum / 2;
-
         boolean[] dp = new boolean[target + 1];
-        dp[0] = true;
 
+        dp[0] = true;
         if (nums[0] <= target) {
             dp[nums[0]] = true;
         }
 
         for (int i = 1; i < len; i++) {
-            for (int j = target; nums[i] <= j; j--) {
-                if (dp[target]) {
-                    return true;
-                }
-
+            for (int j = target; j >= 0 && nums[i] <= j; j--) {
                 dp[j] = dp[j] || dp[j - nums[i]];
+            }
+            if (dp[target]) {
+                return true;
             }
         }
         return dp[target];

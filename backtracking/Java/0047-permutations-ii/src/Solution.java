@@ -13,7 +13,7 @@ public class Solution {
             return res;
         }
 
-        // 修改 1：排序（升序或者降序都可以），为了剪枝方便
+        // 排序（升序或者降序都可以），排序是剪枝的前提
         Arrays.sort(nums);
 
         boolean[] used = new boolean[len];
@@ -34,6 +34,8 @@ public class Solution {
                 continue;
             }
 
+            // 剪枝条件：i > 0 是为了保证 nums[i - 1] 有意义
+            // 写 !used[i - 1] 是因为 nums[i - 1] 在深度优先遍历的过程中刚刚被撤销选择
             if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
                 continue;
             }
@@ -42,7 +44,7 @@ public class Solution {
             used[i] = true;
 
             dfs(nums, len, depth + 1, used, path, res);
-
+            // 回溯部分的代码，和 dfs 之前的代码是对称的
             used[i] = false;
             path.removeLast();
         }

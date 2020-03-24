@@ -1,5 +1,7 @@
 public class Solution3 {
 
+    // 记忆化递归
+
     private int[] cache;
 
     private int calcways(int n) {

@@ -1,52 +1,81 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 
 public class Solution {
 
     public List<String> restoreIpAddresses(String s) {
-        List<String> res = new ArrayList<>();
         int len = s.length();
-        if (len == 0) {
+        List<String> res = new ArrayList<>();
+        // 如果长度不够，不搜索
+        if (len < 4 || len > 12) {
             return res;
         }
-        dfs(s, len, 0, 0, "", res);
+
+        Deque<String> path = new ArrayDeque<>(4);
+        int splitTimes = 0;
+        dfs(s, len, splitTimes, 0, path, res);
         return res;
     }
 
     /**
-     * 判断 ipSegment 这个字符串是否是一个合法的 ip 段
+     * 判断 s 的子区间 [left, right] 是否能够成为一个 ip 段
+     * 判断的同时顺便把类型转了
+     *
+     * @param s
+     * @param left
+     * @param right
+     * @return
      */
-    private boolean judgeIfIpSegment(String ipSegment) {
-        int len = ipSegment.length();
+    private int judgeIfIpSegment(String s, int left, int right) {
+        int len = right - left + 1;
+
         // 大于 1 位的时候，不能以 0 开头
-        if (len > 1 && ipSegment.startsWith("0")) {
-            return false;
+        if (len > 1 && s.charAt(left) == '0') {
+            return -1;
         }
-        return Integer.parseInt(ipSegment) <= 255;
+
+        // 转成 int 类型
+        int res = 0;
+        for (int i = left; i <= right; i++) {
+            res = res * 10 + s.charAt(i) - '0';
+        }
+
+        if (res > 255) {
+            return -1;
+        }
+        return res;
     }
 
-    private void dfs(String s, int len, int split, int begin, String pre, List<String> res) {
-        if (split == 4) {
-            // 分割最多 4 次
-            if (begin == len) {
-                res.add(pre.substring(0, pre.length() - 1));
+    private void dfs(String s, int len, int split, int begin, Deque<String> path, List<String> res) {
+        if (begin == len) {
+            if (split == 4) {
+                res.add(String.join(".", path));
             }
             return;
         }
 
-        for (int i = 1; i <= 3; i++) {
-            // split < 4 的时候，begin + i <= s.length() 容易被忽略
-            if (begin + i > len) {
-                break;
-            }
-            // 可能成为 ip 段的字符串，截取的时候 begin + i 不包括在内
-            String ifIpSegment = s.substring(begin, begin + i);
-            if (judgeIfIpSegment(ifIpSegment)) {
-                dfs(s, len, split + 1, begin + i, pre + ifIpSegment + '.', res);
-            }
+
+        // 看到剩下的不够了，就退出（剪枝），len - begin 表示剩余的还未分割的字符串的位数
+        if (len - begin < (4 - split) || len - begin > 3 * (4 - split)) {
+            return;
         }
 
+        for (int i = 0; i < 3; i++) {
+            if (begin + i >= len) {
+                break;
+            }
+
+            int ipSegment = judgeIfIpSegment(s, begin, begin + i);
+            if (ipSegment != -1) {
+                // 在判断是 ip 段的情况下，才去做截取
+                path.addLast(ipSegment + "");
+                dfs(s, len, split + 1, begin + i + 1, path, res);
+                path.removeLast();
+            }
+        }
     }
 
 

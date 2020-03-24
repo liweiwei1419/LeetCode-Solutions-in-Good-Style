@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/13 2:24 上午
- */
 public class Solution {
 
     // 循环不变式：[0, i) 非零

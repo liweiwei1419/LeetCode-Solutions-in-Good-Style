@@ -36,4 +36,15 @@ public class Solution4 {
             path.removeLast();
         }
     }
+
+
+    public static void main(String[] args) {
+        int[] candidates = {10,1,2,7,6,1,5};
+        int target = 8;
+        Solution solution
+                 = new Solution();
+        List<List<Integer>> res = solution.combinationSum2(candidates, target);
+        System.out.println(res);
+
+    }
 }

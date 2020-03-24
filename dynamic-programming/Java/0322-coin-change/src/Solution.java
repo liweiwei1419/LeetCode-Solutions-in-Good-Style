@@ -1,38 +1,36 @@
+import java.util.Arrays;
+
 public class Solution {
 
-    public int coinChange(int[] coins, int amount) {
-        if (amount == 0) {
-            return 0;
-        }
-        int len = coins.length;
-        if (len == 0) {
-            return -1;
-        }
+    // 动态规划
 
-        // dp[i]：组成价值 i 需要的最少硬币数
+    public int coinChange(int[] coins, int amount) {
+        // 给 0 占位
         int[] dp = new int[amount + 1];
 
-        // 要把 0 算进去，这是基本情况，所以开辟 coins 这么多空间的
-        // 初始化的值，可能不符合意义，但是可以被参考
+        // 注意：因为要比较的是最小值，这个不可能的值就得赋值成为一个最大值
+        Arrays.fill(dp, amount + 1);
+
         dp[0] = 0;
 
         for (int i = 1; i <= amount; i++) {
-            // 初始化的时候初始化成一个不可能的值
-            int minCount = amount + 1;
             for (int coin : coins) {
-                if (i - coin >= 0 && dp[i - coin] != -1) {
-                    minCount = Math.min(dp[i - coin] + 1, minCount);
+                if (i - coin >= 0 && dp[i - coin] != amount + 1) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
-            dp[i] = minCount == (amount + 1) ? -1 : minCount;
+        }
+
+        if (dp[amount] == amount + 1) {
+            dp[amount] = -1;
         }
         return dp[amount];
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] coins = {1};
-        int amount = 0;
+        int[] coins = {1, 2, 5};
+        int amount = 11;
         int coinChange = solution.coinChange(coins, amount);
         System.out.println(coinChange);
     }

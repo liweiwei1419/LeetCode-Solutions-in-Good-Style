@@ -4,19 +4,18 @@ import java.util.List;
 
 public class Solution3 {
 
-    private List<Integer> result = new ArrayList<>();
-
-    private void preOrder(TreeNode treeNode) {
+    private void dfs(TreeNode treeNode, List<Integer> res) {
         if (treeNode == null) {
             return;
         }
-        result.add(treeNode.val);
-        preOrder(treeNode.left);
-        preOrder(treeNode.right);
+        res.add(treeNode.val);
+        dfs(treeNode.left, res);
+        dfs(treeNode.right, res);
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        preOrder(root);
-        return result;
+        List<Integer> res = new ArrayList<>();
+        dfs(root,res);
+        return res;
     }
 }

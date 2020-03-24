@@ -1,31 +1,23 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/19 4:21 下午
- */
 public class Solution3 {
+
     public int searchInsert(int[] nums, int target) {
         int len = nums.length;
-        if (nums[len - 1] < target) {
-            return len;
+        if (len == 0) {
+            return 0;
         }
 
         int left = 0;
-        int right = len - 1;
-
+        int right = len;
         while (left < right) {
-            // 根据分支 1、分支 2、分支 3，选左中位数
-            int mid = (left + right) >>> 1;
-            if (nums[mid] > target) {
-                // 分支 1：mid 的右边一定不是解，下一轮搜索的范围是 [left, mid]
-                right = mid;
-            } else if (nums[mid] == target) {
-                // 分支 2：同上，mid 的右边一定不是解，下一轮搜索的范围是 [left, mid]
-                right = mid;
-            } else {
-                // 分支 3：此时 nums[mid] < target
-                // 此时 mid 以及 mid 的左边均严格小于 target，它们一定不是解，
-                // 下一轮搜索的范围是 [mid + 1, right]
+            int mid = left + (right - left) / 2;
+            // 当 nums[mid] 严格小于目标元素时，不是解
+            if (nums[mid] < target) {
+                // 下一轮搜索的区间 [mid + 1, right]
                 left = mid + 1;
+            } else if (nums[mid] == target) {
+                return mid;
+            } else {
+                right = mid;
             }
         }
         return left;

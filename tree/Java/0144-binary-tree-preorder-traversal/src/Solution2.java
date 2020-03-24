@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,23 +10,25 @@ public class Solution2 {
     // 要使用栈，而不是使用队列
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+        List<Integer> res = new ArrayList<>();
         if (root == null) {
-            return result;
+            return res;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
+
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.addLast(root);
         while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            result.add(node.val);
+            TreeNode node = stack.removeLast();
+
+            res.add(node.val);
             if (node.right != null) {
-                stack.push(node.right);
+                stack.addLast(node.right);
             }
             if (node.left != null) {
-                stack.push(node.left);
+                stack.addLast(node.left);
             }
         }
-        return result;
+        return res;
     }
 }
 

@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/13 2:25 上午
- */
 public class Solution3 {
 
     // 循环不变式：
