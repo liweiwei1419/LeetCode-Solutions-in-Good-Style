@@ -162,14 +162,31 @@
 | [215. 数组中的第K个最大元素（简单）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | **常考的高频问题，一定要会做，重点掌握思想。** |      |
 | [283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes) |                                                              | 掌握循环不变式，编写代码更加容易。             |      |
 
+### 双指针
 
+> 「双指针」问题其实来自于最朴素算法的优化，一下子排序掉很多不符合题意的解，「滑动窗口」技巧也是这样的。
 
-#### 栈
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [11. 盛最多水的容器（中等）](https://leetcode-cn.com/problems/container-with-most-water) |                                                              |        |      |
+| [15. 三数之和（中等）](https://leetcode-cn.com/problems/3sum) |                                                              |        |      |
+| [16. 最接近的三数之和（中等）](https://leetcode-cn.com/problems/3sum-closest/) | [双指针对撞](https://leetcode-cn.com/problems/3sum-closest/solution/shuang-zhi-zhen-dui-zhuang-python-dai-ma-java-dai-/) |        |      |
+| [42. 接雨水（困难）](https://leetcode-cn.com/problems/trapping-rain-water/) | [暴力解法、以空间换时间、双指针、单调栈](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |        |      |
+| [167. 两数之和 II - 输入有序数组（简单）](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/) | [双指针对撞 + 二分法](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/solution/shuang-zhi-zhen-dui-zhuang-er-fen-fa-python-dai-ma/) |        |      |
 
-| 题目序号                                                     | 题解                                                         | 知识点   | 代码 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---- |
-| [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
-| [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [负负得正，peek 和 pop 时，依次将队首元素出队，放到队尾](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |          |      |
+### 滑动窗口
+
+| 题目序号 | 题解 | 知识点 | 代码 |
+| -------- | ---- | ------ | ---- |
+| 3        |      |        |      |
+| 76       |      |        |      |
+| 209      |      |        |      |
+| 239      |      |        |      |
+| 424      |      |        |      |
+| 567      |      |        |      |
+| 643      |      |        |      |
+| 978      |      |        |      |
+| 992      |      |        |      |
 
 ### 链表
 
@@ -205,6 +222,60 @@
 | [1300. 转变数组后最接近目标值的数组和](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/) | [二分查找](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/solution/er-fen-cha-zhao-by-liweiwei1419-2/) |                                                              |      |
 | [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [使用二分法在候选区间里定位目标数值（C++、Java、Python）](https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/) | 使用二分法定位一个有范围的整数。                             |      |
 | [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) | [二分查找定位短数组的“边界线”](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/he-bing-yi-hou-zhao-gui-bing-guo-cheng-zhong-zhao-/) | 二分查找里最难的问题，主要弄清楚：1、为什么是在短数组里找边界；2、边界条件的判断。 |      |
+
+#### 栈
+
+| 题目序号                                                     | 题解                                                         | 知识点   | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---- |
+| 20                                                           |                                                              |          |      |
+| 71                                                           |                                                              |          |      |
+| 0155-min-stack                                               |                                                              |          |      |
+| [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [负负得正，peek 和 pop 时，依次将队首元素出队，放到队尾](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |          |      |
+| 232                                                          |                                                              |          |      |
+| 0284-peeking-iterator                                        |                                                              |          |      |
+| [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
+| 0341-flatten-nested-list-iterator                            |                                                              |          |      |
+| 0946-validate-stack-sequences                                |                                                              |          |      |
+#### 单调栈
+
+| 题目序号                    | 题解 | 知识点 | 代码 |
+| --------------------------- | ---- | ------ | ---- |
+| 42                          |      |        |      |
+| 84                          |      |        |      |
+| 0496-next-greater-element-i |      |        |      |
+| 503                         |      |        |      |
+| 0739-daily-temperatures     |      |        |      |
+| 0901-online-stock-span      |      |        |      |
+
+### 队列
+
+| 题目序号            | 题解 | 知识点 | 代码 |
+| ------------------- | ---- | ------ | ---- |
+| 0621-task-scheduler |      |        |      |
+| 622                 |      |        |      |
+| 641                 |      |        |      |
+| 1306-jump-game-iii  |      |        |      |
+
+### 优先队列
+
+注意：了解「堆」作为「优先队列」的实现是有必要的，这样才会理解 `remove` 、`replace` 这些编码的细节，使用堆的时候才会更加有效。
+
+| 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
+| [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
+| 295                                                          |                                                              |              |      |
+| 0347-top-k-frequent-elements                                 |                                                              |              |      |
+| 0703-kth-largest-element-in-a-stream                         |                                                              |              |      |
+| 0973-k-closest-points-to-origin                              |                                                              |              |      |
+| 1296-divide-array-in-sets-of-k-consecutive-numbers           |                                                              |              |      |
+
+#### 链表
+
+（待添加）
+
+### 树
+
+（待添加）
 
 ### 回溯算法
 
@@ -265,19 +336,6 @@
 | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | [动态规划、分治法](https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/)、[CSDN](https://blog.csdn.net/lw_power/article/details/104062895) | 1、经典动态规划问题；2、分治                              |      |
 | [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | [动态规划 、贪心算法 + 二分](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |                                                           |      |
 
-### 优先队列
-
-注意：了解「堆」作为「优先队列」的实现是有必要的，这样才会理解 `remove` 、`replace` 这些编码的细节，使用堆的时候才会更加有效。
-
-| 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
-| [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
-| 295                                                          |                                                              |              |      |
-| 0347-top-k-frequent-elements                                 |                                                              |              |      |
-| 0703-kth-largest-element-in-a-stream                         |                                                              |              |      |
-| 0973-k-closest-points-to-origin                              |                                                              |              |      |
-| 1296-divide-array-in-sets-of-k-consecutive-numbers           |                                                              |              |      |
-
 ### 贪心算法
 
 0012-integer-to-roman
@@ -285,6 +343,10 @@
 0452-minimum-number-of-arrows-to-burst-balloons（贪心算法）
 
 0455-assign-cookies
+
+
+
+
 
 
 
