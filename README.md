@@ -143,17 +143,8 @@
 | [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | [从后向前归并](https://leetcode-cn.com/problems/merge-sorted-array/solution/si-xiang-mei-you-chuang-xin-de-di-fang-zhu-yao-ti-/) | 常规操作，常考问题，注意这里从后向前归并。 |      |
 | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) |                                                              | 记住这个旋转三次的操作。                   |      |
 | [215. 数组中的第K个最大元素（中等）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |                                                              | 很常见的问题，多次出现，一定要掌握。       |      |
-| [283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes) |                                                              | 掌握循环不变式，编写代码更加容易           |      |
 | [451. 根据字符出现频率排序（中等）](https://leetcode-cn.com/problems/sort-characters-by-frequency) |                                                              | 和排序相关的经典问题，做法不唯一。         |      |
 | [912. 排序数组（中等）](https://leetcode-cn.com/problems/sort-an-array) |                                                              | 可以用于学习排序问题。                     |      |
-|                                                              |                                                              |                                            |      |
-|                                                              |                                                              |                                            |      |
-|                                                              |                                                              |                                            |      |
-|                                                              |                                                              |                                            |      |
-
-
-
-
 
 #### 循环不变量
 
@@ -169,11 +160,7 @@
 | [27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/) |                                                              |                                                |      |
 | [75. 颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/) | [快速排序 partition 过程（重点在设计循环不变量）](https://leetcode-cn.com/problems/sort-colors/solution/kuai-su-pai-xu-partition-guo-cheng-she-ji-xun-huan/) | 著名的「荷兰国旗」问题。                       |      |
 | [215. 数组中的第K个最大元素（简单）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | **常考的高频问题，一定要会做，重点掌握思想。** |      |
-|                                                              |                                                              |                                                |      |
-|                                                              |                                                              |                                                |      |
-|                                                              |                                                              |                                                |      |
-|                                                              |                                                              |                                                |      |
-|                                                              |                                                              |                                                |      |
+| [283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes) |                                                              | 掌握循环不变式，编写代码更加容易。             |      |
 
 
 
@@ -221,22 +208,46 @@
 
 ### 回溯算法
 
-知识点讲解：
+**题型 1**：基本回溯问题，在数组上进行搜索
 
-| 题目序号                                                     | 题解 | 知识点 | 代码 |
-| ------------------------------------------------------------ | ---- | ------ | ---- |
-| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) |      |        |      |
-| [17 .电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) |      |        |      |
-| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) |      |        |      |
-| [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) |      |        |      |
-| [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) |      |        |      |
-| [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      |      |        |      |
-| [60. 第k个排列](https://leetcode-cn.com/problems/permutation-sequence/) |      |        |      |
-| [77. 组合](https://leetcode-cn.com/problems/combinations/)   |      |        |      |
-| [78. 子集](https://leetcode-cn.com/problems/subsets/)        |      |        |      |
-| [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)  |      |        |      |
-| [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) |      |        |      |
-| [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/) |      |        |      |
+| 题目序号                                                     | 题解                                                         | 知识点                           | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------- | ---- |
+| [46. 全排列（中等）](https://leetcode-cn.com/problems/permutations/) | [从全排列问题开始理解“回溯搜索”算法](https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/) |                                  |      |
+| [47. 全排列 II（中等）](https://leetcode-cn.com/problems/permutations-ii/) | [回溯搜索 + 剪枝](https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/) | 理解深度优先遍历，发现剪枝条件。 |      |
+| [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) | [回溯算法 + 剪枝](https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/) | 画树形图。                       |      |
+| [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) | [回溯算法 + 剪枝](https://leetcode-cn.com/problems/combination-sum-ii/solution/) | 画树形图。                       |      |
+| [78. 子集](https://leetcode-cn.com/problems/subsets/)        | [回溯 + 位掩码](https://leetcode-cn.com/problems/subsets/solution/hui-su-python-dai-ma-by-liweiwei1419/) | 经典问题。                       |      |
+| [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)  |                                                              | 经典问题。                       |      |
+| [77. 组合](https://leetcode-cn.com/problems/combinations/)   | [回溯算法 + 剪枝](https://leetcode-cn.com/problems/combinations/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-ma-/) |                                  |      |
+
+**题型 2**：字符串上的回溯问题
+
+重点理解：由于字符串每次都生成新字符，无须状态重置。
+| 题目序号                                                     | 题解                                                         | 知识点                                 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------- | ---- |
+| [17 .电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | [回溯搜索（无显式回溯）、广度优先遍历](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/solution/hui-su-sou-suo-wu-xian-shi-hui-su-yan-du-you-xian-/) | 字符串的回溯问题。                     |      |
+| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | [回溯算法（深度优先遍历）+ 广度优先遍历](https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/) | 字符串的回溯问题。                     |      |
+| [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) | [回溯算法（画图分析剪枝条件）](https://leetcode-cn.com/problems/restore-ip-addresses/solution/hui-su-suan-fa-hua-tu-fen-xi-jian-zhi-tiao-jian-by/) | 字符串的回溯问题。                     |      |
+| [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/) | [在隐式树上做深度优先遍历](https://leetcode-cn.com/problems/letter-case-permutation/solution/shen-du-you-xian-bian-li-hui-su-suan-fa-python-dai/) | 字符串的回溯问题。                     |      |
+
+**题型 3**：二维平面上的回溯问题
+
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [79. 单词搜索（中等）](https://leetcode-cn.com/problems/word-search/) | [在二维平面上使用回溯法](https://leetcode-cn.com/problems/word-search/solution/zai-er-wei-ping-mian-shang-shi-yong-hui-su-fa-pyth/) |        |      |
+
+**题型 4**：一些游戏问题
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | [根据第 46 题“全排列”的“回溯算法”思路编写“N 皇后”问题](https://leetcode-cn.com/problems/n-queens/solution/gen-ju-di-46-ti-quan-pai-lie-de-hui-su-suan-fa-si-/) | 经典问题，掌握「空间换时间」技巧。     |      |
+| [37. 解数独（困难）](https://leetcode-cn.com/problems/sudoku-solver/) |  |  | |
+| [36. 有效的数独（中等）](https://leetcode-cn.com/problems/valid-sudoku/) |  | 这里用到的是哈希表。 | |
+
+**题型 5**：巧用剪枝
+
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [60. 第k个排列](https://leetcode-cn.com/problems/permutation-sequence/) | [深度优先遍历 + 剪枝、双链表模拟](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/) | 可以基于第 46 题做，剪枝直接来到枝叶。 |      |
 
 ### 动态规划
 
