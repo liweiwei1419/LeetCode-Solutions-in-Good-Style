@@ -16,7 +16,7 @@
 
 + 建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
 
-![Octotree 插件](https://liweiwei1419.github.io/images/leetcode-solution-new/Octotree.png)
+![Octotree 插件](http://liweiwei1419.gitee.io/visualgo/github/octotree.png)
 
 ## 编码依据
 
@@ -176,17 +176,17 @@
 
 ### 滑动窗口
 
-| 题目序号 | 题解 | 知识点 | 代码 |
-| -------- | ---- | ------ | ---- |
-| 3        |      |        |      |
-| 76       |      |        |      |
-| 209      |      |        |      |
-| 239      |      |        |      |
-| 424      |      |        |      |
-| 567      |      |        |      |
-| 643      |      |        |      |
-| 978      |      |        |      |
-| 992      |      |        |      |
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) |      |        |      |
+| [76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring) |      |        |      |
+| [209. 长度最小的子数组（中等）](https://leetcode-cn.com/problems/minimum-size-subarray-sum) |      |        |      |
+| [239. 滑动窗口最大值（中等）](https://leetcode-cn.com/problems/sliding-window-maximum) |      |        |      |
+| [424. 替换后的最长重复字符（中等）](https://leetcode-cn.com/problems/longest-repeating-character-replacement) |      |        |      |
+| [567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string) |      |        |      |
+| [643. 子数组最大平均数 I（简单）](https://leetcode-cn.com/problems/maximum-average-subarray-i) |      |        |      |
+| [978. 最长湍流子数组（中等）](https://leetcode-cn.com/problems/longest-turbulent-subarray) |      |        |      |
+| [992. K 个不同整数的子数组（困难）](https://leetcode-cn.com/problems/subarrays-with-k-different-integers) |      |        |      |
 
 ### 链表
 
@@ -227,34 +227,34 @@
 
 | 题目序号                                                     | 题解                                                         | 知识点   | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---- |
-| 20                                                           |                                                              |          |      |
-| 71                                                           |                                                              |          |      |
-| 0155-min-stack                                               |                                                              |          |      |
-| [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [负负得正，peek 和 pop 时，依次将队首元素出队，放到队尾](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |          |      |
-| 232                                                          |                                                              |          |      |
-| 0284-peeking-iterator                                        |                                                              |          |      |
-| [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
-| 0341-flatten-nested-list-iterator                            |                                                              |          |      |
-| 0946-validate-stack-sequences                                |                                                              |          |      |
+| [20. 有效的括号（简单）](https://leetcode-cn.com/problems/valid-parentheses) |                                                              |          |      |
+| [71. 简化路径（中等）](https://leetcode-cn.com/problems/simplify-path) |                                                              |          |      |
+| [155. 最小栈（简单）](https://leetcode-cn.com/problems/min-stack) |                                                              |          |      |
+| [225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [负负得正，peek 和 pop 时，依次将队首元素出队，放到队尾](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |          |      |
+| [232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks) |                                                              |          |      |
+| [284. 顶端迭代器（中等）](https://leetcode-cn.com/problems/peeking-iterator) |                                                              |          |      |
+| [316. 去除重复字母（困难）](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
+| [341. 扁平化嵌套列表迭代器（中等）](https://leetcode-cn.com/problems/flatten-nested-list-iterator) |                                                              |          |      |
+| [946. 验证栈序列（中等）](https://leetcode-cn.com/problems/validate-stack-sequences) |                                                              |          |      |
 #### 单调栈
 
-| 题目序号                    | 题解 | 知识点 | 代码 |
-| --------------------------- | ---- | ------ | ---- |
-| 42                          |      |        |      |
-| 84                          |      |        |      |
-| 0496-next-greater-element-i |      |        |      |
-| 503                         |      |        |      |
-| 0739-daily-temperatures     |      |        |      |
-| 0901-online-stock-span      |      |        |      |
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [42. 接雨水（困难）](https://leetcode-cn.com/problems/trapping-rain-water) |      |        |      |
+| [84. 柱状图中最大的矩形（困难）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram) |      |        |      |
+| [496. 下一个更大元素 I（简单）](https://leetcode-cn.com/problems/next-greater-element-i) |      |        |      |
+| [503. 下一个更大元素 II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii) |      |        |      |
+| [739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures) |      |        |      |
+| [901. 股票价格跨度（中等）](https://leetcode-cn.com/problems/online-stock-span) |      |        |      |
 
 ### 队列
 
-| 题目序号            | 题解 | 知识点 | 代码 |
-| ------------------- | ---- | ------ | ---- |
-| 0621-task-scheduler |      |        |      |
-| 622                 |      |        |      |
-| 641                 |      |        |      |
-| 1306-jump-game-iii  |      |        |      |
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [621. 任务调度器（中等）](https://leetcode-cn.com/problems/task-scheduler) |      |        |      |
+| [622. 设计循环队列（中等）](https://leetcode-cn.com/problems/design-circular-queue) |      |        |      |
+| [641. 设计循环双端队列（中等）](https://leetcode-cn.com/problems/design-circular-deque) |      |        |      |
+| [1306. 跳跃游戏 III（中等）](https://leetcode-cn.com/problems/jump-game-iii) |      |        |      |
 
 ### 优先队列
 
@@ -263,15 +263,11 @@
 | 题目序号                                                     | 题解                                                         | 知识点       | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ---- |
 | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [通过 partition 减治 + 优先队列（Java、C++、Python）](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) | 减而治之、堆 |      |
-| 295                                                          |                                                              |              |      |
-| 0347-top-k-frequent-elements                                 |                                                              |              |      |
-| 0703-kth-largest-element-in-a-stream                         |                                                              |              |      |
-| 0973-k-closest-points-to-origin                              |                                                              |              |      |
-| 1296-divide-array-in-sets-of-k-consecutive-numbers           |                                                              |              |      |
-
-#### 链表
-
-（待添加）
+| [295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream) |                                                              |              |      |
+| [347. 前 K 个高频元素（中等）](https://leetcode-cn.com/problems/top-k-frequent-elements) |                                                              |              |      |
+| [703. 数据流中的第K大元素（简单）](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream) |                                                              |              |      |
+| [973. 最接近原点的 K 个点（中等）](https://leetcode-cn.com/problems/k-closest-points-to-origin) |                                                              |              |      |
+| [1296. 划分数组为连续数字的集合（中等）](https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers) |                                                              |              |      |
 
 ### 树
 
@@ -338,34 +334,25 @@
 
 ### 贪心算法
 
-0012-integer-to-roman
-
-0452-minimum-number-of-arrows-to-burst-balloons（贪心算法）
-
-0455-assign-cookies
-
-
-
-
-
-
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [12. 整数转罗马数字（中等）](https://leetcode-cn.com/problems/integer-to-roman) |      |        |      |
+| [452. 用最少数量的箭引爆气球（中等）](https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons) |      |        |      |
+| [455. 分发饼干（中等）](https://leetcode-cn.com/problems/assign-cookies) |      |        |      |
+| [122. 买卖股票的最佳时机 II（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii) |      |        |      |
 
 ### 并查集
 
-
-
-0128-longest-consecutive-sequence
-0200-number-of-islands
-0399-evaluate-division
-0547-friend-circles
-0765-couples-holding-hands
-0990-satisfiability-of-equality-equations
-0952-largest-component-size-by-common-factor
-1319-number-of-operations-to-make-network-connected
-
-
-
-
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
+| [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) |      |        |      |
+| [547. 朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles) |      |        |      |
+| [200. 岛屿数量（中等）](https://leetcode-cn.com/problems/number-of-islands) |      |        |      |
+| [1319. 连通网络的操作次数（中等）](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected) |      |        |      |
+| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division) |      |        |      |
+| [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |      |        |      |
+| [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands) |      |        |      |
+| [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) |      |        |      |
 
 ## 配套资源
 
