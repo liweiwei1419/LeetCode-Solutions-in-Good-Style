@@ -3,7 +3,7 @@ public class Solution3 {
     // 循环不变式：
     // [0, notZero] 非零
     // (Zero, i) == 0
-    // i == len
+    // i == len 时停止
 
     public void moveZeroes(int[] nums) {
         int len = nums.length;
