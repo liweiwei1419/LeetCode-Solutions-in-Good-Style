@@ -129,6 +129,10 @@
 
 ## 题解分类（正在更新）
 
+### 排序
+
+「力扣」第 912 题：[排序数组](https://leetcode-cn.com/problems/sort-an-array/) 的题解：[复习基础排序算法（Java）](https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/)总结了排序问题的一些要点和学习资料，可以从排序问题开始学习算法。
+
 ### 数组
 
 > 数组的问题可以作为「新手场」，因为这些问题只需要掌握编程语言的基础知识就可以完成。
@@ -243,6 +247,7 @@
 | [316. 去除重复字母（困难）](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [栈 + 哨兵技巧（Java、C++、Python）](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) | 穿针引线 |      |
 | [341. 扁平化嵌套列表迭代器（中等）](https://leetcode-cn.com/problems/flatten-nested-list-iterator) |                                                              |          |      |
 | [946. 验证栈序列（中等）](https://leetcode-cn.com/problems/validate-stack-sequences) |                                                              |          |      |
+| [1111. 有效括号的嵌套深度（中等）](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | [嵌套深度 = 完成括号匹配问题实际使用的栈的最大高度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/solution/qian-tao-shen-du-wan-cheng-gua-hao-pi-pei-wen-ti-s/) |          |      |
 #### 单调栈
 
 | 序号 | 题目                                                         | 题解                                                         |

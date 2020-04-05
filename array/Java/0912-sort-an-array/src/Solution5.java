@@ -1,9 +1,9 @@
 import java.util.Random;
 
-public class Solution6 {
+public class Solution5 {
 
     /**
-     * 列表大小等于或小于该大小，将优先于 mergesort 使用插入排序
+     * 列表大小等于或小于该大小，将优先于 quickSort 使用插入排序
      */
     private static final int INSERTION_SORT_THRESHOLD = 7;
 
@@ -50,36 +50,23 @@ public class Solution6 {
     }
 
     private int partition(int[] nums, int left, int right) {
-        int randomIndex = left + RANDOM.nextInt(right - left + 1);
-        swap(nums, randomIndex, left);
+        int randomIndex = RANDOM.nextInt(right - left + 1) + left;
+        swap(nums, left, randomIndex);
 
+        // 基准值
         int pivot = nums[left];
-        int lt = left + 1;
-        int gt = right;
-
+        int lt = left;
         // 循环不变量：
-        // all in [left + 1, lt) <= pivot
-        // all in (gt, right] >= pivot
-        while (true) {
-            while (lt <= right && nums[lt] < pivot) {
+        // all in [left + 1, lt] < pivot
+        // all in [lt + 1, i) >= pivot
+        for (int i = left + 1; i <= right; i++) {
+            if (nums[i] < pivot) {
                 lt++;
+                swap(nums, i, lt);
             }
-
-            while (gt > left && nums[gt] > pivot) {
-                gt--;
-            }
-
-            if (lt > gt) {
-                break;
-            }
-
-            // 细节：相等的元素通过交换，等概率分到数组的两边
-            swap(nums, lt, gt);
-            lt++;
-            gt--;
         }
-        swap(nums, left, gt);
-        return gt;
+        swap(nums, left, lt);
+        return lt;
     }
 
     private void swap(int[] nums, int index1, int index2) {
