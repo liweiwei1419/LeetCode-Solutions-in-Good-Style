@@ -1,6 +1,6 @@
 public class Solution3 {
 
-    // 三次扫描，以空间换时间
+    // 双指针（指针对撞）
 
     public int trap(int[] height) {
         int len = height.length;
@@ -9,29 +9,42 @@ public class Solution3 {
             return 0;
         }
 
-        int[] leftMax = new int[len];
-        leftMax[0] = height[0];
-        for (int i = 1; i < len; i++) {
-            leftMax[i] = Math.max(height[i], leftMax[i - 1]);
-        }
+        // 注意初值的选取，前面做了特判，下标 0 和 len - 1 位置都不存雨水，因此这里有效
+        // 在区间 [1, len - 2] 里计算存水量
+        int left = 1;
+        int right = len - 2;
 
-        int[] rightMax = new int[len];
-        rightMax[len - 1] = height[len - 1];
-        for (int i = len - 2; i >= 0; i--) {
-            rightMax[i] = Math.max(height[i], rightMax[i + 1]);
-        }
+        // 记录区间 [0, left - 1] 的最大高度
+        int curLeftHighest = height[0];
+        // 记录区间 [right + 1, len - 1] 的最大高度
+        int curRightHighest = height[len - 1];
 
         int res = 0;
-        for (int i = 1; i < len - 1; i++) {
-            res += (Math.min(leftMax[i], rightMax[i]) - height[i]);
+        // 这里是等于，因为当 left == right 的时候，left(right) 这个位置的存水量还需要计算一下
+        while (left <= right) {
+            // 调试代码
+            // System.out.println("left = " + left + " right = " + right + " curLeftHighest = " + curLeftHighest + " curRightHighest = " + curRightHighest+ " res = " + res );
+            int minHeight = Math.min(curLeftHighest, curRightHighest);
+
+            // 存水单位体积取决于较短的那个柱形的高度
+            if (minHeight == curLeftHighest) {
+                if (minHeight > height[left]) {
+                    // 大于当前，才可以存水
+                    res += minHeight - height[left];
+                }
+                // 更新左边的柱形的最高高度
+                curLeftHighest = Math.max(curLeftHighest, height[left]);
+                // 指针右移
+                left++;
+            } else {
+                if (minHeight > height[right]) {
+                    res += minHeight - height[right];
+                }
+                curRightHighest = Math.max(curRightHighest, height[right]);
+                right--;
+            }
         }
         return res;
     }
 
-    public static void main(String[] args) {
-        int[] height = new int[]{3, 0, 0, 1, 0, 2, 0, 4};
-        Solution3 solution3 = new Solution3();
-        int res = solution3.trap(height);
-        System.out.println(res);
-    }
 }
