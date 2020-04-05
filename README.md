@@ -194,6 +194,13 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
 | [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/) | [穿针引线](https://leetcode-cn.com/problems/rotate-list/solution/chuan-zhen-yin-xian-by-liweiwei1419/) | 穿针引线 |
 
+下面的两题考察了「双向链表」的应用。
+
+| 题目                                                         | 难度 | 题解                                                         |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)  | 困难 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
+| [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 中等 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
+
 ### 二分查找
 
 知识点讲解：[用“排除法”（减治思想）写二分查找问题、与其它二分查找模板的比较](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)、[哔哩哔哩](https://www.bilibili.com/video/av83911694?p=1)
@@ -238,14 +245,14 @@
 | [946. 验证栈序列（中等）](https://leetcode-cn.com/problems/validate-stack-sequences) |                                                              |          |      |
 #### 单调栈
 
-| 题目序号                                                     | 题解 | 知识点 | 代码 |
-| ------------------------------------------------------------ | ---- | ------ | ---- |
-| [42. 接雨水（困难）](https://leetcode-cn.com/problems/trapping-rain-water) |      |        |      |
-| [84. 柱状图中最大的矩形（困难）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram) |      |        |      |
-| [496. 下一个更大元素 I（简单）](https://leetcode-cn.com/problems/next-greater-element-i) |      |        |      |
-| [503. 下一个更大元素 II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii) |      |        |      |
-| [739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures) |      |        |      |
-| [901. 股票价格跨度（中等）](https://leetcode-cn.com/problems/online-stock-span) |      |        |      |
+| 序号 | 题目                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1    | [739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/) | [【程序员的自我修养】739. Daily Temperatures](https://leetcode-cn.com/problems/daily-temperatures/solution/cheng-xu-yuan-de-zi-wo-xiu-yang-739-daily-temperat/)（我看这篇题解学会的）、[暴力解法 + 单调栈](https://leetcode-cn.com/problems/daily-temperatures/solution/bao-li-jie-fa-dan-diao-zhan-by-liweiwei1419/) |
+| 2    | [496. 下一个更大元素 I（简单）](https://leetcode-cn.com/problems/next-greater-element-i/) | [暴力解法、单调栈](https://leetcode-cn.com/problems/next-greater-element-i/solution/bao-li-jie-fa-dan-diao-zhan-by-liweiwei1419-2/) |
+| 3    | [503. 下一个更大元素 II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii/) | （我暂时没有写）                                             |
+| 4    | [901. 股票价格跨度（中等）](https://leetcode-cn.com/problems/online-stock-span/) | [LeetCode 第 901 题：股票价格跨度（单调栈）](https://blog.csdn.net/lw_power/article/details/103957702) |
+| 5    | [84. 柱状图中最大的矩形（困难）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) | [暴力解法、栈（哨兵技巧）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/) |
+| 6    | [42. 接雨水（困难）](https://leetcode-cn.com/problems/trapping-rain-water/) | [暴力解法、栈（哨兵技巧）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/) |
 
 ### 队列
 
@@ -353,6 +360,19 @@
 | [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |      |        |      |
 | [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands) |      |        |      |
 | [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) |      |        |      |
+
+---
+
+## 「力扣」2020 年 4 月每日一题做题记录
+
+| 日期         | 题目                                                         | 难度 | 题解                                                         |
+| ------------ | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| 4 月 1 日    | [1111. 有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 中等 | [嵌套深度 = 完成括号匹配问题实际使用的栈的最大高度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/solution/qian-tao-shen-du-wan-cheng-gua-hao-pi-pei-wen-ti-s/) |
+| 4 月 2 日    | [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life/) | 中等 | [「力扣」第 289 题：生命游戏（数组）](https://blog.csdn.net/lw_power/article/details/105264037) |
+| 4 月 3 日    | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 中等 | [尽量不使用库函数、一次遍历（Java）](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/jin-liang-bu-shi-yong-ku-han-shu-nai-xin-diao-shi-/) |
+| 4 月 4 日    | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 困难 | [暴力解法、优化、双指针、单调栈](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |
+| 4 月 5 日    | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)  | 困难 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
+| （同类问题） | [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 中等 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
 
 ## 配套资源
 
