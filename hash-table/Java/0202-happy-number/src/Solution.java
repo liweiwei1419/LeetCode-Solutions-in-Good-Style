@@ -16,12 +16,12 @@ public class Solution {
 
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
-        int sum;
+
         // 当前模 10 的余数
         int remainder;
         while (true) {
             // 重置当前求和
-            sum = 0;
+            int sum = 0;
             while (n != 0) {
                 // 得到余数
                 remainder = n % 10;
@@ -34,7 +34,8 @@ public class Solution {
 
             if (sum == 1) {
                 return true;
-            } else {// sum!=1
+            } else {
+                // sum!=1
                 if (set.contains(sum)) {
                     // 如果出现了和以前计算一样的结果，就说明这个过程会无限循环下去，所以一定不是 happy number
                     return false;
@@ -47,7 +48,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        boolean happy = new Solution().isHappy(19);
-        System.out.println(happy);
+        Solution solution = new Solution();
+        boolean res = solution.isHappy(19);
+        System.out.println(res);
     }
 }

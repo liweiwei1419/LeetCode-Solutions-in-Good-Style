@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Solution2 {
+
     public boolean isHappy(int n) {
         Set<Integer> set1 = new HashSet<>();
         String numberStr = String.valueOf(n);
