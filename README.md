@@ -67,9 +67,10 @@
 
 + 在 2018 年，有一个制作算法动画的项目和公众号火了起来，让人耳目一新。公众号的名字叫“五分钟学算法”，博主叫“程序员吴师兄”，我在这个公众号上学习了很多东西，我现在的博客模板也是在吴师兄原来用的模板基础上做了修改。“程序员吴师兄”在很多平台上都可以搜索到他，欢迎大家关注。
 
-#### 4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
+### 4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
 
-本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟。
++ 本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟。
++ 最近「力扣」网站举办了「每日一题」，习惯用微信的朋友可以点击网址：http://group.ojeveryday.com/#/check，加群主微信，这个网页还会显示大家打卡的情况。
 
 ## 刷题建议
 
@@ -108,6 +109,18 @@
 > 希望我们程序员不再是别人眼里的刻板印象，我们也是艺术家。
 >
 > 希望我们大家都能在自己的工作领域里有所成绩。很高兴和大家成为朋友。
+
+## 「力扣」2020 年 4 月每日一题做题记录
+
+| 日期         | 题目                                                         | 难度 | 题解                                                         |
+| ------------ | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| 4 月 1 日    | [1111. 有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 中等 | [嵌套深度 = 完成括号匹配问题实际使用的栈的最大高度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/solution/qian-tao-shen-du-wan-cheng-gua-hao-pi-pei-wen-ti-s/) |
+| 4 月 2 日    | [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life/) | 中等 | [「力扣」第 289 题：生命游戏（数组）](https://blog.csdn.net/lw_power/article/details/105264037) |
+| 4 月 3 日    | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 中等 | [尽量不使用库函数、一次遍历（Java）](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/jin-liang-bu-shi-yong-ku-han-shu-nai-xin-diao-shi-/) |
+| 4 月 4 日    | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 困难 | [暴力解法、优化、双指针、单调栈](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |
+| 4 月 5 日    | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)  | 困难 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
+| （同类问题） | [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 中等 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
+| 4 月 6 日    | [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) | 困难 | [动态规划（Java）](https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/) |
 
 ## 我在「力扣」圈子里回答的问题
 
@@ -285,6 +298,12 @@
 
 （待添加）
 
+### 哈希表
+
+| 题目                                                         | 难度 | 题解                                                         |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/) | 中等 | [自定义字符串的哈希规则，使用质数作为乘法因子（Java）](https://leetcode-cn.com/problems/group-anagrams/solution/zi-ding-yi-zi-fu-chuan-de-ha-xi-gui-ze-shi-yong-zh/) |
+
 ### 回溯算法
 
 **题型 1**：基本回溯问题，在数组上进行搜索
@@ -367,17 +386,6 @@
 | [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) |      |        |      |
 
 ---
-
-## 「力扣」2020 年 4 月每日一题做题记录
-
-| 日期         | 题目                                                         | 难度 | 题解                                                         |
-| ------------ | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| 4 月 1 日    | [1111. 有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 中等 | [嵌套深度 = 完成括号匹配问题实际使用的栈的最大高度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/solution/qian-tao-shen-du-wan-cheng-gua-hao-pi-pei-wen-ti-s/) |
-| 4 月 2 日    | [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life/) | 中等 | [「力扣」第 289 题：生命游戏（数组）](https://blog.csdn.net/lw_power/article/details/105264037) |
-| 4 月 3 日    | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | 中等 | [尽量不使用库函数、一次遍历（Java）](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/jin-liang-bu-shi-yong-ku-han-shu-nai-xin-diao-shi-/) |
-| 4 月 4 日    | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) | 困难 | [暴力解法、优化、双指针、单调栈](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |
-| 4 月 5 日    | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)  | 困难 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
-| （同类问题） | [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 中等 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
 
 ## 配套资源
 

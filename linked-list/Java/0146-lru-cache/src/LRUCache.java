@@ -10,9 +10,6 @@ public class LRUCache {
      */
     private class ListNode {
 
-        /**
-         * 必须要存 key，因为删除 map 里元素的时候要用到
-         */
         private Integer key;
         private Integer value;
         /**
@@ -47,27 +44,31 @@ public class LRUCache {
     public LRUCache(int capacity) {
         map = new HashMap<>(capacity);
         this.capacity = capacity;
-        dummyHead = new ListNode();
-        dummyTail = new ListNode();
+        dummyHead = new ListNode(-1, -1);
+        dummyTail = new ListNode(-1, -1);
         // 初始化链表为 head <-> tail
 
         dummyHead.next = dummyTail;
         dummyTail.pre = dummyHead;
-
     }
 
+    /**
+     * 如果存在，把当前结点移动到双向链表的头部
+     *
+     * @param key
+     * @return
+     */
     public int get(int key) {
         if (map.containsKey(key)) {
             ListNode node = map.get(key);
             int val = node.value;
 
-            // 把当前 node 移动到双向链表的最末尾
-            moveNode2Tail(key);
+            // 把当前 node 移动到双向链表的头部
+            moveNode2Head(key);
             return val;
         } else {
             return -1;
         }
-
     }
 
     /**
@@ -78,40 +79,55 @@ public class LRUCache {
      */
     public void put(int key, int value) {
         if (map.containsKey(key)) {
-            // 更新 value
+            // 1、更新 value
             map.get(key).value = value;
-            // 把当前 node 移动到双向链表的最末尾
-            moveNode2Tail(key);
+            // 2、把当前 node 移动到双向链表的头部
+            moveNode2Head(key);
             return;
         }
 
         // 放元素的操作是一样的
 
         if (map.size() == capacity) {
-            // 如果满了，就要删除 head 的 key
-            map.remove(dummyHead.next.key);
+            // 如果满了
+            ListNode oldTail = removeTail();
 
-            // 删除双链表虚拟头结点的下一个结点
-            ListNode deleteNode = dummyHead.next;
-
-            // 前后搭桥
-            dummyHead.next = deleteNode.next;
-            deleteNode.next.pre = dummyHead;
-
-            // 释放引用
-            deleteNode.pre = null;
-            deleteNode.next = null;
+            // 设计 key 就是为了在这里删除
+            map.remove(oldTail.key);
         }
-
 
         // 然后添加元素
         ListNode newNode = new ListNode(key, value);
         map.put(key, newNode);
-        addNode2Tail(newNode);
+        addNode2Head(newNode);
     }
 
+    // 为了突出主干逻辑，下面是 3 个公用的方法
 
-    private void moveNode2Tail(int key) {
+    /**
+     * 删除双链表尾部结点
+     */
+    private ListNode removeTail() {
+        ListNode oldTail = dummyTail.pre;
+        ListNode newTail = oldTail.pre;
+
+        // 两侧结点建立连接
+        newTail.next = dummyTail;
+        dummyTail.pre = newTail;
+
+        // 释放引用
+        oldTail.pre = null;
+        oldTail.next = null;
+
+        return oldTail;
+    }
+
+    /**
+     * 把当前 key 指向的结点移到双向链表的头部
+     *
+     * @param key
+     */
+    private void moveNode2Head(int key) {
         // 1、先把 node 拿出来
         ListNode node = map.get(key);
 
@@ -120,20 +136,57 @@ public class LRUCache {
         node.next.pre = node.pre;
 
         // 3、再把 node 放在末尾
-        addNode2Tail(node);
+        addNode2Head(node);
     }
 
-    private void addNode2Tail(ListNode newNode) {
-        // 1、当前末尾结点
-        ListNode tail = dummyTail.pre;
+    /**
+     * 在双链表的头部新增一个结点
+     *
+     * @param newNode
+     */
+    private void addNode2Head(ListNode newNode) {
+        // 1、当前头结点
+        ListNode oldHead = dummyHead.next;
 
         // 2、末尾结点的后继指向新结点
-        tail.next = newNode;
-        // 3、设置新结点的前驱和后继
-        newNode.pre = tail;
-        newNode.next = dummyTail;
+        oldHead.pre = newNode;
 
-        // 4、更改虚拟尾结点的前驱
-        dummyTail.pre = newNode;
+        // 3、设置新结点的前驱和后继
+        newNode.pre = dummyHead;
+        newNode.next = oldHead;
+
+        // 4、更改虚拟头结点的后继结点
+        dummyHead.next = newNode;
+    }
+
+
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(2);
+        cache.put(1, 1);
+        cache.put(2, 2);
+        System.out.println(cache.map.keySet());
+
+        int res1 = cache.get(1);
+        System.out.println(res1);
+
+        cache.put(3, 3);
+
+        int res2 = cache.get(2);
+        System.out.println(res2);
+
+        int res3 = cache.get(3);
+        System.out.println(res3);
+
+        cache.put(4, 4);
+        System.out.println(cache.map.keySet());
+
+        int res4 = cache.get(1);
+        System.out.println(res4);
+
+        int res5 = cache.get(3);
+        System.out.println(res5);
+
+        int res6 = cache.get(4);
+        System.out.println(res6);
     }
 }
