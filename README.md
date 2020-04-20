@@ -121,6 +121,11 @@
 | 4 月 5 日    | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)  | 困难 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
 | （同类问题） | [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) | 中等 | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
 | 4 月 6 日    | [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) | 困难 | [动态规划（Java）](https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/) |
+| 4 月 7 日    | [面试题 01.07. 旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/) | 中等 | [CSDN](https://blog.csdn.net/lw_power/article/details/105317509) |
+| 4 月 8 日    | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof) | 中等 | [深度优先遍历、广度优先遍历](https://blog.csdn.net/lw_power/article/details/105398995) |
+| 4 月 9 日    | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 中等 | [回溯算法（深度优先遍历）+ 广度优先遍历 + 动态规划](https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/) |
+| 4 月 10 日   | [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/) | 中等 | [CSDN](https://blog.csdn.net/lw_power/article/details/105317713) |
+
 
 ## 我在「力扣」圈子里回答的问题
 
@@ -349,19 +354,76 @@
 
 ### 动态规划
 
+一个「动态规划」问题的分类：https://zhuanlan.zhihu.com/p/126546914?utm_source=wechat_session&utm_medium=social&utm_oi=27134168924160。
+
 知识点讲解：在「力扣」第 5 题[题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)。
+
+#### 第 1 部分：「动态规划」基本问题
+
++ 递归 + 记忆化：记忆化递归（记忆化搜索），这是「自上而下」的思路；
++ 掌握「自底向上」递推求解问题的方法；
++ 理解「重复子问题」、「最优子结构」、「无后效性」；
++ 掌握「状态定义」、「状态转移方程」
+
+
+| 题目序号                                                     | 题解                                                         | 知识点                     | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------- | ---- |
+| [509. 斐波那契数（简单）](https://leetcode-cn.com/problems/fibonacci-number/) |                                                              | 递归做一定要加缓存。       |      |
+| [70. 爬楼梯（简单）](https://leetcode-cn.com/problems/climbing-stairs/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103799112) | 和斐波拉契数是同一道问题。 |      |
+
+#### 第 2 部分：最优子结构
+
+
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [279. 完全平方数（中等）](https://leetcode-cn.com/problems/perfect-squares/) |                                                              |        |      |
+| [322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change/) | [动态规划、使用「完全背包」问题思路、图的广度优先遍历](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |        |      |
+| [343. 整数拆分（中等）](https://leetcode-cn.com/problems/integer-break/) | [“贪心选择”性质的简单证明、记忆化搜索、动态规划 （Python、Java）](https://leetcode-cn.com/problems/integer-break/solution/tan-xin-xuan-ze-xing-zhi-de-jian-dan-zheng-ming-py/) |        |      |
+
+#### 第 3 部分：无后效性
+
+
+| 题目序号                                                     | 题解 | 知识点             | 代码 |
+| ------------------------------------------------------------ | ---- | ------------------ | ---- |
+| [198. 打家劫舍（简单）](https://leetcode-cn.com/problems/house-robber/) |      | 二维状态消除后效性 |      |
+| [62. 不同路径（中等）](https://leetcode-cn.com/problems/unique-paths/) |      |                    |      |
+| [63. 不同路径 II（中等）](https://leetcode-cn.com/problems/unique-paths-ii/) |      |                    |      |
+
+#### 第 4 部分：经典问题（1）
+
+
+| 题目序号                                                     | 题解                                                         | 知识点                               | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ | ---- |
+| [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | [动态规划、分治法](https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/)、[CSDN](https://blog.csdn.net/lw_power/article/details/104062895) | 1、经典动态规划问题；2、分治         |      |
+| [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | [动态规划 、贪心算法 + 二分](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |                                      |      |
+| [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | [Manacher 算法 + 动态规划 （Java、C++、Python）](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/) | 使用动态规划的方法得到子串的回文性质 |      |
+| [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) | [动态规划（Java）](https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/)、[CDSN](https://blog.csdn.net/lw_power/article/details/103818533) |                                      |      |
+| [120. 三角形最小路径和（中等）](https://leetcode-cn.com/problems/triangle/) |                                                              |                                      |      |
+| [10. 正则表达式匹配（困难）](https://leetcode-cn.com/problems/regular-expression-matching/) |                                                              |                                      |      |
+
+#### 第 5 部分：经典问题（2）背包问题
+
+
+| 题目序号                                                     | 题解                                                         | 知识点                         | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ | ---- |
+| [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [动态规划（0-1 背包问题）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/) | 很重要的动态规划模型，必须掌握 |      |
+| [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) | [动态规划（套用完全背包问题模型）](https://leetcode-cn.com/problems/coin-change-2/solution/dong-tai-gui-hua-wan-quan-bei-bao-wen-ti-by-liweiw/) |                                |      |
+| [322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change/) | [动态规划、使用「完全背包」问题思路、图的广度优先遍历](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |                                |      |
+| [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) | [动态规划](https://leetcode-cn.com/problems/combination-sum-iv/solution/dong-tai-gui-hua-python-dai-ma-by-liweiwei1419/) |                                |      |
+| [494. 目标和](https://leetcode-cn.com/problems/target-sum/)  |                                                              | 0-1 背包问题                   |      |
+| [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/) | [动态规划（转换为 0-1 背包问题）](https://leetcode-cn.com/problems/ones-and-zeroes/solution/dong-tai-gui-hua-zhuan-huan-wei-0-1-bei-bao-wen-ti/) |                                |      |
+
+#### 第 6 部分：经典问题（3）股票问题
+
 
 | 题目序号                                                     | 题解                                                         | 知识点                                                    | 代码 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------------- | ---- |
-| [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103799112) |                                                           |      |
-| [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | [Manacher 算法 + 动态规划 （Java、C++、Python）](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/) | 使用动态规划的方法得到子串的回文性质                      |      |
-| [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [动态规划（0-1 背包问题）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/) | 很重要的动态规划模型，必须掌握                            |      |
-| [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | [暴力枚举 + 动态规划 + 差分思想](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103772951) |                                                           |      |
-| [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | [暴力搜索 + 贪心算法 + 动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773246) |                                                           |      |
-| [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) | [CSDN](https://blog.csdn.net/lw_power/article/details/103773822) | 1、从后向前写可以把状态压缩到一维；2、分解成两个 121 题。 |      |
-| [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) | [CDSN](https://blog.csdn.net/lw_power/article/details/103818533) |                                                           |      |
-| [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | [动态规划、分治法](https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/)、[CSDN](https://blog.csdn.net/lw_power/article/details/104062895) | 1、经典动态规划问题；2、分治                              |      |
-| [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | [动态规划 、贪心算法 + 二分](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |                                                           |      |
+| [121. 买卖股票的最佳时机（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) | [暴力枚举 + 动态规划 + 差分思想](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103772951) |                                                           |      |
+| [122. 买卖股票的最佳时机 II（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) | [暴力搜索 + 贪心算法 + 动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773246) |                                                           |      |
+| [123. 买卖股票的最佳时机 III（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/dong-tai-gui-hua-by-liweiwei1419-7/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773822) | 1、从后向前写可以把状态压缩到一维；2、分解成两个 121 题。 |      |
+| [188. 买卖股票的最佳时机 IV（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/dong-tai-gui-hua-by-liweiwei1419-4/) |                                                           |      |
+| [309. 最佳买卖股票时机含冷冻期（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/dong-tai-gui-hua-by-liweiwei1419-5/) |                                                           |      |
+| [714. 买卖股票的最佳时机含手续费（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/solution/dong-tai-gui-hua-by-liweiwei1419-6/) |                                                           |      |
 
 ### 贪心算法
 
