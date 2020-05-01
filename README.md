@@ -1,10 +1,8 @@
-# LeetCode-Solution-Well-Formed
+# LeetCode-Solution-in-Good-Style
 
 ## 项目更名说明
 
-+ 更名为 Well-Formed 意为「格式良好」。我个人觉得代码的可读性是非常重要的，代码可读的前提是「格式良好」，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们，即使是刷题这种纯粹是「自娱自乐」的项目，也能够做到格式良好，方便他人和自己阅读。
-
-**补充说明**：本人英语水平有限，想不到更好的名字，如果您有更好的想法，也欢迎告诉我，我一直都在为起名这件事情犯愁。
++ 我个人觉得代码的可读性是非常重要的，代码可读的前提是「格式良好」，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们，即使是刷题这种纯粹是「自娱自乐」的项目，也能够做到格式良好，方便他人和自己阅读。感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议。
 
 + 添加了 Java 和 C++ 语言的代码。
 
@@ -70,7 +68,7 @@
 ### 4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
 
 + 本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟。
-+ 最近「力扣」网站举办了「每日一题」，习惯用微信的朋友可以点击网址：http://group.ojeveryday.com/#/check，加群主微信，这个网页还会显示大家打卡的情况。
++ 最近「力扣」网站举办了「每日一题」，习惯用微信的朋友可以点击网址：https://ojeveryday.com/#/check，加群主微信，这个网页还会显示大家打卡的情况。
 
 ## 刷题建议
 
@@ -198,17 +196,49 @@
 
 ### 滑动窗口
 
-| 题目序号                                                     | 题解 | 知识点 | 代码 |
-| ------------------------------------------------------------ | ---- | ------ | ---- |
-| [3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) |      |        |      |
-| [76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring) |      |        |      |
-| [209. 长度最小的子数组（中等）](https://leetcode-cn.com/problems/minimum-size-subarray-sum) |      |        |      |
-| [239. 滑动窗口最大值（中等）](https://leetcode-cn.com/problems/sliding-window-maximum) |      |        |      |
-| [424. 替换后的最长重复字符（中等）](https://leetcode-cn.com/problems/longest-repeating-character-replacement) |      |        |      |
-| [567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string) |      |        |      |
-| [643. 子数组最大平均数 I（简单）](https://leetcode-cn.com/problems/maximum-average-subarray-i) |      |        |      |
-| [978. 最长湍流子数组（中等）](https://leetcode-cn.com/problems/longest-turbulent-subarray) |      |        |      |
-| [992. K 个不同整数的子数组（困难）](https://leetcode-cn.com/problems/subarrays-with-k-different-integers) |      |        |      |
++ 滑动窗口写法。
+
+```java
+public class Solution {
+
+    public String minWindow(String s, String t) {
+        // 起始的时候，都位于 0，同方向移动
+        int left = 0;
+        int right = 0;
+        while (right < sLen) {
+            if ( 在右移的过程中检测是否满足条件 ) {
+                // 对状态做修改，好让程序在后面检测到满足条件
+            }
+            // 右边界右移 1 格
+            right++;
+            while ( 满足条件 ) {
+                // 走到这里是满足条件的，左边界逐渐逐渐左移，可以取最小值
+                if ( 在左移的过程中检测是否不满足条件 ) {
+                    // 对状态做修改，好让程序在后面检测到不满足条件
+                }
+                // 左边界左移 1 格
+                left++;
+            }
+            // 走到这里是不满足条件的，右边界逐渐右移，可以取最大值
+        }
+        return 需要的结果变量;
+    }
+}
+```
+
+练习题：
+
+| 题目序号                                                     | 题解 | 知识点           | 代码 |
+| ------------------------------------------------------------ | ---- | ---------------- | ---- |
+| [3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) |      | 非常经典的问题。 |      |
+| [76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring) |      | 非常经典的问题。 |      |
+| [209. 长度最小的子数组（中等）](https://leetcode-cn.com/problems/minimum-size-subarray-sum) |      | 非常经典的问题。 |      |
+| [239. 滑动窗口最大值（中等）](https://leetcode-cn.com/problems/sliding-window-maximum) |      |                  |      |
+| [424. 替换后的最长重复字符（中等）](https://leetcode-cn.com/problems/longest-repeating-character-replacement) |      |                  |      |
+| [567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string) |      |                  |      |
+| [643. 子数组最大平均数 I（简单）](https://leetcode-cn.com/problems/maximum-average-subarray-i) |      |                  |      |
+| [978. 最长湍流子数组（中等）](https://leetcode-cn.com/problems/longest-turbulent-subarray) |      |                  |      |
+| [992. K 个不同整数的子数组（困难）](https://leetcode-cn.com/problems/subarrays-with-k-different-integers) |      |                  |      |
 
 ### 链表
 
