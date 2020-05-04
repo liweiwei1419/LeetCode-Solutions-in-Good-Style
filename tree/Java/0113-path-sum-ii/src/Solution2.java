@@ -3,69 +3,38 @@ import java.util.List;
 
 
 public class Solution2 {
+
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
-            return result;
+            return res;
         }
-        // 根节点
+
+        // 从根结点到叶子结点的路径
+        List<Integer> path = new ArrayList<>();
+        dfs(root, sum, path, res);
+        return res;
+    }
+
+    private void dfs(TreeNode root, int sum, List<Integer> path, List<List<Integer>> res) {
+        if (root == null) {
+            return;
+        }
+
+        path.add(root.val);
+        sum -= root.val;
+
         if (root.left == null && root.right == null) {
-            if (root.val == sum) {
-                List<Integer> temp1 = new ArrayList<>();
-                temp1.add(root.val);
-                result.add(temp1);
-                return result;
+            if (sum == 0) {
+                // 正是因为每一次向下传递的过程中复制整个列表，在叶子结点出直接添加即可
+                res.add(path);
+                return;
             }
         }
-        List<List<Integer>> leftLists = pathSum(root.left, sum - root.val);
-        mergeOneAndList(root, leftLists, result);
-        List<List<Integer>> rightLists = pathSum(root.right, sum - root.val);
-        mergeOneAndList(root, rightLists, result);
-        return result;
-    }
 
-    private void mergeOneAndList(TreeNode node, List<List<Integer>> listList, List<List<Integer>> result) {
-        for (int i = 0; i < listList.size(); i++) {
-            List<Integer> temp1 = new ArrayList<>();
-            temp1.add(node.val);
-            temp1.addAll(listList.get(i));
-            result.add(temp1);
-        }
-    }
-
-
-    /**
-     * 想一想有没有办法快速创建二叉树
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        TreeNode treeNode5 = new TreeNode(5);
-        TreeNode treeNode4 = new TreeNode(4);
-        TreeNode treeNode8 = new TreeNode(8);
-        TreeNode treeNode11 = new TreeNode(11);
-        TreeNode treeNode13 = new TreeNode(13);
-        TreeNode treeNode4_ = new TreeNode(4);
-
-        TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode2 = new TreeNode(2);
-        TreeNode treeNode5_ = new TreeNode(5);
-        TreeNode treeNode1 = new TreeNode(1);
-
-        treeNode5.left = treeNode4;
-        treeNode5.right = treeNode8;
-        treeNode4.left = treeNode11;
-        treeNode11.left = treeNode7;
-        treeNode11.right = treeNode2;
-        treeNode8.left = treeNode13;
-        treeNode8.right = treeNode4_;
-        treeNode4_.left = treeNode5_;
-        treeNode4_.right = treeNode1;
-
-        Solution2 solution2 = new Solution2();
-        List<List<Integer>> listList = solution2.pathSum(treeNode5, 22);
-        System.out.println(listList);
-
-
+        // 基本数据类型在方法传递过程中的行为是是复制
+        // new ArrayList<>() 每一次向下传递的过程中复制整个列表，低效
+        dfs(root.left, sum, new ArrayList<>(path), res);
+        dfs(root.right, sum, new ArrayList<>(path), res);
     }
 }

@@ -3,21 +3,24 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class Solution3 {
+public class Solution4 {
 
-    public List<List<Integer>> dfs(TreeNode root, int sum) {
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
             return res;
         }
 
-        // Java 文档中 Stack 类建议使用 Deque 代替 Stack，注意：只使用栈的相关接口
         Deque<Integer> path = new ArrayDeque<>();
-        dfs(root, sum, path, res);
+        pathSum(root, sum, path, res);
         return res;
     }
 
-    private void dfs(TreeNode node, int sum, Deque<Integer> path, List<List<Integer>> res) {
+
+    // 如果使用链表的话，一定要使用 addLast 和 removeLast
+    // 如果使用 push 和 poll 相应的会在链表的头部操作，就不是我们的本意了
+
+    public void pathSum(TreeNode node, int sum, Deque<Integer> path, List<List<Integer>> res) {
         if (node == null) {
             return;
         }
@@ -29,8 +32,9 @@ public class Solution3 {
         }
 
         path.addLast(node.val);
-        dfs(node.left, sum - node.val, path, res);
-        dfs(node.right, sum - node.val, path, res);
+        pathSum(node.left, sum - node.val, path, res);
+
+        pathSum(node.right, sum - node.val, path, res);
         path.removeLast();
     }
 }
