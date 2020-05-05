@@ -2,15 +2,14 @@
 
 ## 项目更名说明
 
-+ 我个人觉得代码的可读性是非常重要的，代码可读的前提是「格式良好」，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们，即使是刷题这种纯粹是「自娱自乐」的项目，也能够做到格式良好，方便他人和自己阅读。感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议。
-
-+ 添加了 Java 和 C++ 语言的代码。
++ 在这里，特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议；
++ 我个人觉得代码的可读性是非常重要的，代码可读的前提是「格式良好」，在 Intellij Idea、PyCharm、CLion 中，我使用最多的快捷键就是 `⌥ + ⌘ + L `（Reformate Code），希望看到这个项目的朋友们，即使是刷题这种纯粹是「自娱自乐」的项目，也能够做到格式良好，方便他人和自己阅读。
 
 ## 项目说明
 
-+ 本代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode（中文版）](https://leetcode-cn.com/) 上做的练习 。最开始的时候只有 Python 代码、然后陆续添加 Java 代码和 C++ 版本的代码。Java 是我的编程入门语言，Python 是学习人工智能以后学习的语言，C++ 就只是在刷题的时候用，因为有 Java 的基础，边写边学。
++ 本代码仓库是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习 ；刷题以 Java 语言为主，Java 是我的编程入门语言，Python 是学习人工智能以后学习的语言，C++ 就只是在刷题的时候用，因为有 Java 的基础，边写边学；
 
-+ 所有的代码都是通过  [LeetCode（中文版）](https://leetcode-cn.com/) 在线测评系统检测的，至少是正确的代码，但本人水平有限，所在代码仅供参考，欢迎您与我交流。
++ 所有的代码都是通过  [LeetCode（力扣）](https://leetcode-cn.com/) 在线测评系统检测的，至少是正确的代码，但本人水平有限，所在代码仅供参考，欢迎您与我交流；
 
 + 建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
 
@@ -20,9 +19,8 @@
 
 在代码编写的过程中，我比较注意的地方有：
 
-1、格式良好
-
-2、遵循代码规范
++ 格式良好；
++ 遵循代码规范。
 
 我遵守的代码规范和使用的工具如下：
 
@@ -32,15 +30,14 @@
 | Python   | [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) | [autopep8](https://github.com/hhatto/autopep8)、 [black](https://github.com/psf/black) |
 | C++      | [Google Style Guides](https://github.com/google/styleguide)、[Google 开源项目风格指南 (中文版)](https://zh-google-styleguide.readthedocs.io/en/latest/) |                                                              |
 
-个人建议：
+### 个人建议
 
-（1）编码规范的遵守依照“就近原则”，如果程序员所处团队指定了编码规范，则团队内部代码规范优先；
++ 编码规范的遵守依照「就近原则」，如果程序员所处团队指定了编码规范，则团队内部代码规范优先；
++ 遵守格式良好和编码规范是一件很繁琐的事情，我们可以借助工具帮助我们完成，在 IDE 中安装上述插件，这些插件会对编码不规范的地方进行提示，并给出修改建议，能够帮助程序员养成良好的编码习惯。
 
-（2）遵守格式良好和编码规范是一件很繁琐的事情，我们可以借助工具帮助我们完成，在 IDE 中安装上述插件，这些插件会对编码不规范的地方进行提示，并给出修改建议，能够帮助程序员养成良好的编码习惯。
+### 使用的集成开发环境
 
-3、使用集成开发环境
-
-使用 jetbrains 公司开发的 IDE 工具。主要是为了使用代码格式化和扫描编码规范的插件
+使用 jetbrains 公司开发的 IDE 工具。主要是为了使用代码格式化和扫描编码规范的插件：
 
 + Java：Intellij Idea（Ultimate）
 + Python：PyCharm（Ultimate）
@@ -52,49 +49,49 @@
 
 ### 1、书本
 
-+ 《算法 4》：一本颜值很高的书，使用 Java 编写，示例清楚，配图优雅。很适合新手学习。缺点是：翻译欠缺，有些代码是封装过的，阅读起来让人摸不着头脑，给出的示例代码不规范。
++ 《算法 4》：一本颜值很高的书，使用 Java 编写，示例清楚，配图优雅。很适合新手学习。缺点是：翻译欠缺，给出的示例代码不规范，阅读起来让人觉得很困惑；
 
-+ 《算法导论》：当做工具书学习，其中的“动态规划”、“贪心算法”、“计数排序”、“基数排序”、“循环不变量”、“KMP”算法是讲解很细致的。缺点就是过于学术，不太适合算法和数据结构的入门教程。
++ 《算法导论》：当做工具书学习，其中的「动态规划」、「贪心算法」、「计数排序」、「基数排序」、「循环不变量」、「KMP」算法是讲解很细致的。缺点就是过于学术，不太适合算法和数据结构的入门教程。
 
 ### 2、网课与自媒体
 
-+ 某课网 liuyubobobo 老师的算法与数据结构系列课程。我本人就是学习刘老师的课程入坑算法与数据结构的。（刘老师的课程是精心准备过，且是收费的，请大家自行判断是否需要购买。）
++ 慕课网 liuyubobobo 老师的算法与数据结构系列课程。我本人就是学习刘老师的课程入坑算法与数据结构的。（刘老师的课程是精心准备过，且是收费的，请大家自行判断是否需要购买。）
 + 可以在哔哩哩哔和 youtub 上搜索一些优秀的自媒体，听他们讲题也是很不错的学习途径，我常收看的自媒体有：花花酱，程序员刀刀，一俩三四五、lee215215、胡小旭-_-、喂你脚下有坑、代码会说话等。
 
 ### 3、优秀的博客、公众号
 
-+ 在 2018 年，有一个制作算法动画的项目和公众号火了起来，让人耳目一新。公众号的名字叫“五分钟学算法”，博主叫“程序员吴师兄”，我在这个公众号上学习了很多东西，我现在的博客模板也是在吴师兄原来用的模板基础上做了修改。“程序员吴师兄”在很多平台上都可以搜索到他，欢迎大家关注。
++ 在 2018 年，有一个制作算法动画的项目和公众号火了起来，让人耳目一新。公众号的名字叫「五分钟学算法」，博主叫「程序员吴师兄」，我在这个公众号上学习了很多东西，我现在的博客模板也是在吴师兄原来用的模板基础上做了修改。“程序员吴师兄”在很多平台上都可以搜索到他，欢迎大家关注。
 
 ### 4、加入一个学习团队，找到一两个小伙伴，刷题不会孤单
 
-+ 本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟。
++ 本人有幸加入了一个刷题 QQ 群（群号：812791932），如果刷题刷得比较烦躁，可以来群里和大家聊聊天，吹吹牛啥的。在群里提问，会有大佬、巨佬、巨巨佬回答你的哟；
 + 最近「力扣」网站举办了「每日一题」，习惯用微信的朋友可以点击网址：https://ojeveryday.com/#/check，加群主微信，这个网页还会显示大家打卡的情况。
 
 ## 刷题建议
 
 没有什么很特别的建议，但本人的确是通过以下的方式学习的。（仅供参考，本人只是个初学者。）
 
-1、先学习，有一些预备知识以后，再做题
++ 先学习，有一些预备知识以后，再做题
 
 有些算法题做不出来很正常，那是因为自己的知识储备还不够。所以要么看书、看视频学习，要么就把这个不会做的问题当做知识点进行学习。一开始抄代码我觉得都是可以的，抄完代码要删掉了以后，自己再写几遍。
 
 实在想了很久还想不出来的问题，就看题解和别人的视频学习哈。
 
-2、要多做几遍，尝试做总结和分类
++ 要多做几遍，尝试做总结和分类
 
 一道题，特别是经典的问题，要尝试多做几遍，作总结。有些问题的思想是通用的，而且技巧也是相对固定的，需要不断练习巩固和体会。
 
-3、尝试一题多解，不要忽视暴力解法
++ 尝试一题多解，不要忽视暴力解法
 
 一题多解，有些时候就相当于做了几遍了。“暴力解法”通常是进阶解法的基础，由“暴力解法”开始分析缺点，然后改进和优化，去理解这道题的解法通常是很自然的。
 
-4、尝试输出，分享出去
++ 尝试输出，分享出去
 
 较多程序员（包括我本人）相对欠缺的能力是语言表达和书面表达。而输出就是一个比较好的锻炼自己的方式，写博客写题解可以帮助到别人，也可以帮助自己整理思路，还可以交朋友。
 
 我写题解以后，有很多朋友给出提出了建议，指出了错误，让我受益匪浅。有一些朋友加了我微信和 QQ，我很高兴与它们交流，成为朋友。
 
-5、参加竞赛，练手
++ 参加竞赛，练手
 
 前面的题目可能就像课后练习一样，你做不做它就在那里，就有那么多，还可以看答案，做起来没什么动力。想模拟面试和笔试的感觉，就可以参加竞赛哦。
 
@@ -102,9 +99,11 @@
 
 参加竞赛是一个很不错的学习途径，培养自己独立思考的能力，还可以与他人互动。
 
-> 希望我们程序员都能够通过自己的努力，实现自己的理想。
+如果是已经工作的朋友，竞赛的第 4 题可以不做，竞赛是一个查缺补漏的过程，有些知识可能目前或者是一辈子都用不到的知识，可以不用掌握。
+
+> 希望我们程序员都能够通过自己的努力，实现自己的理想；
 >
-> 希望我们程序员不再是别人眼里的刻板印象，我们也是艺术家。
+> 希望我们程序员不再是别人眼里的刻板印象，我们也是艺术家；
 >
 > 希望我们大家都能在自己的工作领域里有所成绩。很高兴和大家成为朋友。
 
@@ -123,7 +122,37 @@
 | 4 月 8 日    | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof) | 中等 | [深度优先遍历、广度优先遍历](https://blog.csdn.net/lw_power/article/details/105398995) |
 | 4 月 9 日    | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 中等 | [回溯算法（深度优先遍历）+ 广度优先遍历 + 动态规划](https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/) |
 | 4 月 10 日   | [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/) | 中等 | [CSDN](https://blog.csdn.net/lw_power/article/details/105317713) |
+| 4 月 11 日   | [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/) | 困难 | [动态规划（只解释官方题解方法一）（Java）](https://leetcode-cn.com/problems/super-egg-drop/solution/dong-tai-gui-hua-zhi-jie-shi-guan-fang-ti-jie-fang/) |
+| 4 月 12 日   | [面试题 16.03. 交点](https://leetcode-cn.com/problems/intersection-lcci/) | 困难 | [使用直线斜截式方程，再判断交点是否有效（Java）](https://leetcode-cn.com/problems/intersection-lcci/solution/shi-yong-zhi-xian-xie-jie-shi-fang-cheng-zai-pan-d/) |
+| 4 月 13 日   | [355. 设计推特](https://leetcode-cn.com/problems/design-twitter/) | 中等 | [哈希表 + 链表 + 优先队列（经典多路归并问题）（Java）](https://leetcode-cn.com/problems/design-twitter/solution/ha-xi-biao-lian-biao-you-xian-dui-lie-java-by-liwe/) |
+| 4 月 14 日   | [445. 两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii/) | 中等 | []()                                                         |
+| 4 月 15 日   | [542. 01 矩阵](https://leetcode-cn.com/problems/01-matrix/)  | 中等 | []()                                                         |
+| 4 月 16 日   | [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 中等 | [贪心算法（Java）](https://leetcode-cn.com/problems/merge-intervals/solution/tan-xin-suan-fa-java-by-liweiwei1419-3/) |
+| 4 月 17 日   | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)  | 中等 | []()                                                         |
+| 4 月 18 日   | [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water) |      |                                                              |
+| 4 月 19 日   | [466. 统计重复个数](https://leetcode-cn.com/problems/count-the-repetitions/) | 困难 | [暴力解法 + 优化解法（Java 代码）](https://leetcode-cn.com/problems/count-the-repetitions/solution/bao-li-jie-fa-you-hua-jie-fa-java-dai-ma-by-liweiw/) |
+| 4 月 20 日   | [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 中等 | [DFS + BFS + 并查集（Python 代码、Java 代码）](https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/) |
+| 4 月 21 日   | [1248. 统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/) | 中等 | []()                                                         |
+| 4 月 22 日   | [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/) | 中等 | []()                                                         |
+| 4 月 23 日   | [面试题 08.11. 硬币](https://leetcode-cn.com/problems/coin-lcci/) | 中等 | []()                                                         |
+| 4 月 24 日   | [面试题51. 数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/) | 困难 | [视频讲解](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/shu-zu-zhong-de-ni-xu-dui-by-leetcode-solution/)、[暴力解法、分治思想、树状数组](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/bao-li-jie-fa-fen-zhi-si-xiang-shu-zhuang-shu-zu-b/) |
+| 4 月 25 日   | [46. 全排列](https://leetcode-cn.com/problems/permutations)  | 中等 | []()                                                         |
+| 4 月 26 日   | [23. 合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists) | 中等 | []()                                                         |
+| 4 月 27 日   | [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array) | 中等 | []()                                                         |
+| 4 月 28 日   | [数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof) | 中等 | []()                                                         |
+| 4 月 29 日   | [1095. 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array/) | 中等 | []()                                                         |
+| 4 月 30 日   | [快乐数](https://leetcode-cn.com/problems/happy-number)      | 中等 | []()                                                         |
 
+## 「力扣」2020 年 5 月每日一题做题记录
+
+| 日期      | 题目                                                         | 难度 | 题解 |
+| --------- | ------------------------------------------------------------ | ---- | ---- |
+| 5 月 1 日 | [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists) | 简单 |      |
+| 5 月 2 日 | [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) | 中等 |      |
+| 5 月 3 日 | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | 中等 |      |
+| 5 月 4 日 | [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii) | 困难 |      |
+| 5 月 5 日 | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree) | 中等 |      |
+| 5 月 6 日 | [983. 最低票价](https://leetcode-cn.com/problems/minimum-cost-for-tickets) | 中等 |      |
 
 ## 我在「力扣」圈子里回答的问题
 
@@ -466,18 +495,26 @@ public class Solution {
 
 ### 并查集
 
+#### 第 1 部分：基础且常见的问题
+
 | 题目序号                                                     | 题解 | 知识点 | 代码 |
 | ------------------------------------------------------------ | ---- | ------ | ---- |
-| [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) |      |        |      |
 | [547. 朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles) |      |        |      |
+| [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) |      |        |      |
 | [200. 岛屿数量（中等）](https://leetcode-cn.com/problems/number-of-islands) |      |        |      |
+| [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/) |      |        |      |
 | [1319. 连通网络的操作次数（中等）](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected) |      |        |      |
-| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division) |      |        |      |
+
+#### 第 2 部分：带权值的并查集问题
+
+| 题目序号                                                     | 题解 | 知识点 | 代码 |
+| ------------------------------------------------------------ | ---- | ------ | ---- |
 | [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |      |        |      |
+| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division) |      |        |      |
+| [685. 冗余连接 II](https://leetcode-cn.com/problems/redundant-connection-ii/) |      |        |      |
+| [721. 账户合并](https://leetcode-cn.com/problems/accounts-merge/) |      |        |      |
 | [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands) |      |        |      |
 | [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) |      |        |      |
-
----
 
 ## 配套资源
 
@@ -487,84 +524,5 @@ public class Solution {
 
 ## 刷题过程中形成的文章（待更新）
 
-| 第 1 章 数组                                                 | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/array) |      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| LeetCode 数组专题 1：二分查找                                | [链接地址](https://liweiwei1419.github.io/blog/2018/10/14/leetcode-solution/array1/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/14/leetcode-solution/array1/) |      |
-| LeetCode 数组专题 2：一些关于数组的问题                      | [链接地址](https://liweiwei1419.github.io/blog/2018/10/15/leetcode-solution/array2/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/15/leetcode-solution/array2/) |      |
-| LeetCode 数组专题 3：三路快排 partition 的应用               | [链接地址](https://liweiwei1419.github.io/blog/2018/10/16/leetcode-solution/array3/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/16/leetcode-solution/array3/) |      |
-| LeetCode 数组专题 4：双索引技术之一：对撞指针                | [链接地址](https://liweiwei1419.github.io/blog/2018/10/17/leetcode-solution/two-pointers/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/17/leetcode-solution/two-pointers/) |      |
-| LeetCode 数组专题 5：双索引技术之二：滑动窗口                | [链接地址](https://liweiwei1419.github.io/blog/2018/10/18/leetcode-solution/array5/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/18/leetcode-solution/array5/) |      |
-| LeetCode 数组专题 6：其它数组问题                            | [链接地址](https://liweiwei1419.github.io/blog/2018/10/19/leetcode-solution/array6/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/19/leetcode-solution/array6/) |      |
-| **第 2 章 查找表**                                           | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/hash-table) |      |
-| LeetCode 查找表专题 1：查找问题简介                          | [链接地址](https://liweiwei1419.github.io/blog/2018/10/06/leetcode-solution/hash-table-1/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/06/leetcode-solution/hash-table-1/) |      |
-| LeetCode 查找表专题 2：哈希表的使用                          | [链接地址](https://liweiwei1419.github.io/blog/2018/10/07/leetcode-solution/hash-table-2/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/07/leetcode-solution/hash-table-2/) |      |
-| LeetCode 查找表专题 3：set 和 map 不同底层实现的区别         | [链接地址](https://liweiwei1419.github.io/blog/2018/10/08/leetcode-solution/hash-table-3/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/08/leetcode-solution/hash-table-3/) |      |
-| LeetCode 查找表专题 4：使用查找表的经典问题：Two Sum         | [链接地址](https://liweiwei1419.github.io/blog/2018/10/09/leetcode-solution/hash-table-4/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/09/leetcode-solution/hash-table-4/) |      |
-| LeetCode 查找表专题 5：灵活选择键值：4Sum II                 | [链接地址](https://liweiwei1419.github.io/blog/2018/10/10/leetcode-solution/hash-table-5/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/10/leetcode-solution/hash-table-5/) |      |
-| LeetCode 查找表专题 6：灵活选择键值：Number of Boomerangs    | [链接地址](https://liweiwei1419.github.io/blog/2018/10/11/leetcode-solution/hash-table-6/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/11/leetcode-solution/hash-table-6/) |      |
-| LeetCode 查找表专题 7：查找表和滑动窗口                      | [链接地址](https://liweiwei1419.github.io/blog/2018/10/12/leetcode-solution/hash-table-7/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/12/leetcode-solution/hash-table-7/) |      |
-| LeetCode 查找表专题 8：使用树结构                            | [链接地址](https://liweiwei1419.github.io/blog/2018/10/13/leetcode-solution/hash-table-8/)、[备用地址](https://liweiwei1419.gitee.io/2018/10/13/leetcode-solution/hash-table-8/) |      |
-| **第 3 章 单链表**                                           | [代码文件夹]()                                               |      |
-| LeetCode 链表专题 1：在链表中穿针引线                        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/01/leetcode-solution/linked-list-1/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/01/leetcode-solution/linked-list-1/) |      |
-| LeetCode 链表专题 2：测试你的链表程序                        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/02/leetcode-solution/linked-list-2/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/02/leetcode-solution/linked-list-2/) |      |
-| LeetCode 链表专题 3：设立链表的虚拟头结点                    | [链接地址](https://liweiwei1419.github.io/blog/2018/09/03/leetcode-solution/linked-list-3/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/03/leetcode-solution/linked-list-3/) |      |
-| LeetCode 链表专题 4：复杂的穿针引线                          | [链接地址](https://liweiwei1419.github.io/blog/2018/09/04/leetcode-solution/linked-list-4/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/04/leetcode-solution/linked-list-4/) |      |
-| LeetCode 链表专题 5：不仅仅是穿针引线                        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/05/leetcode-solution/linked-list-5/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/05/leetcode-solution/linked-list-5/) |      |
-| LeetCode 链表专题 6：链表与双指针                            | [链接地址](https://liweiwei1419.github.io/blog/2018/09/06/leetcode-solution/linked-list-6/)、[备用地址](https://liweiwei1419.gitee.io/2018/09/06/leetcode-solution/linked-list-6/) |      |
-| **第 4 章 栈、队列、优先队列**                               | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/heap) |      |
-| LeetCode 栈、队列、优先队列专题 1：栈和队列的使用            | [链接地址](https://liweiwei1419.github.io/blog/2018/09/30/leetcode-solution/stack-1/) |      |
-| LeetCode 栈、队列、优先队列专题 2：二叉树的三种非递归实现    | [链接地址](https://liweiwei1419.github.io/blog/2018/10/01/leetcode-solution/stack-2/) |      |
-| LeetCode 栈、队列、优先队列专题 3：使用自己编写的模拟系统栈，写出非递归的程序 | [链接地址](https://liweiwei1419.github.io/blog/2018/10/02/leetcode-solution/stack-3/) |      |
-| LeetCode 栈、队列、优先队列专题 4：队列 Queue 与广度优先遍历 | [链接地址](https://liweiwei1419.github.io/blog/2018/10/03/leetcode-solution/queue-1/) |      |
-| LeetCode 栈、队列、优先队列专题 5：广度优先遍历和图的最短路径问题 | [链接地址](https://liweiwei1419.github.io/blog/2018/10/04/leetcode-solution/queue-2/) |      |
-| LeetCode 栈、队列、优先队列专题 6：优先队列也是队列          | [链接地址](https://liweiwei1419.github.io/blog/2018/10/05/leetcode-solution/priority-queue/) |      |
-| **第 5 章 二叉树和递归**                                     | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/tree) |      |
-| LeetCode 二叉树和递归专题 1：从二叉树的角度看递归            | [链接地址](https://liweiwei1419.github.io/blog/2018/09/24/leetcode-solution/binary-tree-1/) |      |
-| LeetCode 二叉树和递归专题 2：一个简单的二叉树引发的血案      | [链接地址](https://liweiwei1419.github.io/blog/2018/09/25/leetcode-solution/binary-tree-2/) |      |
-| LeetCode 二叉树和递归专题 3：注意递归的终止条件              | [链接地址](https://liweiwei1419.github.io/blog/2018/09/26/leetcode-solution/binary-tree-3/) |      |
-| LeetCode 二叉树和递归专题 4：如何使用递归函数的返回值        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/27/leetcode-solution/binary-tree-4/) |      |
-| LeetCode 二叉树和递归专题 5：稍复杂的递归逻辑 Path Sum III   | [链接地址](https://liweiwei1419.github.io/blog/2018/09/28/leetcode-solution/binary-tree-5/) |      |
-| LeetCode 二叉树和递归专题 6：二分搜索树中的问题              | [链接地址](https://liweiwei1419.github.io/blog/2018/09/29/leetcode-solution/binary-tree-6/) |      |
-| **第 6 章 回溯问题**                                         | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/backtracking) |      |
-| LeetCode 回溯专题 1：在树形问题中使用递归                    | [链接地址](https://liweiwei1419.github.io/blog/2018/09/07/leetcode-solution/backtracking-1/) |      |
-| LeetCode 回溯专题 2：回溯法是暴力解法的一个主要的实现手段    | [链接地址](https://liweiwei1419.github.io/blog/2018/09/08/leetcode-solution/backtracking-2/) |      |
-| LeetCode 回溯专题 3：排列问题 Permutations                   | [链接地址](https://liweiwei1419.github.io/blog/2018/09/09/leetcode-solution/backtracking-3/) |      |
-| LeetCode 回溯专题 4：组合问题 Combinations                   | [链接地址](https://liweiwei1419.github.io/blog/2018/09/10/leetcode-solution/backtracking-4/) |      |
-| LeetCode 回溯专题 5：回溯法解决组合问题的优化                | [链接地址](https://liweiwei1419.github.io/blog/2018/09/11/leetcode-solution/backtracking-5/) |      |
-| LeetCode 回溯专题 6：二维平面上使用回溯法                    | [链接地址](https://liweiwei1419.github.io/blog/2018/09/12/leetcode-solution/backtracking-6/) |      |
-| LeetCode 回溯专题 7：floodfill 解决一类经典问题              | [链接地址](https://liweiwei1419.github.io/blog/2018/09/13/leetcode-solution/backtracking-7/) |      |
-| LeetCode 回溯专题 8：回溯法是经典的人工智能的基础            | [链接地址](https://liweiwei1419.github.io/blog/2018/09/14/leetcode-solution/backtracking-8/) |      |
-| **第 7 章 动态规划问题**                                     | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/dynamic-programming) |      |
-| LeetCode 动态规划专题 1：“重叠子问题”和“记忆化搜索”          | [链接地址](https://liweiwei1419.github.io/blog/2018/09/15/leetcode-solution/dynamic-programming-1/) |      |
-| LeetCode 动态规划专题 2：第 1 个动态规划问题的 3 种实现      | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-2/) |      |
-| LeetCode 动态规划专题 3：第 2 个动态规划问题：整数分割       | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-3/) |      |
-| LeetCode 动态规划专题 4：状态和状态转移方程                  | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-4/) |      |
-| LeetCode 动态规划专题 5：0-1 背包问题                        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-5/) |      |
-| LeetCode 动态规划专题 6：0-1 背包问题在空间复杂度上的两个优化 | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-6/) |      |
-| LeetCode 动态规划专题 7：面试中的 0-1 背包问题               | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-7/) |      |
-| LeetCode 动态规划专题 8：最长上升子序列问题                  | [链接地址](https://liweiwei1419.github.io/blog/2018/09/16/leetcode-solution/dynamic-programming-8/) |      |
-| **第 8 章 贪心算法**                                         | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/greedy) |      |
-| LeetCode 专题：贪心算法                                      | [链接地址](https://liweiwei1419.github.io/blog/2018/09/04/leetcode-tag/greedy/) |      |
-| **第 9 章 拓扑排序**                                         | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/11-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F) |      |
-| LeetCode 专题：拓扑排序                                      | [链接地址](https://liweiwei1419.github.io/blog/2019/02/16/leetcode-tag/topological-sort/) |      |
-| **第 10 章 字典树**                                          | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/12-trie) |      |
-| 【算法日积月累】20-高级数据结构：字典树                      | [链接地址](https://liweiwei1419.github.io/blog/2019/01/21/algorithms-and-data-structures/trie/) |      |
-| **第 11 章 并查集**                                          | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Well-Formed/tree/master/union-find) |      |
-| 【算法日积月累】17-高级数据结构：并查集                      | [链接地址](https://liweiwei1419.github.io/blog/2019/01/18/algorithms-and-data-structures/union-find-set/) |      |
-| **第 12 章 位运算**                                          | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/14-%E4%BD%8D%E8%BF%90%E7%AE%97) |      |
-| LeetCode 专题：位运算                                        | [链接地址](https://liweiwei1419.github.io/blog/2018/09/25/leetcode-tag/bit-manipulation/) |      |
-| **第 13 章 树状数组**                                        | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/15-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84) |      |
-| 【算法日积月累】19-高级数据结构：树状数组                    | [链接地址](https://liweiwei1419.github.io/blog/2019/01/20/algorithms-and-data-structures/fenwick-tree/) |      |
-| **第 14 章 分治算法**                                        | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/16-%E5%88%86%E6%B2%BB) |      |
-| [整理中]                                                     |                                                              |      |
-| **第 15 章 二分查找**                                        | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/17-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE) |      |
-| LeetCode 专题：二分查找                                      | [链接地址](https://liweiwei1419.github.io/blog/2019/01/13/algorithms-and-data-structures/binary-search/) |      |
-| **第 16 章 线段树**                                          | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/18-%E7%BA%BF%E6%AE%B5%E6%A0%91) |      |
-| 【算法日积月累】18-高级数据结构：线段树                      | [链接地址](https://liweiwei1419.github.io/blog/2019/01/19/algorithms-and-data-structures/segment-tree/) |      |
-| **第 17 章 数学问题**                                        | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/19-%E6%95%B0%E5%AD%A6) |      |
-| [整理中]                                                     |                                                              |      |
-| **第 18 章 优先队列**                                        | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/20-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97) |      |
-| [整理中]                                                     |                                                              |      |
-| **第 19 章 字符串**                                          | [代码文件夹](https://github.com/liweiwei1419/LeetCode-Solution-Python/tree/master/21-%E5%AD%97%E7%AC%A6%E4%B8%B2) |      |
-| [整理中]                                                     |                                                              |      |
++ 目前更新在[网站](https://liweiwei1419.gitee.io/leetcode-algo/)。
 
