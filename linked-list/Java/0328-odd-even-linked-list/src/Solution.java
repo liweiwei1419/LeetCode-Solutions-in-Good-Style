@@ -39,7 +39,7 @@ public class Solution {
         ListNode curEven = dummyNodeEven;
         int count = 0;
         while (head != null) {
-            if (count % 2 == 0) {
+            if ((count % 2) == 0) {
                 curOdd.next = head;
                 curOdd = curOdd.next;
             } else {

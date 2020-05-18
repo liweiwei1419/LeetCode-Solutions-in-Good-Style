@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 class ListNode {
@@ -37,51 +39,45 @@ class ListNode {
 public class Solution {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        // 特判
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
+        // 题目说输入是两个非空链表，因此不用做非空判断
 
         // 为了保证从低位开始计算，因此使用两个栈
-        Stack<Integer> stack1 = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
+        Deque<Integer> stack1 = new ArrayDeque<>();
+        Deque<Integer> stack2 = new ArrayDeque<>();
 
         while (l1 != null) {
-            stack1.push(l1.val);
+            stack1.addLast(l1.val);
             l1 = l1.next;
         }
         while (l2 != null) {
-            stack2.push(l2.val);
+            stack2.addLast(l2.val);
             l2 = l2.next;
         }
 
-        ListNode nextNode = null;
-        ListNode curNode;
+        ListNode curHead = null;
 
         int carry = 0;
-        while (!stack1.empty() || !stack2.empty()) {
-            if (!stack1.empty()) {
-                carry += stack1.pop();
+        while (!stack1.isEmpty() || !stack2.isEmpty()) {
+            if (!stack1.isEmpty()) {
+                carry += stack1.removeLast();
             }
-            if (!stack2.empty()) {
-                carry += stack2.pop();
+            if (!stack2.isEmpty()) {
+                carry += stack2.removeLast();
             }
 
             // 头插法
-            curNode = new ListNode(carry % 10);
-            curNode.next = nextNode;
-            nextNode = curNode;
+            ListNode newHead = new ListNode(carry % 10);
+            newHead.next = curHead;
+            curHead = newHead;
             carry /= 10;
         }
+
         if (carry == 1) {
             ListNode head = new ListNode(carry);
-            head.next = nextNode;
+            head.next = curHead;
             return head;
         }
-        return nextNode;
+        return curHead;
     }
 
     public static void main(String[] args) {

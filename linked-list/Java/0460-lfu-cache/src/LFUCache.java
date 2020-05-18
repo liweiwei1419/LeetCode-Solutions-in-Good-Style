@@ -26,7 +26,10 @@ public class LFUCache {
 
 
     public LFUCache(int capacity) {
-        map = new HashMap<>(capacity);
+
+        // 显式设置哈希表的长度 = capacity 和加载因子 = 1 是为了防止哈希表扩容带来的性能消耗
+        // 这一步操作在理论上的可行之处待讨论，实验下来效果是比较好的
+        map = new HashMap<>(capacity, 1);
         frequentMap = new HashMap<>();
         this.capacity = capacity;
     }
