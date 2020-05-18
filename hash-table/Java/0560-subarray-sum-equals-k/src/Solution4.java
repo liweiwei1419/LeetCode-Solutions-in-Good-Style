@@ -3,20 +3,27 @@ import java.util.Map;
 
 public class Solution4 {
 
-    public int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> hash = new HashMap<>();
-        // 剩余值为 0 的时候设置为 1 ，这是因为 1 是乘法的单位元
-        hash.put(0, 1);
+    // 使用哈希表加速运算
 
-        int sum = 0;
-        int res = 0;
+    public int subarraySum(int[] nums, int k) {
+        // key：前缀和，value：key 对应的前缀和的个数
+        Map<Integer, Integer> preSumFreq = new HashMap<>();
+        // 对于下标为 0 的元素，前缀和为 0
+        preSumFreq.put(0, 1);
+
+        int preSum = 0;
+        int count = 0;
         for (int num : nums) {
-            sum += num;
-            if (hash.containsKey(sum - k)) {
-                res += hash.get(sum - k);
+            preSum += num;
+
+            // 先获得前缀和为 preSum - k 的个数，加到计数变量里
+            if (preSumFreq.containsKey(preSum - k)) {
+                count += preSumFreq.get(preSum - k);
             }
-            hash.put(sum, hash.getOrDefault(sum, 0) + 1);
+
+            // 然后维护 preSumFreq 的定义
+            preSumFreq.put(preSum, preSumFreq.getOrDefault(preSum, 0) + 1);
         }
-        return res;
+        return count;
     }
 }

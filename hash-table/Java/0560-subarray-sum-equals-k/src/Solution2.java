@@ -1,11 +1,8 @@
 public class Solution2 {
-    /**
-     * 暴力解法：固定了起点
-     *
-     * @param nums
-     * @param k
-     * @return
-     */
+
+    // 暴力解法：固定了起点，可以通过
+    // 时间复杂度：O(N^2)
+
     public int subarraySum(int[] nums, int k) {
         int count = 0;
         int len = nums.length;

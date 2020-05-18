@@ -7,27 +7,31 @@ public class Solution {
 
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set1 = new HashSet<>();
-        for (int i = 0; i < nums1.length; i++) {
-            set1.add(nums1[i]);
+        for (int value : nums1) {
+            set1.add(value);
         }
+
         Set<Integer> set2 = new HashSet<>();
-        for (int i = 0; i < nums2.length; i++) {
-            if (set1.contains(nums2[i])) {
-                set2.add(nums2[i]);
+        for (int value : nums2) {
+            if (set1.contains(value)) {
+                set2.add(value);
             }
         }
-        int[] result = new int[set2.size()];
-        int i = 0;
+
+        int size = set2.size();
+        int[] res = new int[size];
+        int next = 0;
         for (Integer num : set2) {
-            result[i++] = num;
+            res[next] = num;
+            next++;
         }
-        return result;
+        return res;
     }
 
     public static void main(String[] args) {
         int[] nums1 = {1, 2, 2, 1};
         int[] nums2 = {2, 2};
-        int[] intersection = new Solution().intersection(nums1, nums2);
-        System.out.println(Arrays.toString(intersection));
+        int[] res = new Solution().intersection(nums1, nums2);
+        System.out.println(Arrays.toString(res));
     }
 }
