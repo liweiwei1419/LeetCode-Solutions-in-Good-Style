@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution2 {
+public class Solution4 {
 
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         int size = arr.length;

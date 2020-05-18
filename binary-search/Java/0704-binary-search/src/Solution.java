@@ -5,6 +5,8 @@ public class Solution {
         if (len == 0) {
             return -1;
         }
+
+        // 在 [left, right] 范围里查找目标元素
         int left = 0;
         int right = len - 1;
 

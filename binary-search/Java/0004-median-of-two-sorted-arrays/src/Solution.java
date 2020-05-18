@@ -7,7 +7,7 @@ public class Solution {
         int n = nums2.length;
 
         // 最后要找到合并以后索引是 median_index 的这个数
-        int medianIndex = (m + n) >>> 1;
+        int medianIndex = (m + n) / 2;
 
         // 计数器从 -1 开始，在循环开始之前加 1
         // 这样在退出循环的时候，counter 能指向它最后赋值的那个元素

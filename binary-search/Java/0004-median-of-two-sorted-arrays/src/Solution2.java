@@ -16,9 +16,9 @@ public class Solution2 {
         Arrays.sort(merge);
 
         if (((m + n) & 1) == 1) {
-            return merge[(m + n - 1) >>> 1];
+            return merge[(m + n - 1) / 2];
         } else {
-            return (double) (merge[(m + n - 1) >>> 1] + merge[(m + n) >>> 1]) / 2;
+            return (double) (merge[(m + n - 1) / 2] + merge[(m + n) / 2]) / 2;
         }
     }
 

@@ -11,8 +11,11 @@ public class Solution {
         int left = 1;
         int right = x / 2;
         while (left < right) {
+
             int mid = left + (right - left + 1) / 2;
-            if (mid * mid > x) {
+            // 平方以后大于 x 的一定不是解
+            // 注意：写成除法，防止 mid * mid 溢出
+            if (mid > x / mid) {
                 // 下一轮搜索的区间是 [left, mid - 1]
                 right = mid - 1;
             } else {

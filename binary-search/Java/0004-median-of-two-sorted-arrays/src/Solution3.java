@@ -20,6 +20,8 @@ public class Solution3 {
         int m = nums1.length;
         int n = nums2.length;
 
+        int totalLeft = m + (n - m + 1) / 2;
+
         // 使用二分查找算法在数组 nums1 中搜索一个索引 i，PPT 第 9 张
         int left = 0;
         int right = m;
@@ -30,7 +32,7 @@ public class Solution3 {
             // 参考：https://leetcode-cn.com/problems/guess-number-higher-or-lower/solution/shi-fen-hao-yong-de-er-fen-cha-zhao-fa-mo-ban-pyth/
             int i = (left + right) >>> 1;
             // j 的取值在 PPT 第 7 张
-            int j = ((m + n + 1) >>> 1) - i;
+            int j = totalLeft - i;
 
             // 边界值的特殊取法的原因在 PPT 第 10 张
             int nums1LeftMax = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];

@@ -34,9 +34,13 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
-        int[] arr = {0, 1, 2, 3, 3, 4, 7, 7, 8};
-        int k = 3;
-        int x = 5;
+//        int[] arr = {0, 1, 2, 3, 3, 4, 7, 7, 8};
+//        int k = 3;
+//        int x = 5;
+        int[] arr = {1, 3};
+        int k = 1;
+        int x = 2;
+
         Solution2 solution = new Solution2();
         List<Integer> res = solution.findClosestElements(arr, k, x);
         System.out.println(res);
