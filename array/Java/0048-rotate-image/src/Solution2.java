@@ -31,5 +31,8 @@ public class Solution2 {
         for (int[] row : matrix) {
             System.out.println(Arrays.toString(row));
         }
+
+        // 850488
+        System.out.println(Integer.MAX_VALUE / 101 / 25);
     }
 }

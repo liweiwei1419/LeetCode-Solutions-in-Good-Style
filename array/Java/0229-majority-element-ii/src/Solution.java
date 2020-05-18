@@ -1,12 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 这道题的解法其实是著名的
- */
 public class Solution {
-
-    // 1 1 2 2 3 3
 
     public List<Integer> majorityElement(int[] nums) {
         List<Integer> res = new ArrayList<>();
@@ -61,7 +56,7 @@ public class Solution {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 2, 3, 2, 1, 1, 3};
         Solution solution = new Solution();
-        List<Integer> majorityElement = solution.majorityElement(nums);
-        System.out.println(majorityElement);
+        List<Integer> res = solution.majorityElement(nums);
+        System.out.println(res);
     }
 }

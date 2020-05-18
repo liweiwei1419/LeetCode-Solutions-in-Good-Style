@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/2 9:13 上午
- */
 public class Solution4 {
 
     // 已知：你可以假设数组是非空的，并且给定的数组总是存在众数。
@@ -10,12 +6,12 @@ public class Solution4 {
     public int majorityElement(int[] nums) {
         int res = 0;
         int count = 0;
-        int len = nums.length;
-        for (int i = 0; i < len; i++) {
+
+        for (int num : nums) {
             if (count == 0) {
-                res = nums[i];
+                res = num;
             }
-            if (res == nums[i]) {
+            if (res == num) {
                 count++;
             } else {
                 count--;

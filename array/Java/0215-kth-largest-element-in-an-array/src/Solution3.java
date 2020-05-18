@@ -26,38 +26,40 @@ public class Solution3 {
 
     public int partition(int[] nums, int left, int right) {
         // 在区间随机选择一个元素作为标定点
-        if (right > left) {
-            int randomIndex = left + 1 + random.nextInt(right - left);
-            swap(nums, left, randomIndex);
-        }
+        int randomIndex = left + random.nextInt(right - left + 1 );
+        swap(nums, left, randomIndex);
+
 
         int pivot = nums[left];
 
         // 将等于 pivot 的元素分散到两边
-        // [left, lt) <= pivot
-        // (rt, right] >= pivot
+        // [left, le) <= pivot
+        // (ge, right] >= pivot
 
-        int lt = left + 1;
-        int rt = right;
+        int le = left + 1;
+        int ge = right;
 
         while (true) {
-            while (lt <= rt && nums[lt] < pivot) {
-                lt++;
+            // 遇到 nums[le] >= pivot 的时候停下来
+            // 遇到与 pivot 相等的元素，是通过交换被等概率分到两边的
+            while (le <= ge && nums[le] < pivot) {
+                le++;
             }
-            while (lt <= rt && nums[rt] > pivot) {
-                rt--;
+            while (le <= ge && nums[ge] > pivot) {
+                ge--;
             }
 
-            if (lt > rt) {
+            if (le > ge) {
                 break;
             }
-            swap(nums, lt, rt);
-            lt++;
-            rt--;
+            swap(nums, le, ge);
+            le++;
+            ge--;
         }
 
-        swap(nums, left, rt);
-        return rt;
+        // 这里还要交换，注意是 ge
+        swap(nums, left, ge);
+        return ge;
     }
 
     private void swap(int[] nums, int index1, int index2) {

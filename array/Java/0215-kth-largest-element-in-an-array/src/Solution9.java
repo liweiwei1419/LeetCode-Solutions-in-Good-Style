@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -12,7 +13,7 @@ public class Solution9 {
             throw new IllegalArgumentException("参数错误");
         }
         // 使用一个含有 len 个元素的最小堆
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>(len, (a, b) -> a - b);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(len, Comparator.comparingInt(a -> a));
         for (int i = 0; i < len; i++) {
             minHeap.add(nums[i]);
         }
