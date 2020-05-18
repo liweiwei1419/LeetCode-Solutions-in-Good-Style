@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 
 public class Solution2 {
@@ -10,21 +11,21 @@ public class Solution2 {
         if (root == null) {
             return res;
         }
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.addLast(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode curNode = queue.removeFirst();
+                TreeNode curNode = queue.poll();
                 // 如果写成 i == 0 就得到左边的视图
                 if (i == size - 1) {
                     res.add(curNode.val);
                 }
                 if (curNode.left != null) {
-                    queue.addLast(curNode.left);
+                    queue.add(curNode.left);
                 }
                 if (curNode.right != null) {
-                    queue.addLast(curNode.right);
+                    queue.add(curNode.right);
                 }
             }
         }

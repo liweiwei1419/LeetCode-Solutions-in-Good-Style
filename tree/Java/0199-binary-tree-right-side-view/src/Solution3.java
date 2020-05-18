@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 
 public class Solution3 {
@@ -12,20 +13,20 @@ public class Solution3 {
         if (root == null) {
             return res;
         }
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.addLast(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.removeFirst();
+                TreeNode node = queue.poll();
                 if (i == 0) {
                     res.add(node.val);
                 }
                 if (node.right != null) {
-                    queue.addLast(node.right);
+                    queue.add(node.right);
                 }
                 if (node.left != null) {
-                    queue.addLast(node.left);
+                    queue.add(node.left);
                 }
             }
         }
