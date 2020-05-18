@@ -11,7 +11,7 @@ public class Solution2 {
 
         char[] charArray = s.toCharArray();
 
-        // 边界要特别清楚
+        // 边界要注意
         for (int i = 0; i < len - 1; i++) {
             int oddLen = expandAroundCenter(charArray, i, i);
             int evenLen = expandAroundCenter(charArray, i, i + 1);
@@ -19,7 +19,7 @@ public class Solution2 {
             int curMaxLen = Math.max(oddLen, evenLen);
             if (curMaxLen > maxLen) {
                 maxLen = curMaxLen;
-                // 这一步要解释清楚
+                // 这一步要在纸上画图发现规律
                 begin = i - (maxLen - 1) / 2;
             }
         }
