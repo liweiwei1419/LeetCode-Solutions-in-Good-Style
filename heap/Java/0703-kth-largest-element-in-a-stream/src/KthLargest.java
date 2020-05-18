@@ -1,9 +1,5 @@
 import java.util.PriorityQueue;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/1 11:57 下午
- */
 public class KthLargest {
 
     private PriorityQueue<Integer> minHeap;
