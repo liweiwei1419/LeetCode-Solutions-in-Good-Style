@@ -1,55 +1,67 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/11 11:02 下午
- */
 public class Solution {
 
     public boolean checkInclusion(String s1, String s2) {
         int s1Len = s1.length();
         int s2Len = s2.length();
-        if (s2Len == 0) {
+        if (s1Len == 0 || s2Len == 0 || s1Len > s2Len) {
             return false;
         }
 
-        int[] pattern = new int[128];
-        int[] window = new int[128];
-        int s1Count = 0;
-        int s2Count = 0;
-        for (char s1Char : s1.toCharArray()) {
-            pattern[s1Char]++;
+        // ascii('z') = 122
+        int[] s1Freq = new int[128];
+        int[] winFreq = new int[128];
+
+        char[] charArray1 = s1.toCharArray();
+        for (char c : charArray1) {
+            s1Freq[c]++;
         }
-        for (int i = 0; i < 128; i++) {
-            if (pattern[i] > 0) {
-                s1Count++;
-            }
-        }
+
+        // 滑动窗口包含了 s1 的字符的个数（超过部分不计算）
+        int distance = 0;
+        char[] charArrayS2 = s2.toCharArray();
 
         int left = 0;
         int right = 0;
-
         while (right < s2Len) {
-            if (pattern[s2.charAt(right)] > 0) {
-                window[s2.charAt(right)]++;
-                if (window[s2.charAt(right)] == pattern[s2.charAt(right)]) {
-                    s2Count++;
-                }
+            if (s1Freq[charArrayS2[right]] == 0) {
+                right++;
+                continue;
             }
+
+            if (winFreq[charArrayS2[right]] < s1Freq[charArrayS2[right]]) {
+                distance++;
+            }
+
+            winFreq[s2.charAt(right)]++;
             right++;
+
+
             // 条件：s2 中包含 s1 中所有的字符
-            while (s1Count == s2Count) {
+            while (distance == s1Len) {
                 if (right - left == s1Len) {
                     return true;
                 }
-                // 左边界尽量向左边收缩
-                if (pattern[s2.charAt(left)] > 0) {
-                    window[s2.charAt(left)]--;
-                    if (window[s2.charAt(left)] < pattern[s2.charAt(left)]) {
-                        s2Count--;
-                    }
+
+                if (s1Freq[charArrayS2[left]] == 0) {
+                    left++;
+                    continue;
                 }
+
+                if (winFreq[charArrayS2[left]] == s1Freq[charArrayS2[left]]) {
+                    distance--;
+                }
+                winFreq[s2.charAt(left)]--;
                 left++;
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        String s1 = "ab";
+        String s2 = "eidbaooo";
+        Solution solution = new Solution();
+        boolean res = solution.checkInclusion(s1, s2);
+        System.out.println(res);
     }
 }
