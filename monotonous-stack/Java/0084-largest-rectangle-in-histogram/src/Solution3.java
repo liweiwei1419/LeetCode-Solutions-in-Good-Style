@@ -2,6 +2,8 @@ import java.util.Stack;
 
 public class Solution3 {
 
+    // 不推荐
+
     public int largestRectangleArea(int[] heights) {
         int len = heights.length;
 

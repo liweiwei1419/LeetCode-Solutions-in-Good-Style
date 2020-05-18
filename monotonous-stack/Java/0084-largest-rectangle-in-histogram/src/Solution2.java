@@ -8,6 +8,8 @@ import java.util.Stack;
  */
 public class Solution2 {
 
+    // 不推荐
+
     // 单调栈里面存的是索引
     // 根据题意，利用好栈的特性，正好栈里面元素呈现的性质是（严格）单调的，
 
