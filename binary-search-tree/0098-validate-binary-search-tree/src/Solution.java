@@ -11,6 +11,22 @@ class TreeNode {
 
 public class Solution {
 
+    public boolean isValidBST(TreeNode root) {
+        // 依据定义
+        if (root == null) {
+            return true;
+        }
+        return dfs(root.left, root.val, true) &&
+                dfs(root.right, root.val, false) &&
+                isValidBST(root.left) && isValidBST(root.right);
+    }
+
+    /**
+     * @param node   当前结点
+     * @param val    父亲结点的值
+     * @param ifLeft 表示传入的结点是否是左结点
+     * @return
+     */
     private boolean dfs(TreeNode node, int val, boolean ifLeft) {
         if (node == null) {
             return true;
@@ -26,19 +42,5 @@ public class Solution {
             }
             return dfs(node.left, val, false) && dfs(node.right, val, false);
         }
-    }
-
-    // 思路：递归
-
-    public boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        // 左结点小于当前结点的值，ifLeft 表示传入的结点是否是左结点
-        // 并且右边结点大于当前结点的值
-        // 并且左边、右边都得是 BST
-        return dfs(root.left, root.val, true) &&
-                dfs(root.right, root.val, false) &&
-                isValidBST(root.left) && isValidBST(root.right);
     }
 }

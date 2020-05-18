@@ -1,35 +1,31 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Solution4 {
-    /**
-     *
-     * @param root
-     * @return
-     */
+
     public boolean isValidBST(TreeNode root) {
-        // 特判
         if (root == null) {
             return true;
         }
-        ArrayList<Integer> list = new ArrayList<>();
-        inOrder(root, list);
 
-        int len = list.size();
+        List<Integer> res = new ArrayList<>();
+        inOrder(root, res);
+
+        int len = res.size();
         for (int i = 0; i < len - 1; i++) {
-            if (list.get(i) >= list.get(i + 1)) {
+            if (res.get(i) >= res.get(i + 1)) {
                 return false;
             }
         }
         return true;
     }
 
-    // 中序遍历
-    private void inOrder(TreeNode treeNode, ArrayList<Integer> list) {
+    private void inOrder(TreeNode treeNode, List<Integer> res) {
         if (treeNode == null) {
             return;
         }
-        inOrder(treeNode.left, list);
-        list.add(treeNode.val);
-        inOrder(treeNode.right, list);
+        inOrder(treeNode.left, res);
+        res.add(treeNode.val);
+        inOrder(treeNode.right, res);
     }
 }

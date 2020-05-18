@@ -1,6 +1,13 @@
 public class Solution3 {
 
-    private boolean helper(TreeNode node, Integer min, Integer max) {
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return dfs(root, null, null);
+    }
+
+    private boolean dfs(TreeNode node, Integer min, Integer max) {
         if (node == null) {
             return true;
         }
@@ -10,18 +17,6 @@ public class Solution3 {
         if (max != null && node.val >= max) {
             return false;
         }
-        return helper(node.left, min, node.val) && helper(node.right, node.val, max);
-    }
-
-    /**
-     *
-     * @param root
-     * @return
-     */
-    public boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return helper(root, null, null);
+        return dfs(node.left, min, node.val) && dfs(node.right, node.val, max);
     }
 }
