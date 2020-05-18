@@ -1,9 +1,5 @@
 import java.util.Stack;
 
-/**
- * @author liwei
- * @date 2019/8/16 2:26 PM
- */
 public class MinStack {
 
     // 方法一：辅助栈和数据栈同步

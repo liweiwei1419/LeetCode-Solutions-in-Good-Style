@@ -1,11 +1,12 @@
 import java.util.Stack;
 
-public class MinStack2Debug {
+public class MinStack5Debug {
 
     private Stack<Integer> data;
     private Stack<Integer> helper;
 
-    public MinStack2Debug() {
+    public MinStack5Debug() {
+
         data = new Stack<>();
         helper = new Stack<>();
     }
@@ -49,7 +50,7 @@ public class MinStack2Debug {
     }
 
     public static void main(String[] args) {
-        MinStack2Debug minStack = new MinStack2Debug();
+        MinStack5Debug minStack = new MinStack5Debug();
         minStack.push(512);
         minStack.push(-1024);
         minStack.push(-1024);

@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class MinStack {
+public class MinStack3 {
 
     // 数据栈
     private Stack<Integer> data;
@@ -10,7 +10,7 @@ public class MinStack {
     /**
      * initialize your data structure here.
      */
-    public MinStack() {
+    public MinStack3() {
         data = new Stack<>();
         helper = new Stack<>();
     }
