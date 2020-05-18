@@ -1,4 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
+
+    // 哈希表，最优解
 
     public int lengthOfLongestSubstring(String s) {
         int len = s.length();
@@ -7,42 +12,34 @@ public class Solution {
             return len;
         }
 
-        // 转换成字符数组，是字符串问题常见的处理办法
-        // 这是因为 charAt 方法，每次访问的时候都会做边界判断，在我们求解的问题中，是不必要的
+        int res = 1;
+        // key：数值，value：最新的下标
+        Map<Character, Integer> map = new HashMap<>(len);
         char[] charArray = s.toCharArray();
 
-        // 当 window 中某个字符的频数为 2 时，表示滑动窗口内有重复字符
-        int[] cnt = new int[128];
-        // 右边界滑动到刚刚好有重复的时候停下
-        // 左边界滑动到刚刚好没有重复的时候停下
         int left = 0;
         int right = 0;
-        // 滑动窗口内是否重复
-        boolean repeating = false;
-        int res = 1;
-        // 循环不变式，保持不变的性质是：[left, right) 内没有重复元素
+        // [left, right) 没有重复元素
         while (right < len) {
-            // 不能写在后面，因为数组下标容易越界
-            if (cnt[charArray[right]] == 1) {
-                repeating = true;
+            Character c = charArray[right];
+            if (map.containsKey(c)) {
+                left = Math.max(left, map.get(c) + 1);
             }
-            cnt[charArray[right]]++;
+            map.put(c, right);
             right++;
 
-            // 此时 [left, right) 内如果没有重复元素，就尝试扩张 right
-            // 否则缩小左边界，while 循环体内不断缩小边界
-            while (repeating) {
-                if (cnt[charArray[left]] == 2) {
-                    // 如果满足滑动窗口内有重复的元素，尝试不断删除左边元素
-                    repeating = false;
-                }
-                // 只有有重复元素，就得缩短左边界
-                cnt[charArray[left]]--;
-                left++;
-            }
-            // 此时 [left, right) 内没有重复元素
             res = Math.max(res, right - left);
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        // String s = "abcabcbb";
+        // String s = "bbbbb";
+        // String s = "pwwkew";
+        String s = "dvdf";
+        Solution solution = new Solution();
+        int lengthOfLongestSubstring = solution.lengthOfLongestSubstring(s);
+        System.out.println(lengthOfLongestSubstring);
     }
 }
