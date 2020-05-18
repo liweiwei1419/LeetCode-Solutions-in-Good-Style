@@ -1,6 +1,6 @@
 public class Solution {
 
-    // 滑动窗口
+    // 滑动窗口（固定长度的滑动窗口）
 
     public double findMaxAverage(int[] nums, int k) {
         int len = nums.length;
@@ -12,9 +12,10 @@ public class Solution {
         int res = windowSum;
 
         // 边界问题
-        for (int i = k; i < len; i++) {
+        // [left, right) 符合题意
+        for (int right = k; right < len; right++) {
             // 加上一个数再减去一个数
-            windowSum = windowSum + nums[i] - nums[i - k];
+            windowSum = windowSum + nums[right] - nums[right - k];
             res = Math.max(res, windowSum);
         }
         return (double) res / k;

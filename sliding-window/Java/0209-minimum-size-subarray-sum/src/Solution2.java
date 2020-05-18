@@ -1,6 +1,3 @@
-/**
- * @author liwei
- */
 public class Solution2 {
 
     public int minSubArrayLen(int s, int[] nums) {

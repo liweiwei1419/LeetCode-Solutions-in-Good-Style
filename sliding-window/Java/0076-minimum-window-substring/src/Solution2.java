@@ -1,136 +1,74 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 public class Solution2 {
 
     public String minWindow(String s, String t) {
-        int[] cntS = new int[256];
-        int[] cntT = new int[256];
-
-        Set<Character> set = new HashSet<>();
-        for (char charT : t.toCharArray()) {
-            cntT[charT]++;
-            set.add(charT);
-        }
-
         int sLen = s.length();
         int tLen = t.length();
-        int minLen = sLen + 1;
 
-        String res = "";
+        if (sLen == 0 || tLen == 0 || sLen < tLen) {
+            return "";
+        }
+
+        char[] charArrayS = s.toCharArray();
+        char[] charArrayT = t.toCharArray();
+
+        // 窗口内部覆盖 T 还需要的各个字符的个数
+        int[] tFreq = new int[128];
+        for (char c : charArrayT) {
+            tFreq[c]++;
+        }
+
+        // 滑动窗口内部还差多少 T 中的字符，对应字符频数超过不重复计算
+        int distance = tLen;
+        int minLen = sLen + 1;
+        int begin = 0;
+
         int left = 0;
         int right = 0;
-
-        int count = 0;
+        // [left..right)
         while (right < sLen) {
-            char rightC = s.charAt(right);
-            if (!set.contains(rightC)) {
-                right++;
-                continue;
+            char charRight = charArrayS[right];
+            if (tFreq[charRight] > 0) {
+                distance--;
             }
-            cntS[rightC]++;
+
+            // 对于 t 中不曾出现的字符，也减 1，值负数
+            tFreq[charRight]--;
             right++;
-            if (cntS[rightC] <= cntT[rightC]) {
-                count++;
-            }
-            if (count == tLen) {
-                while (true) {
-                    char deleteChar = s.charAt(left);
-                    if (!set.contains(deleteChar)) {
-                        left++;
-                        continue;
-                    }
-                    if (cntS[deleteChar] > cntT[deleteChar]) {
-                        cntS[deleteChar]--;
-                        left++;
-                        continue;
-                    }
-                    break;
-                }
+
+            // System.out.println(distance + " " + s.substring(left, right));
+            while (distance == 0) {
+                // System.out.println("左边界收缩 " + distance + " " + s.substring(left, right));
+                // System.out.println(tFreq['A'] + "," + tFreq['B'] + "," + tFreq['C']);
                 if (right - left < minLen) {
                     minLen = right - left;
-                    res = s.substring(left, right);
+                    begin = left;
                 }
+
+                char charLeft = charArrayS[left];
+                // 注意：这里要先加，加到大于 0，说明，这个字符在 t 中存在
+                // 对于 t 中不曾出现的字符，加 1 以后，为 0
+                if (tFreq[charLeft] >= 0) {
+                    distance++;
+                }
+                tFreq[charLeft]++;
+                left++;
             }
         }
+
         if (minLen == sLen + 1) {
             return "";
         }
-        return res;
+        return s.substring(begin, begin + minLen);
     }
 
-    // 先复习第 438 题再做这题可能会好些
-    // 滑动窗口，这个问题有一些难
-    public String minWindow2(String s, String t) {
-        int[] cntS = new int[256];
-        int[] cntT = new int[256];
-
-        Set<Character> set = new HashSet<>();
-        // cntT 赋值了以后，就成为了用于比对的对象，不更新
-        for (char ct : t.toCharArray()) {
-            cntT[ct]++;
-            set.add(ct);
-        }
-
-        int minSub = s.length() + 1;
-        String res = "";
-        // 滑动窗口左边界
-        int left = 0;
-        // 滑动窗口右边界
-        int right = 0;
-
-        // 逻辑：右边界进来的时候，数组 s 的次数都加 1
-
-        int count = 0;
-        while (right < s.length()) {
-            char rc = s.charAt(right);
-            if (!set.contains(rc)) {
-                // 不在字典里面，但是右边界同样要扩充，所以 right++
-                right++;
-                continue;
-            }
-            cntS[rc]++;
-            right++;
-            // 理解这里是关键：加上以后，小于等于，count 才 ++，
-            if (cntS[rc] <= cntT[rc]) {
-                // count++; 这件事情说明滑动窗口里面的有效字符，向目标字符又近了一步
-                count++;
-            }
-
-            // 下面这一段可以写得更精简一些，但是为了语义上的清晰，我就写得冗长一些
-            if (count == t.length()) {
-                // 接下来，考虑左边界移出滑动窗口
-                // 不在字典中，或者多了的时候，直接划掉就可以了
-                while (true) {
-                    char deleteChar = s.charAt(left);
-                    if (!set.contains(deleteChar)) {
-                        left++;
-                        continue;
-                    }
-                    if (cntS[deleteChar] > cntT[deleteChar]) {
-                        cntS[deleteChar]--;
-                        left++;
-                        continue;
-                    }
-                    break;
-                }
-                if (right - left < minSub) {
-                    minSub = right - left;
-                    res = s.substring(left, right);
-                }
-            }
-        }
-        if (minSub == s.length() + 1) {
-            return "";
-        }
-        return res;
-    }
 
     public static void main(String[] args) {
         Solution2 solution2 = new Solution2();
-        String S = "ADOBECODEBANC";
-        String T = "ABC";
-        String minWindow = solution2.minWindow(S, T);
-        System.out.println(minWindow);
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+        String res = solution2.minWindow(s, t);
+        System.out.println("结果：" + res);
     }
 }

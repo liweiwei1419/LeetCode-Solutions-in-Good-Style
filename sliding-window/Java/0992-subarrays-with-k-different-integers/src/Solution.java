@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/11 11:48 下午
- */
 public class Solution {
 
     public int subarraysWithKDistinct(int[] A, int K) {
@@ -15,13 +11,20 @@ public class Solution {
         int right = 0;
         int res = 0;
         int count = 0;
+
         int cur = 1;
+
+        // [left, right]
+        // 右边界向右
         while (right < len) {
+
             hash[A[right]]++;
             if (hash[A[right]] == 1) {
                 count++;
             }
             right++;
+
+            // 左边界向右，缩减到恰恰好 [left, right) 只有 K 的不同元素
             while (hash[A[left]] > 1 || count > K) {
                 if (count > K) {
                     count--;
@@ -30,9 +33,11 @@ public class Solution {
                 if (hash[A[left]] > 1) {
                     cur++;
                 }
+
                 hash[A[left]]--;
                 left++;
             }
+
             if (count == K) {
                 res += cur;
             }

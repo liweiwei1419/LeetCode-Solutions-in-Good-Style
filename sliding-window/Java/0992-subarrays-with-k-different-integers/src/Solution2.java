@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/11 11:48 下午
- */
 public class Solution2 {
 
     // 较难理解
@@ -16,6 +12,8 @@ public class Solution2 {
         int left = 0;
         int right = 0;
         int res = 0;
+
+        // 窗口内不重复数字的个数
         int count = 0;
         int cur = 1;
         while (right < len) {

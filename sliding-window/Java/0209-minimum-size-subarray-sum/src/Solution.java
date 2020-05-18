@@ -27,7 +27,7 @@ public class Solution {
                 l++;
             }
         }
-        // 如果全部数组元素加起来都 <s ，即 minSubArrayLen 的值没有被更新，根据题意，返回 0
+        // 如果全部数组元素加起来都 < s ，即 minSubArrayLen 的值没有被更新，根据题意，返回 0
         if (minSubArrayLen == len + 1) {
             return 0;
         }

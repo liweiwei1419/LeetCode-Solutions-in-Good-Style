@@ -1,67 +1,80 @@
 public class Solution {
 
     public String minWindow(String s, String t) {
-        int[] window = new int[128];
-        int[] pattern = new int[128];
-
-        final int A = 'A';
-
-        for (Character c : t.toCharArray()) {
-            pattern[c - A]++;
-        }
-        int distance = 0;
-
-        for (int i = 0; i < 128; i++) {
-            if (pattern[i] > 0) {
-                distance++;
-            }
-        }
-
         int sLen = s.length();
-        int start = 0;
+        int tLen = t.length();
+
+        if (sLen == 0 || tLen == 0 || sLen < tLen) {
+            return "";
+        }
+
+        char[] charArrayS = s.toCharArray();
+        char[] charArrayT = t.toCharArray();
+
+        int[] tFreq = new int[128];
+        int[] winFreq = new int[128];
+
+        for (char c : charArrayT) {
+            tFreq[c]++;
+        }
+
+        // 滑动窗口内部包含多少 T 中的字符，对应字符频数超过不重复计算
+        int distance = 0;
+        int minLen = sLen + 1;
+        int begin = 0;
+
         int left = 0;
         int right = 0;
-        int match = 0;
-        int minLen = sLen + 1;
-
+        // [left..right)
         while (right < sLen) {
-            Character curChar = s.charAt(right);
-            if (pattern[curChar - A] > 0) {
-                window[curChar - A]++;
-
-                if (window[curChar - A] == pattern[curChar - A]) {
-                    match++;
-                }
+            int charRight = charArrayS[right];
+            if (tFreq[charRight] == 0) {
+                right++;
+                continue;
             }
 
+            if (winFreq[charRight] < tFreq[charRight]) {
+                distance++;
+            }
+            winFreq[charRight]++;
             right++;
 
-            while (match == distance) {
+            while (distance == tLen) {
                 if (right - left < minLen) {
-                    start = left;
                     minLen = right - left;
+                    begin = left;
                 }
 
-                // 考虑左边界向右边走
-                Character leftChar = s.charAt(left);
-                if (pattern[leftChar - A] > 0) {
-                    window[leftChar - A]--;
-
-                    if (window[leftChar - A] < pattern[leftChar - A]) {
-                        match--;
-                    }
+                int charLeft = charArrayS[left];
+                if (tFreq[charLeft] == 0) {
+                    left++;
+                    continue;
                 }
+
+                if (winFreq[charLeft] == tFreq[charLeft]) {
+                    distance--;
+                }
+                winFreq[charLeft]--;
                 left++;
             }
         }
-        return minLen == sLen + 1 ? "" : s.substring(start, start + minLen);
+
+        if (minLen == sLen + 1) {
+            return "";
+        }
+        return s.substring(begin, begin + minLen);
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String S = "ADOBECODEBANC";
-        String T = "ABC";
-        String minWindow = solution.minWindow(S, T);
-        System.out.println(minWindow);
+        String s = "DBADBECCODEBANCC";
+        String t = "ABCC";
+        String res = solution.minWindow(s, t);
+        System.out.println("结果：" + res);
+
+        System.out.println((int) 'a');
+        System.out.println((int) 'A');
     }
 }
+
+

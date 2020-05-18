@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
+public class Solution4 {
 
     public List<Integer> findAnagrams(String s, String p) {
         int sLen = s.length();
@@ -11,13 +11,11 @@ public class Solution {
             return res;
         }
 
-
         char[] charArrayS = s.toCharArray();
         char[] charArrayP = p.toCharArray();
 
-        int[] pFreq = new int[128];
         int[] winFreq = new int[128];
-
+        int[] pFreq = new int[128];
         for (char c : charArrayP) {
             pFreq[c]++;
         }
@@ -25,7 +23,6 @@ public class Solution {
         int left = 0;
         int right = 0;
         int distance = 0;
-
         while (right < sLen) {
             if (pFreq[charArrayS[right]] == 0) {
                 right++;
@@ -54,19 +51,8 @@ public class Solution {
                 winFreq[charArrayS[left]]--;
                 left++;
             }
+
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        String s = "cbaebabacd";
-        String p = "abc";
-
-        Solution solution = new Solution();
-        List<Integer> res = solution.findAnagrams(s, p);
-        System.out.println(res);
-
-        System.out.println((int) 'a');
-        System.out.println((int) 'z');
     }
 }
