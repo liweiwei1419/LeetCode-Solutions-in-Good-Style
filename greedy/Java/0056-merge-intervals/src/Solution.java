@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -24,13 +25,13 @@ public class Solution {
     // 贪心算法，所以一开始要对集合排序
     // 扫描线法
 
-    public List<Interval> merge(List<Interval> intervals) {
+    public int[][] merge(List<Interval> intervals) {
         int len = intervals.size();
         if (len < 2) {
-            return intervals;
+            return new int[0][0];
         }
 
-        Collections.sort(intervals, Comparator.comparingInt((Interval a) -> a.start));
+        intervals.sort(Comparator.comparingInt((Interval a) -> a.start));
 
         // 因为每次我们都拿最后一个元素，因此用栈是比较方便的
         Stack<Interval> stack = new Stack<>();
@@ -45,7 +46,7 @@ public class Solution {
                 peek.end = Math.max(curInterval.end, peek.end);
             }
         }
-        return stack;
+        return stack.toArray(new int[0][]);
     }
 
     public static void main(String[] args) {
@@ -62,9 +63,9 @@ public class Solution {
         intervals.add(interval4);
 
         Solution solution = new Solution();
-        List<Interval> merge = solution.merge(intervals);
-        for (Interval interval : merge) {
-            System.out.println("[" + interval.start + ", " + interval.end + "]");
+        int[][] res = solution.merge(intervals);
+        for (int[] interval : res) {
+            System.out.println(Arrays.toString(interval));
         }
     }
 }

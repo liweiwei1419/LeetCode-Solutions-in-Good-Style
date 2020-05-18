@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/15 10:30 上午
- */
 public class Solution2 {
 
     /**

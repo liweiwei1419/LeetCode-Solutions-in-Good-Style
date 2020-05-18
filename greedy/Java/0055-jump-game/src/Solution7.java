@@ -1,4 +1,4 @@
-public class Solution2 {
+public class Solution7 {
 
     public boolean canJump(int[] nums) {
         int len = nums.length;

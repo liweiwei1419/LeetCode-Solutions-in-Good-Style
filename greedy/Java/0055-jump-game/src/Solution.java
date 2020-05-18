@@ -1,35 +1,31 @@
 import java.util.Arrays;
 
-/**
- * @author liweiwei1419
- * @date 2019/10/14 2:09 下午
- */
 public class Solution {
 
-    /**
-     * 最原始的想法，按照题意给出的
-     *
-     * @param nums
-     * @return
-     */
+
+    // 递归（有很多重复子问题）
+
     public boolean canJump(int[] nums) {
         int len = nums.length;
-        if (len < 1) {
-            return false;
-        }
-        boolean[] reach = new boolean[len];
-        reach[0] = true;
-        for (int i = 0; i < len; i++) {
-            int maxReach = Math.min(len - 1, i + nums[i]);
-            if (!reach[i]) {
-                return false;
-            }
-            for (int j = i + 1; j <= maxReach; j++) {
-                reach[j] = true;
-            }
-        }
-        return reach[len - 1];
+        int[] reached = new int[len];
+        Arrays.fill(reached, -1);
+        reached[0] = 1;
+        canJumpFromPosition(nums, 0, reached);
+        return reached[len - 1] == 1;
     }
+
+    public void canJumpFromPosition(int[] nums, int curIndex, int[] reached) {
+        if (reached[curIndex] != -1) {
+            return;
+        }
+
+        int len = nums.length;
+        int maxReach = Math.min(curIndex + nums[curIndex], len - 1);
+        for (int i = curIndex + 1; i <= maxReach; i++) {
+            reached[i] = 1;
+        }
+    }
+
 
     public static void main(String[] args) {
         // int[] nums = {2, 3, 1, 1, 4};

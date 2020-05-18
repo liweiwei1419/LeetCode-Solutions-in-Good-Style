@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution6 {
 
     public boolean canJump(int[] nums) {
         boolean enable = true;

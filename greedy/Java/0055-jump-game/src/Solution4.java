@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/11/28 9:23 下午
- */
 public class Solution4 {
 
     // 贪心算法
