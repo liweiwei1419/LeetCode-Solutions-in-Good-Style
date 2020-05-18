@@ -37,7 +37,7 @@
 
 ### 使用的集成开发环境
 
-使用 jetbrains 公司开发的 IDE 工具。主要是为了使用代码格式化和扫描编码规范的插件：
+使用 Jetbrains 公司开发的 IDE 工具。主要是为了使用代码格式化和扫描编码规范的插件：
 
 + Java：Intellij Idea（Ultimate）
 + Python：PyCharm（Ultimate）
