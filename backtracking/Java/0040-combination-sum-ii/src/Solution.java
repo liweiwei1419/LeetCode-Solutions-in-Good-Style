@@ -6,6 +6,21 @@ import java.util.List;
 
 public class Solution {
 
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        int len = candidates.length;
+        List<List<Integer>> res = new ArrayList<>();
+        if (len == 0) {
+            return res;
+        }
+
+        // 先将数组排序，这一步很关键
+        Arrays.sort(candidates);
+
+        Deque<Integer> path = new ArrayDeque<>(len);
+        dfs(candidates, len, 0, target, path, res);
+        return res;
+    }
+
     /**
      * @param candidates 候选数组
      * @param len
@@ -31,26 +46,9 @@ public class Solution {
             }
 
             path.addLast(candidates[i]);
-
             // 因为元素不可以重复使用，这里递归传递下去的是 i + 1 而不是 i
             dfs(candidates, len, i + 1, residue - candidates[i], path, res);
-
             path.removeLast();
         }
-    }
-
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        int len = candidates.length;
-        List<List<Integer>> res = new ArrayList<>();
-        if (len == 0) {
-            return res;
-        }
-
-        // 先将数组排序，这一步很关键
-        Arrays.sort(candidates);
-
-        Deque<Integer> path = new ArrayDeque<>(len);
-        dfs(candidates, len, 0, target, path, res);
-        return res;
     }
 }

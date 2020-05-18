@@ -14,12 +14,12 @@ public class Solution {
 
         Deque<Integer> path = new ArrayDeque<>(len);
         boolean[] used = new boolean[len];
-        dfs(nums, len, 0, path, used, res);
+        dfs(nums, len, path, used, res);
         return res;
     }
 
-    private void dfs(int[] nums, int len, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> res) {
-        if (depth == len) {
+    private void dfs(int[] nums, int len, Deque<Integer> path, boolean[] used, List<List<Integer>> res) {
+        if (path.size() == len) {
             res.add(new ArrayList<>(path));
             return;
         }
@@ -28,13 +28,14 @@ public class Solution {
             if (used[i]) {
                 continue;
             }
+
             path.addLast(nums[i]);
             used[i] = true;
 
-            dfs(nums, len, depth + 1, path, used, res);
+            dfs(nums, len, path, used, res);
 
-            path.removeLast();
             used[i] = false;
+            path.removeLast();
         }
     }
 }

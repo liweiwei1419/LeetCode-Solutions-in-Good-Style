@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution4 {
 
@@ -35,16 +34,5 @@ public class Solution4 {
             dfs(candidates, residue - candidates[i], i + 1, len, path, res);
             path.removeLast();
         }
-    }
-
-
-    public static void main(String[] args) {
-        int[] candidates = {10,1,2,7,6,1,5};
-        int target = 8;
-        Solution solution
-                 = new Solution();
-        List<List<Integer>> res = solution.combinationSum2(candidates, target);
-        System.out.println(res);
-
     }
 }

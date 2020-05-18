@@ -18,18 +18,13 @@ public class Solution5 {
 
         Set<String> beginSet = new HashSet<>();
         Set<String> endSet = new HashSet<>();
-
-        int step = 1;
-
-        Set<String> visited = new HashSet<>();
-
         beginSet.add(beginWord);
         endSet.add(endWord);
 
-        while (!beginSet.isEmpty() && !endSet.isEmpty()) {
+        Set<String> visited = new HashSet<>();
 
-//            System.out.println("beginSet " + beginSet);
-//            System.out.println("endSet " + endSet);
+        int step = 1;
+        while (!beginSet.isEmpty() && !endSet.isEmpty()) {
 
             if (beginSet.size() > endSet.size()) {
                 Set<String> temp = beginSet;
@@ -37,18 +32,19 @@ public class Solution5 {
                 endSet = temp;
             }
 
-
             Set<String> temp = new HashSet<>();
             for (String word : beginSet) {
 
-                char[] chs = word.toCharArray();
+                char[] charArray = word.toCharArray();
+                int len = word.length();
 
-                for (int i = 0; i < chs.length; i++) {
+                for (int i = 0; i < len; i++) {
+                    // 需要重置
+                    char currentChar = charArray[i];
+
                     for (char c = 'a'; c <= 'z'; c++) {
-                        char old = chs[i];
-                        chs[i] = c;
-
-                        String target = String.valueOf(chs);
+                        charArray[i] = c;
+                        String target = String.valueOf(charArray);
 
                         if (endSet.contains(target)) {
                             return step + 1;
@@ -58,8 +54,9 @@ public class Solution5 {
                             temp.add(target);
                             visited.add(target);
                         }
-                        chs[i] = old;
                     }
+                    // 恢复，下次再用
+                    charArray[i] = currentChar;
                 }
             }
             beginSet = temp;
@@ -70,8 +67,8 @@ public class Solution5 {
 
     public static void main(String[] args) {
         List<String> wordList = new ArrayList<>();
-        // String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
-        String[] words = {"hot", "dot", "dog", "lot", "log"};
+        String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
+        // String[] words = {"hot", "dot", "dog", "lot", "log"};
         Collections.addAll(wordList, words);
 
         Solution5 solution5 = new Solution5();

@@ -1,61 +1,47 @@
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
 public class Solution2 {
 
+    // 这种写法 map 很累赘，不推荐
+
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        // wordList 中如果有 beginWord 应该删除
         Set<String> set = new HashSet<>(wordList);
         set.remove(beginWord);
 
+        // BFS 必须使用队列
         Queue<String> queue = new LinkedList<>();
-
-        int level = 1;
-        int curNum = 1;
-        int nextNum = 0;
         queue.offer(beginWord);
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put(beginWord, 1);
+
         while (!queue.isEmpty()) {
+            // 从队列首出队
             String word = queue.poll();
-            curNum--;
+            int curStep = map.get(word);
             for (int i = 0; i < word.length(); i++) {
-                char[] wordUnit = word.toCharArray();
+                char[] charArray = word.toCharArray();
                 for (char j = 'a'; j <= 'z'; j++) {
-                    wordUnit[i] = j;
-                    String temp = new String(wordUnit);
+                    charArray[i] = j;
+                    String temp = new String(charArray);
                     if (set.contains(temp)) {
                         if (temp.equals(endWord)) {
-                            return level + 1;
+                            return curStep + 1;
                         }
-                        nextNum++;
+                        map.put(temp, curStep + 1);
                         queue.offer(temp);
                         set.remove(temp);
                     }
                 }
             }
-            if (curNum == 0) {
-                curNum = nextNum;
-                nextNum = 0;
-                level++;
-            }
         }
         return 0;
-    }
-
-    public static void main(String[] args) {
-        String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
-
-        List<String> wordList = new ArrayList<>();
-        Collections.addAll(wordList, words);
-
-        Solution2 solution = new Solution2();
-        String beginWord = "hit";
-        String endWord = "cog";
-
-        int res = solution.ladderLength(beginWord, endWord, wordList);
-        System.out.println(String.format("从 %s 到 %s 的最短转换序列的长度：%d。", beginWord, endWord, res));
     }
 }

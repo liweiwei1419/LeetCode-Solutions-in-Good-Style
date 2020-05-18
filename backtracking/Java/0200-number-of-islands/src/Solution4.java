@@ -7,7 +7,6 @@ public class Solution4 {
         return x >= 0 && x < len1 && y >= 0 && y < len2 && grid[x][y] == '1';
     }
 
-
     private static class Union {
         private int[] union;
         private int count = 0;

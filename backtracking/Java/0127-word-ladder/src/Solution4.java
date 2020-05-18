@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,23 +8,7 @@ import java.util.Set;
 
 public class Solution4 {
 
-    private class Pair<K, V> {
-        private K key;
-        private V value;
-
-        public Pair(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        public K getKey() {
-            return key;
-        }
-
-        public V getValue() {
-            return value;
-        }
-    }
+    // 编码太复杂，不推荐
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         int len = beginWord.length();
@@ -45,7 +28,7 @@ public class Solution4 {
 
         // 预处理
         Set<Map.Entry<String, ArrayList<String>>> entries = allComboDict.entrySet();
-        for (Map.Entry<String, ArrayList<String>> map:entries) {
+        for (Map.Entry<String, ArrayList<String>> map : entries) {
             System.out.println(map.getKey() + " " + map.getValue());
         }
 
@@ -80,16 +63,21 @@ public class Solution4 {
         return 0;
     }
 
+    private class Pair<K, V> {
+        private K key;
+        private V value;
 
-    public static void main(String[] args) {
-        List<String> wordList = new ArrayList<>();
-        String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
-        Collections.addAll(wordList, words);
+        public Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
 
-        Solution4 solution4 = new Solution4();
-        String beginWord = "hit";
-        String endWord = "cog";
-        int ladderLength = solution4.ladderLength(beginWord, endWord, wordList);
-        System.out.println(String.format("从 %s 到 %s 的最短转换序列的长度：%d。", beginWord, endWord, ladderLength));
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return value;
+        }
     }
 }
