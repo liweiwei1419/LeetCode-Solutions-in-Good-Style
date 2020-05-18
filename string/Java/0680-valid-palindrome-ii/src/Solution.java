@@ -6,11 +6,13 @@ public class Solution {
             return true;
         }
 
+        char[] charArray = s.toCharArray();
+
         int left = 0;
         int right = len - 1;
         while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return validPalindrome(s, left + 1, right) || validPalindrome(s, left, right - 1);
+            if (charArray[left] != charArray[right]) {
+                return validPalindrome(charArray, left + 1, right) || validPalindrome(charArray, left, right - 1);
             }
             left++;
             right--;
@@ -18,9 +20,9 @@ public class Solution {
         return true;
     }
 
-    private boolean validPalindrome(String s, int left, int right) {
+    private boolean validPalindrome(char[] charArray, int left, int right) {
         while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
+            if (charArray[left] != charArray[right]) {
                 return false;
             }
             left++;
