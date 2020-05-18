@@ -1,10 +1,12 @@
+import java.util.Arrays;
+
 public class Solution {
 
-    // 双指针对撞 while 写法
-
     public int[] twoSum(int[] numbers, int target) {
+        int len = numbers.length;
         int left = 0;
-        int right = numbers.length - 1;
+        int right = len - 1;
+
         while (left < right) {
             int sum = numbers[left] + numbers[right];
             if (sum == target) {
@@ -15,6 +17,15 @@ public class Solution {
                 left++;
             }
         }
-        throw new RuntimeException("在数组中没有找到这样的两个数，使得它们的和为指定值");
+        return new int[]{-1, -1};
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 5, 8, 10, 2147483647};
+        int target = 8;
+        Solution solution = new Solution();
+        int[] res = solution.twoSum(nums, target);
+        System.out.println(Arrays.toString(res));
+
     }
 }

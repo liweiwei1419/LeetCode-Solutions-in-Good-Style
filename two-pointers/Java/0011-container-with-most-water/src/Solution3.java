@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/29 1:28 下午
- */
 public class Solution3 {
 
     public int maxArea(int[] height) {

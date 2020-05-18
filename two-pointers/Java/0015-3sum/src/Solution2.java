@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/26 9:40 下午
- */
 public class Solution2 {
 
     // 暴力解法：问题，不方便去除重复元素

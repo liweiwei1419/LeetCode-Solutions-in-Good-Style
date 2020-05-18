@@ -1,7 +1,3 @@
-/**
- * @author liwei
- * @date 2019/8/27 11:14 PM
- */
 public class Solution {
 
     // 暴力解法，时间复杂度太高，我们应该使用指针对撞的方法
