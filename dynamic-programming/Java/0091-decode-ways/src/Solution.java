@@ -5,24 +5,32 @@ public class Solution {
         if (len == 0) {
             return 0;
         }
+
         int[] dp = new int[len];
-        dp[0] = s.charAt(0) == '0' ? 0 : 1;
+        char[] charArray = s.toCharArray();
+        if (charArray[0] == '0'){
+            dp[0] = 0;
+        } else {
+            dp[0] = 1;
+        }
+
+        // dp[i]：前缀字符串 s[0:i] 的解码方法数
         for (int i = 1; i < len; i++) {
-            int res = 0;
-            char cur = s.charAt(i);
+            int currentValue = 0;
+            char cur = charArray[i];
             if (cur != '0') {
-                res += dp[i - 1];
+                currentValue += dp[i - 1];
             }
+
             int pre = Integer.parseInt(s.substring(i - 1, i + 1));
             if (pre <= 26 && pre >= 10) {
                 if (i - 2 < 0) {
-                    res++;
+                    currentValue++;
                 } else {
-                    res += dp[i - 2];
+                    currentValue += dp[i - 2];
                 }
             }
-            dp[i] = res;
-            // System.out.println(Arrays.toString(dp));
+            dp[i] = currentValue;
         }
         return dp[len - 1];
     }
@@ -30,7 +38,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         String s = "12";
-        int numDecodings = solution.numDecodings(s);
-        System.out.println(numDecodings);
+        int res = solution.numDecodings(s);
+        System.out.println(res);
     }
 }

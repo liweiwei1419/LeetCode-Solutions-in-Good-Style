@@ -13,14 +13,13 @@ public class Solution4 {
             return 0;
         }
 
+        int maxSide = 0;
         int[][] dp = new int[rows][cols];
-
-        int res = 0;
         // 先填第 1 行
         for (int j = 0; j < cols; j++) {
             if (matrix[0][j] == '1') {
                 dp[0][j] = 1;
-                res = 1;
+                maxSide = 1;
             }
         }
 
@@ -28,7 +27,7 @@ public class Solution4 {
         for (int i = 1; i < rows; i++) {
             if (matrix[i][0] == '1') {
                 dp[i][0] = 1;
-                res = 1;
+                maxSide = 1;
             }
         }
 
@@ -36,11 +35,10 @@ public class Solution4 {
             for (int j = 1; j < cols; j++) {
                 if (matrix[i][j] == '1') {
                     dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
-                    res = Math.max(res, dp[i][j]);
+                    maxSide = Math.max(maxSide, dp[i][j]);
                 }
             }
         }
-        // 再把里面的填完
-        return res * res;
+        return maxSide * maxSide;
     }
 }

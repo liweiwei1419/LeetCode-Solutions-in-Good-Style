@@ -1,5 +1,7 @@
 public class Solution3 {
 
+    // 状态压缩
+
     public int maximalSquare(char[][] matrix) {
         int rows = matrix.length;
         if (rows == 0) {

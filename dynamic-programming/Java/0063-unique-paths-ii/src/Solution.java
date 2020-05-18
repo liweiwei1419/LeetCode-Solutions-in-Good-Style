@@ -49,7 +49,7 @@ public class Solution {
         // write your code here
         int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         Solution solution = new Solution();
-        int uniquePathsWithObstacles = solution.uniquePathsWithObstacles(obstacleGrid);
-        System.out.println(uniquePathsWithObstacles);
+        int res = solution.uniquePathsWithObstacles(obstacleGrid);
+        System.out.println(res);
     }
 }

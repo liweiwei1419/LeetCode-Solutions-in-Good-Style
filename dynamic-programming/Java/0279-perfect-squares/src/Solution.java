@@ -1,43 +1,32 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.Arrays;
 
+class Solution {
 
-public class Solution {
+    // 说明 dp[0] = 0; 的合理性
+    // 表达式 1 + dp[i - j * j] = 1 ，表示它自己就是一个完全平方式，所以结果是 1
 
     public int numSquares(int n) {
-        // 如果访问过，就应该设置为 false
-        boolean[] visited = new boolean[n + 1];
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.add(n);
-        int step = 1;
-        while (!queue.isEmpty()) {
+        // 0 要占用一个位置
+        int[] dp = new int[n + 1];
 
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int head = queue.poll();
-                for (int k = 1; k * k <= head; k++) {
-                    if (k * k == head) {
-                        return step;
-                    }
+        // 赋初值，设置成为 4 是数学定理保证
+        Arrays.fill(dp, 4);
+        // 该值被参考，设置成 0
+        dp[0] = 0;
 
-                    int next = head - k * k;
-                    if (!visited[next]) {
-                        queue.offer(next);
-                        visited[next] = true;
-                    }
-                }
+        // 一个一个求，自底向上
+        for (int i = 1; i <= n; i++) {
+            for (int k = 0; k * k <= i; k++) {
+                dp[i] = Math.min(dp[i], dp[i - k * k] + 1);
             }
-            step ++;
         }
-
-        // 正常情况下是不会走到这句的
-        throw new IllegalArgumentException("参数错误");
+        return dp[n];
     }
 
     public static void main(String[] args) {
         int n = 7168;
-        Solution s = new Solution();
-        int numSquares = s.numSquares(n);
+        Solution solution = new Solution();
+        int numSquares = solution.numSquares(n);
         System.out.println(numSquares);
     }
 }

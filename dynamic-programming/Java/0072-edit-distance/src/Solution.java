@@ -46,15 +46,18 @@ public class Solution {
         }
 
         // 打印状态表格进行调试
-//        for (int i = 0; i <=len1; i++) {
-//            System.out.println(Arrays.toString(dp[i]));
-//        }
+        for (int i = 0; i <=len1; i++) {
+            System.out.println(Arrays.toString(dp[i]));
+        }
         return dp[len1][len2];
     }
 
     public static void main(String[] args) {
-        String word1 = "horse";
-        String word2 = "ros";
+        String word1 = "112";
+        String word2 = "12";
+
+//        String word1 = "aaaa";
+//        String word2 = "aaaa";
 
         Solution solution = new Solution();
         int res = solution.minDistance(word1, word2);

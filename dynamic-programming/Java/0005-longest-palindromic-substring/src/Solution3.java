@@ -1,6 +1,6 @@
-import java.util.Arrays;
-
 public class Solution3 {
+
+    // 动态规划是暴力解法的优化
 
     public String longestPalindrome(String s) {
         // 特判
@@ -14,15 +14,14 @@ public class Solution3 {
 
         // dp[i][j] 表示 s[i, j] 是否是回文串
         boolean[][] dp = new boolean[len][len];
+        char[] charArray = s.toCharArray();
 
         for (int i = 0; i < len; i++) {
             dp[i][i] = true;
         }
-        for (int j = len - 1; j >= 1; j--) {
-            for (int i = j - 1; j >= 0; j--) {
-
-
-                if (s.charAt(i) != s.charAt(j)) {
+        for (int j = 1; j < len; j++) {
+            for (int i = 0; i < j; i++) {
+                if (charArray[i] != charArray[j]) {
                     dp[i][j] = false;
                 } else {
                     if (j - i < 3) {

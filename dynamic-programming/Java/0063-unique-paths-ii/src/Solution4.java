@@ -1,4 +1,4 @@
-public class Solution2 {
+public class Solution4 {
 
     // 状态压缩 + 哨兵技巧
     // 空间复杂度：O(N)，N 是矩阵的列数

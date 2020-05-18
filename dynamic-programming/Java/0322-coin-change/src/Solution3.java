@@ -2,17 +2,15 @@ import java.util.Arrays;
 
 public class Solution3 {
 
-    private int[] memo;
-
+    // 记忆化递归
     public int coinChange(int[] coins, int amount) {
-        memo = new int[amount + 1];
+        int[] memo = new int[amount + 1];
         Arrays.fill(memo, -2);
         Arrays.sort(coins);
-        return dfs(coins, amount, 0);
+        return dfs(coins, amount, memo);
     }
 
-
-    private int dfs(int[] coins, int amount, int depth) {
+    private int dfs(int[] coins, int amount, int[] memo) {
         int res = Integer.MAX_VALUE;
         if (amount == 0) {
             return 0;
@@ -22,14 +20,16 @@ public class Solution3 {
             return memo[amount];
         }
 
-        for (int i = coins.length - 1; i >= 0; i--) {
-            if (amount - coins[i] >= 0) {
-                int subRes = dfs(coins, amount - coins[i], depth + 1);
-                if (subRes == -1) {
-                    continue;
-                }
-                res = Math.min(res, subRes + 1);
+        for (int coin : coins) {
+            if (amount - coin < 0) {
+                break;
             }
+
+            int subRes = dfs(coins, amount - coin, memo);
+            if (subRes == -1) {
+                continue;
+            }
+            res = Math.min(res, subRes + 1);
         }
         return memo[amount] = (res == Integer.MAX_VALUE) ? -1 : res;
     }

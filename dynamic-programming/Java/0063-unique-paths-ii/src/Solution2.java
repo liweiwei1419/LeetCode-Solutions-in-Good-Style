@@ -29,7 +29,7 @@ public class Solution2 {
     public static void main(String[] args) {
         int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         Solution2 solution2 = new Solution2();
-        int uniquePathsWithObstacles = solution2.uniquePathsWithObstacles(obstacleGrid);
-        System.out.println(uniquePathsWithObstacles);
+        int res = solution2.uniquePathsWithObstacles(obstacleGrid);
+        System.out.println(res);
     }
 }

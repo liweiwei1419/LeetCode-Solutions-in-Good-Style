@@ -13,7 +13,6 @@ public class Solution {
             return 0;
         }
 
-
         int[][] dp = new int[rows + 1][cols + 1];
 
         int res = 0;

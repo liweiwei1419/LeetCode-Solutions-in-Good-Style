@@ -6,19 +6,18 @@ public class Solution2 {
             return 0;
         }
 
-        // 状态定义：以索引 i 结尾
+        // dp[i][0]：以 nums[i] 结尾的连续子数组的最小值
+        // dp[i][1]：以 nums[i] 结尾的连续子数组的最大值
         int[][] dp = new int[len][2];
-
         dp[0][0] = nums[0];
         dp[0][1] = nums[0];
-
         for (int i = 1; i < len; i++) {
             if (nums[i] >= 0) {
-                dp[i][1] = Math.max(nums[i], dp[i - 1][1] * nums[i]);
-                dp[i][0] = Math.min(nums[i], dp[i - 1][0] * nums[i]);
+                dp[i][0] = Math.min(nums[i], nums[i] * dp[i - 1][0]) ;
+                dp[i][1] = Math.max(nums[i], nums[i] * dp[i - 1][1]) ;
             } else {
-                dp[i][1] = Math.max(nums[i], dp[i - 1][0] * nums[i]);
-                dp[i][0] = Math.min(nums[i], dp[i - 1][1] * nums[i]);
+                dp[i][0] = Math.min(nums[i], nums[i] * dp[i - 1][1]) ;
+                dp[i][1] = Math.max(nums[i], nums[i] * dp[i - 1][0]) ;
             }
         }
 

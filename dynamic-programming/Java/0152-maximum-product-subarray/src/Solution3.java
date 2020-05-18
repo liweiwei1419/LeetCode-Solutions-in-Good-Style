@@ -1,7 +1,5 @@
 public class Solution3 {
 
-    // 状态压缩
-
     public int maxProduct(int[] nums) {
         int len = nums.length;
         if (len == 0) {
@@ -10,6 +8,8 @@ public class Solution3 {
 
         int preMax = nums[0];
         int preMin = nums[0];
+
+        // 赋值滚动变量
         int curMax;
         int curMin;
 
@@ -24,7 +24,7 @@ public class Solution3 {
             }
             res = Math.max(res, curMax);
 
-            // 滚动变量
+            // 赋值滚动变量
             preMax = curMax;
             preMin = curMin;
         }

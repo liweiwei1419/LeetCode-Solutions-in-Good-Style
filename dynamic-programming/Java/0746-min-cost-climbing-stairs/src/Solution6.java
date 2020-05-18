@@ -1,4 +1,4 @@
-public class Solution3 {
+public class Solution6 {
 
     public int minCostClimbingStairs(int[] cost) {
         int len = cost.length;
