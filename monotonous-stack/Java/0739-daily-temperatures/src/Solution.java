@@ -1,23 +1,15 @@
 import java.util.Arrays;
 
-/**
- * @author liweiwei1419
- * @date 2019/12/3 11:11 上午
- */
 public class Solution {
 
-    /**
-     * 暴力解法
-     *
-     * @param T
-     * @return
-     */
+    // 暴力解法
+
     public int[] dailyTemperatures(int[] T) {
         int len = T.length;
-        // 特判
         if (len < 2) {
             return new int[len];
         }
+
         int[] res = new int[len];
         res[len - 1] = 0;
         for (int i = 0; i < len - 1; i++) {

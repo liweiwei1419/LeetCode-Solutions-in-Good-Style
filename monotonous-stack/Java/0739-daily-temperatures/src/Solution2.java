@@ -1,10 +1,8 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.Stack;
 
-/**
- * @author liweiwei1419
- * @date 2019/12/3 11:25 上午
- */
 public class Solution2 {
 
     // 时间复杂度：O(N)
@@ -12,25 +10,22 @@ public class Solution2 {
 
     public int[] dailyTemperatures(int[] T) {
         int len = T.length;
-        // 特判
         if (len < 2) {
             return new int[len];
         }
-        int[] res = new int[len];
 
-        // 1、存的是索引
-        // 2、对应的值的特点，单调不减
-        // 3、出栈的时候，记录 res
-        Stack<Integer> stack = new Stack<>();
+        int[] res = new int[len];
+        // 栈里存下标；对应的值的特点，单调不增；出栈的时候，记录 res
+        Deque<Integer> stack = new ArrayDeque<>();
         for (int i = 0; i < len; i++) {
-            // 注意 1：根据题意，这里要写等于号
-            // 注意 2：不能把 while 写成 if
-            while (!stack.isEmpty() && T[stack.peek()] < T[i]) {
-                int index = stack.pop();
+            while (!stack.isEmpty() && T[stack.peekLast()] < T[i]) {
+                int index = stack.removeLast();
                 res[index] = i - index;
             }
-            stack.push(i);
+            stack.addLast(i);
         }
+
+        // 最后在栈里的元素保持单调不增，因此下面这三行代码可以省略
         while (!stack.isEmpty()) {
             res[stack.pop()] = 0;
         }

@@ -1,43 +1,38 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Solution3 {
 
-    // 使用哨兵的写法
-
     public int largestRectangleArea(int[] heights) {
         int len = heights.length;
-        // 特判
         if (len == 0) {
             return 0;
         }
 
-        // 最后一个 0 类似于哨兵，为了将栈中的元素全部清空
-        int[] newHeights = new int[len + 1];
-        System.arraycopy(heights, 0, newHeights, 0, len);
-        newHeights[len] = 0;
+        if (len == 1) {
+            return heights[0];
+        }
 
-        // 注意：为了避免编码出错，将 heights 指向新的 newHeights
-        heights = newHeights;
-
-        Stack<Integer> stack = new Stack<>();
         int res = 0;
 
-        // 注意：for 循环里面是小于等于，即 i <= len
-        for (int i = 0; i <= len; i++) {
-            while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
-                // top 所在的柱形的最大高度可以确定
-                int top = stack.pop();
-                int width;
+        int[] newHeights = new int[len + 2];
+        newHeights[0] = 0;
+        System.arraycopy(heights, 0, newHeights, 1, len);
+        newHeights[len + 1] = 0;
+        len += 2;
+        heights = newHeights;
 
-                if (stack.isEmpty()) {
-                    width = i;
-                } else {
-                    width = i - stack.peek() - 1;
-                }
+        Deque<Integer> stack = new ArrayDeque<>(len);
+        // 先放入哨兵，在循环里就不用做非空判断
+        stack.addLast(0);
 
-                res = Math.max(res, heights[top] * width);
+        for (int i = 1; i < len; i++) {
+            while (heights[i] < heights[stack.peekLast()]) {
+                int curHeight = heights[stack.pollLast()];
+                int curWidth = i - stack.peekLast() - 1;
+                res = Math.max(res, curHeight * curWidth);
             }
-            stack.push(i);
+            stack.addLast(i);
         }
         return res;
     }

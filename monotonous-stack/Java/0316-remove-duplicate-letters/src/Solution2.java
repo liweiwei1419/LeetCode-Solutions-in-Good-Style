@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Solution2 {
 
@@ -14,34 +15,36 @@ public class Solution2 {
             return s;
         }
 
+        char[] charArray = s.toCharArray();
+
         // 记录是否在已经得到的字符串中
         boolean[] set = new boolean[26];
 
         // 记录每个字符出现的最后一个位置
         int[] lastAppearIndex = new int[26];
         for (int i = 0; i < len; i++) {
-            lastAppearIndex[s.charAt(i) - 'a'] = i;
+            lastAppearIndex[charArray[i] - 'a'] = i;
         }
 
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < len; i++) {
-            char currentChar = s.charAt(i);
+            char currentChar = charArray[i];
             if (set[currentChar - 'a']) {
                 continue;
             }
 
-            while (!stack.empty() && stack.peek() > currentChar && lastAppearIndex[stack.peek() - 'a'] >= i) {
-                char top = stack.pop();
+            while (!stack.isEmpty() && stack.peekLast() > currentChar && lastAppearIndex[stack.peekLast() - 'a'] >= i) {
+                char top = stack.removeLast();
                 set[top - 'a'] = false;
             }
 
-            stack.push(currentChar);
+            stack.addLast(currentChar);
             set[currentChar - 'a'] = true;
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        while (!stack.empty()) {
-            stringBuilder.insert(0, stack.pop());
+        while (!stack.isEmpty()) {
+            stringBuilder.insert(0, stack.removeLast());
         }
         return stringBuilder.toString();
     }

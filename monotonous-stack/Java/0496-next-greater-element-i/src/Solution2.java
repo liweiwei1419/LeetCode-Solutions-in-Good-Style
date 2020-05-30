@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -13,14 +15,14 @@ public class Solution2 {
         int len1 = nums1.length;
         int len2 = nums2.length;
 
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         Map<Integer, Integer> map = new HashMap<>();
         // 对 nums2 先预处理
         for (int i = 0; i < len2; i++) {
-            while (!stack.isEmpty() && stack.peek() < nums2[i]) {
-                map.put(stack.pop(), nums2[i]);
+            while (!stack.isEmpty() && stack.peekLast() < nums2[i]) {
+                map.put(stack.removeLast(), nums2[i]);
             }
-            stack.push(nums2[i]);
+            stack.addLast(nums2[i]);
         }
 
         // 遍历 nums1 得到结果集
