@@ -1,5 +1,7 @@
 public class Solution2 {
 
+    // 中心扩散
+
     public String longestPalindrome(String s) {
         int len = s.length();
         if (len < 2) {
@@ -10,8 +12,6 @@ public class Solution2 {
         int begin = 0;
 
         char[] charArray = s.toCharArray();
-
-        // 边界要注意
         for (int i = 0; i < len - 1; i++) {
             int oddLen = expandAroundCenter(charArray, i, i);
             int evenLen = expandAroundCenter(charArray, i, i + 1);
@@ -28,8 +28,8 @@ public class Solution2 {
 
     /**
      * @param charArray 原始字符串的字符数组
-     * @param left      左边界（可以取到）
-     * @param right     右边界（可以取到）
+     * @param left      起始左边界（可以取到）
+     * @param right     起始右边界（可以取到）
      * @return 回文串的长度
      */
     private int expandAroundCenter(char[] charArray, int left, int right) {
@@ -47,7 +47,7 @@ public class Solution2 {
             }
         }
         // 跳出 while 循环时，恰好满足 s.charAt(i) != s.charAt(j)，
-        // 此时回文串的长度是 j - i + 1 - 2 = j - i - 1
+        // 回文串的长度是 j - i + 1 - 2 = j - i - 1
         return j - i - 1;
     }
 }
