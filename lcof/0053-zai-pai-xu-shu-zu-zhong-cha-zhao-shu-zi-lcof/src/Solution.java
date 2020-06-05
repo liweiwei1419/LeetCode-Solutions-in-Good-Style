@@ -15,50 +15,18 @@ public class Solution {
         return lastPosition - firstPosition + 1;
     }
 
-    private int findLastPosition(int[] nums, int target) {
-        int len = nums.length;
-        int left = 0;
-        int right = len - 1;
-        while (left < right) {
-
-            // 注意，以下 nums[mid] < target 以及 nums[mid] == target 的情况可以合并
-            // 边界是 left = mid ，取中间数的时候必须 + 1
-            int mid = (left + right + 1) >>> 1;
-
-            if (nums[mid] < target) {
-                // mid 以及 mid 左边都不是，下一轮搜索区间在 [mid + 1, right]
-                left = mid + 1;
-            } else if (nums[mid] == target) {
-                // mid 可能是，mid 左边一定不是，下一轮搜索区间在 [mid, right]
-                left = mid;
-            } else {
-                // 此时 nums[mid] > target
-                // mid 以及 mid 右边都不是，下一轮搜索区间在 [left, mid - 1]
-                right = mid - 1;
-            }
-        }
-
-
-        return left;
-    }
-
     private int findFirstPosition(int[] nums, int target) {
         int len = nums.length;
         int left = 0;
         int right = len - 1;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-
+            int mid = left + (right - left) / 2;
+            // 注意这样写，可以从左边收缩待搜索区间的范围，进而找到第一次出现的位置
             if (nums[mid] < target) {
                 // mid 以及 mid 左边都不是，下一轮搜索区间在 [mid + 1, right]
                 left = mid + 1;
-            } else if (nums[mid] == target) {
-                // mid 可能是，mid 右边一定不是，下一轮搜索区间在 [left, mid]
-                right = mid;
             } else {
-                // 此时 nums[mid] > target
-                // mid 以及 mid 右边都不是，下一轮搜索区间在 [left, mid - 1]
-                right = mid - 1;
+                right = mid;
             }
         }
 
@@ -66,5 +34,22 @@ public class Solution {
             return left;
         }
         return -1;
+    }
+
+    private int findLastPosition(int[] nums, int target) {
+        int len = nums.length;
+        int left = 0;
+        int right = len - 1;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;
+            // 注意这样写，可以从右边收缩待搜索区间的范围，进而找到最后一次出现的位置
+            if (nums[mid] > target) {
+                // mid 以及 mid 右边都不是，下一轮搜索区间在 [left, mid - 1]
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return left;
     }
 }
