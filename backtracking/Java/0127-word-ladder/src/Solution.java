@@ -9,77 +9,73 @@ import java.util.Set;
 public class Solution {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Queue<Pair> queue = new LinkedList<>();
-        queue.offer(new Pair(beginWord, 1));
+        // 先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
+        Set<String> wordSet = new HashSet<>(wordList);
+        if (wordSet.size() == 0 || !wordSet.contains(endWord)) {
+            return 0;
+        }
+        wordSet.remove(beginWord);
+
+        // 图的广度优先遍历，必须使用的队列和表示是否访问过的 visited （数组，哈希表）
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
 
         Set<String> visited = new HashSet<>();
         visited.add(beginWord);
 
+        int wordLen = beginWord.length();
+        // 包含起点，因此初始化的时候步数为 1
+        int step = 1;
         while (!queue.isEmpty()) {
-            Pair curPair = queue.poll();
-            String curWord = curPair.word;
-            Integer step = curPair.step;
 
-            step++;
-            List<String> nextWords = onlyChangeOne(curWord, wordList, visited);
-            for (String nextWord : nextWords) {
-                if (nextWord.equals(endWord)) {
-                    return step;
+            int currentSize = queue.size();
+            for (int i = 0; i < currentSize; i++) {
+                // 依次遍历当前队列中的单词
+                String word = queue.poll();
+                char[] charArray = word.toCharArray();
+
+                // 修改每一个字符
+                for (int j = 0; j < wordLen; j++) {
+                    // 一轮以后应该重置，否则结果不正确
+                    char originChar = charArray[j];
+
+                    for (char k = 'a'; k <= 'z'; k++) {
+                        if (k == originChar) {
+                            continue;
+                        }
+
+                        charArray[j] = k;
+                        String nextWord = String.valueOf(charArray);
+
+                        if (wordSet.contains(nextWord)) {
+                            if (nextWord.equals(endWord)) {
+                                return step + 1;
+                            }
+
+                            if (!visited.contains(nextWord)) {
+                                queue.add(nextWord);
+                                // 注意：添加到队列以后，必须马上标记为已经访问
+                                visited.add(nextWord);
+                            }
+                        }
+                    }
+                    // 恢复
+                    charArray[j] = originChar;
                 }
-                queue.offer(new Pair(nextWord, step));
-                visited.add(nextWord);
             }
+            step++;
         }
         return 0;
     }
 
-
-    private List<String> onlyChangeOne(String word, List<String> wordList, Set<String> visited) {
-        // 与 word 相差一个字母的 wordList 的元素有哪些，并且要保证没有使用过
-        List<String> res = new ArrayList<>();
-
-        int len = word.length();
-        for (String match : wordList) {
-            int count = 0;
-            for (int i = 0; i < len; i++) {
-                if (word.charAt(i) != match.charAt(i)) {
-                    count++;
-                    // 如果不同的字母的数量已经大于 1 个，那么它就肯定不是我们要找的单词
-                    if (count >= 2) {
-                        break;
-                    }
-                }
-            }
-
-            // 恰好相差一个字符，且还未被访问过，才是邻居
-            if (count == 1 && !visited.contains(match)) {
-                res.add(match);
-            }
-        }
-        return res;
-    }
-
-
-    private class Pair {
-        private String word;
-        private Integer step;
-
-        public Pair(String word, Integer step) {
-            this.word = word;
-            this.step = step;
-        }
-    }
-
-
     public static void main(String[] args) {
-        List<String> wordList = new ArrayList<>();
-        String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
-        Collections.addAll(wordList, words);
-
-        Solution solution = new Solution();
         String beginWord = "hit";
         String endWord = "cog";
-        int ladderLength = solution.ladderLength(beginWord, endWord, wordList);
-        System.out.println(String.format("从 %s 到 %s 的最短转换序列的长度：%d。", beginWord, endWord, ladderLength));
+        List<String> wordList = new ArrayList<>();
+        String[] wordListArray = new String[]{"hot", "dot", "dog", "lot", "log", "cog"};
+        Collections.addAll(wordList, wordListArray);
+        Solution solution = new Solution();
+        int res = solution.ladderLength(beginWord, endWord, wordList);
+        System.out.println(res);
     }
 }

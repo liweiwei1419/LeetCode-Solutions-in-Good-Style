@@ -1,91 +1,165 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-
-// https://leetcode-cn.com/problems/word-ladder-ii/description/
-// 还是 TLE 解，继续努力啊
 
 public class Solution2 {
 
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        // 先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
+        List<List<String>> res = new ArrayList<>();
+        Set<String> wordSet = new HashSet<>(wordList);
+        if (wordSet.size() == 0 || !wordSet.contains(endWord)) {
+            return res;
+        }
+
+        // key：字符串，value：广度优先遍历过程中 key 的后继结点列表
+        Map<String, Set<String>> successors = new HashMap<>();
+        boolean found = bidirectionalBfs(beginWord, endWord, wordSet, successors);
+        if (!found) {
+            return res;
+        }
+
+        Deque<String> path = new ArrayDeque<>();
+        path.addLast(beginWord);
+        dfs(beginWord, endWord, successors, path, res);
+        return res;
+    }
+
+    private boolean bidirectionalBfs(String beginWord,
+                                     String endWord,
+                                     Set<String> wordSet,
+                                     Map<String, Set<String>> successors) {
+        // 标准写法，记录方法问过的单词
+        Set<String> visited = new HashSet<>();
+        visited.add(beginWord);
+        visited.add(endWord);
+
+        Set<String> beginVisited = new HashSet<>();
+        beginVisited.add(beginWord);
+
+        Set<String> endVisited = new HashSet<>();
+        endVisited.add(endWord);
+
+        int wordLen = beginWord.length();
+        boolean forward = true;
+        boolean found = false;
+        // 在保证了 beginVisited 总是较小（可以等于）大小的集合前提下，&& !endVisited.isEmpty() 可以省略
+        while (!beginVisited.isEmpty() && !endVisited.isEmpty()) {
+            // 总认为 beginVisited 是相对较小的集合，方便后续编码
+            if (beginVisited.size() > endVisited.size()) {
+                Set<String> temp = beginVisited;
+                beginVisited = endVisited;
+                endVisited = temp;
+
+                forward = !forward;
+            }
+
+            Set<String> nextLevelVisited = new HashSet<>();
+            // 默认 beginVisited 是小集合，从 beginVisited 除法
+            for (String currentWord : beginVisited) {
+
+                char[] charArray = currentWord.toCharArray();
+                for (int i = 0; i < wordLen; i++) {
+
+                    char originChar = charArray[i];
+                    for (char j = 'a'; j <= 'z'; j++) {
+                        if (charArray[i] == j) {
+                            continue;
+                        }
+                        charArray[i] = j;
+                        String nextWord = new String(charArray);
+
+                        if (wordSet.contains(nextWord)) {
+                            if (endVisited.contains(nextWord)) {
+                                found = true;
+                                addToSuccessors(successors, forward, currentWord, nextWord);
+                            }
+
+                            if (!visited.contains(nextWord)) {
+                                nextLevelVisited.add(nextWord);
+                                addToSuccessors(successors, forward, currentWord, nextWord);
+                            }
+                        }
+                    }
+                    charArray[i] = originChar;
+                }
+            }
+
+            beginVisited = nextLevelVisited;
+            visited.addAll(nextLevelVisited);
+            if (found) {
+                break;
+            }
+        }
+        return found;
+    }
+
+    private void dfs(String startWord,
+                     String endWord,
+                     Map<String, Set<String>> successors,
+                     Deque<String> path,
+                     List<List<String>> res) {
+
+        if (startWord.equals(endWord)) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        if (!successors.containsKey(startWord)) {
+            return;
+        }
+
+        Set<String> successorList = successors.get(startWord);
+        for (String successor : successorList) {
+            path.addLast(successor);
+            dfs(successor, endWord, successors, path, res);
+            path.removeLast();
+        }
+    }
+
+    private void addToSuccessors(Map<String, Set<String>> successors,
+                                 boolean forward,
+                                 String currentWord,
+                                 String nextWord) {
+        if (!forward) {
+            String temp = currentWord;
+            currentWord = nextWord;
+            nextWord = temp;
+        }
+
+        // 维护 successors 的定义
+        if (successors.containsKey(currentWord)) {
+            successors.get(currentWord).add(nextWord);
+        } else {
+            Set<String> newSet = new HashSet<>();
+            newSet.add(nextWord);
+            successors.put(currentWord, newSet);
+        }
+        // Java 1.8 以后可以用下面 2 行代替上面 6 行
+        // successors.computeIfAbsent(currentWord, a -> new HashSet<>());
+        // successors.get(currentWord).add(nextWord);
+    }
 
 
     public static void main(String[] args) {
-        // write your code here
-        // write your code here
-
-//        List<String> wordList = new ArrayList<>();
-//        wordList.add("hot");
-//        wordList.add("dot");
-//        wordList.add("dog");
-//        wordList.add("lot");
-//        wordList.add("log");
-//        wordList.add("cog");
-//
-//
-//        Solution2 solution = new Solution2();
-//        String beginWord = "hit";
-//        String endWord = "cog";
-//        List<List<String>> res = solution.findLadders(beginWord, endWord, wordList);
-//        System.out.println(res);
-
-
-//        String[] words = {"si", "go", "se", "cm", "so", "ph", "mt", "db", "mb", "sb", "kr", "ln", "tm", "le", "av", "sm", "ar", "ci", "ca", "br", "ti", "ba", "to", "ra", "fa", "yo", "ow", "sn", "ya", "cr", "po", "fe", "ho", "ma", "re", "or", "rn", "au", "ur", "rh", "sr", "tc", "lt", "lo", "as", "fr", "nb", "yb", "if", "pb", "ge", "th", "pm", "rb", "sh", "co", "ga", "li", "ha", "hz", "no", "bi", "di", "hi", "qa", "pi", "os", "uh", "wm", "an", "me", "mo", "na", "la", "st", "er", "sc", "ne", "mn", "mi", "am", "ex", "pt", "io", "be", "fm", "ta", "tb", "ni", "mr", "pa", "he", "lr", "sq", "ye"};
-//        List<String> wordList = new ArrayList<>();
-//
-//        for (String word : words) {
-//            wordList.add(word);
-//        }
-//        Solution2 solution2 = new Solution2();
-//        String beginWord = "qa";
-//        String endWord = "sq";
-//        List<List<String>> res = solution2.findLadders(beginWord, endWord, wordList);
-//        System.out.println("最终解是：");
-//        System.out.println(res);
-
-//
-//        String[] words = {"rex", "ted", "tex", "tad", "tax"};
-//        List<String> wordList = new ArrayList<>();
-//
-//        for (String word : words) {
-//            wordList.add(word);
-//        }
-//        Solution2 solution = new Solution2();
-//        String beginWord = "red";
-//        String endWord = "tax";
-//        List<List<String>> res = solution.findLadders(beginWord, endWord, wordList);
-//        System.out.println(res);
-
-
-//        String[] words = {"b", "c"};
-//        List<String> wordList = new ArrayList<>();
-//
-//        for (String word : words) {
-//            wordList.add(word);
-//        }
-//        Solution2 solution = new Solution2();
-//        String beginWord = "a";
-//        String endWord = "c";
-//        List<List<String>> res = solution.findLadders(beginWord, endWord, wordList);
-//        System.out.println(res);
-
-
-        String[] words = {"kid", "tag", "pup", "ail", "tun", "woo", "erg", "luz", "brr", "gay", "sip", "kay", "per", "val", "mes", "ohs", "now", "boa", "cet", "pal", "bar", "die", "war", "hay", "eco", "pub", "lob", "rue", "fry", "lit", "rex", "jan", "cot", "bid", "ali", "pay", "col", "gum", "ger", "row", "won", "dan", "rum", "fad", "tut", "sag", "yip", "sui", "ark", "has", "zip", "fez", "own", "ump", "dis", "ads", "max", "jaw", "out", "btu", "ana", "gap", "cry", "led", "abe", "box", "ore", "pig", "fie", "toy", "fat", "cal", "lie", "noh", "sew", "ono", "tam", "flu", "mgm", "ply", "awe", "pry", "tit", "tie", "yet", "too", "tax", "jim", "san", "pan", "map", "ski", "ova", "wed", "non", "wac", "nut", "why", "bye", "lye", "oct", "old", "fin", "feb", "chi", "sap", "owl", "log", "tod", "dot", "bow", "fob", "for", "joe", "ivy", "fan", "age", "fax", "hip", "jib", "mel", "hus", "sob", "ifs", "tab", "ara", "dab", "jag", "jar", "arm", "lot", "tom", "sax", "tex", "yum", "pei", "wen", "wry", "ire", "irk", "far", "mew", "wit", "doe", "gas", "rte", "ian", "pot", "ask", "wag", "hag", "amy", "nag", "ron", "soy", "gin", "don", "tug", "fay", "vic", "boo", "nam", "ave", "buy", "sop", "but", "orb", "fen", "paw", "his", "sub", "bob", "yea", "oft", "inn", "rod", "yam", "pew", "web", "hod", "hun", "gyp", "wei", "wis", "rob", "gad", "pie", "mon", "dog", "bib", "rub", "ere", "dig", "era", "cat", "fox", "bee", "mod", "day", "apr", "vie", "nev", "jam", "pam", "new", "aye", "ani", "and", "ibm", "yap", "can", "pyx", "tar", "kin", "fog", "hum", "pip", "cup", "dye", "lyx", "jog", "nun", "par", "wan", "fey", "bus", "oak", "bad", "ats", "set", "qom", "vat", "eat", "pus", "rev", "axe", "ion", "six", "ila", "lao", "mom", "mas", "pro", "few", "opt", "poe", "art", "ash", "oar", "cap", "lop", "may", "shy", "rid", "bat", "sum", "rim", "fee", "bmw", "sky", "maj", "hue", "thy", "ava", "rap", "den", "fla", "auk", "cox", "ibo", "hey", "saw", "vim", "sec", "ltd", "you", "its", "tat", "dew", "eva", "tog", "ram", "let", "see", "zit", "maw", "nix", "ate", "gig", "rep", "owe", "ind", "hog", "eve", "sam", "zoo", "any", "dow", "cod", "bed", "vet", "ham", "sis", "hex", "via", "fir", "nod", "mao", "aug", "mum", "hoe", "bah", "hal", "keg", "hew", "zed", "tow", "gog", "ass", "dem", "who", "bet", "gos", "son", "ear", "spy", "kit", "boy", "due", "sen", "oaf", "mix", "hep", "fur", "ada", "bin", "nil", "mia", "ewe", "hit", "fix", "sad", "rib", "eye", "hop", "haw", "wax", "mid", "tad", "ken", "wad", "rye", "pap", "bog", "gut", "ito", "woe", "our", "ado", "sin", "mad", "ray", "hon", "roy", "dip", "hen", "iva", "lug", "asp", "hui", "yak", "bay", "poi", "yep", "bun", "try", "lad", "elm", "nat", "wyo", "gym", "dug", "toe", "dee", "wig", "sly", "rip", "geo", "cog", "pas", "zen", "odd", "nan", "lay", "pod", "fit", "hem", "joy", "bum", "rio", "yon", "dec", "leg", "put", "sue", "dim", "pet", "yaw", "nub", "bit", "bur", "sid", "sun", "oil", "red", "doc", "moe", "caw", "eel", "dix", "cub", "end", "gem", "off", "yew", "hug", "pop", "tub", "sgt", "lid", "pun", "ton", "sol", "din", "yup", "jab", "pea", "bug", "gag", "mil", "jig", "hub", "low", "did", "tin", "get", "gte", "sox", "lei", "mig", "fig", "lon", "use", "ban", "flo", "nov", "jut", "bag", "mir", "sty", "lap", "two", "ins", "con", "ant", "net", "tux", "ode", "stu", "mug", "cad", "nap", "gun", "fop", "tot", "sow", "sal", "sic", "ted", "wot", "del", "imp", "cob", "way", "ann", "tan", "mci", "job", "wet", "ism", "err", "him", "all", "pad", "hah", "hie", "aim", "ike", "jed", "ego", "mac", "baa", "min", "com", "ill", "was", "cab", "ago", "ina", "big", "ilk", "gal", "tap", "duh", "ola", "ran", "lab", "top", "gob", "hot", "ora", "tia", "kip", "han", "met", "hut", "she", "sac", "fed", "goo", "tee", "ell", "not", "act", "gil", "rut", "ala", "ape", "rig", "cid", "god", "duo", "lin", "aid", "gel", "awl", "lag", "elf", "liz", "ref", "aha", "fib", "oho", "tho", "her", "nor", "ace", "adz", "fun", "ned", "coo", "win", "tao", "coy", "van", "man", "pit", "guy", "foe", "hid", "mai", "sup", "jay", "hob", "mow", "jot", "are", "pol", "arc", "lax", "aft", "alb", "len", "air", "pug", "pox", "vow", "got", "meg", "zoe", "amp", "ale", "bud", "gee", "pin", "dun", "pat", "ten", "mob"};
-
-        System.out.println(words.length);
-
         List<String> wordList = new ArrayList<>();
+        wordList.add("hot");
+        wordList.add("dot");
+        wordList.add("dog");
+        wordList.add("lot");
+        wordList.add("log");
+        wordList.add("cog");
 
-        for (String word : words) {
-            wordList.add(word);
-        }
-        Solution2 solution = new Solution2();
-        String beginWord = "cet";
-        String endWord = "ism";
-        System.out.println("开始搜索。。。。");
-        List<List<String>> res = solution.findLadders(beginWord, endWord, wordList);
+
+        Solution2 solution2 = new Solution2();
+        String beginWord = "hit";
+        String endWord = "cog";
+        List<List<String>> res = solution2.findLadders(beginWord, endWord, wordList);
         System.out.println(res);
-
     }
 }
