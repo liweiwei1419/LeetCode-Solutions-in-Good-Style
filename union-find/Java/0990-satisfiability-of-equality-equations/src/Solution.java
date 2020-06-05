@@ -1,6 +1,35 @@
 public class Solution {
 
+    public boolean equationsPossible(String[] equations) {
+        UnionFind unionFind = new UnionFind(26);
+
+        for (String equation : equations) {
+            char[] charArray = equation.toCharArray();
+            if (charArray[1] == '=') {
+                int index1 = charArray[0] - 'a';
+                int index2 = charArray[3] - 'a';
+                unionFind.union(index1, index2);
+            }
+        }
+
+        for (String equation : equations) {
+            char[] charArray = equation.toCharArray();
+            if (charArray[1] == '!') {
+                int index1 = charArray[0] - 'a';
+                int index2 = charArray[3] - 'a';
+
+                if (unionFind.isConnected(index1, index2)) {
+                    // 如果合并失败，表示等式有矛盾，根据题意，返回 false
+                    return false;
+                }
+            }
+        }
+        // 如果检查了所有不等式，都没有发现矛盾，返回 true
+        return true;
+    }
+
     private class UnionFind {
+
         private int[] parent;
 
         public UnionFind(int n) {
@@ -34,32 +63,6 @@ public class Solution {
         }
     }
 
-    public boolean equationsPossible(String[] equations) {
-        UnionFind unionFind = new UnionFind(26);
-
-        for (String equation : equations) {
-            if (equation.charAt(1) == '=') {
-                int index1 = equation.charAt(0) - 'a';
-                int index2 = equation.charAt(3) - 'a';
-                unionFind.union(index1, index2);
-            }
-        }
-
-        for (String equation : equations) {
-            if (equation.charAt(1) == '!') {
-                int index1 = equation.charAt(0) - 'a';
-                int index2 = equation.charAt(3) - 'a';
-
-                if (unionFind.isConnected(index1, index2)) {
-                    // 如果合并失败，表示等式有矛盾，根据题意，返回 false
-                    return false;
-                }
-            }
-        }
-
-        // 如果检查了所有不等式，都没有发现矛盾，返回 true
-        return true;
-    }
 
     public static void main(String[] args) {
         // String[] equations = new String[]{"b==a", "a==b"};
