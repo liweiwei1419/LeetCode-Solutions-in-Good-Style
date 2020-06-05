@@ -3,7 +3,6 @@ public class Solution {
     public String minWindow(String s, String t) {
         int sLen = s.length();
         int tLen = t.length();
-
         if (sLen == 0 || tLen == 0 || sLen < tLen) {
             return "";
         }
@@ -11,9 +10,9 @@ public class Solution {
         char[] charArrayS = s.toCharArray();
         char[] charArrayT = t.toCharArray();
 
-        int[] tFreq = new int[128];
+        // ascii('z') = 122
         int[] winFreq = new int[128];
-
+        int[] tFreq = new int[128];
         for (char c : charArrayT) {
             tFreq[c]++;
         }
@@ -25,9 +24,9 @@ public class Solution {
 
         int left = 0;
         int right = 0;
-        // [left..right)
+        // [left, right)
         while (right < sLen) {
-            int charRight = charArrayS[right];
+            char charRight = charArrayS[right];
             if (tFreq[charRight] == 0) {
                 right++;
                 continue;
@@ -45,7 +44,7 @@ public class Solution {
                     begin = left;
                 }
 
-                int charLeft = charArrayS[left];
+                char charLeft = charArrayS[left];
                 if (tFreq[charLeft] == 0) {
                     left++;
                     continue;
@@ -67,13 +66,10 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String s = "DBADBECCODEBANCC";
-        String t = "ABCC";
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
         String res = solution.minWindow(s, t);
-        System.out.println("结果：" + res);
-
-        System.out.println((int) 'a');
-        System.out.println((int) 'A');
+        System.out.println(res);
     }
 }
 
