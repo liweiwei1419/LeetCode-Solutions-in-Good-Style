@@ -1,73 +1,43 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Solution {
 
-    private class UnionFind {
-        private Map<Integer, Integer> parent;
-        private Map<Integer, Integer> size;
-
-        public UnionFind(int[] nums) {
-            int len = nums.length;
-            parent = new HashMap<>(len);
-            size = new HashMap<>(len);
-
-            for (int num : nums) {
-                parent.put(num, num);
-                size.put(num, 1);
-            }
-        }
-
-        public int union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX == rootY) {
-                return 0;
-            }
-            parent.put(rootX, rootY);
-            int sum = size.get(rootX) + size.get(rootY);
-            size.put(rootY, sum);
-            return sum;
-        }
-
-        /**
-         * 实现了路径压缩
-         *
-         * @param x
-         * @return
-         */
-        public int find(int x) {
-            while (x != parent.get(x)) {
-                parent.put(x, parent.get(parent.get(x)));
-                x = parent.get(x);
-            }
-            return x;
-        }
-
-        public boolean contains(int x) {
-            return parent.containsKey(x);
-        }
-    }
+    // 暴力解法
+    // 时间复杂度：O(\N logN + N)
+    // 空间复杂度：O(1)
 
     public int longestConsecutive(int[] nums) {
         int len = nums.length;
-        if (len == 0) {
-            return 0;
+        if (len < 2) {
+            return len;
         }
-        UnionFind unionFind = new UnionFind(nums);
 
+        Arrays.sort(nums);
+
+        int longestLen = 1;
         int res = 1;
 
-        for (int num : nums) {
-            if (unionFind.contains(num - 1)) {
-                res = Math.max(res, unionFind.union(num, num - 1));
+        int pre = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (nums[i] == nums[i - 1]) {
+                // 重复元素要去掉
+                continue;
+            } else if (nums[i] == (pre + 1)) {
+                longestLen++;
+                res = Math.max(res, longestLen);
+            } else {
+                longestLen = 1;
             }
-
-            if (unionFind.contains(num + 1)) {
-                res = Math.max(res, unionFind.union(num, num + 1));
-            }
+            pre = nums[i];
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        // int[] nums = new int[]{100, 4, 200, 1, 3, 2};
+        int[] nums = new int[]{1, 2, 0, 1};
+        int res = solution.longestConsecutive(nums);
+        System.out.println(res);
     }
 }
