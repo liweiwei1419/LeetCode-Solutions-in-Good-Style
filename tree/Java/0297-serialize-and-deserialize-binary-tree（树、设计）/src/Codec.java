@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -20,48 +19,50 @@ public class Codec {
             return "";
         }
         StringBuilder builder = new StringBuilder();
-        preOrder(root, builder);
+        dfs(root, builder);
         return builder.toString();
     }
 
-    private void preOrder(TreeNode node, StringBuilder builder) {
+    private void dfs(TreeNode node, StringBuilder builder) {
         if (node == null) {
-            builder.append("#");
-            builder.append(",");
+            builder.append("#").append(",");
             return;
         }
-        builder.append(node.val);
-        builder.append(",");
-        preOrder(node.left, builder);
-        preOrder(node.right, builder);
+        builder.append(node.val).append(",");
+        dfs(node.left, builder);
+        dfs(node.right, builder);
     }
+
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        if (data == null || data.length() == 0) {
+        // 特判
+        if (data.length() == 0) {
             return null;
         }
+
+        // 特别要注意，这个方法在 "" 字符串的时候，会返回数组 [""]
         String[] split = data.split(",");
-        Queue<String> queue = new LinkedList<>(Arrays.asList(split));
-        return preOrder(queue);
+        Queue<String> queue = new LinkedList<>();
+        for (String str : split) {
+            queue.offer(str);
+        }
+        return dfs(queue);
     }
 
-    private TreeNode preOrder(Queue<String> queue ) {
+    private TreeNode dfs(Queue<String> queue) {
         if (queue.isEmpty()) {
             return null;
         }
-        String s = queue.poll();
-        if("#".equals(s)){
+        String head = queue.poll();
+        if ("#".equals(head)) {
             return null;
         }
-        TreeNode root = new TreeNode(Integer.parseInt(s));
-        root.left = preOrder(queue);
-        root.right =  preOrder(queue);
+        TreeNode root = new TreeNode(Integer.parseInt(head));
+        root.left = dfs(queue);
+        root.right = dfs(queue);
         return root;
     }
-
-
-
 }
 
 // Your Codec object will be instantiated and called as such:

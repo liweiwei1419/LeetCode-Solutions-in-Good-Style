@@ -8,7 +8,45 @@ import java.util.Set;
 
 public class Solution {
 
-    // 使用深度优先遍历
+    /**
+     * 使用深度优先遍历
+     *
+     * @param equations
+     * @param values
+     * @param queries
+     * @return
+     */
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int equationsSize = equations.size();
+        // 建立邻接表，双向图，如果是有环，直接返回 1 即可
+        Map<String, Map<String, Double>> graph = new HashMap<>();
+
+        // graph[a][b] = 2 表示 a / b = 2.0
+        for (int i = 0; i < equationsSize; i++) {
+            String numerator = equations.get(i).get(0);
+            String denominator = equations.get(i).get(1);
+
+            addEdge(graph, numerator, denominator, values[i]);
+            addEdge(graph, denominator, numerator, 1.0 / values[i]);
+        }
+
+        int len = queries.size();
+        double[] res = new double[len];
+
+        for (int i = 0; i < len; i++) {
+            String A = queries.get(i).get(0);
+            String B = queries.get(i).get(1);
+
+            if (!graph.containsKey(A) || !graph.containsKey(B)) {
+                res[i] = -1.0;
+                continue;
+            }
+
+            Set<String> visited = new HashSet<>(len);
+            res[i] = dfs(A, B, graph, visited);
+        }
+        return res;
+    }
 
     private double dfs(String A, String B, Map<String, Map<String, Double>> graph,
                        Set<String> visited) {
@@ -44,39 +82,6 @@ public class Solution {
             successors.put(B, value);
             graph.put(A, successors);
         }
-    }
-
-
-    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        int equationsSize = equations.size();
-        // 建立邻接表，双向图，如果是有环，直接返回 1 即可
-        Map<String, Map<String, Double>> graph = new HashMap<>();
-
-        // graph[a][b] = 2 表示 a / b = 2.0
-        for (int i = 0; i < equationsSize; i++) {
-            String numerator = equations.get(i).get(0);
-            String denominator = equations.get(i).get(1);
-
-            addEdge(graph, numerator, denominator, values[i]);
-            addEdge(graph, denominator, numerator, 1.0 / values[i]);
-        }
-
-        int len = queries.size();
-        double[] res = new double[len];
-
-        for (int i = 0; i < len; i++) {
-            String A = queries.get(i).get(0);
-            String B = queries.get(i).get(1);
-
-            if (!graph.containsKey(A) || !graph.containsKey(B)) {
-                res[i] = -1.0;
-                continue;
-            }
-
-            Set<String> visited = new HashSet<>(len);
-            res[i] = dfs(A, B, graph, visited);
-        }
-        return res;
     }
 
     public static void main(String[] args) {

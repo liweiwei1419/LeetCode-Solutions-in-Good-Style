@@ -1,32 +1,30 @@
 public class Solution {
 
-    // 符合滑动窗口性质
-
-    // 向右边扩散得到和越来越大
-    // 向左边界扩散得到和越来越小
+    // 暴力解法（超时）
+    // 时间复杂度：O(N^3)
+    // 空间复杂度：O(1)
 
     public int minSubArrayLen(int s, int[] nums) {
         int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
 
-        int left = 0;
-        int right = 0;
-
-        int sum = 0;
-        // 保持性质：[left, right) >= s
         int minLen = len + 1;
-        while (right < len) {
-            sum += nums[right];
-            right++;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                int sum = 0;
+                for (int k = i; k <= j; k++) {
+                    sum += nums[k];
+                }
 
-            while (sum >= s) {
-                minLen = Math.min(minLen, right - left);
-
-                sum -= nums[left];
-                left++;
+                if (sum >= s) {
+                    minLen = Math.min(minLen, j - i + 1);
+                }
             }
         }
 
-        if (minLen == len + 1) {
+        if (minLen == len  + 1){
             return 0;
         }
         return minLen;
@@ -36,7 +34,7 @@ public class Solution {
         int s = 15;
         int[] nums = {1, 2, 3, 4, 5};
         Solution solution = new Solution();
-        int minSubArrayLen = solution.minSubArrayLen(s, nums);
-        System.out.println(minSubArrayLen);
+        int res = solution.minSubArrayLen(s, nums);
+        System.out.println(res);
     }
 }

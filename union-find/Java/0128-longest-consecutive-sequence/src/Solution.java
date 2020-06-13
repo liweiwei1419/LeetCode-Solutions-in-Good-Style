@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution {
 
     // 暴力解法
-    // 时间复杂度：O(\N logN + N)
+    // 时间复杂度：O(\N \logN + N)
     // 空间复杂度：O(1)
 
     public int longestConsecutive(int[] nums) {
@@ -16,7 +16,6 @@ public class Solution {
 
         int longestLen = 1;
         int res = 1;
-
         int pre = nums[0];
         for (int i = 1; i < len; i++) {
             if (nums[i] == nums[i - 1]) {

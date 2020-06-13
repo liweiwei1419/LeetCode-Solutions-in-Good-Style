@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -5,22 +7,22 @@ import java.util.Stack;
  */
 public class MyQueue {
 
-    private Stack<Integer> stackPush;
-    private Stack<Integer> stackPop;
+    private Deque<Integer> stackPush;
+    private Deque<Integer> stackPop;
 
     /**
      * Initialize your data structure here.
      */
     public MyQueue() {
-        stackPush = new Stack<>();
-        stackPop = new Stack<>();
+        stackPush = new ArrayDeque<>();
+        stackPop = new ArrayDeque<>();
     }
 
     /**
      * Push element x to the back of queue.
      */
     public void push(int x) {
-        stackPush.push(x);
+        stackPush.addLast(x);
     }
 
     /**
@@ -31,7 +33,7 @@ public class MyQueue {
     private void shift() {
         if (stackPop.isEmpty()) {
             while (!stackPush.isEmpty()) {
-                stackPop.push(stackPush.pop());
+                stackPop.addLast(stackPush.removeLast());
             }
         }
     }
@@ -42,7 +44,7 @@ public class MyQueue {
     public int pop() {
         shift();
         if (!stackPop.isEmpty()) {
-            return stackPop.pop();
+            return stackPop.removeLast();
         }
         throw new RuntimeException("队列里没有元素");
     }
@@ -53,7 +55,7 @@ public class MyQueue {
     public int peek() {
         shift();
         if (!stackPop.isEmpty()) {
-            return stackPop.peek();
+            return stackPop.peekLast();
         }
         throw new RuntimeException("队列里没有元素");
     }

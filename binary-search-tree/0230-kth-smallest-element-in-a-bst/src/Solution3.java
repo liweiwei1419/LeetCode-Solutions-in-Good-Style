@@ -1,7 +1,3 @@
-/**
- * @author liwei
- * @date 18/7/2 上午11:25
- */
 public class Solution3 {
 
     private int res;

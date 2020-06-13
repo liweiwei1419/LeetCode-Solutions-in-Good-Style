@@ -17,7 +17,6 @@ public class Solution {
             if (charArray[1] == '!') {
                 int index1 = charArray[0] - 'a';
                 int index2 = charArray[3] - 'a';
-
                 if (unionFind.isConnected(index1, index2)) {
                     // 如果合并失败，表示等式有矛盾，根据题意，返回 false
                     return false;

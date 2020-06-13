@@ -1,36 +1,5 @@
 public class Solution2 {
 
-    private class UnionFind {
-
-        private int[] parent;
-
-        public UnionFind(int n) {
-            parent = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-
-        // 使用了路径压缩
-
-        public int find(int x) {
-            if (parent[x] != x) {
-                parent[x] = find(parent[x]);
-            }
-            return parent[x];
-        }
-
-        // 没有实现按秩合并
-        public void union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX != rootY) {
-                parent[rootX] = rootY;
-            }
-        }
-    }
-
     public int largestComponentSize(int[] A) {
         int maxVal = 0;
         for (int num : A) {
@@ -59,5 +28,34 @@ public class Solution2 {
             res = Math.max(res, cnt[root]);
         }
         return res;
+    }
+
+    private class UnionFind {
+
+        private int[] parent;
+
+        public UnionFind(int n) {
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        // 使用了路径压缩
+        public int find(int x) {
+            if (parent[x] != x) {
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
+        // 没有实现按秩合并
+        public void union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+            if (rootX != rootY) {
+                parent[rootX] = rootY;
+            }
+        }
     }
 }

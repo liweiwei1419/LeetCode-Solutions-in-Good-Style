@@ -16,13 +16,10 @@ public class Solution {
         }
 
         // 后序遍历
-
-        // 先在左子树中找，p 和 q 的最近公共祖先
         TreeNode left = lowestCommonAncestor(root.left, p, q);
-        // 再在右子树中找，p 和 q 的最近公共祖先
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-        // 这一句特别重要，如果左边和右边两者都空，说明，p 和 q 分散在 root 的左右子树中
+        // 这一句特别重要，如果左边和右边都非空，把当前结点返回回去
         if (left != null && right != null) {
             return root;
         }

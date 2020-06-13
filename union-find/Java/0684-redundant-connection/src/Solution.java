@@ -1,5 +1,20 @@
 public class Solution {
 
+    public int[] findRedundantConnection(int[][] edges) {
+        int len = edges.length;
+
+        // 二维数组中的整数在 1 到 N 之间，其中 N 是输入数组的大小
+        // 为了不处理偏移，多开一个空间
+        UnionFind unionFind = new UnionFind(len + 1);
+        for (int[] edge : edges) {
+            boolean success = unionFind.union(edge[0], edge[1]);
+            if (!success) {
+                return edge;
+            }
+        }
+        return new int[0];
+    }
+
     private class UnionFind {
 
         private int[] parent;
@@ -35,7 +50,6 @@ public class Solution {
         public boolean union(int x, int y) {
             int rootX = find(x);
             int rootY = find(y);
-
             if (rootX == rootY) {
                 return false;
             }
@@ -43,17 +57,5 @@ public class Solution {
             parent[rootX] = rootY;
             return true;
         }
-    }
-
-    public int[] findRedundantConnection(int[][] edges) {
-        int len = edges.length;
-        UnionFind unionFind = new UnionFind(len + 1);
-        for (int[] edge : edges) {
-            boolean success = unionFind.union(edge[0], edge[1]);
-            if (!success) {
-                return edge;
-            }
-        }
-        return new int[0];
     }
 }

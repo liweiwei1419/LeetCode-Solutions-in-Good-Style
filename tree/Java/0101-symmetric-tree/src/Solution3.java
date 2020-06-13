@@ -1,32 +1,30 @@
 import java.util.LinkedList;
 
-// 个人觉得最好的写法
-
 public class Solution3 {
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
             return true;
         }
-        LinkedList<TreeNode> linkedList = new LinkedList<>();
-        linkedList.addFirst(root.left);
-        linkedList.addLast(root.right);
-        while (!linkedList.isEmpty()) {
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addFirst(root.left);
+        queue.addLast(root.right);
+        while (!queue.isEmpty()) {
             // 出队的时候，看看是否有左右孩子，分别入队
-            TreeNode lNode = linkedList.removeFirst();
-            TreeNode rNode = linkedList.removeLast();
-            if (lNode == null && rNode == null) {
+            TreeNode leftNode = queue.pollFirst();
+            TreeNode rightNode = queue.pollLast();
+            if (leftNode == null && rightNode == null) {
                 continue;
             }
-            if (lNode == null || rNode == null) {
+            if (leftNode == null || rightNode == null) {
                 return false;
             }
-            linkedList.addFirst(lNode.right);
-            linkedList.addFirst(lNode.left);
-            linkedList.addLast(rNode.left);
-            linkedList.addLast(rNode.right);
+            queue.addFirst(leftNode.right);
+            queue.addFirst(leftNode.left);
+            queue.addLast(rightNode.left);
+            queue.addLast(rightNode.right);
 
-            if (lNode.val != rNode.val) {
+            if (leftNode.val != rightNode.val) {
                 return false;
             }
         }

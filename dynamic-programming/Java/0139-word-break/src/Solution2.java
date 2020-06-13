@@ -7,19 +7,19 @@ public class Solution2 {
 
     public boolean wordBreak(String s, List<String> wordDict) {
         int len = s.length();
-        // 状态定义：长度为 i 的子字符串是否符合题意
-        boolean[] dp = new boolean[len + 1];
-
         // 预处理
         Set<String> wordSet = new HashSet<>(wordDict);
-        // 这个状态的设置非常关键，说明前部分的字符串已经在 wordSet 中
+
+        // 状态定义：前缀子串 s[0..i) （长度为 i 的前缀子串）是否能够由 wordSet 中的单词拼写而成
+        // 多开一维
+        boolean[] dp = new boolean[len + 1];
+        // 重点讲解这里
         dp[0] = true;
-        for (int r = 1; r < len + 1; r++) {
-            for (int l = 0; l < r; l++) {
-                // dp[l] 写在前面会更快一点，否则还要去切片，然后再放入 hash 表判重
-                if (dp[l] && wordSet.contains(s.substring(l, r))) {
-                    dp[r] = true;
-                    // 这个 break 很重要，一旦得到 dp[r] = True ，循环不必再继续
+        for (int right = 1; right < len + 1; right++) {
+            // 边界定义：[0, left)、[left, right]
+            for (int left = 0; left < right; left++) {
+                if (dp[left] && wordSet.contains(s.substring(left, right))) {
+                    dp[right] = true;
                     break;
                 }
             }

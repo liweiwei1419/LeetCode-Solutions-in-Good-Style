@@ -1,6 +1,40 @@
 public class Solution {
 
-    // 找到这个数所有的质数因子，然后把它们合并在一起
+    /**
+     * 找到这个数所有的质数因子，然后把它们合并在一起
+     *
+     * @param A
+     * @return
+     */
+    public int largestComponentSize(int[] A) {
+        int maxVal = 1;
+        for (int item : A) {
+            maxVal = Math.max(maxVal, item);
+        }
+
+        UnionFind unionFind = new UnionFind(maxVal + 1);
+        for (int num : A) {
+            double upBound = Math.sqrt(num);
+            // 注意 i <= upBound; 等于这里不要漏掉
+            for (int i = 2; i <= upBound; i++) {
+                if (num % i == 0) {
+                    unionFind.union(num, i);
+                    unionFind.union(num, num / i);
+                }
+
+            }
+        }
+
+        int res = 0;
+        int[] cnt = new int[maxVal + 1];
+        for (int value : A) {
+            int root = unionFind.find(value);
+            cnt[root]++;
+            res = Math.max(res, cnt[root]);
+        }
+        return res;
+    }
+
 
     /**
      * 用到了路径压缩，没有用到按 size 合并
@@ -45,35 +79,6 @@ public class Solution {
         public void union(int x, int y) {
             parent[find(x)] = parent[find(y)];
         }
-    }
-
-    public int largestComponentSize(int[] A) {
-        int maxVal = 1;
-        for (int item : A) {
-            maxVal = Math.max(maxVal, item);
-        }
-
-        UnionFind unionFind = new UnionFind(maxVal + 1);
-        for (int num : A) {
-            double upBound = Math.sqrt(num);
-            // 注意 i <= upBound; 等于这里不要漏掉
-            for (int i = 2; i <= upBound; i++) {
-                if (num % i == 0) {
-                    unionFind.union(num, i);
-                    unionFind.union(num, num / i);
-                }
-
-            }
-        }
-
-        int res = 0;
-        int[] cnt = new int[maxVal + 1];
-        for (int value : A) {
-            int root = unionFind.find(value);
-            cnt[root]++;
-            res = Math.max(res, cnt[root]);
-        }
-        return res;
     }
 
     public static void main(String[] args) {

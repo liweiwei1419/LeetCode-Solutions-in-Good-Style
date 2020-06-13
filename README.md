@@ -497,24 +497,24 @@ public class Solution {
 
 #### 第 1 部分：基础且常见的问题
 
-| 题目序号                                                     | 题解 | 知识点 | 代码 |
-| ------------------------------------------------------------ | ---- | ------ | ---- |
-| [547. 朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles) |      |        |      |
-| [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) |      |        |      |
-| [200. 岛屿数量（中等）](https://leetcode-cn.com/problems/number-of-islands) |      |        |      |
-| [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/) |      |        |      |
-| [1319. 连通网络的操作次数（中等）](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected) |      |        |      |
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [547. 朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles) | [并查集（Python 代码、Java 代码）](https://leetcode-cn.com/problems/friend-circles/solution/bing-cha-ji-python-dai-ma-java-dai-ma-by-liweiwei1/) |        |      |
+| [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) | [使用并查集处理不相交集合问题](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/shi-yong-bing-cha-ji-chu-li-bu-xiang-jiao-ji-he-we/) |        |      |
+| [200. 岛屿数量（中等）](https://leetcode-cn.com/problems/number-of-islands) | [DFS + BFS + 并查集（Python 代码、Java 代码）](https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/) |        |      |
+| [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/) |                                                              |        |      |
+| [1319. 连通网络的操作次数（中等）](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected) | [并查集](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/solution/bing-cha-ji-by-liweiwei1419/) |        |      |
 
 #### 第 2 部分：带权值的并查集问题
 
-| 题目序号                                                     | 题解 | 知识点 | 代码 |
-| ------------------------------------------------------------ | ---- | ------ | ---- |
-| [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |      |        |      |
-| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division) |      |        |      |
-| [685. 冗余连接 II](https://leetcode-cn.com/problems/redundant-connection-ii/) |      |        |      |
-| [721. 账户合并](https://leetcode-cn.com/problems/accounts-merge/) |      |        |      |
-| [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands) |      |        |      |
-| [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) |      |        |      |
+| 题目序号                                                     | 题解                                                         | 知识点 | 代码 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |                                                              |        |      |
+| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division) |                                                              |        |      |
+| [685. 冗余连接 II](https://leetcode-cn.com/problems/redundant-connection-ii/) |                                                              |        |      |
+| [721. 账户合并](https://leetcode-cn.com/problems/accounts-merge/) |                                                              |        |      |
+| [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands) |                                                              |        |      |
+| [952. 按公因数计算最大组件大小（困难）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor) | [并查集（Java、Python）](https://leetcode-cn.com/problems/largest-component-size-by-common-factor/solution/bing-cha-ji-java-python-by-liweiwei1419/) |        |      |
 
 ## 配套资源
 

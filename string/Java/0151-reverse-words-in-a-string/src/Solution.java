@@ -4,10 +4,13 @@ public class Solution {
         // 去掉前后的空格，并且将一个空格以上的空格替换成一个空格
         s = s.trim().replaceAll("\\s+", " ");
 
+        System.out.println(s);
 
         int len = s.length();
         char[] charArray = s.toCharArray();
         reverse(charArray, 0, len - 1);
+        System.out.println(charArray);
+
 
         int index = 0;
         for (int i = 0; i < len; i++) {
@@ -36,7 +39,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String s = "  hello world!  ";
+        String s = "the sky is blue";
         String res = solution.reverseWords(s);
         System.out.println(res);
     }

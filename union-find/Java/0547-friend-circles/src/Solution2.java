@@ -2,6 +2,23 @@ import java.util.Arrays;
 
 public class Solution2 {
 
+    public int findCircleNum(int[][] M) {
+        int len = M.length;
+        UnionFind unionFind = new UnionFind(len);
+
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (M[i][j] == 1) {
+                    unionFind.union(i, j);
+                }
+            }
+        }
+        return unionFind.count;
+    }
+
+    /**
+     * 并查集 quick-find 版本
+     */
     private class UnionFind {
         private int[] id;
         private int count;
@@ -23,7 +40,6 @@ public class Solution2 {
         public void union(int x, int y) {
             int xid = find(x);
             int yid = find(y);
-
             if (xid == yid) {
                 return;
             }
@@ -33,28 +49,12 @@ public class Solution2 {
                     id[i] = yid;
                 }
             }
-
             count--;
         }
 
         public int getCount() {
             return count;
         }
-    }
-
-
-    public int findCircleNum(int[][] M) {
-        int len = M.length;
-        UnionFind unionFind = new UnionFind(len);
-
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                if (M[i][j] == 1) {
-                    unionFind.union(i, j);
-                }
-            }
-        }
-        return unionFind.count;
     }
 
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ import java.util.Map;
 public class Solution4 {
 
     // 并查集：
-    // 时间复杂度：平均意义下 O(1)
+    // 时间复杂度：平均意义下 O(N)
     // 空间复杂度：O(N)
 
     public int longestConsecutive(int[] nums) {
@@ -12,10 +12,9 @@ public class Solution4 {
         if (len < 2) {
             return len;
         }
+
         UnionFind unionFind = new UnionFind(nums);
-
         int res = 1;
-
         for (int num : nums) {
             if (unionFind.contains(num - 1)) {
                 res = Math.max(res, unionFind.union(num, num - 1));
@@ -32,6 +31,7 @@ public class Solution4 {
      * 由于数值是离散的，parent 数组使用哈希表代替
      */
     private class UnionFind {
+
         private Map<Integer, Integer> parent;
         // 维护以当前结点为根的子树的结点总数
         private Map<Integer, Integer> size;

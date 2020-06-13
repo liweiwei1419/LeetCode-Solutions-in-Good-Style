@@ -6,38 +6,8 @@ import java.util.Map;
 
 public class Solution {
 
-    private class UnionFind {
-        private int[] parent;
-
-        public UnionFind(int n) {
-            parent = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-
-        public int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
-
-        public void union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-            if (rootX == rootY) {
-                return;
-            }
-            parent[rootX] = rootY;
-        }
-    }
-
-
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         int len = accounts.size();
-
         List<List<String>> res = new ArrayList<>();
         if (len == 0) {
             return res;
@@ -92,6 +62,34 @@ public class Solution {
             res.add(account);
         }
         return res;
+    }
+
+    private class UnionFind {
+        private int[] parent;
+
+        public UnionFind(int n) {
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        public int find(int x) {
+            while (x != parent[x]) {
+                parent[x] = parent[parent[x]];
+                x = parent[x];
+            }
+            return x;
+        }
+
+        public void union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+            if (rootX == rootY) {
+                return;
+            }
+            parent[rootX] = rootY;
+        }
     }
 
     public static void main(String[] args) {

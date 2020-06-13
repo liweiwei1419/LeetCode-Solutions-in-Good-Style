@@ -22,7 +22,7 @@ public class Solution2 {
         // 最长连续子序列的长度
         int res = 0;
         for (int num : hashSet) {
-            // 关键：保证子序列的起点最小
+            // 关键：保证连续序列的起点最小
             if (hashSet.contains(num - 1)) {
                 continue;
             }

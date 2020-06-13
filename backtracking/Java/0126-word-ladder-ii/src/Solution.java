@@ -13,6 +13,12 @@ import java.util.Set;
 
 public class Solution {
 
+    /**
+     * @param beginWord
+     * @param endWord
+     * @param wordList
+     * @return
+     */
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         // 先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
         Set<String> wordSet = new HashSet<>(wordList);
@@ -21,13 +27,16 @@ public class Solution {
             return res;
         }
 
+        // 第 1 步：使用广度优先遍历得到后继结点列表 successors
         // key：字符串，value：广度优先遍历过程中 key 的后继结点列表
         Map<String, Set<String>> successors = new HashMap<>();
         boolean found = bfs(beginWord, endWord, wordSet, successors);
+        System.out.println(successors);
         if (!found) {
             return res;
         }
 
+        // 第 2 步：基于后继结点列表 successors ，使用回溯算法得到所有最短路径列表
         Deque<String> path = new ArrayDeque<>();
         path.addLast(beginWord);
         dfs(beginWord, endWord, successors, path, res);
@@ -45,16 +54,13 @@ public class Solution {
 
         boolean found = false;
         int wordLen = beginWord.length();
-
         // 当前层访问过的结点，当前层全部遍历完成以后，再添加到总的 visited 集合里
         Set<String> nextLevelVisited = new HashSet<>();
         while (!queue.isEmpty()) {
             int currentSize = queue.size();
-
             for (int i = 0; i < currentSize; i++) {
                 String currentWord = queue.poll();
                 char[] charArray = currentWord.toCharArray();
-
                 for (int j = 0; j < wordLen; j++) {
                     char originChar = charArray[j];
                     for (char k = 'a'; k <= 'z'; k++) {
@@ -63,29 +69,18 @@ public class Solution {
                         }
                         charArray[j] = k;
                         String nextWord = new String(charArray);
-                        if (!wordSet.contains(nextWord)) {
-                            continue;
-                        }
+                        if (wordSet.contains(nextWord)) {
+                            if (!visited.contains(nextWord)) {
+                                if (nextWord.equals(endWord)) {
+                                    found = true;
+                                }
+                                nextLevelVisited.add(nextWord);
+                                queue.offer(nextWord);
 
-                        if (!visited.contains(nextWord)) {
-                            if (nextWord.equals(endWord)) {
-                                found = true;
-                            }
-
-                            nextLevelVisited.add(nextWord);
-                            queue.offer(nextWord);
-
-                            // 维护 successors 的定义
-                            if (successors.containsKey(currentWord)) {
+                                // 维护 successors 的定义
+                                successors.computeIfAbsent(currentWord, a -> new HashSet<>());
                                 successors.get(currentWord).add(nextWord);
-                            } else {
-                                Set<String> newSet = new HashSet<>();
-                                newSet.add(nextWord);
-                                successors.put(currentWord, newSet);
                             }
-                            // Java 1.8 以后可以用下面 2 行代替上面 6 行
-                            // successors.computeIfAbsent(currentWord, a -> new HashSet<>());
-                            // successors.get(currentWord).add(nextWord);
                         }
                     }
                     charArray[j] = originChar;
@@ -120,7 +115,6 @@ public class Solution {
             path.removeLast();
         }
     }
-
 
     public static void main(String[] args) {
         String[] words = {"rex", "ted", "tex", "tad", "tax"};

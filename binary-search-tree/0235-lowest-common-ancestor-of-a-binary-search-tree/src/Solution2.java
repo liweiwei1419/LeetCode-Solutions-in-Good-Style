@@ -1,7 +1,3 @@
-/**
- * @author liwei
- * @date 2019/8/29 4:04 PM
- */
 public class Solution2 {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

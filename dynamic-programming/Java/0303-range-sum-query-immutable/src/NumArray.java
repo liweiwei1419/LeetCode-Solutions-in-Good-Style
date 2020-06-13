@@ -6,7 +6,6 @@ public class NumArray {
 
     public NumArray(int[] nums) {
         int len = nums.length;
-        // 直接将原始数组变成前缀和数组
         preSum = new int[len + 1];
         for (int i = 0; i < len; i++) {
             preSum[i + 1] = preSum[i] + nums[i];
@@ -24,3 +23,10 @@ public class NumArray {
         System.out.println(result);
     }
 }
+
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(i,j);
+ */

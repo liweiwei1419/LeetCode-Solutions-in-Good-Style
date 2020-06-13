@@ -2,42 +2,6 @@ import java.util.Arrays;
 
 public class Solution {
 
-    private class UnionFind {
-        private int[] parent;
-
-        public UnionFind(int n) {
-            parent = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-
-        public int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
-
-        /**
-         * @param x
-         * @param y
-         * @return 如果合并成功返回 true
-         */
-        public boolean union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX == rootY) {
-                return false;
-            }
-            parent[rootX] = rootY;
-            return true;
-        }
-    }
-
-
     public int[] findRedundantDirectedConnection(int[][] edges) {
         int len = edges.length;
 
@@ -89,6 +53,41 @@ public class Solution {
             }
         }
         return false;
+    }
+
+    private class UnionFind {
+        private int[] parent;
+
+        public UnionFind(int n) {
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        public int find(int x) {
+            while (x != parent[x]) {
+                parent[x] = parent[parent[x]];
+                x = parent[x];
+            }
+            return x;
+        }
+
+        /**
+         * @param x
+         * @param y
+         * @return 如果合并成功返回 true
+         */
+        public boolean union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+
+            if (rootX == rootY) {
+                return false;
+            }
+            parent[rootX] = rootY;
+            return true;
+        }
     }
 
     public static void main(String[] args) {

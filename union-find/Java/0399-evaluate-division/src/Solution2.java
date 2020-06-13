@@ -6,21 +6,58 @@ import java.util.Map;
 
 public class Solution2 {
 
-    // 使用并查集，带权值的并查集
+    // 使用并查集，带权值的并查集（完全压缩）
+
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int equationsSize = equations.size();
+        UnionFind unionFind = new UnionFind();
+
+        for (int i = 0; i < equationsSize; i++) {
+            String A = equations.get(i).get(0);
+            String B = equations.get(i).get(1);
+            double k = values[i];
+            // A = B * k
+            unionFind.union(A, B, k);
+        }
+
+        int len = queries.size();
+        double[] res = new double[len];
+
+        for (int i = 0; i < len; i++) {
+            String X = queries.get(i).get(0);
+            String Y = queries.get(i).get(1);
+
+            if (!unionFind.parent.containsKey(X) || !unionFind.parent.containsKey(Y)) {
+                res[i] = -1.0;
+                continue;
+            }
+
+            Pair rootX = unionFind.find(X);
+            Pair rootY = unionFind.find(Y);
+
+            if (rootX.denominator.equals(rootY.denominator)) {
+                res[i] = rootX.val / rootY.val;
+
+            } else {
+                res[i] = -1.0;
+            }
+        }
+        return res;
+    }
 
     class Pair {
-        private String str;
+        private String denominator;
         private double val;
 
-        public Pair(String str, double val) {
-            this.str = str;
+        public Pair(String p, double val) {
+            this.denominator = p;
             this.val = val;
         }
 
         @Override
         public String toString() {
             return "Pair{" +
-                    "str='" + str + '\'' +
+                    "parent='" + denominator + '\'' +
                     ", val=" + val +
                     '}';
         }
@@ -40,15 +77,14 @@ public class Solution2 {
          * @return
          */
         private Pair find(String A) {
-            if (!A.equals(parent.get(A).str)) {
+            if (!A.equals(parent.get(A).denominator)) {
                 // 如果不是根结点，继续找父结点
-                Pair p = find(parent.get(A).str);
+                Pair p = find(parent.get(A).denominator);
 
-                // 把 A 的父结点直线 p ，这是路径压缩
-                parent.get(A).str = p.str;
+                // 把 A 的父结点直线 p ，这是完全压缩
+                parent.get(A).denominator = p.denominator;
                 parent.get(A).val *= p.val;
             }
-
             return parent.get(A);
         }
 
@@ -72,54 +108,18 @@ public class Solution2 {
             }
 
             // 走到这里就是 A 和 B 在一个集合里的情况
-
             Pair rootA = find(A);
             Pair rootB = find(B);
 
             if (rootA != rootB) {
-                rootA.str = rootB.str;
+                rootA.denominator = rootB.denominator;
                 rootA.val *= (val * rootB.val);
             }
         }
     }
 
 
-    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        int equationsSize = equations.size();
-        UnionFind unionFind = new UnionFind();
 
-        for (int i = 0; i < equationsSize; i++) {
-            String A = equations.get(i).get(0);
-            String B = equations.get(i).get(1);
-            double k = values[i];
-            unionFind.union(A, B, k);
-        }
-
-
-        int len = queries.size();
-        double[] res = new double[len];
-
-        for (int i = 0; i < len; i++) {
-            String X = queries.get(i).get(0);
-            String Y = queries.get(i).get(1);
-
-            if (!unionFind.parent.containsKey(X) || !unionFind.parent.containsKey(Y)) {
-                res[i] = -1.0;
-                continue;
-            }
-
-
-            Pair rootX = unionFind.find(X);
-            Pair rootY = unionFind.find(Y);
-
-            if (!rootX.str.equals(rootY.str)) {
-                res[i] = -1.0;
-            } else {
-                res[i] = rootX.val / rootY.val;
-            }
-        }
-        return res;
-    }
 
 
     public static void main(String[] args) {

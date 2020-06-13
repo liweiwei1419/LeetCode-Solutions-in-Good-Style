@@ -2,10 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author liweiwei1419
- * @date 2019/11/26 9:40 下午
- */
 public class Solution3 {
 
     // 双指针
@@ -60,7 +56,6 @@ public class Solution3 {
 
                     left++;
                     right--;
-
                 }
             }
         }

@@ -23,10 +23,14 @@ public class Solution2 {
         Set<String> endVisited = new HashSet<>();
         endVisited.add(endWord);
 
+        int len = beginWord.length();
         int step = 1;
         while (!beginVisited.isEmpty() && !endVisited.isEmpty()) {
+            // 打开以方便调试
+            // System.out.println("beginVisited => " + beginVisited);
+            // System.out.println("  endVisited => " + endVisited + "\n");
 
-            // 优先选择小的哈希表进行扩散，复杂度更低（解释清楚）
+            // 优先选择小的哈希表进行扩散，考虑到的情况更少
             if (beginVisited.size() > endVisited.size()) {
                 Set<String> temp = beginVisited;
                 beginVisited = endVisited;
@@ -37,10 +41,7 @@ public class Solution2 {
             // nextLevelVisited 在扩散完成以后，会成为新的 beginVisited
             Set<String> nextLevelVisited = new HashSet<>();
             for (String word : beginVisited) {
-
                 char[] charArray = word.toCharArray();
-                int len = word.length();
-
                 for (int i = 0; i < len; i++) {
                     char currentChar = charArray[i];
                     for (char c = 'a'; c <= 'z'; c++) {
@@ -63,6 +64,8 @@ public class Solution2 {
                     charArray[i] = currentChar;
                 }
             }
+
+            // 这一行代表表示从 begin 这一侧向外扩散了一层
             beginVisited = nextLevelVisited;
             step++;
         }
@@ -72,7 +75,6 @@ public class Solution2 {
     public static void main(String[] args) {
         List<String> wordList = new ArrayList<>();
         String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
-        // String[] words = {"hot", "dot", "dog", "lot", "log"};
         Collections.addAll(wordList, words);
 
         Solution2 solution2 = new Solution2();

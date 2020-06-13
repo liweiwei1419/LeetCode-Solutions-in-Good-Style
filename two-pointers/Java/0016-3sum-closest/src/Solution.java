@@ -2,6 +2,8 @@ import java.util.Arrays;
 
 public class Solution {
 
+    // 先讲暴力解法
+
     public int threeSumClosest(int[] nums, int target) {
         int len = nums.length;
         // 特判
@@ -13,7 +15,7 @@ public class Solution {
         int res = nums[0] + nums[1] + nums[len - 1];
         // 排序是前提，很关键
         Arrays.sort(nums);
-        // len-3 len-2 len-1
+        // len - 3、len - 2、len - 1
 
         for (int i = 0; i < len - 2; i++) {
             // 常见的剪枝操作，这里可以排除重复的情况

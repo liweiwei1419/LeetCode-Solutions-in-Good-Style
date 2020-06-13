@@ -10,6 +10,8 @@ import java.util.TreeMap;
  */
 public class SummaryRanges {
 
+    // 知识点：红黑树（二分搜索树）
+
     private Map<Integer, Integer> map;
 
     /**
@@ -41,11 +43,11 @@ public class SummaryRanges {
 
     public int[][] getIntervals() {
         List<int[]> intervals = new ArrayList<>();
-        int min = -1;
+        int minVal = -1;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getKey() > min) {
+            if (entry.getKey() > minVal) {
                 intervals.add(new int[]{entry.getKey(), entry.getValue()});
-                min = entry.getValue();
+                minVal = entry.getValue();
             }
 
         }
@@ -93,5 +95,4 @@ public class SummaryRanges {
             System.out.print(Arrays.toString(arr));
         }
     }
-
 }

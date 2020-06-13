@@ -2,6 +2,23 @@ import java.util.Arrays;
 
 public class Solution4 {
 
+    public int findCircleNum(int[][] M) {
+        int len = M.length;
+        UnionFind unionFind = new UnionFind(len);
+
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (M[i][j] == 1) {
+                    unionFind.union(i, j);
+                }
+            }
+        }
+        return unionFind.count;
+    }
+
+    /**
+     * 并查集 quick-union（按 size 合并）
+     */
     private class UnionFind {
         private int[] parent;
         private int[] size;
@@ -17,7 +34,6 @@ public class Solution4 {
             for (int i = 0; i < N; i++) {
                 parent[i] = i;
             }
-
             Arrays.fill(size, 1);
         }
 
@@ -31,7 +47,6 @@ public class Solution4 {
         public void union(int x, int y) {
             int rootX = find(x);
             int rootY = find(y);
-
             if (rootX == rootY) {
                 return;
             }
@@ -50,29 +65,12 @@ public class Solution4 {
                 // 需要维护定义
                 size[rootX] += size[rootY];
             }
-
-
             count--;
         }
 
         public int getCount() {
             return count;
         }
-    }
-
-
-    public int findCircleNum(int[][] M) {
-        int len = M.length;
-        UnionFind unionFind = new UnionFind(len);
-
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                if (M[i][j] == 1) {
-                    unionFind.union(i, j);
-                }
-            }
-        }
-        return unionFind.count;
     }
 
     public static void main(String[] args) {

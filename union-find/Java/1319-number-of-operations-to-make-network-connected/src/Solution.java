@@ -1,57 +1,5 @@
 public class Solution {
 
-    private class UnionFind {
-        /**
-         * 父亲结点标识数组
-         */
-        private int[] parent;
-        /**
-         * 连通分量个数
-         */
-        private int count;
-
-        public UnionFind(int n) {
-            count = n;
-            parent = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-
-        public int find(int x) {
-//            while (x != parent[x]) {
-//                // 路径压缩（隔代压缩）
-//                parent[x] = parent[parent[x]];
-//                x = parent[x];
-//            }
-//            return x;
-            while (parent[x] != parent[parent[x]]) {
-                parent[x] = parent[parent[x]];
-            }
-            x = parent[x];
-
-            return x;
-        }
-
-        /**
-         * @param x
-         * @param y
-         * @return 是否合并成功，如果 x 和 y 本来就在一个连通分量里，返回 false
-         */
-        public boolean union(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX == rootY) {
-                return false;
-            }
-
-            parent[rootX] = rootY;
-            count--;
-            return true;
-        }
-    }
-
     public int makeConnected(int n, int[][] connections) {
         // 特判
         if (connections.length < n - 1) {
@@ -80,5 +28,51 @@ public class Solution {
             return -1;
         }
         return unionFind.count - 1;
+    }
+
+    private class UnionFind {
+        /**
+         * 父亲结点标识数组
+         */
+        private int[] parent;
+        /**
+         * 连通分量个数
+         */
+        private int count;
+
+        public UnionFind(int n) {
+            count = n;
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        public int find(int x) {
+            while (x != parent[x]) {
+                // 路径压缩（隔代压缩）
+                parent[x] = parent[parent[x]];
+                x = parent[x];
+            }
+            return x;
+        }
+
+        /**
+         * @param x
+         * @param y
+         * @return 是否合并成功，如果 x 和 y 本来就在一个连通分量里，返回 false
+         */
+        public boolean union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+
+            if (rootX == rootY) {
+                return false;
+            }
+
+            parent[rootX] = rootY;
+            count--;
+            return true;
+        }
     }
 }
