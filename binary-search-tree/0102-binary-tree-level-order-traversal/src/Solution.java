@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class TreeNode {
     int val;
@@ -19,20 +20,20 @@ class Solution {
             return res;
         }
 
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.addLast(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
 
         while (!queue.isEmpty()) {
             List<Integer> curLevel = new ArrayList<>();
             int curSize = queue.size();
             for (int i = 0; i < curSize; i++) {
-                TreeNode top = queue.removeFirst();
-                curLevel.add(top.val);
-                if (top.left != null) {
-                    queue.add(top.left);
+                TreeNode head = queue.poll();
+                curLevel.add(head.val);
+                if (head.left != null) {
+                    queue.add(head.left);
                 }
-                if (top.right != null) {
-                    queue.add(top.right);
+                if (head.right != null) {
+                    queue.add(head.right);
                 }
             }
             res.add(curLevel);
