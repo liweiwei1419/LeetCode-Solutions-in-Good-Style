@@ -7,18 +7,18 @@ import java.util.Set;
 class Solution2 {
 
     public int numSquares(int n) {
-        Set<Integer> visited = new HashSet<>();
-        int step = 0;
-
         Queue<Integer> queue = new LinkedList<>();
         queue.add(n);
+
+        Set<Integer> visited = new HashSet<>();
+        int step = 0;
         while (!queue.isEmpty()) {
             step++;
             int size = queue.size();
-            for (int j = 0; j < size; j++) {
+            for (int i = 0; i < size; i++) {
                 int num = queue.poll();
-                for (int i = 1; i * i <= num; i++) {
-                    int next = num - i * i;
+                for (int j = 1; j * j <= num; j++) {
+                    int next = num - j * j;
                     if (next == 0) {
                         return step;
                     }
