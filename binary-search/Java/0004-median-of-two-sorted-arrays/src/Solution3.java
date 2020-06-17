@@ -1,62 +1,48 @@
-/**
- * 题解地址：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/he-bing-yi-hou-zhao-gui-bing-guo-cheng-zhong-zhao-/
- *
- * @author liweiwei1419
- * @date 2019/7/18 8:46 AM
- */
 public class Solution3 {
 
-    // while (left <= right) 的写法
+    // 不符合题目时间复杂度要求的做法，是常规思路
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        // 为了让搜索范围更小，我们始终让 num1 是那个更短的数组，PPT 第 9 张
-        if (nums1.length > nums2.length) {
-            int[] temp = nums1;
-            nums1 = nums2;
-            nums2 = temp;
-        }
-
-        // 上述交换保证了 m <= n，在更短的区间 [0, m] 中搜索，会更快一些
         int m = nums1.length;
         int n = nums2.length;
 
-        int totalLeft = m + (n - m + 1) / 2;
+        // 最后要找到合并以后索引是 median_index 的这个数
+        int medianIndex = (m + n) / 2;
 
-        // 使用二分查找算法在数组 nums1 中搜索一个索引 i，PPT 第 9 张
-        int left = 0;
-        int right = m;
-        // 这里使用的是最简单的、"传统"的二分查找法模板，使用"高级的"二分查找法模板在退出循环时候处理不方便
-        while (left <= right) {
-            // 尝试要找的索引，在区间里完成二分，为了保证语义，这里就不定义成 mid 了
-            // 用加号和右移是安全的做法，即使在溢出的时候都能保证结果正确，但是 Python 中不存在溢出
-            // 参考：https://leetcode-cn.com/problems/guess-number-higher-or-lower/solution/shi-fen-hao-yong-de-er-fen-cha-zhao-fa-mo-ban-pyth/
-            int i = (left + right) >>> 1;
-            // j 的取值在 PPT 第 7 张
-            int j = totalLeft - i;
+        // 计数器从 -1 开始，在循环开始之前加 1
+        // 这样在退出循环的时候，counter 能指向它最后赋值的那个元素
+        int counter = -1;
 
-            // 边界值的特殊取法的原因在 PPT 第 10 张
-            int nums1LeftMax = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];
-            int nums1RightMin = i == m ? Integer.MAX_VALUE : nums1[i];
+        // nums1 的索引
+        int i = 0;
+        // nums2 的索引
+        int j = 0;
 
-            int nums2LeftMax = j == 0 ? Integer.MIN_VALUE : nums2[j - 1];
-            int nums2RightMin = j == n ? Integer.MAX_VALUE : nums2[j];
-
-            // 交叉小于等于关系成立，那么中位数就可以从"边界线"两边的数得到，原因在 PPT 第 2 张、第 3 张
-            if (nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin) {
-                // 已经找到解了，分数组之和是奇数还是偶数得到不同的结果，原因在 PPT 第 2 张
-                if (((m + n) & 1) == 1) {
-                    return Math.max(nums1LeftMax, nums2LeftMax);
-                } else {
-                    return (double) ((Math.max(nums1LeftMax, nums2LeftMax) + Math.min(nums1RightMin, nums2RightMin))) / 2;
-                }
-            } else if (nums2LeftMax > nums1RightMin) {
-                // 这个分支缩短边界的原因在 PPT 第 8 张
-                left = i + 1;
+        int[] res = new int[]{0, 0};
+        while (counter < medianIndex) {
+            counter++;
+            // 先写 i 和 j 遍历完成的情况，否则会出现数组下标越界
+            if (i == m) {
+                res[counter & 1] = nums2[j];
+                j++;
+            } else if (j == n) {
+                res[counter & 1] = nums1[i];
+                i++;
+            } else if (nums1[i] < nums2[j]) {
+                res[counter & 1] = nums1[i];
+                i++;
             } else {
-                // 这个分支缩短边界的原因在 PPT 第 8 张
-                right = i - 1;
+                res[counter & 1] = nums2[j];
+                j++;
             }
         }
-        throw new IllegalArgumentException("传入无效的参数，输入的数组不是有序数组，算法失效");
+
+        // 如果 m + n 是奇数，median_index 就是我们要找的
+        // 如果 m + n 是偶数，有一点麻烦，要考虑其中有一个用完的情况，其实也就是把上面循环的过程再进行一步
+        if (((m + n) & 1) == 1) {
+            return res[counter & 1];
+        } else {
+            return (double) (res[0] + res[1]) / 2;
+        }
     }
 }
