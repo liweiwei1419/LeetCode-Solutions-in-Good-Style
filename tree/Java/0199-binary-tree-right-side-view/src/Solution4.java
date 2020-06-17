@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Queue;
 
 public class Solution4 {
+
     public List<Integer> rightSideView(TreeNode root) {
         // 创建一维数组接收结果值
         List<Integer> ans = new ArrayList<>();
         if (root == null) {
             return ans;
         }
+
         // 创建队列进行层次遍历
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
@@ -31,5 +33,4 @@ public class Solution4 {
         }
         return ans;
     }
-
 }

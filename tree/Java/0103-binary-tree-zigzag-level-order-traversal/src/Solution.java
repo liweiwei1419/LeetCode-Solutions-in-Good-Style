@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class TreeNode {
     int val;
@@ -14,14 +15,13 @@ class TreeNode {
 
 public class Solution {
 
-    private List<List<Integer>> res;
-
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        res = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
             return res;
         }
-        LinkedList<TreeNode> queue = new LinkedList<>();
+        
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         boolean direction = true;
         while (!queue.isEmpty()) {
@@ -32,7 +32,7 @@ public class Solution {
             // 所以要将上一轮入队列的元素个数先存一下
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode curNode = queue.pop();
+                TreeNode curNode = queue.poll();
                 if (direction) {
                     curList.add(curNode.val);
                 } else {

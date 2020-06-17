@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -11,20 +12,22 @@ class TreeNode {
     }
 }
 
+
 public class Solution {
 
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        dfs(root,res);
+
+        dfs(root, res);
         return res;
     }
 
-    private void dfs(TreeNode treeNode, List<Integer> res) {
-        if (treeNode == null) {
+    private void dfs(TreeNode node, List<Integer> res) {
+        if (node == null) {
             return;
         }
-        res.add(treeNode.val);
-        dfs(treeNode.left, res);
-        dfs(treeNode.right, res);
+        dfs(node.left, res);
+        res.add(node.val);
+        dfs(node.right, res);
     }
 }

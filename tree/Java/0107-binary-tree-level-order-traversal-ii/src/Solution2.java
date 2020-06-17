@@ -9,6 +9,7 @@ public class Solution2 {
         if (root == null) {
             return res;
         }
+
         Stack<List<Integer>> stack = new Stack<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.addLast(root);

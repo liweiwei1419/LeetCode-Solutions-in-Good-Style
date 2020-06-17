@@ -11,6 +11,7 @@ public class Solution2 {
         if (root == null) {
             return res;
         }
+
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
