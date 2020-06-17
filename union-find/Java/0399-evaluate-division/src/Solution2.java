@@ -118,10 +118,6 @@ public class Solution2 {
         }
     }
 
-
-
-
-
     public static void main(String[] args) {
         List<List<String>> equations = new ArrayList<>();
         List<String> item1 = new ArrayList<>();

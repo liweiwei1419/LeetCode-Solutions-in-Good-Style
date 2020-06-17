@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Solution2 {
 
     public int findCircleNum(int[][] M) {
@@ -13,7 +11,7 @@ public class Solution2 {
                 }
             }
         }
-        return unionFind.count;
+        return unionFind.getCount();
     }
 
     /**

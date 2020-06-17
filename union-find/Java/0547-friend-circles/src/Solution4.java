@@ -13,7 +13,7 @@ public class Solution4 {
                 }
             }
         }
-        return unionFind.count;
+        return unionFind.getCount();
     }
 
     /**

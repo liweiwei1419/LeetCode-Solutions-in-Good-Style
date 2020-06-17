@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution {
+public class Solution6 {
 
-    // 带权并查集问题，构建有向图
+    // 路径压缩没有做好
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-        // 第 1 步：给每一个字符串生成一个 id ，方便在并查集中做操作
         int equationsSize = equations.size();
+
         Map<String, Integer> hashMap = new HashMap<>();
         UnionFind unionFind = new UnionFind(2 * equationsSize);
 
@@ -24,6 +24,7 @@ public class Solution {
                 hashMap.put(var1, id);
                 id++;
             }
+
             if (!hashMap.containsKey(var2)) {
                 hashMap.put(var2, id);
                 id++;
@@ -31,19 +32,23 @@ public class Solution {
             unionFind.union(hashMap.get(var1), hashMap.get(var2), values[i]);
         }
 
-        // 第 2 步：做查询
+//        System.out.println(hashMap);
+//        System.out.println(Arrays.toString(unionFind.parent));
+//        System.out.println(Arrays.toString(unionFind.weight));
+
         int queriesSize = queries.size();
         double[] res = new double[queriesSize];
+
         for (int i = 0; i < queriesSize; i++) {
             String var1 = queries.get(i).get(0);
             String var2 = queries.get(i).get(1);
 
             Integer id1 = hashMap.get(var1);
             Integer id2 = hashMap.get(var2);
+
             if (id1 == null || id2 == null) {
                 res[i] = -1.0;
             } else {
-
                 res[i] = unionFind.isConnected(id1, id2);
             }
         }
@@ -54,10 +59,6 @@ public class Solution {
     private class UnionFind {
 
         private int[] parent;
-
-        /**
-         * 把父结点作为分母时的商
-         */
         private double[] weight;
 
         public UnionFind(int n) {
@@ -72,30 +73,34 @@ public class Solution {
         public void union(int x, int y, double value) {
             int rootX = find(x);
             int rootY = find(y);
+
             parent[rootX] = rootY;
-            // 需要列方程计算
+            // 重点理解这句话
             weight[rootX] = weight[y] * value / weight[x];
         }
 
         public int find(int x) {
-            if (x != parent[x]) {
-                // 难点：这里维护 weight 的定义
-                int origin = parent[x];
-                parent[x] = find(parent[x]);
-
-                weight[x] *= weight[origin];
+            double res = 1.0;
+            int origin = x;
+            while (x != parent[x]) {
+                res = res * weight[x];
+                x = parent[x];
             }
-            return parent[x];
+            parent[origin] = x;
+            weight[origin] = res;
+            return x;
         }
 
         public double isConnected(int x, int y) {
             int rootX = find(x);
             int rootY = find(y);
+
             if (rootX == rootY) {
                 return weight[x] / weight[y];
             } else {
                 return -1.0d;
             }
+
         }
     }
 
@@ -142,8 +147,8 @@ public class Solution {
         queries.add(query4);
         queries.add(query5);
 
-        Solution solution = new Solution();
-        double[] res = solution.calcEquation(equations, values, queries);
+        Solution6 solution6 = new Solution6();
+        double[] res = solution6.calcEquation(equations, values, queries);
         System.out.println(Arrays.toString(res));
     }
 }
