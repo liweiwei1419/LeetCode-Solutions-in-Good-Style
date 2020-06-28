@@ -7,16 +7,13 @@ public class Solution2 {
 
     public boolean wordBreak(String s, List<String> wordDict) {
         int len = s.length();
-        // 预处理
         Set<String> wordSet = new HashSet<>(wordDict);
 
-        // 状态定义：前缀子串 s[0..i) （长度为 i 的前缀子串）是否能够由 wordSet 中的单词拼写而成
-        // 多开一维
+        // 前缀子串 s[0..i) （长度为 i 的前缀子串）是否能够由 wordSet 中的单词拼写而成
         boolean[] dp = new boolean[len + 1];
-        // 重点讲解这里
+        // 当 s[0..right] 恰好在 wordSet 中时，需要 dp[0] 的值为 true
         dp[0] = true;
         for (int right = 1; right < len + 1; right++) {
-            // 边界定义：[0, left)、[left, right]
             for (int left = 0; left < right; left++) {
                 if (dp[left] && wordSet.contains(s.substring(left, right))) {
                     dp[right] = true;
