@@ -1,5 +1,7 @@
 public class Solution {
 
+    // 暴力解法
+
     public int[] twoSum(int[] nums, int target) {
         int len = nums.length;
 
@@ -10,7 +12,6 @@ public class Solution {
                 }
             }
         }
-
         throw new IllegalArgumentException("No two sum solution");
     }
 }
