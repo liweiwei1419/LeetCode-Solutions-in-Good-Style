@@ -1,24 +1,30 @@
 public class Solution3 {
 
+    // 分治算法
+
     public int findMin(int[] nums) {
         int len = nums.length;
-        if (len == 0) {
-            throw new IllegalArgumentException("数组为空，不存在最小值");
+
+        return findMin(nums, 0, len - 1);
+    }
+
+    private int findMin(int[] nums, int left, int right) {
+        if (left == right) {
+            return nums[left];
         }
-        int left = 0;
-        int right = len - 1;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (nums[mid] < nums[right]) {
-                // 右边是顺序数组
-                // 6 7 1 2 3
-                right = mid;
-            } else {
-                // 左边是顺序数组
-                // 5 6 7 8 9 1 2
-                left = mid + 1;
-            }
+
+        if (left + 1 == right) {
+            return Math.min(nums[left], nums[right]);
         }
-        return nums[left];
+        int mid = left + (right - left) / 2;
+
+        if (nums[mid] < nums[right]) {
+            // 右边是顺序数组，[mid + 1 , right] 这个区间里的元素可以不看
+            return findMin(nums, left, mid);
+        } else {
+            // nums[mid] > nums[right]
+            // 左边是顺序数组，[left + 1, mid] 这个区间里的元素可以不看
+            return findMin(nums, mid + 1, right);
+        }
     }
 }

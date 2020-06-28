@@ -10,7 +10,7 @@ public class Solution2 {
         int right = len;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 当 nums[mid] 严格小于目标元素时，不是解
+            // 找 >= target 的第 1 个数
             if (nums[mid] < target) {
                 // 下一轮搜索的区间 [mid + 1, right]
                 left = mid + 1;

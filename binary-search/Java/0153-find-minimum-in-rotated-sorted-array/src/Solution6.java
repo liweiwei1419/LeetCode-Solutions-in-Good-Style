@@ -4,13 +4,10 @@ public class Solution6 {
 
     public int findMin(int[] nums) {
         int len = nums.length;
-        if (len == 0) {
-            throw new IllegalArgumentException("数组为空");
-        }
-        int minimum = nums[0];
+        int minVal = nums[0];
         for (int i = 1; i < len; i++) {
-            minimum = Math.min(minimum, nums[i]);
+            minVal = Math.min(minVal, nums[i]);
         }
-        return minimum;
+        return minVal;
     }
 }

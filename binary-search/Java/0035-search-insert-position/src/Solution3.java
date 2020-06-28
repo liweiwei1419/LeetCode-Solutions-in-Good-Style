@@ -6,20 +6,23 @@ public class Solution3 {
             return 0;
         }
 
+        if (nums[len - 1] < target) {
+            return len;
+        }
         int left = 0;
-        int right = len;
-        while (left < right) {
+        int right = len - 1;
+        while (left <= right) {
             int mid = left + (right - left) / 2;
-            // 当 nums[mid] 严格小于目标元素时，不是解
-            if (nums[mid] < target) {
-                // 下一轮搜索的区间 [mid + 1, right]
-                left = mid + 1;
-            } else if (nums[mid] == target) {
+            if (nums[mid] == target) {
                 return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
             } else {
-                right = mid;
+                // nums[mid] > target
+                right = mid - 1;
             }
         }
+        // 注意：一定是返回 left，不能返回 right
         return left;
     }
 }
