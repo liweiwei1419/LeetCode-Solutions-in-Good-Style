@@ -12,7 +12,6 @@ public class Solution2 {
             }
             return firstMatch && isMatch(s.substring(1), p);
         }
-
         return  firstMatch && isMatch(s.substring(1), p.substring(1));
     }
 }
