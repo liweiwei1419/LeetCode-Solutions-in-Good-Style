@@ -43,9 +43,9 @@ public class Solution2 {
             for (String word : beginVisited) {
                 char[] charArray = word.toCharArray();
                 for (int i = 0; i < len; i++) {
-                    char currentChar = charArray[i];
+                    char originChar = charArray[i];
                     for (char c = 'a'; c <= 'z'; c++) {
-                        if (charArray[i] == c) {
+                        if (originChar == c) {
                             continue;
                         }
                         charArray[i] = c;
@@ -61,7 +61,7 @@ public class Solution2 {
                         }
                     }
                     // 恢复，下次再用
-                    charArray[i] = currentChar;
+                    charArray[i] = originChar;
                 }
             }
 

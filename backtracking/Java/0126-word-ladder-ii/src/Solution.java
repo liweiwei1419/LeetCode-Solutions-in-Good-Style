@@ -31,7 +31,6 @@ public class Solution {
         // key：字符串，value：广度优先遍历过程中 key 的后继结点列表
         Map<String, Set<String>> successors = new HashMap<>();
         boolean found = bfs(beginWord, endWord, wordSet, successors);
-        System.out.println(successors);
         if (!found) {
             return res;
         }
@@ -74,8 +73,12 @@ public class Solution {
                                 if (nextWord.equals(endWord)) {
                                     found = true;
                                 }
-                                nextLevelVisited.add(nextWord);
-                                queue.offer(nextWord);
+
+                                // 避免下层元素重复加入队列，这里感谢 https://leetcode-cn.com/u/zhao-da-ming/ 优化了这个逻辑
+                                if (!nextLevelVisited.contains(nextWord)) {
+                                    queue.offer(nextWord);
+                                    nextLevelVisited.add(nextWord);
+                                }
 
                                 // 维护 successors 的定义
                                 successors.computeIfAbsent(currentWord, a -> new HashSet<>());
