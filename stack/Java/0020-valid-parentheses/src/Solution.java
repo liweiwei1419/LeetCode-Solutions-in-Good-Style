@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 
@@ -12,22 +14,22 @@ public class Solution {
         if ((len & 1) == 1) {
             return false;
         }
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < len; i++) {
             char c = s.charAt(i);
 
             switch (c) {
                 case '(':
-                    stack.push(')');
+                    stack.addLast(')');
                     break;
                 case '[':
-                    stack.push(']');
+                    stack.addLast(']');
                     break;
                 case '{':
-                    stack.push('}');
+                    stack.addLast('}');
                     break;
                 default:
-                    if (stack.isEmpty() || stack.pop() != c) {
+                    if (stack.isEmpty() || stack.removeLast() != c) {
                         return false;
                     }
                     break;
