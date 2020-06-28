@@ -1,4 +1,7 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
+import java.util.concurrent.DelayQueue;
 
 public class Solution4 {
 
@@ -19,33 +22,29 @@ public class Solution4 {
     }
 
     public int kthSmallest(TreeNode root, int k) {
-        Stack<Command> stack = new Stack<>();
-        stack.add(new Command(Action.GO, root));
+        Deque<Command> stack = new ArrayDeque<>();
+        stack.addLast(new Command(Action.GO, root));
         while (!stack.isEmpty()) {
-            Command cur = stack.pop();
+            Command cur = stack.removeLast();
             TreeNode node = cur.node;
             if (cur.action == Action.ADDTORESULT) {
                 k--;
                 if (k == 0) {
+
+                    System.out.println(stack.size());
                     return node.val;
                 }
             } else {
                 assert cur.action == Action.GO;
                 if (node.right != null) {
-                    stack.add(new Command(Action.GO, node.right));
+                    stack.addLast(new Command(Action.GO, node.right));
                 }
                 stack.add(new Command(Action.ADDTORESULT, node));
                 if (node.left != null) {
-                    stack.add(new Command(Action.GO, node.left));
+                    stack.addLast(new Command(Action.GO, node.left));
                 }
             }
         }
         throw new RuntimeException("参数错误");
     }
-
 }
-
-
-
-
-

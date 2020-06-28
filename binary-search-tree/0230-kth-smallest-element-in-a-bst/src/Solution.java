@@ -8,11 +8,9 @@ class TreeNode {
     }
 }
 
-// 解题关键：中序遍历
-// 给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。
-// 只要利用二分搜索树的中序遍历，就可以完成
 
 public class Solution {
+
     private int count = 0;
     private int res = 0;
 
@@ -28,7 +26,6 @@ public class Solution {
         count--;
         if (count == 0) {
             this.res = node.val;
-            // 这里的 return 可加可不加
             return;
         }
 
