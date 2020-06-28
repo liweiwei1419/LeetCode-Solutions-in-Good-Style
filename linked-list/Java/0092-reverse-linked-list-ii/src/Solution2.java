@@ -1,23 +1,54 @@
 public class Solution2 {
+
+    // 利用第 206 题：穿针引线，使用 4 个指针变量
+
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        // 创建一个虚拟的节点（dummy）
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode pre = dummy;
-        int k = 0;
-        while (++k < m) {
-            if (pre != null) {
-                pre = pre.next;
-            }
+        // 因为有头结点有可能发生变化，使用虚拟头结点可以避免复杂的分类讨论
+        ListNode dummyNode = new ListNode(-1);
+        dummyNode.next = head;
+
+        ListNode p1 = dummyNode;
+        // 第 1 步：从虚拟头结点走 m - 1 步，来到 m 结点的前一个结点
+        // 建议写在 for 循环里，语义清晰
+        for (int i = 0; i < m - 1; i++) {
+            p1 = p1.next;
         }
-        // tail 是尾巴的意思
-        ListNode tail = pre.next;
-        while (++k <= n) {
-            ListNode temp = pre.next;
-            pre.next = tail.next;
-            tail.next = tail.next.next;
-            pre.next.next = temp;
+
+        // 第 2 步：从 p1 再走 n - m + 1 步，来到 n 结点
+        ListNode p2 = p1;
+        for (int i = 0; i < n - m + 1; i++) {
+            p2 = p2.next;
         }
-        return dummy.next;
+
+        // 第 3 步：切断出一个子链表（截取链表）
+        ListNode p3 = p1.next;
+        ListNode p4 = p2.next;
+
+        p1.next = null;
+        p2.next = null;
+
+        // 第 4 步：反转子链表
+        reverseLinkedList(p3);
+
+        // 第 5 步：接回到原来的链表中
+        p1.next = p2;
+        p3.next = p4;
+        return dummyNode.next;
+
+    }
+
+    private void reverseLinkedList(ListNode head) {
+        // 也可以使用递归反转一个链表
+        ListNode pre = null;
+        ListNode cur = head;
+        // 在循环开始之前声明，可以避免在循环中反复声明新变量
+        ListNode next;
+
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
     }
 }

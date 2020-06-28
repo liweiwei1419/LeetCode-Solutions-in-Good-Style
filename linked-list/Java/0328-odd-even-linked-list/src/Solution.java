@@ -33,6 +33,10 @@ class ListNode {
 
 public class Solution {
     public ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
         ListNode dummyNodeOdd = new ListNode(-1);
         ListNode dummyNodeEven = new ListNode(-1);
         ListNode curOdd = dummyNodeOdd;

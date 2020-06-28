@@ -6,8 +6,6 @@ class ListNode:
 
 class Solution:
 
-    # 穿针引线
-
     def reverseList(self, head: ListNode) -> ListNode:
         pre_node = None
         cur_node = head

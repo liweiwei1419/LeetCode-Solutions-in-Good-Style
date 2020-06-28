@@ -1,5 +1,3 @@
-// 参考资料：https://www.youtube.com/watch?v=EJeyuYtvcEA
-// https://www.jianshu.com/p/fbe6012c9e52
 class ListNode {
     int val;
     ListNode next;
@@ -25,7 +23,8 @@ class ListNode {
         StringBuilder s = new StringBuilder();
         ListNode cur = this;
         while (cur != null) {
-            s.append(cur.val + " -> ");
+            s.append(cur.val);
+            s.append(" -> ");
             cur = cur.next;
         }
         s.append("NULL");
@@ -34,6 +33,8 @@ class ListNode {
 }
 
 public class Solution {
+
+    // 复杂的「穿针引线」，使用 3 个指针
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
         // 设置 dummyNode 是这一类问题的一般做法

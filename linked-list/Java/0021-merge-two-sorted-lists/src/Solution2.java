@@ -16,7 +16,6 @@ public class Solution2 {
             return l1;
         }
         // 假设规模小的问题已经解决，如何建立和原始规模问题之间的关系
-        ListNode mergeNode;
         if (l1.val < l2.val) {
             // l1 被选出，谁小谁在前面
             l1.next = mergeTwoLists(l1.next, l2);

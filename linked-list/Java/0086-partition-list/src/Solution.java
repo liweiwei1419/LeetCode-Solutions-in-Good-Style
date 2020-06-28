@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 class ListNode {
     int val;
     ListNode next;
@@ -38,8 +36,11 @@ public class Solution {
 
     // 空间复杂度为 O(1) 的解法：穿针引线
 
-
     public ListNode partition(ListNode head, int x) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
         // 比 x 小的虚拟头结点
         ListNode dummyNodeL = new ListNode(-1);
         // 大于等于 x 的虚拟头结点
