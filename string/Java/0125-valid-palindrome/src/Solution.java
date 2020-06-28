@@ -11,12 +11,12 @@ public class Solution {
         s = s.toLowerCase();
         // 只保留小写字母和数字
         s = s.replaceAll("[^0-9a-z]", "");
-
+        char[] charArray = s.toCharArray();
         int left = 0;
         int right = s.length() - 1;
         while (left < right) {
-            char cl = s.charAt(left);
-            char cr = s.charAt(right);
+            char cl = charArray[left];
+            char cr = charArray[right];
             if (cl != cr) {
                 return false;
             }

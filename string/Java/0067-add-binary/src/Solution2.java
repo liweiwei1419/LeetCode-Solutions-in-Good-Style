@@ -1,7 +1,3 @@
-/**
- * @author liwei
- * @date 2019/9/4 4:38 PM
- */
 public class Solution2 {
 
     public String addBinary(String a, String b) {
