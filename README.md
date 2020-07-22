@@ -1,5 +1,18 @@
 # LeetCode-Solutions-in-Good-Style
 
+这一段是写在「力扣」主页里的，由于要配合「力扣」的工作，因此写在了这里。
+
+QQ 群：812791932。每日一题打开活动和微信群可以点最后 1 个网址，感谢二哥和负雪明烛组织建群。前面 3 个网址是我平时写笔记的地方，希望能对一些朋友有用。
+
+可以叫我 weiwei，在我力所能及（且时间允许）的情况下，我会尽可能回答我知道的问题。最近事务繁忙，回复有照顾不到的，还请见谅。
+
+希望我的经验和理解能够对您有所启发。讲解如有错误，欢迎指正！
+
++ 个人主页：https://liweiwei1419.gitee.io/leetcode-algo/
++ 语雀笔记：https://www.yuque.com/liweiwei1419/algo
++ CSDN 博客：https://blog.csdn.net/lw_power
++ 每日一题打卡网站：https://ojeveryday.com/#/check
+
 ## 项目更名说明
 
 + 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议。
