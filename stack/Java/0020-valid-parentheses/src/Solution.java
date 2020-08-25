@@ -1,6 +1,5 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 
 public class Solution {
@@ -10,14 +9,13 @@ public class Solution {
         if (len == 0) {
             return true;
         }
-
-        if ((len & 1) == 1) {
+        if ((len % 2) == 1) {
             return false;
         }
-        Deque<Character> stack = new ArrayDeque<>();
-        for (int i = 0; i < len; i++) {
-            char c = s.charAt(i);
 
+        char[] charArray = s.toCharArray();
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char c:charArray) {
             switch (c) {
                 case '(':
                     stack.addLast(')');

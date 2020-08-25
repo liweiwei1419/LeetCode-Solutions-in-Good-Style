@@ -1,6 +1,6 @@
 public class Solution2 {
 
-    // dp[i]：区间 [i, len - 1] 偷取的最大价值
+    // 从后向前遍历
 
     public int rob(int[] nums) {
         int len = nums.length;
@@ -12,6 +12,7 @@ public class Solution2 {
             return nums[0];
         }
 
+        // dp[i]：区间 [i, len - 1] 偷取的最大价值
         int[] dp = new int[len];
         dp[len - 1] = nums[len - 1];
         dp[len - 2] = Math.max(nums[len - 1], nums[len - 2]);

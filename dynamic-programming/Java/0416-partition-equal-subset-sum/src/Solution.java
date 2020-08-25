@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution {
 
     public boolean canPartition(int[] nums) {
@@ -33,6 +35,17 @@ public class Solution {
                 }
             }
         }
+
+        for (int i = 0; i < dp.length; i++) {
+            System.out.println(Arrays.toString(dp[i]));
+        }
         return dp[len - 1][target];
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = new int[]{1, 5, 11, 15};
+        boolean res = solution.canPartition(nums);
+        System.out.println(res);
     }
 }

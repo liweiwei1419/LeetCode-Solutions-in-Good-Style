@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -21,15 +23,15 @@ public class Solution10 {
         col = new boolean[n];
         master = new boolean[2 * n - 1];
         slave = new boolean[2 * n - 1];
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> path = new ArrayDeque<>();
 
-        backtrack(0, stack);
+        dfs(0, path);
         return res;
     }
 
-    private void backtrack(int row, Stack<Integer> stack) {
+    private void dfs(int row, Deque<Integer> path) {
         if (row == n) {
-            List<String> board = convert2board(stack, n);
+            List<String> board = convert2board(path, n);
             res.add(board);
             return;
         }
@@ -37,24 +39,24 @@ public class Solution10 {
         // 针对每一列，尝试是否可以放置
         for (int i = 0; i < n; i++) {
             if (!col[i] && !master[row + i] && !slave[row - i + n - 1]) {
-                stack.add(i);
+                path.add(i);
                 col[i] = true;
                 master[row + i] = true;
                 slave[row - i + n - 1] = true;
 
-                backtrack(row + 1, stack);
+                dfs(row + 1, path);
 
                 slave[row - i + n - 1] = false;
                 master[row + i] = false;
                 col[i] = false;
-                stack.pop();
+                path.pop();
             }
         }
     }
 
-    private List<String> convert2board(Stack<Integer> stack, int n) {
+    private List<String> convert2board(Deque<Integer> path, int n) {
         List<String> board = new ArrayList<>();
-        for (Integer num : stack) {
+        for (Integer num : path) {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < n; i++) {
                 stringBuilder.append(".");
@@ -64,12 +66,5 @@ public class Solution10 {
         }
         return board;
     }
-
-
-    public static void main(String[] args) {
-        int n = 4;
-        Solution10 solution10 = new Solution10();
-        List<List<String>> res = solution10.solveNQueens(n);
-        System.out.println(res);
     }
 }

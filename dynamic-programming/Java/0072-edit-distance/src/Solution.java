@@ -25,36 +25,36 @@ public class Solution {
         }
 
         // 注意：填写 dp 数组的时候，由于初始化多设置了一行一列，横纵坐标有个偏移
-        for (int i = 0; i < len1; i++) {
-            for (int j = 0; j < len2; j++) {
+        for (int i = 1; i <= len1; i++) {
+            for (int j = 1; j <= len2; j++) {
                 // 这是最佳情况
-                if (word1Array[i] == word2Array[j]) {
-                    dp[i + 1][j + 1] = dp[i][j];
+                if (word1Array[i - 1] == word2Array[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1];
                     continue;
                 }
 
                 // 否则在以下三种情况中选出步骤最少的，这是「动态规划」的「最优子结构」
                 // 1、在下标 i 处插入一个字符
-                int insert = dp[i + 1][j] + 1;
+                int insert = dp[i][j - 1] + 1;
                 // 2、替换一个字符
-                int replace = dp[i][j] + 1;
+                int replace = dp[i - 1][j - 1] + 1;
                 // 3、删除一个字符
-                int delete = dp[i][j + 1] + 1;
-                dp[i + 1][j + 1] = Math.min(Math.min(insert, replace), delete);
+                int delete = dp[i - 1][j] + 1;
+                dp[i][j] = Math.min(Math.min(insert, replace), delete);
 
             }
         }
 
         // 打印状态表格进行调试
-        for (int i = 0; i <=len1; i++) {
-            System.out.println(Arrays.toString(dp[i]));
-        }
+//        for (int i = 0; i <=len1; i++) {
+//            System.out.println(Arrays.toString(dp[i]));
+//        }
         return dp[len1][len2];
     }
 
     public static void main(String[] args) {
-        String word1 = "112";
-        String word2 = "12";
+        String word1 = "horse";
+        String word2 = "ros";
 
 //        String word1 = "aaaa";
 //        String word2 = "aaaa";

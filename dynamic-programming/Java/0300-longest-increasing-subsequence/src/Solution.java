@@ -7,7 +7,7 @@ public class Solution {
         if (len == 0) {
             return 0;
         }
-        // dp[i]：以 i 结尾的最长上升子序列的长度
+        // dp[i]：以 nums[i] 结尾的最长上升子序列的长度
         int[] dp = new int[len];
         // 如果只有 1 个元素，那么这个元素自己就构成了最长上升子序列，所以设置为 1 是合理的
         Arrays.fill(dp, 1);
@@ -22,6 +22,7 @@ public class Solution {
                 }
             }
         }
+
         // 最后遍历一遍，求最大值
         int res = dp[0];
         for (int i = 1; i < len; i++) {

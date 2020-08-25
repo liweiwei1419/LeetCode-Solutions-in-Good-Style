@@ -3,11 +3,12 @@ import java.util.Arrays;
 public class Solution {
 
     public int findTheLongestSubstring(String s) {
-
+        // dp 定义：状态为 i 的前缀异或和第 1 次出现的
         int[] dp = new int[32];
         // -1 表示未赋值
         Arrays.fill(dp, -1);
 
+        // 前缀异或和
         int bitMap = 0;
         dp[bitMap] = 0;
 
@@ -34,10 +35,11 @@ public class Solution {
                 bitMap ^= (1 << 4);
             }
 
+            // 先记录信息，然后再计算长度的时候，就需要 + 1
             if (dp[bitMap] >= 0) {
-                res = Math.max(res, i - dp[bitMap]  + 1);
+                res = Math.max(res, i - dp[bitMap] + 1);
             } else {
-                dp[bitMap] = i   + 1;
+                dp[bitMap] = i + 1;
             }
         }
         return res;

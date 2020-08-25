@@ -9,25 +9,25 @@ public class Solution {
         int left = 0;
         int right = 0;
         // 因为题目中说，只出现大写字母
-        int[] cnt = new int[26];
+        int[] freq = new int[26];
 
-        // 区间里的最大词频数量
+        // 在滑动的过程中，出现的字符频数最多的个数
         int maxCount = 0;
         int res = 1;
 
         char[] charArray = s.toCharArray();
         while (right < sLen) {
-
-            cnt[charArray[right] - 'A']++;
+            freq[charArray[right] - 'A']++;
             // 注意：在这里更新
-            maxCount = Math.max(maxCount, cnt[charArray[right] - 'A']);
+            maxCount = Math.max(maxCount, freq[charArray[right] - 'A']);
 
             right++;
+
+            // 窗口大小 > 重复字符出现次数 + k ，说明重复字符不能填满整个窗口
             while (right - left > maxCount + k) {
-                cnt[charArray[left] - 'A']--;
+                freq[charArray[left] - 'A']--;
                 left++;
             }
-
             res = Math.max(res, right - left);
         }
         return res;

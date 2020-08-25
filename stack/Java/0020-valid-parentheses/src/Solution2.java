@@ -1,30 +1,46 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * @author liweiwei1419
- * @date 2019/8/22 7:41 PM
- */
 public class Solution2 {
 
-    public boolean isValid2(String s) {
+    public boolean isValid(String s) {
         int len = s.length();
         if (len == 0) {
             return true;
         }
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < len; i++) {
-            if (s.charAt(i) == '(') {
-                stack.push(')');
-            } else if (s.charAt(i) == '[') {
-                stack.push(']');
-            } else if (s.charAt(i) == '{') {
-                stack.push('}');
-            } else {
-                if (stack.isEmpty() || stack.pop() != s.charAt(i)) {
+        // 奇数长度一定不是有效括号
+        if ((len % 2) == 1) {
+            return false;
+        }
+
+        char[] charArray = s.toCharArray();
+        Map<Character, Character> hashMap = new HashMap<>();
+        hashMap.put(')', '(');
+        hashMap.put(']', '[');
+        hashMap.put('}', '{');
+
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char c : charArray) {
+            // 如果遍历到右括号，检查是否匹配
+            if (hashMap.containsKey(c)) {
+                // 栈为空和栈顶与当前不匹配都不能称之为"有效"
+                if (stack.isEmpty() || !hashMap.get(c).equals(stack.removeLast())) {
                     return false;
                 }
+            } else {
+                // 遍历到左括号就加入栈
+                stack.addLast(c);
             }
         }
         return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Solution2 solution2 = new Solution2();
+        String s = "()";
+        boolean res = solution2.isValid(s);
+        System.out.println(res);
     }
 }

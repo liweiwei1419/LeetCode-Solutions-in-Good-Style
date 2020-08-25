@@ -2,6 +2,19 @@ import java.util.Arrays;
 
 public class Solution {
 
+    public int rob(int[] nums) {
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
+        if (len == 1) {
+            return nums[0];
+        }
+        return Math.max(tryRob(Arrays.copyOfRange(nums, 0, len - 2 + 1)),
+                tryRob(Arrays.copyOfRange(nums, 1, len - 1 + 1)));
+    }
+
+
     private int tryRob(int[] nums) {
         int len = nums.length;
         if (len == 0) {
@@ -19,17 +32,5 @@ public class Solution {
             dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2]);
         }
         return dp[len - 1];
-    }
-
-    public int rob(int[] nums) {
-        int len = nums.length;
-        if (len == 0) {
-            return 0;
-        }
-        if (len == 1) {
-            return nums[0];
-        }
-        return Math.max(tryRob(Arrays.copyOfRange(nums, 0, len - 2 + 1)),
-                tryRob(Arrays.copyOfRange(nums, 1, len - 1 + 1)));
     }
 }

@@ -1,5 +1,7 @@
 public class Solution6 {
 
+    // 解法错误
+
     public int maxProfit(int k, int[] prices) {
         // 特判
         int len = prices.length;

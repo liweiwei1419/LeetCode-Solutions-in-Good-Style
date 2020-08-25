@@ -21,11 +21,13 @@ public class Solution2 {
                 j++;
             }
         }
-        int[] result = new int[list.size()];
-        int l = 0;
-        for (int k = 0; k < list.size(); k++) {
-            result[l++] = list.get(k);
+
+        int[] res = new int[list.size()];
+        int index = 0;
+        for (Integer integer : list) {
+            res[index] = integer;
+            index++;
         }
-        return result;
+        return res;
     }
 }

@@ -18,7 +18,7 @@ public class Solution {
         int left = 0;
         int right = len - 1;
         while (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = left + (right - left) / 2;
             if (nums[mid] < target) {
                 // mid 以及 mid 的左边一定不是目标元素第 1 次出现的位置
                 // 下一轮搜索的区间是 `[mid + 1, right]`
@@ -38,7 +38,7 @@ public class Solution {
         int left = 0;
         int right = len - 1;
         while (left < right) {
-            int mid = (left + right + 1) >>> 1;
+            int mid = left + (right - left + 1) / 2;
             if (nums[mid] > target) {
                 // mid 以及 mid 的右边一定不是目标元素最后一次出现的位置
                 // 下一轮搜索的区间是 `[left, mid - 1]`

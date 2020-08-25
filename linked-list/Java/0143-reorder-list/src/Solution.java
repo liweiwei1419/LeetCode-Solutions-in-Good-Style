@@ -63,7 +63,7 @@ public class Solution {
         ListNode p1 = head;
         ListNode p2 = pre;
 
-        while (p1 != null && p2 != null) {
+        while (p2 != null) {
             n1 = p1.next;
             n2 = p2.next;
             p1.next = p2;

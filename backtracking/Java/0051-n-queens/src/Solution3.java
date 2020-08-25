@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -10,29 +12,24 @@ public class Solution3 {
             return res;
         }
 
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i;
-        }
-
         int col = 0;
-        int master = 0;
-        int slave = 0;
-        Stack<Integer> stack = new Stack<>();
+        int main = 0;
+        int sub = 0;
+        Deque<Integer> path = new ArrayDeque<>();
 
-        backtrack(nums, 0, n, col, master, slave, stack, res);
+        dfs(0, n, col, main, sub, path, res);
         return res;
     }
 
-    private void backtrack(int[] nums, int row, int n,
-                           int col,
-                           int master,
-                           int slave,
-                           Stack<Integer> stack,
-                           List<List<String>> res) {
+    private void dfs( int row, int n,
+                     int col,
+                     int main,
+                     int sub,
+                     Deque<Integer> path,
+                     List<List<String>> res) {
 
         if (row == n) {
-            List<String> board = convert2board(stack, n);
+            List<String> board = convert2board(path, n);
             res.add(board);
             return;
         }
@@ -40,26 +37,26 @@ public class Solution3 {
         // 针对每一列，尝试是否可以放置
         for (int i = 0; i < n; i++) {
             if (((col >> i) & 1) == 0
-                    && ((master >> (row + i)) & 1) == 0
-                    && ((slave >> (row - i + n - 1)) & 1) == 0) {
-                stack.add(nums[i]);
+                    && ((main >> (row + i)) & 1) == 0
+                    && ((sub >> (row - i + n - 1)) & 1) == 0) {
+                path.addLast(i);
                 col ^= (1 << i);
-                master ^= (1 << (row + i));
-                slave ^= (1 << (row - i + n - 1));
+                main ^= (1 << (row + i));
+                sub ^= (1 << (row - i + n - 1));
 
-                backtrack(nums, row + 1, n, col, master, slave, stack, res);
+                dfs( row + 1, n, col, main, sub, path, res);
 
-                slave ^= (1 << (row - i + n - 1));
-                master ^= (1 << (row + i));
+                sub ^= (1 << (row - i + n - 1));
+                main ^= (1 << (row + i));
                 col ^= (1 << i);
-                stack.pop();
+                path.removeLast();
             }
         }
     }
 
-    private List<String> convert2board(Stack<Integer> stack, int n) {
+    private List<String> convert2board(Deque<Integer> path, int n) {
         List<String> board = new ArrayList<>();
-        for (Integer num : stack) {
+        for (Integer num : path) {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < n; i++) {
                 stringBuilder.append(".");
@@ -68,13 +65,5 @@ public class Solution3 {
             board.add(stringBuilder.toString());
         }
         return board;
-    }
-
-
-    public static void main(String[] args) {
-        int n = 4;
-        Solution3 solution3 = new Solution3();
-        List<List<String>> res = solution3.solveNQueens(n);
-        System.out.println(res);
     }
 }

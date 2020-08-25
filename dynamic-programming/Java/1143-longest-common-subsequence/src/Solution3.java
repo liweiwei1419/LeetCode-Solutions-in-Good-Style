@@ -4,6 +4,7 @@ public class Solution3 {
         int len1 = text1.length();
         int len2 = text2.length();
 
+        // 少设置一行一格，需要分类讨论
         int[][] dp = new int[len1][len2];
 
         if (text1.charAt(0) == text2.charAt(0)) {

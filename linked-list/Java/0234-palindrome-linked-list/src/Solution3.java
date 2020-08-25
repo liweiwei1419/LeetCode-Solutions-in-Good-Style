@@ -30,7 +30,7 @@ public class Solution3 {
         }
 
         // 此时 pre 成为新链表的表头
-        // 4、逐个比对，两边长度不一，但只要"前缀部分相等即可"
+        // 4、逐个比对，两边长度不一，但只要「前缀部分相等即可」
         while (head != null && pre != null) {
             if (head.val != pre.val) {
                 return false;

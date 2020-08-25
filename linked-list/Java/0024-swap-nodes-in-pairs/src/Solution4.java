@@ -17,7 +17,5 @@ public class Solution4 {
             head = first.next;
         }
         return dummy.next;
-
     }
-
 }

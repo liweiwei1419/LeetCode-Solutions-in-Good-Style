@@ -51,7 +51,7 @@ public class Solution {
             ListNode p1 = curNode.next;
             ListNode p2 = p1.next;
 
-            // "穿针引线"的步骤就 3 步
+            // 穿针引线的步骤就 3 步
             p1.next = p2.next;
             p2.next = p1;
             curNode.next = p2;

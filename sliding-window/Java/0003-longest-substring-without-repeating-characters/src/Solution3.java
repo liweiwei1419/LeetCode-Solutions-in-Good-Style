@@ -10,15 +10,15 @@ public class Solution3 {
 
         char[] charArray = s.toCharArray();
         // 描述 [left, right) 里是否有元素的变量
-        int[] hashMap = new int[128];
+        int[] freq = new int[128];
         // [left, right) 无重复的元素
         int res = 1;
         for (int left = 0, right = 0; right < len; right++) {
-            hashMap[charArray[right]]++;
+            freq[charArray[right]]++;
 
-            if (hashMap[charArray[right]] == 2) {
-                while (hashMap[charArray[right]] == 2) {
-                    hashMap[charArray[left]]--;
+            if (freq[charArray[right]] == 2) {
+                while (freq[charArray[right]] == 2) {
+                    freq[charArray[left]]--;
                     left++;
                 }
             }

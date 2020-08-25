@@ -3,8 +3,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-// https://leetcode-cn.com/problems/n-queens/description
-// 只用一张棋盘摆放的方法完成了 n 皇后问题
 public class Solution7 {
 
     private List<List<String>> res;

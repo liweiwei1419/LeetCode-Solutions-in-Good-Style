@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Solution2 {
 
@@ -8,29 +9,29 @@ public class Solution2 {
             return "/";
         }
 
-        Stack<String> stack = new Stack<>();
+        Deque<String> stack = new ArrayDeque<>();
         for (String dir : dirs) {
             if ("".equals(dir) || ".".equals(dir)) {
                 continue;
             }
 
             if ("..".equals(dir)) {
-                if (!stack.empty()) {
-                    stack.pop();
+                // 注意：只有栈非空的时候才能弹出，注意下面 continue; 的作用
+                if (!stack.isEmpty()) {
+                    stack.removeLast();
                 }
                 continue;
             }
-
-            stack.push(dir);
+            stack.addLast(dir);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        if (stack.empty()) {
+        if (stack.isEmpty()) {
             stringBuilder.insert(0, "/");
         }
 
-        while (!stack.empty()) {
-            stringBuilder.insert(0, stack.pop());
+        while (!stack.isEmpty()) {
+            stringBuilder.insert(0, stack.removeLast());
             stringBuilder.insert(0, "/");
         }
         return stringBuilder.toString();

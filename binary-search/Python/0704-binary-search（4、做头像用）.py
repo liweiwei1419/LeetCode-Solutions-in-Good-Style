@@ -6,7 +6,7 @@ class Solution:
         left = 0
         right = size - 1
         while left < right:
-            mid = (left + right + 1) >> 1
+            mid = (left + right + 1) // 2
 
             if nums[mid] > target:
                 right = mid - 1

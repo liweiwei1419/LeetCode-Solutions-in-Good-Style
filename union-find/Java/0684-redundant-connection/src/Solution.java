@@ -2,7 +2,6 @@ public class Solution {
 
     public int[] findRedundantConnection(int[][] edges) {
         int len = edges.length;
-
         // 二维数组中的整数在 1 到 N 之间，其中 N 是输入数组的大小
         // 为了不处理偏移，多开一个空间
         UnionFind unionFind = new UnionFind(len + 1);
@@ -53,7 +52,6 @@ public class Solution {
             if (rootX == rootY) {
                 return false;
             }
-
             parent[rootX] = rootY;
             return true;
         }

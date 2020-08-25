@@ -1,9 +1,6 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Solution {
 
@@ -71,10 +68,5 @@ public class Solution {
         Solution solution3 = new Solution();
         List<List<Integer>> res = solution3.threeSum(nums);
         res.forEach(System.out::println);
-
-
-        List<Integer> res1 = new ArrayList<>();
-
-        Deque<Integer> stack = new ArrayDeque<Integer>();
     }
 }

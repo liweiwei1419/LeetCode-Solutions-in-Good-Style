@@ -1,7 +1,3 @@
-/**
- * @author liweiwei1419
- * @date 2019/10/29 2:54 下午
- */
 public class Solution6 {
 
     // 动态规划

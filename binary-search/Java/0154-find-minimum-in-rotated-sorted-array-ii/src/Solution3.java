@@ -6,11 +6,13 @@ public class Solution3 {
     }
 
     private int findMin(int[] nums, int left, int right) {
-        if (left + 1 >= right) {
-            return Math.min(nums[left], nums[right]);
+        if (left == right) {
+            return nums[left];
+        }
+        if (left + 1 == right) {
+            return nums[left];
         }
 
-        // 这一行代码是精髓
         if (nums[left] < nums[right]) {
             return nums[left];
         }

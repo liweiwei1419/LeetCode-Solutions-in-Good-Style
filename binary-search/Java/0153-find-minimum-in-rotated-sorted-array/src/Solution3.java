@@ -4,7 +4,6 @@ public class Solution3 {
 
     public int findMin(int[] nums) {
         int len = nums.length;
-
         return findMin(nums, 0, len - 1);
     }
 
@@ -17,6 +16,11 @@ public class Solution3 {
             return Math.min(nums[left], nums[right]);
         }
         int mid = left + (right - left) / 2;
+
+        // 这一步是关键
+        if (nums[left] < nums[right]) {
+            return nums[left];
+        }
 
         if (nums[mid] < nums[right]) {
             // 右边是顺序数组，[mid + 1 , right] 这个区间里的元素可以不看

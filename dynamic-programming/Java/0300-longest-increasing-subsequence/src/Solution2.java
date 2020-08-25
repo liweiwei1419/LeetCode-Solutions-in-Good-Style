@@ -6,7 +6,7 @@ public class Solution2 {
             return len;
         }
 
-        // tail[i]：所有长度为 i + 1 的上升子序列的结尾数字
+        // tail[i]：所有长度为 i + 1 的上升子序列的结尾数值的最小值
         int[] tail = new int[len];
         tail[0] = nums[0];
 
@@ -21,12 +21,13 @@ public class Solution2 {
                 int right = end;
                 // 找第 1 个大于等于 nums[i] 的位置，更新它
                 while (left < right) {
-                    int mid = (left + right) >>> 1;
+                    int mid = left + (right - left) / 2;
                     // 小于 nums[i] 一定不是解
                     if (tail[mid] < nums[i]) {
                         // 下一轮搜索区间为 [mid + 1, right]
                         left = mid + 1;
                     } else {
+                        // 下一轮搜索区间为 [left, mid]
                         right = mid;
                     }
                 }

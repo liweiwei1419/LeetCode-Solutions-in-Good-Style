@@ -14,7 +14,7 @@ class TreeNode {
 
 public class Solution {
 
-    // 递归（分支）
+    // 递归（分治思想）
 
     public List<TreeNode> generateTrees(int n) {
         if (n == 0) {
