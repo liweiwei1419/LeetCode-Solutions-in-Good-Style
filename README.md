@@ -206,8 +206,6 @@ public class Solution {
 }
 ```
 
-
-
 **友情提示**：第 3 题和第 76 题是必须要会做的基本问题。上面的问题理解透彻了，下面的问题就可以比较轻松地做出来。
 
 **重点问题**：
@@ -323,8 +321,7 @@ public class Solution {
 | 232  | [用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks)（简单） | [文字题解](https://leetcode-cn.com/problems/implement-queue-using-stacks/solution/shi-yong-liang-ge-zhan-yi-ge-zhuan-men-ru-dui-yi-g/) |
 | 946  | [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences)（中等） |                                                              |
 
-
-#### 练习
+**练习**：
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -587,7 +584,7 @@ public class Solution {
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 152  | [乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)（中等） | [文字题解](https://leetcode-cn.com/problems/maximum-product-subarray/solution/er-wei-dong-tai-gui-hua-by-liweiwei1419/) |
 
-#### 六、最长上升子序列
+### 六、最长上升子序列
 
 
 | 题号 | 链接                                                         | 题解                                                         |
@@ -610,10 +607,18 @@ public class Solution {
 
 ### 八、区间 DP 与划分型 DP
 
+区间 DP：
+
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 5    | [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/) |
 | 312  | [戳气球](https://leetcode-cn.com/problems/burst-balloons/)（困难） |                                                              |
+
+划分型 DP：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 410  | [分割数组的最大值](https://leetcode-cn.com/problems/split-array-largest-sum/)（困难） | [文字题解](https://leetcode-cn.com/problems/split-array-largest-sum/solution/er-fen-cha-zhao-by-liweiwei1419-4/) |
 
 ### 九、树形 DP
 
@@ -625,7 +630,7 @@ public class Solution {
 
 ## 第 14 章 动态规划（下）
 
-#### 一、背包问题
+### 一、背包问题
 
 
 | 题目序号                                                     | 题解                                                         | 知识点                         |
@@ -637,7 +642,7 @@ public class Solution {
 | [494. 目标和](https://leetcode-cn.com/problems/target-sum/)  |                                                              | 0-1 背包问题                   |
 | [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/) | [动态规划（转换为 0-1 背包问题）](https://leetcode-cn.com/problems/ones-and-zeroes/solution/dong-tai-gui-hua-zhuan-huan-wei-0-1-bei-bao-wen-ti/) |                                |
 
-#### 二、其它问题
+### 二、其它问题
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
