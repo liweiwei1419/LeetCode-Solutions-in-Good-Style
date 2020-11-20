@@ -16,10 +16,10 @@
 
 我的个人网站和算法学习笔记。
 
-+ 个人主页：https://liweiwei1419.gitee.io/leetcode-algo/
-+ 语雀笔记：https://www.yuque.com/liweiwei1419/algo
-+ CSDN 博客：https://blog.csdn.net/lw_power
-+ 微信公众号：（佛系运营，可能没有多少干货）。
++ 个人主页：https://liweiwei1419.gitee.io/leetcode-algo/；
++ 语雀笔记：https://www.yuque.com/liweiwei1419/algo；
++ CSDN 博客：https://blog.csdn.net/lw_power；
++ 微信公众号：力扣图解可能没有图（目前佛系运营）。
 
 ![](https://liweiwei1419.gitee.io/visualgo/author/qrcode_for_gh_246ffacb3679_258.jpg)
 
@@ -430,14 +430,71 @@ public class Solution {
 
 | 题号 | 题目序号                                                     | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 105  | [从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [视频题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/)、[文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/qian-xu-bian-li-python-dai-ma-java-dai-ma-by-liwei/) |
-| 106  | [从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liwe-2/) |
-| 94   | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/mo-ni-xi-tong-zhan-wan-cheng-fei-di-gui-zhong-xu-b/) |
-| 109  | [有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/) | [文字题解](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/solution/fen-zhi-fa-python-dai-ma-java-dai-ma-by-liweiwei14/) |
-| 199  | [二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/) | [文字题解](https://leetcode-cn.com/problems/binary-tree-right-side-view/solution/dfs-he-bfspython-dai-ma-by-liweiwei1419/) |
-| 230  | [二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | [文字题解](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/solution/di-gui-yu-fei-di-gui-xie-fa-tong-li-wan-cheng-di-1/) |
-| 226  | [题目：翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) | [文字题解](https://leetcode-cn.com/problems/invert-binary-tree/solution/qian-zhong-hou-xu-bian-li-ceng-xu-bian-li-by-liwei/) |
-| 108  | [将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | [文字题解](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/solution/fen-er-zhi-zhi-di-gui-by-liweiwei1419/) |
+| 105  | [从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)（中等） | [视频题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/)、[文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/qian-xu-bian-li-python-dai-ma-java-dai-ma-by-liwei/) |
+| 106  | [从中序与后序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liwe-2/) |
+| 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)（中等） | [文字题解](https://leetcode-cn.com/problems/invert-binary-tree/solution/qian-zhong-hou-xu-bian-li-ceng-xu-bian-li-by-liwei/) |
+| 94   | [二叉树的中序遍历（中等）](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/mo-ni-xi-tong-zhan-wan-cheng-fei-di-gui-zhong-xu-b/) |
+| 230  | [二叉搜索树中第 K 小的元素（中等）](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | [文字题解](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/solution/di-gui-yu-fei-di-gui-xie-fa-tong-li-wan-cheng-di-1/) |
+| 108  | [将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)（中等） | [文字题解](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/solution/fen-er-zhi-zhi-di-gui-by-liweiwei1419/) |
+| 109  | [有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/)（中等） | [文字题解](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/solution/fen-zhi-fa-python-dai-ma-java-dai-ma-by-liweiwei14/) |
+| 199  | [二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/)（中等） | [文字题解](https://leetcode-cn.com/problems/binary-tree-right-side-view/solution/dfs-he-bfspython-dai-ma-by-liweiwei1419/) |
+
+## 第 12 章 回溯算法
+
+### 题型一：基本回溯问题
+
+通过这些问题理解回溯算法的思想，回溯算法的知识点讲解在「力扣」第 46 题的视频题解和文字题解。
+
+回溯就是用深度优先遍历的方式去搜索 树（图）的所有解。深度优先遍历有很明显的递归结构。
+
+做对下面这些问题的技巧：① **画图、画图、画图**；② 理解深度优先遍历与递归；③ 多调试、多调试。
+
+| 题号 | 题目序号                                                     | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 46   | [全排列](https://leetcode-cn.com/problems/permutations/)（中等） | [视频题解](https://leetcode-cn.com/problems/permutations/solution/quan-pai-lie-by-leetcode-solution-2/)、[文字题解](https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/) |
+| 47   | [全排列 II](https://leetcode-cn.com/problems/permutations-ii/)（中等） | [视频题解](https://www.bilibili.com/video/BV147411A7Yq?p=1)、[文字题解](https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/) |
+| 78   | [子集](https://leetcode-cn.com/problems/subsets/)（中等）    | [视频题解](https://www.bilibili.com/video/BV147411A7Yq?p=2)、[文字题解](https://leetcode-cn.com/problems/subsets/solution/hui-su-python-dai-ma-by-liweiwei1419/) |
+| 90   | [子集 II](https://leetcode-cn.com/problems/subsets-ii/)（中等） | [视频题解](https://www.bilibili.com/video/BV147411A7Yq?p=3)  |
+| 77   | [组合](https://leetcode-cn.com/problems/combinations/)（中等） | [文字题解](https://leetcode-cn.com/problems/combinations/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-ma-/) |
+| 39   | [组合总和](https://leetcode-cn.com/problems/combination-sum/)（中等） | [文字题解](https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/) |
+| 40   | [组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)（中等） | [文字题解](https://leetcode-cn.com/problems/combination-sum-ii/solution/) |
+| 113  | [路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)（中等） | [文字题解](https://leetcode-cn.com/problems/path-sum-ii/solution/hui-su-suan-fa-shen-du-you-xian-bian-li-zhuang-tai/) |
+| 60   | [第 k 个排列](https://leetcode-cn.com/problems/permutation-sequence/)（中等） | [文字题解](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/) |
+| 257  | [二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/)（中等） | [文字题解](https://leetcode-cn.com/problems/binary-tree-paths/solution/shen-du-you-xian-bian-li-python-dai-ma-by-liweiwei/) |
+| 491  | [递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/)（中等） |                                                              |
+| 1593 | [拆分字符串使唯一子字符串的数目最大](https://leetcode-cn.com/problems/split-a-string-into-the-max-number-of-unique-substrings/)（中等） |                                                              |
+
+### 题型二：字符串上的回溯问题
+
+重点理解：由于字符串每次都生成新字符，无须状态重置。
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 17   | [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)（中等） | [文字题解](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/solution/hui-su-sou-suo-wu-xian-shi-hui-su-yan-du-you-xian-/) |
+| 22   | [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)（中等） | [文字题解](https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/) |
+| 93   | [复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/)（中等） | [文字题解](https://leetcode-cn.com/problems/restore-ip-addresses/solution/hui-su-suan-fa-hua-tu-fen-xi-jian-zhi-tiao-jian-by/) |
+| 784  | [字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/)（中等） | [文字题解](https://leetcode-cn.com/problems/letter-case-permutation/solution/shen-du-you-xian-bian-li-hui-su-suan-fa-python-dai/) |
+
+### 题型三：Flood Fill
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 79   | [单词搜索](https://leetcode-cn.com/problems/word-search/)（中等） | [文字题解](https://leetcode-cn.com/problems/word-search/solution/zai-er-wei-ping-mian-shang-shi-yong-hui-su-fa-pyth/) |
+| 200  | [被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/)（中等） |                                                              |
+| 130  | [被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/)（中等） |                                                              |
+
+### **题型四**：一些游戏问题
+
+| 序号 | 题目序号                                                     | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 51   | [N皇后](https://leetcode-cn.com/problems/n-queens/)（困难）  | [文字题解](https://leetcode-cn.com/problems/n-queens/solution/gen-ju-di-46-ti-quan-pai-lie-de-hui-su-suan-fa-si-/) |
+| 37   | [解数独](https://leetcode-cn.com/problems/sudoku-solver/)（困难） |                                                              |
+| 529  | [扫雷游戏](https://leetcode-cn.com/problems/minesweeper/)（中等） | [文字题解](https://blog.csdn.net/lw_power/article/details/109314152) |
+
+说明：
+
++ 第 51 题：经典问题，掌握「空间换时间」技巧；
++ 第 529 题：寻找连通分量。DFS 和 BFS 均可。
 
 
 
@@ -445,7 +502,7 @@ public class Solution {
 
 
 
-[题目：257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/)  [回溯算法（Python 代码、Java 代码）](https://leetcode-cn.com/problems/binary-tree-paths/solution/shen-du-you-xian-bian-li-python-dai-ma-by-liweiwei/)
+
 
 
 
