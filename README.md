@@ -307,6 +307,10 @@ public class Solution {
 | 167  | [两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)（简单） | [文字题解](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/solution/shuang-zhi-zhen-dui-zhuang-er-fen-fa-python-dai-ma/) |        |
 | 925  | [长按键入](https://leetcode-cn.com/problems/long-pressed-name/)（简单） |                                                              |        |
 
+## 第 7 章 链表
+
+（内容待添加。）
+
 ## 第 8 章 栈与队列
 
 ### 一、栈
@@ -382,6 +386,45 @@ public class Solution {
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 239  | [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)（中等） | [文字题解](https://leetcode-cn.com/problems/sliding-window-maximum/solution/zui-da-suo-yin-dui-shuang-duan-dui-lie-cun-suo-yin/) |
 
+## 第 9 章 优先队列
+
+说明：了解「堆」作为「优先队列」的实现是有必要的，有助于理解 `remove()` 、`replace()` 这些编码的细节，使用堆的时候才会更加有效。
+
+应用：**动态** 选取当前队列中优先级最高的元素，重点理解「动态」的含义。
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 23   | [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)（困难） | [文字题解](https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/tan-xin-suan-fa-you-xian-dui-lie-fen-zhi-fa-python/) |
+| 215  | [数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)（中等） | [文字题解](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) |
+| 295  | [数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream)（困难） | [文字题解](https://leetcode-cn.com/problems/find-median-from-data-stream/solution/you-xian-dui-lie-python-dai-ma-java-dai-ma-by-liwe/) |
+| 347  | [前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements)（中等） |                                                              |
+| 703  | [数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream)（简单） |                                                              |
+| 973  | [最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin)（中等） |                                                              |
+| 1296 | [划分数组为连续数字的集合](https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers)（中等） |                                                              |
+
+## 第 10 章 并查集
+
+并查集知识点的视频讲解在第 990 题视频题解里有。基础且常见的问题有：
+
+|      | 题目序号                                                     | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 990  | [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations) | [视频题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode-/)、[文字题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/shi-yong-bing-cha-ji-chu-li-bu-xiang-jiao-ji-he-we/) |
+| 547  | [547. 朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles) | [文字题解](https://leetcode-cn.com/problems/friend-circles/solution/bing-cha-ji-python-dai-ma-java-dai-ma-by-liweiwei1/) |
+| 200  | [200. 岛屿数量（中等）](https://leetcode-cn.com/problems/number-of-islands) | [文字题解](https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/) |
+| 684  | [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/) |                                                              |
+| 1319 | [1319. 连通网络的操作次数（中等）](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected) | [文字题解](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/solution/bing-cha-ji-by-liweiwei1419/) |
+| 128  | [128. 最长连续序列（困难）](https://leetcode-cn.com/problems/longest-consecutive-sequence) |                                                              |
+
+选做问题：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 945  | [使数组唯一的最小增量](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)（中等） | [文字题解](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/solution/tan-xin-suan-fa-bing-cha-ji-java-by-liweiwei1419/) |
+| 399  | [除法求值](https://leetcode-cn.com/problems/evaluate-division)（中等） |                                                              |
+| 685  | [冗余连接 II](https://leetcode-cn.com/problems/redundant-connection-ii/)（困难） |                                                              |
+| 721  | [账户合并](https://leetcode-cn.com/problems/accounts-merge/)（中等） |                                                              |
+| 765  | [情侣牵手](https://leetcode-cn.com/problems/couples-holding-hands)（困难） |                                                              |
+| 952  | [按公因数计算最大组件大小](https://leetcode-cn.com/problems/largest-component-size-by-common-factor)（困难） | [文字题解](https://leetcode-cn.com/problems/largest-component-size-by-common-factor/solution/bing-cha-ji-java-python-by-liweiwei1419/) |
 
 
 
