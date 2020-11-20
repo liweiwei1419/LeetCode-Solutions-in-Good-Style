@@ -129,17 +129,12 @@
 + 循环不变量定义帮助分清先加还是先赋值，还有一些边界条件。定义清楚循环不变量以后，代码的编写就会很轻松；
 + 建议把「循环不变量」作为注释写在代码里，以方便自己调试和他人阅读。
 
-
-
-
-
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 912  | [排序数组](https://leetcode-cn.com/problems/sort-an-array)（中等） | [文字题解](https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/) |
 | 26   | [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)（简单） |                                                              |
 | 27   | [移除元素](https://leetcode-cn.com/problems/remove-element/)（简单） |                                                              |
 | 283  | [移动零](https://leetcode-cn.com/problems/move-zeroes)（简单） | [文字题解](https://leetcode-cn.com/problems/move-zeroes/solution/zun-shou-xun-huan-bu-bian-shi-java-by-liweiwei1419/) |
-|      |                                                              |                                                              |
 
 ## 第 4 章 高级排序算法（重要）
 
@@ -406,7 +401,7 @@ public class Solution {
 
 并查集知识点的视频讲解在第 990 题视频题解里有。基础且常见的问题有：
 
-|      | 题目序号                                                     | 题解                                                         |
+| 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 990  | [等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)（中等） | [视频题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode-/)、[文字题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/shi-yong-bing-cha-ji-chu-li-bu-xiang-jiao-ji-he-we/) |
 | 547  | [朋友圈（中等）](https://leetcode-cn.com/problems/friend-circles)（中等） | [文字题解](https://leetcode-cn.com/problems/friend-circles/solution/bing-cha-ji-python-dai-ma-java-dai-ma-by-liweiwei1/) |
@@ -496,7 +491,163 @@ public class Solution {
 + 第 51 题：经典问题，掌握「空间换时间」技巧；
 + 第 529 题：寻找连通分量。DFS 和 BFS 均可。
 
+## 第 13 章 动态规划（上）
 
+动态规划的两个重要思想：
+
++ **穷举**：动态规划没有为问题设计专门的算法，它考虑了完成一件事情所有的情况；
++ **空间换时间**：记住了每一步求解的结果。
+
+动态规划的两个思考方向：
+
++ 「自顶向下」记忆化递归：
++ 「自底向上」递推。
+
+可以使用动态规划的解决问题需要具备的三个条件：
+
++ 重复子问题：在计算的过程中，有一些问题会重复计算，必须记住结果。没有重复子问题的话，可以「分而治之」求解；
++ 最优子结构：广义上说是「大规模问题的解与小规模问题的解的关系」，不一定需要在求最优解的场景下；
++ **无后效性**：特别重要，无后效性是设计状态非常重要的思考角度。「无后效性」即当前阶段一旦计算出结果，后面阶段的计算不会修改前面阶段计算出的状态值。整个求解的过程构成「有向无环图」。
+
+动态规划的两个重要概念：
+
++ 状态：记录了解决问题到了哪一步，通常用若干个变量表示；
++ 状态转移方程：表达了大规模问题的解与小规模问题的解的关系。
+
+问题分类参考：
+
++ [FennelDumplings](https://leetcode-cn.com/u/feeenedumplings/)：[力扣上的 DP 问题分类汇总](https://leetcode-cn.com/circle/article/NfHhXD/)；
++ [日沉云起!](https://leetcode-cn.com/u/richenyunqi/)：[leetcode动态规划题目总结](http://leetcode-cn.com/circle/article/2Xxlw3/)。
+
+### 一、入门问题
+
+了解「自顶向下」记忆化递归与「自底向上」递推两种动态规划的方式。
+
+| 题号 | 链接                                                         | 题解 |
+| ---- | ------------------------------------------------------------ | ---- |
+| 509  | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)（简单） |      |
+
++ 第 509 题：斐波拉契数列递归做一定要加缓存，记忆化递归；
++ 第 70 题：和斐波拉契数是同一道问题。
+
+### 二、重复子问题
+
+这部分需要用到「分步计数乘法原理」、「分类计数加法原理」。
+
+| 题号     | 链接                                                         | 题解                                                         |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 70       | [ 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)（简单） | [CSDN](https://blog.csdn.net/lw_power/article/details/103799112) |
+| 91       | [解码方法](https://leetcode-cn.com/problems/decode-ways/)（中等） | [文字题解](https://leetcode-cn.com/problems/decode-ways/solution/dong-tai-gui-hua-java-python-by-liweiwei1419/) |
+| 《剑》46 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/)（中等） | [视频题解](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-by-leetcode-sol/) |
+
+### 三、最优子结构
+
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 279  | [完全平方数](https://leetcode-cn.com/problems/perfect-squares/)（中等） |                                                              |
+| 322  | [零钱兑换](https://leetcode-cn.com/problems/coin-change/)（中等） | [文字题解](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |
+| 343  | [整数拆分](https://leetcode-cn.com/problems/integer-break/)（中等） | [文字题解](https://leetcode-cn.com/problems/integer-break/solution/tan-xin-xuan-ze-xing-zhi-de-jian-dan-zheng-ming-py/) |
+
+### 四、无后效性
+
+
+| 序号 | 链接                                                         | 题解                                                         |      |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
+| 198  | [打家劫舍](https://leetcode-cn.com/problems/house-robber/)（简单） | [文字题解](https://leetcode-cn.com/problems/the-masseuse-lcci/solution/dong-tai-gui-hua-by-liweiwei1419-8/) |      |
+| 120  | [三角形最小路径和](https://leetcode-cn.com/problems/triangle/)（中等） |                                                              |      |
+| 62   | [不同路径](https://leetcode-cn.com/problems/unique-paths/)（中等） |                                                              |      |
+| 63   | [不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)（中等） |                                                              |      |
+| 64   | [最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)（中等） |                                                              |      |
+
+练习：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 121  | [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)（简单） | [暴力枚举 + 动态规划 + 差分思想](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/bao-li-mei-ju-dong-tai-gui-hua-chai-fen-si-xiang-b/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103772951) |
+| 122  | [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)（简单） | [暴力搜索 + 贪心算法 + 动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773246) |
+| 123  | [买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)（困难） | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/dong-tai-gui-hua-by-liweiwei1419-7/)、[CSDN](https://blog.csdn.net/lw_power/article/details/103773822) |
+| 188  | [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)（困难） | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/dong-tai-gui-hua-by-liweiwei1419-4/) |
+| 309  | [最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)（中等） | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/dong-tai-gui-hua-by-liweiwei1419-5/) |
+| 714  | [买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)（中等） | [动态规划](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/solution/dong-tai-gui-hua-by-liweiwei1419-6/) |
+
+以下是一些「动态规划」经典问题。因为这些问题很重要，所以单独作为一个分类。
+
+### 五、最大子段和
+
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 53   | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray)（中等） | [文字题解](https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/)、[CSDN](https://blog.csdn.net/lw_power/article/details/104062895) |
+
+练习：
+
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 152  | [乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)（中等） | [文字题解](https://leetcode-cn.com/problems/maximum-product-subarray/solution/er-wei-dong-tai-gui-hua-by-liweiwei1419/) |
+
+#### 六、最长上升子序列
+
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 300  | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |
+
+练习：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 354  | [俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | [文字题解](https://leetcode-cn.com/problems/russian-doll-envelopes/solution/tan-xin-suan-fa-er-fen-cha-zhao-python-dai-ma-java/) |
+
+### 七、最长公共子串
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1143 | [最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)（中等） | [文字题解](https://leetcode-cn.com/problems/russian-doll-envelopes/solution/tan-xin-suan-fa-er-fen-cha-zhao-python-dai-ma-java/) |
+| 72   | [ 编辑距离](https://leetcode-cn.com/problems/edit-distance/)（困难） | [文字题解](https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/)、[CDSN](https://blog.csdn.net/lw_power/article/details/103818533) |
+| 10   | [正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)（困难） |                                                              |
+
+### 八、区间 DP 与划分型 DP
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 5    | [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/) |
+| 312  | [戳气球](https://leetcode-cn.com/problems/burst-balloons/)（困难） |                                                              |
+
+### 九、树形 DP
+
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 337  | [打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) | [文字题解](https://leetcode-cn.com/problems/house-robber-iii/solution/shu-xing-dp-ru-men-wen-ti-by-liweiwei1419/) |
+| 124  | [二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)（困难） |                                                              |
+
+## 第 14 章 动态规划（下）
+
+#### 一、背包问题
+
+
+| 题目序号                                                     | 题解                                                         | 知识点                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ |
+| [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [动态规划（0-1 背包问题）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/) | 很重要的动态规划模型，必须掌握 |
+| [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) | [动态规划（套用完全背包问题模型）](https://leetcode-cn.com/problems/coin-change-2/solution/dong-tai-gui-hua-wan-quan-bei-bao-wen-ti-by-liweiw/) |                                |
+| [322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change/) | [动态规划、使用「完全背包」问题思路、图的广度优先遍历](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |                                |
+| [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) | [动态规划](https://leetcode-cn.com/problems/combination-sum-iv/solution/dong-tai-gui-hua-python-dai-ma-by-liweiwei1419/) | 注意甄别不是背包问题           |
+| [494. 目标和](https://leetcode-cn.com/problems/target-sum/)  |                                                              | 0-1 背包问题                   |
+| [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/) | [动态规划（转换为 0-1 背包问题）](https://leetcode-cn.com/problems/ones-and-zeroes/solution/dong-tai-gui-hua-zhuan-huan-wei-0-1-bei-bao-wen-ti/) |                                |
+
+#### 二、其它问题
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 887  | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)（困难） | [动态规划（只解释官方题解方法一）（Java）](https://leetcode-cn.com/problems/super-egg-drop/solution/dong-tai-gui-hua-zhi-jie-shi-guan-fang-ti-jie-fang/) |
+
+## 第 15 章 贪心算法
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 12   | [整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman/)（中等） | [文字题解](https://leetcode-cn.com/problems/integer-to-roman/solution/tan-xin-suan-fa-by-liweiwei1419/) |
 
 
 
