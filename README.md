@@ -168,9 +168,226 @@
 | 题号    | 链接                                                         | 题解                                                         |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 41      | [缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)（困难） | [视频讲解](https://www.bilibili.com/video/BV167411N7vd)、[文字题解](https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/) |
-| 《剑》3 | [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/) |                                                              |
+| 《剑》3 | [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)（中等） |                                                              |
 | 448     | [找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)（简单） |                                                              |
 | 442     | [数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/)（中等） |                                                              |
+
+## 第 6 章 滑动窗口与双指针
+
+### 一、滑动窗口
+
++ 思想简单，但是代码比较难一次写对；
++ 滑动窗口的思想是：**先向右移动右指针、再向右移动左指针**，这样左右指针交替执行（ **不回头** ），可以完成一些问题；
++ 滑动窗口是 **暴力解法的优化** ，如何 **根据目标函数把暴力解法的一系列解排除掉，是使用滑动窗口的前提** ，一定要分析清楚；
++ 下面提供的是一种参考的写法，请**不要照搬**，应该 **先理解滑动窗口的思想（暴力解法的剪枝）** ，然后多加练习，掌握编写代码的技巧和细节。
+
+滑动窗口的参考写法（不是模板，**请不要原样照搬**，仅供参考，理解算法设计思想是更重要的）：
+
+```java
+public class Solution {
+
+    public String minWindow(String s, String t) {
+        // 起始的时候，都位于 0，同方向移动
+        int left = 0;
+        int right = 0;
+        while (right < sLen) {
+            if ( 在右移的过程中检测是否满足条件 ) {
+                // 对状态做修改，好让程序在后面检测到满足条件
+            }
+            // 右边界右移 1 格
+            right++;
+            while ( 满足条件 ) {
+                // 走到这里是满足条件的，左边界逐渐逐渐左移，可以取最小值
+                if ( 在左移的过程中检测是否不满足条件 ) {
+                    // 对状态做修改，好让程序在后面检测到不满足条件
+                }
+                // 左边界左移 1 格
+                left++;
+            }
+            // 走到这里是不满足条件的，右边界逐渐右移，可以取最大值
+        }
+        return 需要的结果变量;
+    }
+}
+```
+
+
+
+**友情提示**：第 3 题和第 76 题是必须要会做的基本问题。上面的问题理解透彻了，下面的问题就可以比较轻松地做出来。
+
+**重点问题**：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 3    | [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/ge-ban-fa-hua-dong-chuang-kou-dong-tai-gui-hua-pyt/) |
+| 76   | [最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring)（困难） | [视频讲解]()                                                 |
+| 209  | [长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum)（中等） |                                                              |
+| 424  | [替换后的最长重复字符](https://leetcode-cn.com/problems/longest-repeating-character-replacement/)（中等） |                                                              |
+| 1493 | [ 删掉一个元素以后全为 1 的最长子数组](https://leetcode-cn.com/problems/longest-subarray-of-1s-after-deleting-one-element/)（中等） |                                                              |
+
+**说明**：
+
++ 第 3 题：先暴力解法，再优化；
++ 第 76 题：滑动窗口的典型问题，重点分析为什么可以使用滑动窗口。字符频数数组可以使用哈希表，也可以直接使用数组；使用 **距离** 的定义加速计算；
++ 第 424 题：重点分析为什么可以使用滑动窗口。设计变量 `maxCount`  的含义：在滑动的过程中，出现的字符频数最多的个数；收集结果的判断语句（`while (right - left > maxCount + k)`）比较难想到。第 424 题同类问题：「力扣」第 1493 题：[删掉一个元素以后全为 1 的最长子数组](https://leetcode-cn.com/problems/longest-subarray-of-1s-after-deleting-one-element/) 。
+
+```Java []
+public class Solution {
+
+    // 第 424 题代码：滑动窗口（暴力解法的优化）
+
+    public int longestSubarray(int[] nums) {
+        int len = nums.length;
+        int left = 0;
+        int right = 0;
+
+        // 连续的 1 的个数
+        int ones = 0;
+
+        // 删除一个元素以后全为 1 的最长的子串的长度
+        int maxCount = 0;
+        int res = 0;
+
+        while (right < len) {
+            if (nums[right] == 1) {
+                ones++;
+            }
+            maxCount = Math.max(maxCount, ones);
+            right++;
+            // maxCount + 1 里的 1 就表示删除的那个元素
+            while (right - left > maxCount + 1) {
+                if (nums[left] == 1) {
+                    ones--;
+                }
+                left++;
+            }
+            res = Math.max(res, right - left);
+        }
+        // 注意：这里返回 res 要减 1
+        return res - 1;
+    }
+}
+```
+
+**练习**：
+
+| 题号 | 题目                                                         | 题解 | 知识点 |
+| ---- | ------------------------------------------------------------ | ---- | ------ |
+| 438  | [找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)（中等） |      |        |
+| 567  | [字符串的排列](https://leetcode-cn.com/problems/permutation-in-string)（中等） |      |        |
+| 643  | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)（简单） |      |        |
+| 978  | [最长湍流子数组](https://leetcode-cn.com/problems/longest-turbulent-subarray)（中等） |      |        |
+| 992  | [K 个不同整数的子数组](https://leetcode-cn.com/problems/subarrays-with-k-different-integers)（困难） |      |        |
+
+**说明**：
+
++ 第 209 题：题目中给出的关键信息：**数组里的元素全部是正整数**。一共有以下 3 种方法。
+
+  + 方法一：暴力解法
+
+  + 方法二：滑动窗口（分析可以使用滑动窗口的原因）
+
+  + 方法三：构造前缀和数组，然后使用二分查找
+
++ 第 438 题：同第 76 题；
++ 第 567 题：同第 76 题，收集符合条件的语句不一样而已。
+
+### 二、双指针
+
+「双指针」问题其实也是朴素算法的优化，一下子排序掉很多不符合题意的解，「滑动窗口」技巧也是这样的。依然是分析为什么可以使用双指针是更重要的。
+
+二分查找算法应用于查找下标也可以认为是双指针的解法。
+
+| 题号 | 链接                                                         | 题解                                                         | 知识点 |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
+| 11   | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water)（中等） |                                                              |        |
+| 15   | [三数之和](https://leetcode-cn.com/problems/3sum)（中等）    |                                                              |        |
+| 16   | [最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/)（中等） | [文字题解](https://leetcode-cn.com/problems/3sum-closest/solution/shuang-zhi-zhen-dui-zhuang-python-dai-ma-java-dai-/) |        |
+| 42   | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)（困难） | [文字题解](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |        |
+| 167  | [两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)（简单） | [文字题解](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/solution/shuang-zhi-zhen-dui-zhuang-er-fen-fa-python-dai-ma/) |        |
+| 925  | [长按键入](https://leetcode-cn.com/problems/long-pressed-name/)（简单） |                                                              |        |
+
+## 第 8 章 栈与队列
+
+### 一、栈
+
+#### 题型一：基本的使用栈解决的问题
+
+下面的问题非常基础，一定需要掌握：
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 20   | [有效的括号](https://leetcode-cn.com/problems/valid-parentheses)（简单） |                                                              |
+| 71   | [简化路径](https://leetcode-cn.com/problems/simplify-path)（中等） |                                                              |
+| 155  | [最小栈](https://leetcode-cn.com/problems/min-stack)（简单） | [文字题解](https://leetcode-cn.com/problems/min-stack/solution/shi-yong-fu-zhu-zhan-tong-bu-he-bu-tong-bu-python-/) |
+| 225  | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)（简单） | [文字题解](https://leetcode-cn.com/problems/implement-stack-using-queues/solution/peek-he-pop-shi-yi-ci-jiang-dui-shou-yuan-su-chu-d/) |
+| 232  | [用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks)（简单） | [文字题解](https://leetcode-cn.com/problems/implement-queue-using-stacks/solution/shi-yong-liang-ge-zhan-yi-ge-zhuan-men-ru-dui-yi-g/) |
+| 946  | [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences)（中等） |                                                              |
+
+
+#### 练习
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 284  | [顶端迭代器](https://leetcode-cn.com/problems/peeking-iterator)（中等） |                                                              |
+| 341  | [扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator)（中等） |                                                              |
+| 946  | [验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences)（中等） |                                                              |
+| 1111 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/)（中等） | [文字题解](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/solution/qian-tao-shen-du-wan-cheng-gua-hao-pi-pei-wen-ti-s/) |
+
+#### 题型二：单调栈
+
+单调栈就是普通的栈，在使用的过程中恰好符合了「后进先出」，栈内元素单调的特点。「单调栈」和「单调队列」的问题通常来说很特殊，掌握例题和一些练习就可以了。
+
+经验：单调栈中一般存下标。
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 84   | [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)（困难） | [视频题解](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/)、[文字题解](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/) |
+| 42   | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)（困难） | [文字题解](https://leetcode-cn.com/problems/trapping-rain-water/solution/bao-li-jie-fa-yi-kong-jian-huan-shi-jian-zhi-zhen-/) |
+| 739  | [每日温度](https://leetcode-cn.com/problems/daily-temperatures/)（中等） | [文字题解](https://leetcode-cn.com/problems/daily-temperatures/solution/bao-li-jie-fa-dan-diao-zhan-by-liweiwei1419/) |
+| 316  | [去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/)（困难） | [文字题解](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/) |
+
+**说明**：
+
++ 第 739 题：推荐阅读 [程序员的自我修养：739. Daily Temperatures](https://leetcode-cn.com/problems/daily-temperatures/solution/cheng-xu-yuan-de-zi-wo-xiu-yang-739-daily-temperat/)；
+
+**练习**：
+
+| 序号 | 题目                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 496  | [下一个更大元素 I（简单）](https://leetcode-cn.com/problems/next-greater-element-i/) | [暴力解法、单调栈](https://leetcode-cn.com/problems/next-greater-element-i/solution/bao-li-jie-fa-dan-diao-zhan-by-liweiwei1419-2/) |
+| 503  | [下一个更大元素 II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii/) |                                                              |
+| 901  | [股票价格跨度（中等）](https://leetcode-cn.com/problems/online-stock-span/) | [LeetCode 第 901 题：股票价格跨度（单调栈）](https://blog.csdn.net/lw_power/article/details/103957702) |
+
+### 二、队列
+
+#### 题型一：基本的使用队列解决的问题
+
+所有的使用广度优先遍历解决的问题，都使用了队列。
+
+| 题号 | 题目序号                                                     | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 622  | [设计循环队列](https://leetcode-cn.com/problems/design-circular-queue)（中等） | [数组实现的循环队列](https://leetcode-cn.com/problems/design-circular-queue/solution/shu-zu-shi-xian-de-xun-huan-dui-lie-by-liweiwei141/) |
+| 641  | [设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)（中等） | [数组实现的循环双端队列](https://leetcode-cn.com/problems/design-circular-deque/solution/shu-zu-shi-xian-de-xun-huan-shuang-duan-dui-lie-by/) |
+| 621  | [任务调度器](https://leetcode-cn.com/problems/task-scheduler)（中等） |                                                              |
+| 1306 | [跳跃游戏 III（中等）](https://leetcode-cn.com/problems/jump-game-iii)（中等） |                                                              |
+
+#### 题型二：单调队列
+
+单调队列就是普通的队列。「力扣」上的单调队列目前就发现这一个问题，关键分析清楚为什么设计的算法恰好使得单调队列。另外，「背包问题」中有使用单调队列进行优化的例子，感兴趣的朋友可以了解一下，是竞赛方面的知识。
+
+经验：单调队列中一般存下标。
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 239  | [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)（中等） | [文字题解](https://leetcode-cn.com/problems/sliding-window-maximum/solution/zui-da-suo-yin-dui-shuang-duan-dui-lie-cun-suo-yin/) |
+
+
+
+
+
+
+
 
 
 
