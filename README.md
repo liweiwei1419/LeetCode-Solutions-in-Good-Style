@@ -2,9 +2,9 @@
 
 大家好，这里是一个算法学习的小教程。可以帮助新手朋友们入门「算法与数据结构」。
 
-+ 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议。
++ 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议；
 
-+ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习 ；刷题以 Java 语言为主，Python 和 C++ 语言实现为辅；
++ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习，目前主要提供 Java 语言，Python 语言会写一些； 
 + 本项目可以认为是一个《算法与数据结构》的简易教程，适用于零基础和转行的同学；
 + 适用于准备算法面试，不适合于准备算法竞赛；
 + 所有的代码都通过  [LeetCode（力扣）](https://leetcode-cn.com/) 在线测评系统检测；
@@ -39,6 +39,22 @@
 
 感谢负雪明烛和二哥组织建群。
 
+---
+
+这里给自己做一个宣传，我最近在「力扣」上推出了自己的 LeetBook：[**使用「力扣」学习算法与数据结构**](https://leetcode-cn.com/leetbook/detail/learning-algorithms-with-leetcode/)，主要面向 **转行** 、**零基础** 的朋友，讲解算法与数据结构的基础知识。
+
+**说明**：
+
++ 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 观看（非会员价 99 元，会员价 69 元，可以点击下面图片浏览课程目录）。付费内容是：制作教程的时间精力付出，还含有其他工作人员的时间和努力、有针对性的答疑和帮助；
++ **中、高阶用户请谨慎购买**；
++ 我所讲解的知识在我曾经向大家推荐的书籍，我写的博客和笔记里都有，已经发布的题解、博客、笔记都会一直共享，并且只要我有时间和精力，我还会坚持做分享和答疑；
++ 免费题解和 LeetBook 在制作上是完全一样的，我都投入了同样的精力和时间，LeetBook 的内容制图和审核都由「力扣」的工作人员完成，阅读体验会更好一些；
++ 可以在站内或者是我的其他社交账号向我咨询课程内容。不管是否购买课程，我都会尽量回答我所知道的问题（时间允许，能力范围之内）。感谢大家一直以来，一如既往对我的支持。有建议和意见也欢迎大家与我交流；
++ 很感谢「力扣」给我机会做课程的机会，帮助我完成当教师这一小小心愿。
+
+[![使用「力扣」学习算法与数据结构](https://pic.leetcode-cn.com/061653aa002f6e95a58cc182080b645e9437a7bf9ab1bb779f29f1a6e17c56c7-image.png)](https://datayi.cn/w/qPkMjBG9)
+
+---
 
 # 「力扣」分类以及题解目录（按照 LeetBook 的章节编排）
 
@@ -46,12 +62,12 @@
 
 ## 第 1 章 时间复杂度
 
-这部分内容介绍了 时间复杂度 这个概念，可以收看 [视频讲解](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xs3ij1/) ，完全免费。 这一章节没有练习。
+这部分内容介绍了 时间复杂度 这个概念，可以收看 [【视频讲解】](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xs3ij1/) ，完全免费。 这一章节没有练习。
 
 ## 第 2 章 二分查找
 
 + 可以我的  LeetBook 收看二分查找的知识点 [讲解](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)，免费；
-+ 知识点讲解：[写对二分查找不能靠模板，需要理解加练习 （附练习题，持续更新）](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)、[视频讲解](https://www.bilibili.com/video/av83911694?p=1)。
++ 知识点讲解：[写对二分查找不能靠模板，需要理解加练习 （附练习题，持续更新）](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)、[【视频讲解】](https://www.bilibili.com/video/av83911694?p=1)。
 
 ### 题型一：二分求下标
 
@@ -60,10 +76,10 @@
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 704  | [二分查找](https://leetcode-cn.com/problems/binary-search/)（简单） |                                                              |
-| 35   | [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)（简单） | [视频讲解](https://www.bilibili.com/video/av83911694?p=2)、[文字题解](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) |
-| 34   | [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)（简单） | [视频讲解](https://www.bilibili.com/video/av83911694?p=3)、[文字题解](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/si-lu-hen-jian-dan-xi-jie-fei-mo-gui-de-er-fen-cha/) |
-| 1095 | [ 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array/)（中等） | [视频讲解](https://www.bilibili.com/video/BV1GK4115778)、[文字题解](https://leetcode-cn.com/problems/find-in-mountain-array/solution/shi-yong-chao-hao-yong-de-er-fen-fa-mo-ban-python-/) |
-| 4    | [寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)（困难） | [视频讲解](https://www.bilibili.com/video/BV1Xv411z76J)、[文字题解](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/he-bing-yi-hou-zhao-gui-bing-guo-cheng-zhong-zhao-/) |
+| 35   | [搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)（简单） | [【视频讲解】](https://www.bilibili.com/video/av83911694?p=2)、[文字题解](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/) |
+| 34   | [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)（简单） | [【视频讲解】](https://www.bilibili.com/video/av83911694?p=3)、[文字题解](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/si-lu-hen-jian-dan-xi-jie-fei-mo-gui-de-er-fen-cha/) |
+| 1095 | [ 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array/)（中等） | [【视频讲解】](https://www.bilibili.com/video/BV1GK4115778)、[文字题解](https://leetcode-cn.com/problems/find-in-mountain-array/solution/shi-yong-chao-hao-yong-de-er-fen-fa-mo-ban-python-/) |
+| 4    | [寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)（困难） | [【视频讲解】](https://www.bilibili.com/video/BV1Xv411z76J)、[文字题解](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/he-bing-yi-hou-zhao-gui-bing-guo-cheng-zhong-zhao-/) |
 
 
 **说明**：
@@ -143,7 +159,7 @@
 | 题号     | 链接                                                         | 题解                                                         |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 88       | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)（简单） | [从后向前归并](https://leetcode-cn.com/problems/merge-sorted-array/solution/si-xiang-mei-you-chuang-xin-de-di-fang-zhu-yao-ti-/) |
-| 《剑》51 | [数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)（困难） | [视频讲解](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/shu-zu-zhong-de-ni-xu-dui-by-leetcode-solution/)、[文字题解](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/bao-li-jie-fa-fen-zhi-si-xiang-shu-zhuang-shu-zu-b/) |
+| 《剑》51 | [数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)（困难） | [【视频讲解】](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/shu-zu-zhong-de-ni-xu-dui-by-leetcode-solution/)、[文字题解](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/bao-li-jie-fa-fen-zhi-si-xiang-shu-zhuang-shu-zu-b/) |
 | 75       | [颜色分类](https://leetcode-cn.com/problems/sort-colors/)（中等） | [文字题解](https://leetcode-cn.com/problems/sort-colors/solution/kuai-su-pai-xu-partition-guo-cheng-she-ji-xun-huan/) |
 | 215      | [数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)（中等） | [文字题解](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/partitionfen-er-zhi-zhi-you-xian-dui-lie-java-dai-/) |
 | 451      | [根据字符出现频率排序](https://leetcode-cn.com/problems/sort-characters-by-frequency)（中等） |                                                              |
@@ -162,7 +178,7 @@
 
 | 题号    | 链接                                                         | 题解                                                         |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 41      | [缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)（困难） | [视频讲解](https://www.bilibili.com/video/BV167411N7vd)、[文字题解](https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/) |
+| 41      | [缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)（困难） | [【视频讲解】](https://www.bilibili.com/video/BV167411N7vd)、[文字题解](https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/) |
 | 《剑》3 | [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)（中等） |                                                              |
 | 448     | [找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)（简单） |                                                              |
 | 442     | [数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/)（中等） |                                                              |
@@ -213,7 +229,7 @@ public class Solution {
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 3    | [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/ge-ban-fa-hua-dong-chuang-kou-dong-tai-gui-hua-pyt/) |
-| 76   | [最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring)（困难） | [视频讲解]()                                                 |
+| 76   | [最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring)（困难） | [【视频讲解】]()                                                 |
 | 209  | [长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum)（中等） |                                                              |
 | 424  | [替换后的最长重复字符](https://leetcode-cn.com/problems/longest-repeating-character-replacement/)（中等） |                                                              |
 | 1493 | [ 删掉一个元素以后全为 1 的最长子数组](https://leetcode-cn.com/problems/longest-subarray-of-1s-after-deleting-one-element/)（中等） |                                                              |
@@ -302,7 +318,54 @@ public class Solution {
 
 ## 第 7 章 链表
 
-（内容待添加。）
+解决链表问题，很实用的技巧是「画图」。其它算法问题的分析和讲解（和面试官讲解）也是这样。
+
+### 题型一：基本的链表指针指向问题
+
+注意：有一些问题需要使用「虚拟头结点」，以避免对链表第一个结点的复杂的分类讨论逻辑。这个思想在数组里我们见过，叫「哨兵」。
+
+使用递归函数，避免复杂的更改指针变量指向操作，使得求解问题变得简单。
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 2    | [两数相加](https://leetcode-cn.com/problems/add-two-numbers) |                                                              |
+| 82   | [删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/) |                                                              |
+| 26   | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list) |                                                              |
+| 24   | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs) |                                                              |
+| 25   | [K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group) |                                                              |
+| 328  | [奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list) |                                                              |
+| 203  | [移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) |                                                              |
+| 21   | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)（简单） |                                                              |
+| 876  | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)（简单） | [文字题解](https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/) |
+| 148  | [排序链表](https://leetcode-cn.com/problems/sort-list/)      | [文字题解](https://leetcode-cn.com/problems/sort-list/solution/zi-di-xiang-shang-de-gui-bing-pai-xu-java-dai-ma-b/) |
+
+说明：
+
++ 这些问题使用递归和迭代都可以完成：206、24、25、328、203、21；
++ 第 148 题需要知道如何使用递归函数实现链表排序。迭代的写法仅供参考。
+
+### 题型二：快慢指针技巧
+
+确切地说，叫「同步指针」可能更好一些。
+
+使用两个指针变量，刚开始都位于链表的第一个结点，一个永远一次只走一步，另一个永远一次只走两步，一个在前，一个在后，**同时走**。这样当快指针走完的时候，慢指针就来到了链表的中间位置。
+
+解决这些问题的共同特点就是使用两个指针变量同步移动。快慢指针的前进方向相同，且它们步伐的「差」是恒定的，根据这种确定性去解决链表中的一些问题。使用这种思想还可以解决链表的以下问题：
+
+| 题号 | 链接                                                         | 题解 |
+| ---- | ------------------------------------------------------------ | ---- |
+| 19   | [倒数第 k 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) |      |
+| 141  | [环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) |      |
+| 142  | [环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/) |      |
+| 161  | [相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) |      |
+
+**说明**：
+
++ 第 19 题：，快指针先走几步，不是靠猜的，要在纸上画图模拟一下，就清楚了；
++ 第 141 题：，在环中的时候可以想象，A 同学开始有存款 100 元，每天赚 1 元，B 同学开始有存款 50 元，每天赚 2 元，B 同学一定会在某一天和 A 同学的存款一样；
++ 第 161 题：起点不同，构造相同长度让它们相遇，同样是利用了同步走这个等量关系。
+
+### 题型四：设计数据结构（待添加）
 
 ## 第 8 章 栈与队列
 
@@ -396,7 +459,7 @@ public class Solution {
 
 ## 第 10 章 并查集
 
-并查集知识点的视频讲解在第 990 题视频题解里有。基础且常见的问题有：
+并查集知识点的【视频讲解】在第 990 题视频题解里有。基础且常见的问题有：
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -423,7 +486,7 @@ public class Solution {
 | 题号 | 题目序号                                                     | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 105  | [从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)（中等） | [视频题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/)、[文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/qian-xu-bian-li-python-dai-ma-java-dai-ma-by-liwei/) |
-| 106  | [从中序与后序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liwe-2/) |
+| 106  | [从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)（中等） | [文字题解](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liwe-2/) |
 | 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)（中等） | [文字题解](https://leetcode-cn.com/problems/invert-binary-tree/solution/qian-zhong-hou-xu-bian-li-ceng-xu-bian-li-by-liwei/) |
 | 94   | [二叉树的中序遍历（中等）](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [文字题解](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/mo-ni-xi-tong-zhan-wan-cheng-fei-di-gui-zhong-xu-b/) |
 | 230  | [二叉搜索树中第 K 小的元素（中等）](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) | [文字题解](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/solution/di-gui-yu-fei-di-gui-xie-fa-tong-li-wan-cheng-di-1/) |
@@ -582,14 +645,16 @@ public class Solution {
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 152  | [乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)（中等） | [文字题解](https://leetcode-cn.com/problems/maximum-product-subarray/solution/er-wei-dong-tai-gui-hua-by-liweiwei1419/) |
+| 152  | [乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)（中等） | [动态规划（理解无后效性）](https://leetcode-cn.com/problems/maximum-product-subarray/solution/dong-tai-gui-hua-li-jie-wu-hou-xiao-xing-by-liweiw/) |
 
 ### 六、最长上升子序列
 
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 300  | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)（中等） | [文字题解](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |
+| 300  | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)（中等） | [动态规划 （包含O (N log N) 解法的状态定义以及解释）](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-er-fen-cha-zhao-tan-xin-suan-fa-p/) |
+
+**说明**：第 300 题是非常经典的动态规划问题。$O(N \log N)$ 的解法，针对问题本身的特点进行状态定义，并证明状态数组是有序数组，降低了时间复杂度。
 
 练习：
 
@@ -625,7 +690,7 @@ public class Solution {
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 337  | [打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) | [文字题解](https://leetcode-cn.com/problems/house-robber-iii/solution/shu-xing-dp-ru-men-wen-ti-by-liweiwei1419/) |
+| 337  | [打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/)（中等） | [文字题解](https://leetcode-cn.com/problems/house-robber-iii/solution/shu-xing-dp-ru-men-wen-ti-by-liweiwei1419/) |
 | 124  | [二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)（困难） |                                                              |
 
 ## 第 14 章 动态规划（下）
@@ -652,19 +717,58 @@ public class Solution {
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 12   | [整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman/)（中等） | [文字题解](https://leetcode-cn.com/problems/integer-to-roman/solution/tan-xin-suan-fa-by-liweiwei1419/) |
+| 12   | [整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman/)（中等） | [贪心算法（Java）](https://leetcode-cn.com/problems/integer-to-roman/solution/tan-xin-suan-fa-by-liweiwei1419/) |
+| 452  | [用最少数量的箭引爆气球](https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons)（中等） |                                                              |
+| 455  | [分发饼干](https://leetcode-cn.com/problems/assign-cookies)（中等） |                                                              |
+| 122  | [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)（简单） |                                                              |
+| 56   | [合并区间](https://leetcode-cn.com/problems/merge-intervals/)（中等） | [贪心算法（Java）](https://leetcode-cn.com/problems/merge-intervals/solution/tan-xin-suan-fa-java-by-liweiwei1419-3/) |
+| 45   | [跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/)（困难） |                                                              |
+| 55   | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)（中等） |                                                              |
+| 376  | [摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence/)（中等） |                                                              |
 
+### 第 19 章 广度优先遍历
 
+| 题目序号                                                     | 题解                                                         | 知识点 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
+| [剑指 Offer 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) | [深度优先遍历、广度优先遍历](https://blog.csdn.net/lw_power/article/details/105398995) |        |
+| [题目：207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | [拓扑排序、深度优先遍历](https://leetcode-cn.com/problems/course-schedule/solution/tuo-bu-pai-xu-by-liweiwei1419/) |        |
+| [题目：210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | [拓扑排序（广度优先遍历） + 深度优先遍历（Java、Python）](https://leetcode-cn.com/problems/course-schedule-ii/solution/tuo-bu-pai-xu-shen-du-you-xian-bian-li-python-dai-/) |        |
+| [题目：993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree/) | [深度优先遍历、广度优先遍历](https://leetcode-cn.com/problems/cousins-in-binary-tree/solution/yan-du-you-xian-bian-li-python-dai-ma-by-liweiwei1/) |        |
+| [题目：690. 员工的重要性](https://leetcode-cn.com/problems/employee-importance/) | [深度优先遍历、广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/employee-importance/solution/shen-du-you-xian-bian-li-yan-du-you-xian-bian-li-j/) |        |
+| [题目：1306. 跳跃游戏 III](https://leetcode-cn.com/problems/jump-game-iii/) | [广度优先遍历](https://leetcode-cn.com/problems/jump-game-iii/solution/yan-du-you-xian-bian-li-by-liweiwei1419/) |        |
+| [题目：365. 水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem/) | [图的广度优先遍历（Java）](https://leetcode-cn.com/problems/water-and-jug-problem/solution/tu-de-yan-du-you-xian-bian-li-by-liweiwei1419/) |        |
+| [题目：127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | [广度优先遍历、双向广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/word-ladder/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you-2/) |        |
+| [题目：126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/) | [单双向广度优先遍历 + 回溯算法（Java、Python）](https://leetcode-cn.com/problems/word-ladder-ii/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you--2/) |        |
 
+树的广度优先遍历的一些问题、LeetBook 里的一些问题。
 
+## 我录制的视频题解
 
+树状数组、线段树、背包问题、并查集、第 128 题
 
-
-
-
-
-
-
+| 题目                                                         | 知识点           |
+| ------------------------------------------------------------ | ---------------- |
+| [用「排除法」（减治思想）写二分查找问题](https://www.bilibili.com/video/BV147411i7zu?p=1) | 二分查找         |
+| [「力扣」第 35 题：搜索插入位置](https://www.bilibili.com/video/BV147411i7zu?p=2) | 二分查找         |
+| [「力扣」第 34 题：在排序数组中查找元素的第一个和最后一个位置](https://www.bilibili.com/video/BV147411i7zu?p=3) | 二分查找         |
+| [「力扣」第 1095 题：山脉数组中查找目标值](https://www.bilibili.com/video/BV1GK4115778) | 二分查找         |
+| [「力扣」第 4 题：寻找两个正序数组的中位数](https://www.bilibili.com/video/BV1Xv411z76J) | 二分查找         |
+| [「力扣」第 75 题：颜色分类](https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/) | 循环不变量、快排 |
+| [《剑指 Offer》 51. 数组中的逆序对](https://www.bilibili.com/video/BV1Qk4y1r7u5) | 分治算法         |
+| [「力扣」第 1 题：两数之和](https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/) | 哈希表           |
+| [「力扣」第 41 题：缺失的第一个正数](https://www.bilibili.com/video/BV167411N7vd) | 原地哈希         |
+| [「力扣」第 76 题：最小覆盖子串](https://www.bilibili.com/video/BV1aK4y1t7Qd) | 滑动窗口         |
+| [「力扣」第 84 题：柱状图中最大的矩形](https://www.bilibili.com/video/BV16D4y1D7ed) | 栈（单调栈）     |
+| [「力扣」第 105 题：从前序与中序遍历序列构造二叉树](https://www.bilibili.com/video/BV14A411q7Nv) | 树、递归         |
+| [「力扣」第 990 题：等式方程的可满足性](https://www.bilibili.com/video/BV1gz411i7kD) | 并查集           |
+| [「力扣」第 127 题：单词接龙](https://www.bilibili.com/video/BV1og4y1i7DL) | 单双向 BFS       |
+| [「力扣」第 46 题：全排列](https://www.bilibili.com/video/BV1oa4y1v7Kz?from=search&seid=14615048896751357901) | 回溯算法         |
+| [「力扣」第 47 题：全排列 II](https://www.bilibili.com/video/BV147411A7Yq?p=1) | 回溯算法         |
+| [「力扣」第 78 题：子集](https://www.bilibili.com/video/BV147411A7Yq?p=2) | 回溯算法         |
+| [「力扣」第 90 题：子集 II](https://www.bilibili.com/video/BV147411A7Yq?p=3) | 回溯算法         |
+| [「力扣」第 5 题：最长回文子串](https://www.bilibili.com/video/BV1L54y1D7pa) | 动态规划         |
+| [《剑指 Offer》46. 把数字翻译成字符串](https://www.bilibili.com/video/BV125411W7eC) | 动态规划         |
+| [「力扣」第 416 题：分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/fen-ge-deng-he-zi-ji-by-leetcode-solution/) | 动态规划         |
 
 
 

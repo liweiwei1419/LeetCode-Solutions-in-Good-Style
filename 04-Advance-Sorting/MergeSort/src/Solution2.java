@@ -26,7 +26,6 @@ public class Solution2 {
 
 
     private void mergeOfTwoSortedArray(int[] nums, int left, int mid, int right) {
-
         int len = right - left + 1;
         int[] temp = new int[len];
 
