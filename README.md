@@ -320,6 +320,8 @@ public class Solution {
 
 解决链表问题，很实用的技巧是「画图」。其它算法问题的分析和讲解（和面试官讲解）也是这样。
 
+可以为链表编写测试函数，方便调试。建议实现的方法有：① 通过数组创建一个单链表；② 根据当前结点打印当前结点以及后面的结点。这两个方法可以非常方便地帮助我们调试关于链表的程序。
+
 ### 题型一：基本的链表指针指向问题
 
 注意：有一些问题需要使用「虚拟头结点」，以避免对链表第一个结点的复杂的分类讨论逻辑。这个思想在数组里我们见过，叫「哨兵」。
@@ -342,7 +344,7 @@ public class Solution {
 说明：
 
 + 这些问题使用递归和迭代都可以完成：206、24、25、328、203、21；
-+ 第 148 题需要知道如何使用递归函数实现链表排序。迭代的写法仅供参考。
++ 第 148 题需要知道如何使用递归函数实现链表排序，迭代的写法仅供参考。
 
 ### 题型二：快慢指针技巧
 
@@ -365,7 +367,15 @@ public class Solution {
 + 第 141 题：，在环中的时候可以想象，A 同学开始有存款 100 元，每天赚 1 元，B 同学开始有存款 50 元，每天赚 2 元，B 同学一定会在某一天和 A 同学的存款一样；
 + 第 161 题：起点不同，构造相同长度让它们相遇，同样是利用了同步走这个等量关系。
 
-### 题型四：设计数据结构（待添加）
+### 题型四：设计数据结构
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 707  | [设计链表](https://leetcode-cn.com/problems/design-linked-list)（中等） |                                                              |
+| 355  | [设计推特](https://leetcode-cn.com/problems/design-twitter)（中等） | [哈希表 + 链表 + 优先队列（经典多路归并问题）（Java）](https://leetcode-cn.com/problems/design-twitter/solution/ha-xi-biao-lian-biao-you-xian-dui-lie-java-by-liwe/) |
+| 146  | [LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache)（中等） | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lru-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiw-2/) |
+| 460  | [LFU 缓存](https://leetcode-cn.com/problems/lfu-cache)（困难） | [哈希表 + 双向链表（Java）](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/) |
+| 1206 | [设计跳表](https://leetcode-cn.com/problems/design-skiplist)（困难） |                                                              |
 
 ## 第 8 章 栈与队列
 
@@ -726,7 +736,16 @@ public class Solution {
 | 55   | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)（中等） |                                                              |
 | 376  | [摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence/)（中等） |                                                              |
 
-### 第 19 章 广度优先遍历
+## 第 17 章 哈希表
+
+| 题目 | 难度                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1    | [两数之和](https://leetcode-cn.com/problems/two-sum)（简单） | 【[视频讲解](https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/)】 |
+| 49   | [字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)（中等） | [自定义字符串的哈希规则，使用质数作为乘法因子（Java）](https://leetcode-cn.com/problems/group-anagrams/solution/zi-ding-yi-zi-fu-chuan-de-ha-xi-gui-ze-shi-yong-zh/) |
+| 217  | [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate)（简单） |                                                              |
+| 219  | [存在重复元素 II](https://leetcode-cn.com/problems/contains-duplicate-ii)（简单） |                                                              |
+
+## 第 19 章 广度优先遍历
 
 | 题目序号                                                     | 题解                                                         | 知识点 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
@@ -741,6 +760,12 @@ public class Solution {
 | [题目：126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/) | [单双向广度优先遍历 + 回溯算法（Java、Python）](https://leetcode-cn.com/problems/word-ladder-ii/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you--2/) |        |
 
 树的广度优先遍历的一些问题、LeetBook 里的一些问题。
+
+## 第 22 章 分治算法
+
+| 题号 | 链接                                                  | 题解                                                         |
+| ---- | ----------------------------------------------------- | ------------------------------------------------------------ |
+| 50   | [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/) | [文字题解](https://leetcode-cn.com/problems/powx-n/solution/ba-zhi-shu-bu-fen-kan-zuo-er-jin-zhi-shu-python-da/) |
 
 ## 我录制的视频题解
 
@@ -770,5 +795,10 @@ public class Solution {
 | [《剑指 Offer》46. 把数字翻译成字符串](https://www.bilibili.com/video/BV125411W7eC) | 动态规划         |
 | [「力扣」第 416 题：分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/fen-ge-deng-he-zi-ji-by-leetcode-solution/) | 动态规划         |
 
+其它典型问题（待添加）
 
-
+| 题目                                                         | 题解                                                         | 知识点                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------ |
+| [66. 加一（简单）](https://leetcode-cn.com/problems/plus-one/) |                                                              |                          |
+| [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) |                                                              | 记住这个旋转三次的操作。 |
+| [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | [尽量不使用库函数、一次遍历（Java）](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/jin-liang-bu-shi-yong-ku-han-shu-nai-xin-diao-shi-/) |                          |
