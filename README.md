@@ -3,10 +3,10 @@
 大家好，这里是一个《算法与数据结构》的简易入门级教程，适用于零基础和转行同学。
 
 + 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议；
-
-+ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习，目前主要提供 Java 语言，Python 语言的代码在 [这里](https://github.com/liweiwei1419/Learning-Algorithms-with-Leetcode)（不齐全）； 
-+ 适用于准备算法面试，不适合于准备算法竞赛；
++ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习，目前主要提供 Java 语言，Python 语言的代码在 [这里](https://github.com/liweiwei1419/Learning-Algorithms-with-Leetcode)（不齐全）；
++ 适用于准备算法面试和学习「算法与数据结构」入门，不适合于准备算法竞赛；
 + 所有的代码都通过  [LeetCode（力扣）](https://leetcode-cn.com/) 在线测评系统检测；
+
 + 建议安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
 
 ![Octotree 插件](http://liweiwei1419.gitee.io/visualgo/github/octotree.png)
@@ -24,7 +24,7 @@
 
 讲解如有错误，欢迎指正！
 
-我的 LeetBook 是收费教程，投入精力与平时写题解是一样的，只不过 LeetBook 在制作图表上会更细致一点，并且有「力扣」的工作人员和高手参与制作和审核。不排除平时写的题解知识点比 LeetBook 还要多的情况。
+
 
 # 微信群与 QQ 群
 
@@ -40,22 +40,26 @@
 
 ---
 
-这里给自己做一个宣传，我最近在「力扣」上推出了自己的 LeetBook：[**使用「力扣」学习算法与数据结构**](https://leetcode-cn.com/leetbook/detail/learning-algorithms-with-leetcode/)，主要面向 **转行** 、**零基础** 的朋友，讲解算法与数据结构的基础知识。
+## 我的 LeetBook  
+
+里给自己做一个宣传，我最近在「力扣」上推出了自己的 LeetBook：[**零起步学算法**](https://leetcode-cn.com/leetbook/detail/learning-algorithms-with-leetcode/)（原名《使用「力扣」学习算法与数据结构》），主要面向 **转行** 、**零基础** 的朋友，讲解算法与数据结构的基础知识。
 
 **说明**：
 
-+ 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 观看（非会员价 99 元，会员价 69 元，可以点击下面图片浏览课程目录）。付费内容是：制作教程的时间精力付出，还含有其他工作人员的时间和努力、有针对性的答疑和帮助；
++ 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 阅读，非会员价 99 元，会员价 69 元，您当前看到的主页目录与 LeetBook 是一样的，只有多出来的部分，不会更少；
++ LeetBook 的课程标题、例题、练习、[讨论区](https://leetcode-cn.com/circle/discuss/E7Cf0z/)、配套代码仓库（就是您当前看到的这个仓库）都是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议您购买了；
++ 投入精力与平时写题解是一样的，只不过 LeetBook 在制作图表上会更细致一点。付费内容是：制作教程的时间精力付出、「力扣」的工作人员和高手参与制作和审核，阅读体验会更好一些。不排除平时写的题解知识点比 LeetBook 还要多；
 + **中、高阶用户请谨慎购买**；
-+ 我所讲解的知识在我曾经向大家推荐的书籍，我写的博客和笔记里都有，已经发布的题解、博客、笔记都会一直共享，并且只要我有时间和精力，我还会坚持做分享和答疑；
-+ 免费题解和 LeetBook 在制作上是完全一样的，我都投入了同样的精力和时间，LeetBook 的内容制图和审核都由「力扣」的工作人员完成，阅读体验会更好一些；
-+ 可以在站内或者是我的其他社交账号向我咨询课程内容。不管是否购买课程，我都会尽量回答我所知道的问题（时间允许，能力范围之内）。感谢大家一直以来，一如既往对我的支持。有建议和意见也欢迎大家与我交流；
-+ 很感谢「力扣」给我机会做课程的机会，帮助我完成当教师这一小小心愿。
++ 可以在「力扣」站内或者是我的其他社交账号向我咨询课程内容，也可以向本仓库提 issue。不管是否购买课程，我都会尽量回答我所知道的问题（时间允许，能力范围之内）。感谢大家一直以来，一如既往对我的支持。有建议和意见也欢迎大家与我交流；
++ 我所讲解的知识在我曾经向大家推荐的书籍，我写的博客、题解和笔记里都有，已经发布的题解、博客、笔记都会一直共享，并且只要我有时间和精力，我还会坚持做分享和答疑；
+
++ 很感谢「力扣」给我机会做课程的机会，帮助我完成一个小小心愿。
 
 [![使用「力扣」学习算法与数据结构](https://pic.leetcode-cn.com/061653aa002f6e95a58cc182080b645e9437a7bf9ab1bb779f29f1a6e17c56c7-image.png)](https://datayi.cn/w/qPkMjBG9)
 
 ---
 
-# 「力扣」分类以及题解目录（按照 LeetBook 的章节编排）
+# 「力扣」分类以及题解目录（按照 LeetBook 的章节编排，第 16 章以后为 LeetBook 不包含的章节）
 
 **说明**：题目分类与我的 LeetBook 章节对应，LeetBook 的课程标题、例题、练习都是公开的。
 
@@ -783,6 +787,14 @@ public class Solution {
 | 126   | [单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)（困难） | [单双向广度优先遍历 + 回溯算法（Java、Python）](https://leetcode-cn.com/problems/word-ladder-ii/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you--2/) |
 
 树的广度优先遍历的一些问题、LeetBook 里的一些问题。
+
+## 第 20 章 图论算法（最小生成树）
+
++ 文章：[最小生成树算法（Prim、Kruskal）](https://juejin.im/post/6858481283715039240)；
+
+## 第 21 章 图论算法（单源最短路径）
+
++ 文章：[Dijkstra 算法（解决没有负权边的单源最短路径问题）](https://juejin.im/post/6857030974631313422)。
 
 ## 第 22 章 分治算法
 
