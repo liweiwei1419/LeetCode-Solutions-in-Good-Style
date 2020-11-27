@@ -8,9 +8,7 @@ public class Solution {
         }
         int leftDepth = depth(root, true);
         int rightDepth = depth(root, false);
-
         // assert leftDepth >= rightDepth;
-
         if (leftDepth == rightDepth) {
             // 是完全二叉树
             return (1 << leftDepth) - 1;

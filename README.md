@@ -1,14 +1,13 @@
 # LeetCode-Solutions-in-Good-Style
 
-大家好，这里是一个算法学习的小教程。可以帮助新手朋友们入门「算法与数据结构」。
+大家好，这里是一个《算法与数据结构》的简易入门级教程，适用于零基础和转行同学。
 
 + 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议；
 
-+ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习，目前主要提供 Java 语言，Python 语言会写一些； 
-+ 本项目可以认为是一个《算法与数据结构》的简易教程，适用于零基础和转行的同学；
++ 本项目是我在学习《算法与数据结构》的时候，在 [LeetCode（力扣）](https://leetcode-cn.com/) 上做的练习，目前主要提供 Java 语言，Python 语言的代码在 [这里](https://github.com/liweiwei1419/Learning-Algorithms-with-Leetcode)（不齐全）； 
 + 适用于准备算法面试，不适合于准备算法竞赛；
 + 所有的代码都通过  [LeetCode（力扣）](https://leetcode-cn.com/) 在线测评系统检测；
-+ 建议您安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
++ 建议安装 [Octotree 插件](https://www.octotree.io/?utm_source=lite&utm_medium=extension)，以获得最佳的阅读体验。
 
 ![Octotree 插件](http://liweiwei1419.gitee.io/visualgo/github/octotree.png)
 
@@ -597,8 +596,7 @@ public class Solution {
 | ---- | ------------------------------------------------------------ | ---- |
 | 509  | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)（简单） |      |
 
-+ 第 509 题：斐波拉契数列递归做一定要加缓存，记忆化递归；
-+ 第 70 题：和斐波拉契数是同一道问题。
++ 第 509 题：斐波拉契数列递归做一定要加缓存，记忆化递归。
 
 ### 二、重复子问题
 
@@ -610,6 +608,8 @@ public class Solution {
 | 91       | [解码方法](https://leetcode-cn.com/problems/decode-ways/)（中等） | [文字题解](https://leetcode-cn.com/problems/decode-ways/solution/dong-tai-gui-hua-java-python-by-liweiwei1419/) |
 | 《剑》46 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/)（中等） | [视频题解](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-by-leetcode-sol/) |
 
+第 70 题：和斐波拉契数是同一道问题。计数类问题会用到分类计数原理、分步计数原理。
+
 ### 三、最优子结构
 
 
@@ -618,6 +618,11 @@ public class Solution {
 | 279  | [完全平方数](https://leetcode-cn.com/problems/perfect-squares/)（中等） |                                                              |
 | 322  | [零钱兑换](https://leetcode-cn.com/problems/coin-change/)（中等） | [文字题解](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |
 | 343  | [整数拆分](https://leetcode-cn.com/problems/integer-break/)（中等） | [文字题解](https://leetcode-cn.com/problems/integer-break/solution/tan-xin-xuan-ze-xing-zhi-de-jian-dan-zheng-ming-py/) |
+| 377  | [组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)（中等） | [动态规划](https://leetcode-cn.com/problems/combination-sum-iv/solution/dong-tai-gui-hua-python-dai-ma-by-liweiwei1419/) |
+
+**说明**：
+
+第 377 题注意甄别不是背包问题。
 
 ### 四、无后效性
 
@@ -671,6 +676,7 @@ public class Solution {
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 354  | [俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | [文字题解](https://leetcode-cn.com/problems/russian-doll-envelopes/solution/tan-xin-suan-fa-er-fen-cha-zhao-python-dai-ma-java/) |
+| 646  | [最长数对链](https://leetcode-cn.com/problems/maximum-length-of-pair-chain/)（中等） |                                                              |
 
 ### 七、最长公共子串
 
@@ -707,21 +713,27 @@ public class Solution {
 
 ### 一、背包问题
 
+![image.png](https://pic.leetcode-cn.com/1606097488-eTRqgH-image.png)
+
+背包九讲：https://github.com/tianyicui/pack
 
 | 题目序号                                                     | 题解                                                         | 知识点                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ |
 | [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [动态规划（0-1 背包问题）](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/0-1-bei-bao-wen-ti-xiang-jie-zhen-dui-ben-ti-de-yo/) | 很重要的动态规划模型，必须掌握 |
 | [518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) | [动态规划（套用完全背包问题模型）](https://leetcode-cn.com/problems/coin-change-2/solution/dong-tai-gui-hua-wan-quan-bei-bao-wen-ti-by-liweiw/) |                                |
 | [322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change/) | [动态规划、使用「完全背包」问题思路、图的广度优先遍历](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/) |                                |
-| [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) | [动态规划](https://leetcode-cn.com/problems/combination-sum-iv/solution/dong-tai-gui-hua-python-dai-ma-by-liweiwei1419/) | 注意甄别不是背包问题           |
 | [494. 目标和](https://leetcode-cn.com/problems/target-sum/)  |                                                              | 0-1 背包问题                   |
 | [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/) | [动态规划（转换为 0-1 背包问题）](https://leetcode-cn.com/problems/ones-and-zeroes/solution/dong-tai-gui-hua-zhuan-huan-wei-0-1-bei-bao-wen-ti/) |                                |
 
-### 二、其它问题
+（会补充「博弈类型 DP」、「状态压缩 DP」、「数位 DP」等。）
+
+### 其它问题
 
 | 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 746  | [使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)（简单） | [文字题解](https://leetcode-cn.com/problems/min-cost-climbing-stairs/solution/dong-tai-gui-hua-by-liweiwei1419-3/) |
 | 887  | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)（困难） | [动态规划（只解释官方题解方法一）（Java）](https://leetcode-cn.com/problems/super-egg-drop/solution/dong-tai-gui-hua-zhi-jie-shi-guan-fang-ti-jie-fang/) |
+| 32   | [最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/)（困难） | [CSDN](https://blog.csdn.net/lw_power/article/details/103939326) |
 
 ## 第 15 章 贪心算法
 
@@ -738,26 +750,37 @@ public class Solution {
 
 ## 第 17 章 哈希表
 
-| 题目 | 难度                                                         | 题解                                                         |
+| 题号 | 链接                                                         | 题解                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1    | [两数之和](https://leetcode-cn.com/problems/two-sum)（简单） | 【[视频讲解](https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/)】 |
+| 36   | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)（中等） | [哈希表（布尔数组、位运算）](https://leetcode-cn.com/problems/valid-sudoku/solution/ha-xi-biao-bu-er-shu-zu-wei-yun-suan-by-liweiwei14/) |
 | 49   | [字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)（中等） | [自定义字符串的哈希规则，使用质数作为乘法因子（Java）](https://leetcode-cn.com/problems/group-anagrams/solution/zi-ding-yi-zi-fu-chuan-de-ha-xi-gui-ze-shi-yong-zh/) |
+| 202  | [快乐数](https://leetcode-cn.com/problems/happy-number/)（简单） |                                                              |
 | 217  | [存在重复元素](https://leetcode-cn.com/problems/contains-duplicate)（简单） |                                                              |
 | 219  | [存在重复元素 II](https://leetcode-cn.com/problems/contains-duplicate-ii)（简单） |                                                              |
+| 454  | [四数相加 II](https://leetcode-cn.com/problems/4sum-ii/)（中等） |                                                              |
+
+## 第 18 章 前缀和与哈希表
+
+| 题号 | 链接                                                         | 题解                                                         |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 560  | [和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)（中等） | [暴力解法、前缀和、前缀和优化（Java）](https://leetcode-cn.com/problems/subarray-sum-equals-k/solution/bao-li-jie-fa-qian-zhui-he-qian-zhui-he-you-hua-ja/) |
+| 1248 | [统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)（中等） |                                                              |
+| 974  | [和可被 K 整除的子数组](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/)（中等） |                                                              |
 
 ## 第 19 章 广度优先遍历
 
-| 题目序号                                                     | 题解                                                         | 知识点 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
-| [剑指 Offer 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) | [深度优先遍历、广度优先遍历](https://blog.csdn.net/lw_power/article/details/105398995) |        |
-| [题目：207. 课程表](https://leetcode-cn.com/problems/course-schedule/) | [拓扑排序、深度优先遍历](https://leetcode-cn.com/problems/course-schedule/solution/tuo-bu-pai-xu-by-liweiwei1419/) |        |
-| [题目：210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) | [拓扑排序（广度优先遍历） + 深度优先遍历（Java、Python）](https://leetcode-cn.com/problems/course-schedule-ii/solution/tuo-bu-pai-xu-shen-du-you-xian-bian-li-python-dai-/) |        |
-| [题目：993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree/) | [深度优先遍历、广度优先遍历](https://leetcode-cn.com/problems/cousins-in-binary-tree/solution/yan-du-you-xian-bian-li-python-dai-ma-by-liweiwei1/) |        |
-| [题目：690. 员工的重要性](https://leetcode-cn.com/problems/employee-importance/) | [深度优先遍历、广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/employee-importance/solution/shen-du-you-xian-bian-li-yan-du-you-xian-bian-li-j/) |        |
-| [题目：1306. 跳跃游戏 III](https://leetcode-cn.com/problems/jump-game-iii/) | [广度优先遍历](https://leetcode-cn.com/problems/jump-game-iii/solution/yan-du-you-xian-bian-li-by-liweiwei1419/) |        |
-| [题目：365. 水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem/) | [图的广度优先遍历（Java）](https://leetcode-cn.com/problems/water-and-jug-problem/solution/tu-de-yan-du-you-xian-bian-li-by-liweiwei1419/) |        |
-| [题目：127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/) | [广度优先遍历、双向广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/word-ladder/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you-2/) |        |
-| [题目：126. 单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/) | [单双向广度优先遍历 + 回溯算法（Java、Python）](https://leetcode-cn.com/problems/word-ladder-ii/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you--2/) |        |
+| 题号  | 链接                                                         | 题解                                                         |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 剑 13 | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)（中等） | [深度优先遍历、广度优先遍历](https://blog.csdn.net/lw_power/article/details/105398995) |
+| 207   | [课程表](https://leetcode-cn.com/problems/course-schedule/)（中等） | [拓扑排序、深度优先遍历](https://leetcode-cn.com/problems/course-schedule/solution/tuo-bu-pai-xu-by-liweiwei1419/) |
+| 210   | [课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)（中等） | [拓扑排序（广度优先遍历） + 深度优先遍历（Java、Python）](https://leetcode-cn.com/problems/course-schedule-ii/solution/tuo-bu-pai-xu-shen-du-you-xian-bian-li-python-dai-/) |
+| 993   | [二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree/)（中等） | [深度优先遍历、广度优先遍历](https://leetcode-cn.com/problems/cousins-in-binary-tree/solution/yan-du-you-xian-bian-li-python-dai-ma-by-liweiwei1/) |
+| 690   | [员工的重要性](https://leetcode-cn.com/problems/employee-importance/)（简单） | [深度优先遍历、广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/employee-importance/solution/shen-du-you-xian-bian-li-yan-du-you-xian-bian-li-j/) |
+| 1306  | [跳跃游戏 III](https://leetcode-cn.com/problems/jump-game-iii/)（中等） | [广度优先遍历](https://leetcode-cn.com/problems/jump-game-iii/solution/yan-du-you-xian-bian-li-by-liweiwei1419/) |
+| 365   | [水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem/)（中等） | [图的广度优先遍历（Java）](https://leetcode-cn.com/problems/water-and-jug-problem/solution/tu-de-yan-du-you-xian-bian-li-by-liweiwei1419/) |
+| 127   | [单词接龙](https://leetcode-cn.com/problems/word-ladder/)（中等） | [广度优先遍历、双向广度优先遍历（Java、Python）](https://leetcode-cn.com/problems/word-ladder/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you-2/) |
+| 126   | [单词接龙 II](https://leetcode-cn.com/problems/word-ladder-ii/)（困难） | [单双向广度优先遍历 + 回溯算法（Java、Python）](https://leetcode-cn.com/problems/word-ladder-ii/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you--2/) |
 
 树的广度优先遍历的一些问题、LeetBook 里的一些问题。
 
@@ -802,3 +825,8 @@ public class Solution {
 | [66. 加一（简单）](https://leetcode-cn.com/problems/plus-one/) |                                                              |                          |
 | [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) |                                                              | 记住这个旋转三次的操作。 |
 | [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/) | [尽量不使用库函数、一次遍历（Java）](https://leetcode-cn.com/problems/string-to-integer-atoi/solution/jin-liang-bu-shi-yong-ku-han-shu-nai-xin-diao-shi-/) |                          |
+
+
+
+
+
