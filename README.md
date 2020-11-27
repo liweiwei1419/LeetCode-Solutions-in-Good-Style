@@ -28,8 +28,6 @@
 
 # 微信群与 QQ 群
 
-以下原来是写在「力扣」主页里的，由于要配合「力扣」的工作，因此写在了这里。
-
 如果需要一起刷题的朋友，可以加入微信群和 QQ 群。
 
 | 微信群                                                       | QQ 群           |
@@ -42,7 +40,7 @@
 
 ## 我的 LeetBook  
 
-里给自己做一个宣传，我最近在「力扣」上推出了自己的 LeetBook：[**零起步学算法**](https://leetcode-cn.com/leetbook/detail/learning-algorithms-with-leetcode/)（原名《使用「力扣」学习算法与数据结构》），主要面向 **转行** 、**零基础** 的朋友，讲解算法与数据结构的基础知识。
+这里给自己做一个宣传，我最近在「力扣」上推出了自己的 LeetBook：[**零起步学算法**](https://leetcode-cn.com/leetbook/detail/learning-algorithms-with-leetcode/)（原名《使用「力扣」学习算法与数据结构》），主要面向 **转行** 、**零基础** 的朋友，讲解算法与数据结构的基础知识。
 
 **说明**：
 
