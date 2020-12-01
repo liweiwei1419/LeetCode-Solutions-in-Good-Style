@@ -1,5 +1,7 @@
 # LeetCode-Solutions-in-Good-Style
 
+> **说明**：由于个人时间和精力的关系，下面给出的问题列表不太全，我和绝大多数同学一样，边学习边总结，我会在以后的时间添加一些典型的问题，争取做更多的分享，感谢大家的支持。
+
 大家好，这里是一个《算法与数据结构》的简易入门级教程，适用于零基础和转行同学。
 
 + 特别感谢 [@AbbyDeng](https://github.com/AbbyDeng) 同学的更名建议；
@@ -45,7 +47,7 @@
 **说明**：
 
 + 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 阅读，非会员价 99 元，会员价 69 元，您当前看到的主页目录与 LeetBook 是一样的，只有多出来的部分，不会更少；
-+ LeetBook 的课程标题、例题、练习、[讨论区](https://leetcode-cn.com/circle/discuss/E7Cf0z/)、配套代码仓库（就是您当前看到的这个仓库）都是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议您购买了；
++ LeetBook 的课程标题、例题、练习、[讨论区](https://leetcode-cn.com/circle/discuss/E7Cf0z/)、配套代码仓库（就是您当前看到的这个仓库）都是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议购买；
 + 投入精力与平时写题解是一样的，只不过 LeetBook 在制作图表上会更细致一点。付费内容是：制作教程的时间精力付出、「力扣」的工作人员和高手参与制作和审核，阅读体验会更好一些。不排除平时写的题解知识点比 LeetBook 还要多；
 + **中、高阶用户请谨慎购买**；
 + 可以在「力扣」站内或者是我的其他社交账号向我咨询课程内容，也可以向本仓库提 issue。不管是否购买课程，我都会尽量回答我所知道的问题（时间允许，能力范围之内）。感谢大家一直以来，一如既往对我的支持。有建议和意见也欢迎大家与我交流；
@@ -57,9 +59,9 @@
 
 ---
 
-# 「力扣」分类以及题解目录（按照 LeetBook 的章节编排，第 16 章以后为 LeetBook 不包含的章节）
+# 「力扣」分类以及题解目录（按照 LeetBook 的章节编排，第 16 章以后为目前 LeetBook 不包含的章节）
 
-**说明**：题目分类与我的 LeetBook 章节对应，LeetBook 的课程标题、例题、练习都是公开的。
+**说明**：题目分类与我的 LeetBook 章节对应。
 
 ## 第 1 章 时间复杂度
 
@@ -198,7 +200,7 @@
 ```java
 public class Solution {
 
-    public String minWindow(String s, String t) {
+    public String slidingWindow(String s, String t) {
         // 起始的时候，都位于 0，同方向移动
         int left = 0;
         int right = 0;
@@ -589,6 +591,8 @@ public class Solution {
 
 + [FennelDumplings](https://leetcode-cn.com/u/feeenedumplings/)：[力扣上的 DP 问题分类汇总](https://leetcode-cn.com/circle/article/NfHhXD/)；
 + [日沉云起!](https://leetcode-cn.com/u/richenyunqi/)：[leetcode动态规划题目总结](http://leetcode-cn.com/circle/article/2Xxlw3/)。
+
+**说明**：下面给出的典型问题还会添加（2020 年 12 月 2 日）。
 
 ### 一、入门问题
 
