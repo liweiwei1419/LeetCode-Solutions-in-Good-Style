@@ -531,6 +531,7 @@ public class Solution {
 | 257  | [二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/)（中等） | [文字题解](https://leetcode-cn.com/problems/binary-tree-paths/solution/shen-du-you-xian-bian-li-python-dai-ma-by-liweiwei/) |
 | 491  | [递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/)（中等） |                                                              |
 | 1593 | [拆分字符串使唯一子字符串的数目最大](https://leetcode-cn.com/problems/split-a-string-into-the-max-number-of-unique-substrings/)（中等） |                                                              |
+| 1071 | [活字印刷](https://leetcode-cn.com/problems/letter-tile-possibilities/)（中等） | [设计递归函数返回值](https://leetcode-cn.com/problems/letter-tile-possibilities/solution/hui-su-suan-fa-python-dai-ma-by-liweiwei1419/) |
 
 ### 题型二：字符串上的回溯问题
 
@@ -799,6 +800,14 @@ public class Solution {
 + 文章：[Dijkstra 算法（解决没有负权边的单源最短路径问题）](https://juejin.im/post/6857030974631313422)。
 
 ## 第 22 章 分治算法
+
+> 分治思想（分而治之）把一个规模较大的问题拆分成为若干个规模较小的相同类型的子问题，然后对这些子问题递归求解，等待每一个子问题完成以后，再得到原问题的解。
+>
+> 分治算法可以并行执行，但是在基础算法领域，分治算法是以 **深度优先遍历** 的方式执行的。
+
+应用分治思想的典型算法：归并排序、快速排序。
+
+分治思想的典型问题：「剑指 Offer 第 51 题」：[《剑指 Offer》 51. 数组中的逆序对（视频讲解）](https://www.bilibili.com/video/BV1Qk4y1r7u5)。
 
 | 题号 | 链接                                                  | 题解                                                         |
 | ---- | ----------------------------------------------------- | ------------------------------------------------------------ |
