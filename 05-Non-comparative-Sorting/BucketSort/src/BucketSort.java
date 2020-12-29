@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BucketSort {
 
     public void sort(int[] nums) {
@@ -23,17 +25,17 @@ public class BucketSort {
             // 如果最大数小于 10000
             // 3 位数就设置 100 个桶
             // 2 位数就设置 10 个桶
-            step = (int) Math.pow(10, maxLen);
+            step = (int) Math.pow(10, maxLen - 1);
         }
         // System.out.println("步长：" + step);
 
         // 桶的个数
-        int bucketLen = max / step;
+        int bucketLen = max / step + 1;
         // System.out.println("桶的个数：" + bucketLen);
 
         // 因为不能确定每个桶存放的数据量，因此每个桶的长度都设置为 len
-        int[][] temp = new int[bucketLen + 1][len];
-        int[] next = new int[bucketLen + 1];
+        int[][] temp = new int[bucketLen][len];
+        int[] next = new int[bucketLen];
 
         // 第 3 步：分桶
         for (int i = 0; i < len; i++) {
@@ -46,13 +48,13 @@ public class BucketSort {
         }
 
         // 第 4 步：对于每个桶执行插入排序
-        for (int i = 0; i < bucketLen + 1; i++) {
+        for (int i = 0; i < bucketLen; i++) {
             insertionSort(temp[i], next[i] - 1);
         }
 
         // 第 5 步：从桶里依次取出来
         int index = 0;
-        for (int i = 0; i < bucketLen + 1; i++) {
+        for (int i = 0; i < bucketLen; i++) {
             int curLen = next[i];
             for (int j = 0; j < curLen; j++) {
                 nums[index] = temp[i][j];
@@ -87,5 +89,13 @@ public class BucketSort {
             maxLen++;
         }
         return maxLen;
+    }
+
+    // 测试代码
+    public static void main(String[] args) {
+        BucketSort bucketSort = new BucketSort();
+        int[] nums = new int[]{1234, 9, 200, 1, 2, 3, 1, 88, 5, 6, 7, 4, 3, 2, 54, 3, 1, 3, 2};
+        bucketSort.sort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }

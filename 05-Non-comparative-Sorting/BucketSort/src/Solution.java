@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution {
 
     // 桶排序
@@ -19,10 +21,10 @@ public class Solution {
         // 步长：步长如果设置成 10 会超出内存限制
         int step = 1000;
         // 桶的个数
-        int bucketLen = 10_0000 / step;
+        int bucketLen = 10_0000 / step + 1;
 
-        int[][] temp = new int[bucketLen + 1][len];
-        int[] next = new int[bucketLen + 1];
+        int[][] temp = new int[bucketLen][len];
+        int[] next = new int[bucketLen];
 
         // 第 3 步：分桶
         for (int num : nums) {
@@ -32,14 +34,14 @@ public class Solution {
         }
 
         // 第 4 步：对于每个桶执行插入排序
-        for (int i = 0; i < bucketLen + 1; i++) {
+        for (int i = 0; i < bucketLen; i++) {
             insertionSort(temp[i], next[i] - 1);
         }
 
         // 第 5 步：从桶里依次取出来
         int[] res = new int[len];
         int index = 0;
-        for (int i = 0; i < bucketLen + 1; i++) {
+        for (int i = 0; i < bucketLen; i++) {
             int curLen = next[i];
             for (int j = 0; j < curLen; j++) {
                 res[index] = temp[i][j] - OFFSET;
