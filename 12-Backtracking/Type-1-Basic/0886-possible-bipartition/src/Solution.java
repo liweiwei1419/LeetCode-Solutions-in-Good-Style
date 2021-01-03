@@ -25,10 +25,9 @@ public class Solution {
 
         colors = new int[N + 1];
         visited = new boolean[N + 1];
-
         for (int i = 0; i < N; i++) {
             if (!visited[i]) {
-                if (!dfs(i, 0)) {
+                if (dfs(i, 0)) {
                     return false;
                 }
             }
@@ -41,20 +40,20 @@ public class Solution {
         colors[i] = color;
         List<Integer> successors = adj[i];
         if (successors == null) {
-            return true;
+            return false;
         }
 
         for (int successor : successors) {
             if (!visited[successor]) {
-                if (!dfs(successor, 1 - color)) {
-                    return false;
+                if (dfs(successor, 1 - color)) {
+                    return true;
                 }
             } else {
                 if (colors[i] == colors[successor]) {
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 }

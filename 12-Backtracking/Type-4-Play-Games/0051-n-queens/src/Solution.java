@@ -52,8 +52,6 @@ public class Solution {
                 col[j] = true;
                 main[row - j + n - 1] = true;
                 sub[row + j] = true;
-
-
                 dfs(row + 1, path);
                 sub[row + j] = false;
                 main[row - j + n - 1] = false;
