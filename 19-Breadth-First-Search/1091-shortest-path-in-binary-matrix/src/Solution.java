@@ -3,22 +3,22 @@ import java.util.Queue;
 
 public class Solution {
 
-    private int len;
+    private int N;
 
     private static final int[][] DIRECTIONS = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
     public int shortestPathBinaryMatrix(int[][] grid) {
-        this.len = grid.length;
+        this.N = grid.length;
         if (grid[0][0] == 1) {
             return -1;
         }
-        if (len == 1) {
-            return len;
+        if (N == 1) {
+            return N;
         }
 
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{0, 0});
-        boolean[][] visited = new boolean[len][len];
+        boolean[][] visited = new boolean[N][N];
         visited[0][0] = true;
         int depth = 1;
         while (!queue.isEmpty()) {
@@ -33,9 +33,8 @@ public class Solution {
                     int newX = curX + direction[0];
                     int newY = curY + direction[1];
 
-                    // 剪枝
                     if (inArea(newX, newY) && !visited[newX][newY] && grid[newX][newY] == 0) {
-                        if (newX == len - 1 && newY == len - 1) {
+                        if (newX == N - 1 && newY == N - 1) {
                             return depth;
                         }
 
@@ -48,11 +47,7 @@ public class Solution {
         return -1;
     }
 
-    private int getIndex(int x, int y) {
-        return x * len + y;
-    }
-
     private boolean inArea(int x, int y) {
-        return x >= 0 && x < len && y >= 0 && y < len;
+        return x >= 0 && x < N && y >= 0 && y < N;
     }
 }

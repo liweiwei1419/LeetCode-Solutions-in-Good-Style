@@ -1,9 +1,9 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Solution2 {
+public class Solution3 {
 
-    // 方法二：深度优先遍历（显式使用栈）
+    // 方法二：广度优先遍历（使用二维坐标）
 
     private final static int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
@@ -16,20 +16,20 @@ public class Solution2 {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == 1 && !visited[i][j]) {
-                    maxArea = Math.max(maxArea, dfs(grid, i, j, rows, cols, visited));
+                    maxArea = Math.max(maxArea, bfs(grid, i, j, rows, cols, visited));
                 }
             }
         }
         return maxArea;
     }
 
-    private int dfs(int[][] grid, int i, int j, int rows, int cols, boolean[][] visited) {
+    private int bfs(int[][] grid, int i, int j, int rows, int cols, boolean[][] visited) {
         int count = 0;
-        Deque<int[]> stack = new ArrayDeque<>();
-        stack.addLast(new int[]{i, j});
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{i, j});
         visited[i][j] = true;
-        while (!stack.isEmpty()) {
-            int[] top = stack.removeLast();
+        while (!queue.isEmpty()) {
+            int[] top = queue.poll();
             int curX = top[0];
             int curY = top[1];
             count++;
@@ -37,7 +37,7 @@ public class Solution2 {
                 int newX = curX + direction[0];
                 int newY = curY + direction[1];
                 if (inArea(newX, newY, rows, cols) && grid[newX][newY] == 1 && !visited[newX][newY]) {
-                    stack.addLast(new int[]{newX, newY});
+                    queue.offer(new int[]{newX, newY});
                     visited[newX][newY] = true;
                 }
             }

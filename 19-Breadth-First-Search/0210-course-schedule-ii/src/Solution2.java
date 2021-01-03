@@ -1,91 +1,73 @@
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * https://leetcode-cn.com/problems/course-schedule-ii/description/
- * 参考资料：花花酱
- * http://zxi.mytechroad.com/blog/graph/leetcode-210-course-schedule-ii/
- * 说明：使用深度优先遍历和拓扑排序都可以完成这道题
- * 个人觉得拓扑排序更加直观一些
- * 我把这道题的解法改成 Solution3 更符合邻接表的习惯
- *
- * @author liwei
- */
 public class Solution2 {
 
-    // dfs
-
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        // 初始化这个有向图，以邻接表的方式存储
-        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+        // 步骤 1：构建邻接表
+        Set<Integer>[] adj = new HashSet[numCourses];
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new ArrayList<>());
+            adj[i] = new HashSet<>();
         }
-        int plen = prerequisites.length;
-        for (int i = 0; i < plen; i++) {
+        int pLen = prerequisites.length;
+        for (int i = 0; i < pLen; i++) {
             // 后继课程
             int second = prerequisites[i][0];
             // 先行课程
             int first = prerequisites[i][1];
-            // 注意 dfs 中，后继课程作为 key，前驱课程作为 value
-            // 这种方式不符合邻接表的习惯
-            // 邻接表总是通过前驱得到后继
-            graph.get(second).add(first);
+            adj[first].add(second);
         }
-        // System.out.println(graph);
+
+        // 步骤二：对每一个结点执行一次深度优先遍历
+        // 0 表示没有访问过，对应于 boolean 数组里的 false
+        // 1 表示已经访问过，新增状态，如果 dfs 的时候遇到 1 ，表示当前遍历的过程中形成了环
+        // 2 表示当前结点的所有后继结点已经遍历完成，对应于 boolean 数组里的 true
         int[] visited = new int[numCourses];
+
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < numCourses; i++) {
-            // 每一次都做 dfs
-            if (dfs(i, graph, visited, res)) {
+            // 对每一个结点执行一次深度优先遍历
+            if (dfs(i, adj, visited, res)) {
+                // 如果有环，返回空数组
                 return new int[]{};
             }
         }
-        // return res.stream().mapToInt(i -> i).toArray();
-        int[] ret = new int[numCourses];
-        for (int i = 0; i < numCourses; i++) {
-            ret[i] = res.get(i);
-        }
-        return ret;
+
+        // 注意：这里需要逆向
+        Collections.reverse(res);
+        return res.stream().mapToInt(i -> i).toArray();
     }
 
     /**
      * @param current
-     * @param graph
+     * @param adj
      * @param visited
      * @param res
      * @return true 表示有环，false 表示没有环
      */
-    private boolean dfs(int current, ArrayList<ArrayList<Integer>> graph,
+    private boolean dfs(int current, Set<Integer>[] adj,
                         int[] visited, List<Integer> res) {
-        // 表示访问过了
         if (visited[current] == 1) {
-            // 从当前正在访问结点的状态又回到了当前正在访问，说明图中有环
             return true;
         }
         if (visited[current] == 2) {
-            // 表示已经处理完毕，返回 false，表示没有必要再访问了
             return false;
         }
-        // 设置为 1 表示正在访问
+
         visited[current] = 1;
-        // 它的先行课程的集合
-        ArrayList<Integer> nexts = graph.get(current);
-        // 把当前结点的邻居结点的每一个结点都做一次 dfs
-        for (Integer next : nexts) {
-            // 递归访问它的先行课程，如果先行课程回溯访问的时候，回到自己，就表示存在环，返回 true
-            // 层层返回回去，就说明有环存在，这项任务完成不了
-            if (dfs(next, graph, visited, res)) {
+        for (Integer successor : adj[current]) {
+            if (dfs(successor, adj, visited, res)) {
                 return true;
             }
         }
-        // 做完邻居结点的 dfs，自己的状态就变成 2 了
-        // 一直回溯到没有前驱课程的结点，把它加入结果集
-        visited[current] = 2;
+
+        // 注意：在「后序」这个位置添加到结果集
         res.add(current);
-        // false 表示没有环
+        visited[current] = 2;
+        // 所有的后继结点都遍历完成以后，都没有遇到重复，才可以说没有环
         return false;
     }
 }
