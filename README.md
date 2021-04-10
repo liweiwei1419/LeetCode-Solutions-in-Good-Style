@@ -1,6 +1,6 @@
 # LeetCode-Solutions-in-Good-Style
 
-[![GitHub issues](https://img.shields.io/github/issues/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/issues)[![GitHub forks](https://img.shields.io/github/forks/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/network)[![GitHub stars](https://img.shields.io/github/stars/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/stargazers)[![GitHub license](https://img.shields.io/github/license/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/issues) [![GitHub forks](https://img.shields.io/github/forks/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/network) [![GitHub stars](https://img.shields.io/github/stars/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/stargazers) [![GitHub license](https://img.shields.io/github/license/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/blob/master/LICENSE)
 
 
 > **说明**：我和绝大多数同学一样，一边学习、一边总结。我会争取做更多的分享，给大家带来一些有用的知识，感谢大家一直以来的支持。
