@@ -60,9 +60,9 @@
 
 计算「逆序对」完全就是按照「归并排序」的思路而来。
 
-| 题目链接                                                     | 力扣                                                         | B 站     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| [75. 颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/) | [力扣](https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/) | [B 站]() |
+| 题目链接                                                     | 力扣                                                         | B 站                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| [75. 颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/) | [力扣](https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1tz4y1o7n5) |
 
 在「颜色分类」问题的讲解中，我们向大家介绍了「循环不变量」，在编写代码的过程中，我们应该一直遵守所使用的变量的语义，在「程序执行前」「执行过程中」「执行结束」以后保持不变。遵守我们自己定义「循环不变量」是我们写对正确代码的重要方法。
 
@@ -119,9 +119,9 @@
 
 树的问题很多都可以使用「深度优先遍历」或者「广度优先遍历」去做。
 
-| 题目链接                                                     | 力扣                                                         | B 站     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| [105. 从前序与中序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [力扣](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/) | [B 站]() |
+| 题目链接                                                     | 力扣                                                         | B 站                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| [105. 从前序与中序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [力扣](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/) | [B 站](https://www.bilibili.com/video/BV14A411q7Nv) |
 
 ### 8. 回溯算法
 
@@ -157,10 +157,10 @@
 
 ### 12. 位运算相关 
 
-| 题目链接                                                     | 力扣                                                         | B 站                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
-| [1128. 等价多米诺骨牌对的数量（简单）](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/) | [力扣](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/solution/deng-jie-duo-mi-nuo-gu-pai-dui-de-shu-li-08z8/) | [B 站](https://www.bilibili.com/video/BV1fV411q7ZY) |
-| [315. 计算右侧小于当前元素的个数（困难）](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | [力扣](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/shu-zhuang-shu-zu-by-liweiwei1419/) | [B 站]()                                            |
+| 题目链接                                                     | 力扣                                                         | B 站                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [1128. 等价多米诺骨牌对的数量（简单）](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/) | [力扣](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/solution/deng-jie-duo-mi-nuo-gu-pai-dui-de-shu-li-08z8/) | [B 站](https://www.bilibili.com/video/BV1fV411q7ZY)     |
+| [315. 计算右侧小于当前元素的个数（困难）](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | [力扣](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/shu-zhuang-shu-zu-by-liweiwei1419/) | [B 站](https://www.bilibili.com/video/BV1Hz411v7XC?p=2) |
 
 ## 我的个人网站和算法学习笔记
 
@@ -175,13 +175,8 @@
 
 如果需要一起刷题的朋友，可以加入微信群和 QQ 群。
 
-| 微信群                                                       | QQ 群           |
-| ------------------------------------------------------------ | --------------- |
-| 每日一题打卡活动和加入微信群可以点 [这里](https://ojeveryday.com/#/check) 。 | 群号：812791932 |
-
-感谢负雪明烛和二哥组织建群。
-
----
++ 微信群：每日一题打卡活动和加入微信群可以点 [这里](https://ojeveryday.com/#/check) 。感谢 [负雪明烛](https://blog.csdn.net/fuxuemingzhu) 建群；
++ QQ 群：群号：812791932。感谢 [二哥](https://leetcode-cn.com/u/scut_dell/) 建群。
 
 ## 我的 LeetBook  
 
