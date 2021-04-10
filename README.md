@@ -1,6 +1,5 @@
 # LeetCode-Solutions-in-Good-Style
 
-
 [![GitHub issues](https://img.shields.io/github/issues/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/issues)[![GitHub forks](https://img.shields.io/github/forks/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/network)[![GitHub stars](https://img.shields.io/github/stars/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/stargazers)[![GitHub license](https://img.shields.io/github/license/liweiwei1419/LeetCode-Solutions-in-Good-Style)](https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style/blob/master/LICENSE)
 
 
@@ -22,6 +21,10 @@
 ## 我录制的视频题解
 
 我从 2019 年 9 月开始录制视频题解。最开始的时候，我会对着要讲的材料录好几遍。现在讲解知识点的时候写逐字稿。已经沉淀了很多视频，其实也算是一个小小的体系课程，现在罗列在这里，希望能够对大家有所帮助。
+
+### 0.  算法新手如何刷力扣（LeetCode）？【干货分享】
+
++ [视频：算法新手如何刷力扣（LeetCode）？【干货分享】](https://www.bilibili.com/video/BV17K411J7yR)
 
 ### 1. 时间复杂度与空间复杂度
 
@@ -50,15 +53,22 @@
 
 「归并排序」和「快速排序」是非常重要的排序算法，**深刻理解它们对于理解「递归」函数的运行机制有着非常大的帮助**，同时它们也是「分治思想」的典型应用。「逆序对」和「荷兰国旗问题（颜色分类）」也是非常经典的算法问题。
 
-+ [视频：《剑指 Offer》 51. 数组中的逆序对（困难）](https://www.bilibili.com/video/BV1Qk4y1r7u5)
+| 题目链接                                                     | 力扣                                                         | B 站                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [《剑指 Offer》 51. 数组中的逆序对（困难）](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/) | [力扣](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/solution/shu-zu-zhong-de-ni-xu-dui-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1Qk4y1r7u5)     |
+| [315. 计算右侧小于当前元素的个数（困难）](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | [力扣](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/gui-bing-pai-xu-suo-yin-shu-zu-python-dai-ma-java-/) | [B 站](https://www.bilibili.com/video/BV1Hz411v7XC?p=1) |
 
 计算「逆序对」完全就是按照「归并排序」的思路而来。
 
-+ [视频：「力扣」第 75 题：颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/)
+| 题目链接                                                     | 力扣                                                         | B 站     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+| [75. 颜色分类（中等）](https://leetcode-cn.com/problems/sort-colors/) | [力扣](https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/) | [B 站]() |
 
 在「颜色分类」问题的讲解中，我们向大家介绍了「循环不变量」，在编写代码的过程中，我们应该一直遵守所使用的变量的语义，在「程序执行前」「执行过程中」「执行结束」以后保持不变。遵守我们自己定义「循环不变量」是我们写对正确代码的重要方法。
 
-+ [视频：「力扣」第 41 题：缺失的第一个正数（困难）](https://www.bilibili.com/video/BV167411N7vd)
+| 题目链接                                                     | 力扣                                                         | B 站                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| [41. 缺失的第一个正数（困难）](https://leetcode-cn.com/problems/first-missing-positive/) | [力扣](https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/) | [B 站](https://www.bilibili.com/video/BV167411N7vd) |
 
 「缺失的第一个正数」是一个经典的算法问题，用到的思想是「原地哈希」，可以理解为是「桶排序」算法的特殊应用：一个萝卜一个坑，一个桶里只存放一个元素。要和大家强调的是，可以这样做是和输入数组的元素的数值密切相关。
 
@@ -69,10 +79,10 @@
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | [76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring/) | [力扣](https://leetcode-cn.com/problems/minimum-window-substring/solution/zui-xiao-fu-gai-zi-chuan-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1aK4y1t7Qd) |
-| [424. 替换后的最长重复字符（中等）](https://leetcode-cn.com/problems/longest-repeating-character-replacement/) | [力扣](https://leetcode-cn.com/problems/longest-repeating-character-replacement/solution/ti-huan-hou-de-zui-chang-zhong-fu-zi-fu-eaacp/) | [B 站]()                                            |
-| [567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string/) | [力扣](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-q6tp/) | [B 站]()                                            |
-| [978. 最长湍流子数组（中等）](https://leetcode-cn.com/problems/longest-turbulent-subarray/) | [力扣](https://leetcode-cn.com/problems/longest-turbulent-subarray/solution/zui-chang-tuan-liu-zi-shu-zu-by-leetcode-zqoq/) | [B 站]()                                            |
-| [992. K 个不同整数的子数组（困难）](https://leetcode-cn.com/problems/subarrays-with-k-different-integers/) | [力扣](https://leetcode-cn.com/problems/subarrays-with-k-different-integers/solution/k-ge-bu-tong-zheng-shu-de-zi-shu-zu-by-l-ud34/) | [B 站]()                                            |
+| [424. 替换后的最长重复字符（中等）](https://leetcode-cn.com/problems/longest-repeating-character-replacement/) | [力扣](https://leetcode-cn.com/problems/longest-repeating-character-replacement/solution/ti-huan-hou-de-zui-chang-zhong-fu-zi-fu-eaacp/) | [B 站](https://www.bilibili.com/video/BV14r4y1K7rN) |
+| [567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string/) | [力扣](https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode-q6tp/) | [B 站](https://www.bilibili.com/video/BV175411E761) |
+| [978. 最长湍流子数组（中等）](https://leetcode-cn.com/problems/longest-turbulent-subarray/) | [力扣](https://leetcode-cn.com/problems/longest-turbulent-subarray/solution/zui-chang-tuan-liu-zi-shu-zu-by-leetcode-zqoq/) | [B 站](https://www.bilibili.com/video/BV1PV411i73Y) |
+| [992. K 个不同整数的子数组（困难）](https://leetcode-cn.com/problems/subarrays-with-k-different-integers/) | [力扣](https://leetcode-cn.com/problems/subarrays-with-k-different-integers/solution/k-ge-bu-tong-zheng-shu-de-zi-shu-zu-by-l-ud34/) | [B 站](https://www.bilibili.com/video/BV1xy4y1Y7GL) |
 
 ### 5. 栈相关的问题
 
@@ -86,7 +96,7 @@
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | [84. 柱状图中最大的矩形（困难）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) | [力扣](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/) | [B 站](https://www.bilibili.com/video/BV16D4y1D7ed) |
-| [316. 去除重复字母（中等）](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [力扣](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/) | [B 站]()                                            |
+| [316. 去除重复字母（中等）](https://leetcode-cn.com/problems/remove-duplicate-letters/) | [力扣](https://leetcode-cn.com/problems/remove-duplicate-letters/solution/qu-chu-zhong-fu-zi-mu-by-leetcode-soluti-vuso/) | [B 站](https://www.bilibili.com/video/BV1Tz4y167pC) |
 
 「栈」最为广泛的一种应用就是作为「递归」「深度优先遍历」「分治算法」的数据结构支持。
 
@@ -97,13 +107,13 @@
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | [990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/) | [力扣](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode-/) | [B 站](https://www.bilibili.com/video/BV1gz411i7kD) |
-| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division/) | [力扣](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/) | [B 站]()                                            |
-| [959. 由斜杠划分区域（中等）](https://leetcode-cn.com/problems/regions-cut-by-slashes/) | [力扣](https://leetcode-cn.com/problems/regions-cut-by-slashes/solution/you-xie-gang-hua-fen-qu-yu-by-leetcode-67xb/) | [B 站]()                                            |
-| [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands/) | [力扣](https://leetcode-cn.com/problems/couples-holding-hands/solution/qing-lu-qian-shou-by-leetcode-gl1c/) | [B 站]()                                            |
-| [947. 移除最多的同行或同列石头（中等）](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/) | [力扣](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/solution/947-yi-chu-zui-duo-de-tong-xing-huo-tong-ezha/) | [B 站]()                                            |
-| [803. 打砖块（困难）](https://leetcode-cn.com/problems/bricks-falling-when-hit/) | [力扣](https://leetcode-cn.com/problems/bricks-falling-when-hit/solution/803-da-zhuan-kuai-by-leetcode-r5kf/) | [B 站]()                                            |
-| [1202. 交换字符串中的元素（中等）](https://leetcode-cn.com/problems/smallest-string-with-swaps/) | [力扣](https://leetcode-cn.com/problems/smallest-string-with-swaps/solution/1202-jiao-huan-zi-fu-chuan-zhong-de-yuan-wgab/) | [B 站]()                                            |
-| [778. 水位上升的泳池中游泳（困难）](https://leetcode-cn.com/problems/swim-in-rising-water/) | [力扣](https://leetcode-cn.com/problems/swim-in-rising-water/solution/shui-wei-shang-sheng-de-yong-chi-zhong-y-862o/) | [B 站]()                                            |
+| [399. 除法求值（中等）](https://leetcode-cn.com/problems/evaluate-division/) | [力扣](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/) | [B 站](https://www.bilibili.com/video/BV1Ko4y1f7eK) |
+| [959. 由斜杠划分区域（中等）](https://leetcode-cn.com/problems/regions-cut-by-slashes/) | [力扣](https://leetcode-cn.com/problems/regions-cut-by-slashes/solution/you-xie-gang-hua-fen-qu-yu-by-leetcode-67xb/) | [B 站](https://www.bilibili.com/video/BV1Ry4y117HD) |
+| [765. 情侣牵手（困难）](https://leetcode-cn.com/problems/couples-holding-hands/) | [力扣](https://leetcode-cn.com/problems/couples-holding-hands/solution/qing-lu-qian-shou-by-leetcode-gl1c/) | [B 站](https://www.bilibili.com/video/BV1pv411Y7wX) |
+| [947. 移除最多的同行或同列石头（中等）](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/) | [力扣](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/solution/947-yi-chu-zui-duo-de-tong-xing-huo-tong-ezha/) | [B 站](https://www.bilibili.com/video/BV1Nr4y1K7Gj) |
+| [803. 打砖块（困难）](https://leetcode-cn.com/problems/bricks-falling-when-hit/) | [力扣](https://leetcode-cn.com/problems/bricks-falling-when-hit/solution/803-da-zhuan-kuai-by-leetcode-r5kf/) | [B 站](https://www.bilibili.com/video/BV1Xv411W74B) |
+| [1202. 交换字符串中的元素（中等）](https://leetcode-cn.com/problems/smallest-string-with-swaps/) | [力扣](https://leetcode-cn.com/problems/smallest-string-with-swaps/solution/1202-jiao-huan-zi-fu-chuan-zhong-de-yuan-wgab/) | [B 站](https://www.bilibili.com/video/BV1Yh41127VH) |
+| [778. 水位上升的泳池中游泳（困难）](https://leetcode-cn.com/problems/swim-in-rising-water/) | [力扣](https://leetcode-cn.com/problems/swim-in-rising-water/solution/shui-wei-shang-sheng-de-yong-chi-zhong-y-862o/) | [B 站](https://www.bilibili.com/video/BV1kv4y1f7to) |
 
 ### 7. 树
 
@@ -129,28 +139,28 @@
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | [5. 最长回文子串（中等）](https://leetcode-cn.com/problems/longest-palindromic-substring/) | [力扣](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1L54y1D7pa) |
-| [416. 分割等和子集（中等）](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [力扣](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/fen-ge-deng-he-zi-ji-by-leetcode-solution/) | [B 站]()                                            |
-| [《剑指 Offer》46. 把数字翻译成字符串（中等）](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/) | [力扣](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-by-leetcode-sol/) | [B 站]()                                            |
+| [416. 分割等和子集（中等）](https://leetcode-cn.com/problems/partition-equal-subset-sum/) | [力扣](https://leetcode-cn.com/problems/partition-equal-subset-sum/solution/fen-ge-deng-he-zi-ji-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1oZ4y1G7QY) |
+| [《剑指 Offer》46. 把数字翻译成字符串（中等）](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/) | [力扣](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/solution/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-by-leetcode-sol/) | [B 站](https://www.bilibili.com/video/BV125411W7eC) |
 
 ### 10. 广度优先遍历与拓扑排序
 
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | [127. 单词接龙（困难）](https://leetcode-cn.com/problems/word-ladder/) | [力扣](https://leetcode-cn.com/problems/word-ladder/solution/yan-du-you-xian-bian-li-shuang-xiang-yan-du-you-2/) | [B 站](https://www.bilibili.com/video/BV1og4y1i7DL) |
-| [1203. 项目管理（困难）](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/) | [力扣](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/solution/1203-xiang-mu-guan-li-by-leetcode-t63b/) | [B 站](https://www.bilibili.com/video/BV125411W7eC) |
+| [1203. 项目管理（困难）](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/) | [力扣](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/solution/1203-xiang-mu-guan-li-by-leetcode-t63b/) | [B 站](https://www.bilibili.com/video/BV1iy4y1m7ye) |
 
 ### 11.  哈希表
 
 | 题目链接                                                     | 力扣                                                         | B 站                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
-| [1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum/) | [力扣](https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1og4y1i7DL) |
+| [1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum/) | [力扣](https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/) | [B 站](https://www.bilibili.com/video/BV1rv411k7VY) |
 
 ### 12. 位运算相关 
 
-| 题目链接                                                     | 力扣                                                         | B 站     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| [1128. 等价多米诺骨牌对的数量（简单）](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/) | [力扣](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/solution/deng-jie-duo-mi-nuo-gu-pai-dui-de-shu-li-08z8/) | [B 站]() |
-| [315. 计算右侧小于当前元素的个数（困难）](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | [力扣](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/shu-zhuang-shu-zu-by-liweiwei1419/) | [B 站]() |
+| 题目链接                                                     | 力扣                                                         | B 站                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| [1128. 等价多米诺骨牌对的数量（简单）](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/) | [力扣](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/solution/deng-jie-duo-mi-nuo-gu-pai-dui-de-shu-li-08z8/) | [B 站](https://www.bilibili.com/video/BV1fV411q7ZY) |
+| [315. 计算右侧小于当前元素的个数（困难）](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/) | [力扣](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/solution/shu-zhuang-shu-zu-by-liweiwei1419/) | [B 站]()                                            |
 
 ## 我的个人网站和算法学习笔记
 
@@ -180,7 +190,7 @@
 **说明**：
 
 + 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 阅读，非会员价 99 元，会员价 69 元，您当前看到的主页目录与 LeetBook 是一样的，只有多出来的部分，不会更少；
-+ LeetBook 的课程标题、例题、练习、[讨论区](https://leetcode-cn.com/circle/discuss/E7Cf0z/)、配套代码仓库（就是您当前看到的这个仓库）都是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议购买；
++ LeetBook 的课程标题、例题、练习、配套代码仓库（就是您当前看到的这个仓库）是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议购买；
 + 投入精力与平时写题解是一样的，只不过 LeetBook 在制作图表上会更细致一点。付费内容是：制作教程的时间精力付出、「力扣」的工作人员和高手参与制作和审核，阅读体验会更好一些。不排除平时写的题解知识点比 LeetBook 还要多；
 + **中、高阶用户请谨慎购买**；
 + 可以在「力扣」站内或者是我的其他社交账号向我咨询课程内容，也可以向本仓库提 issue。不管是否购买课程，我都会尽量回答我所知道的问题（时间允许，能力范围之内）。感谢大家一直以来，一如既往对我的支持。有建议和意见也欢迎大家与我交流；
