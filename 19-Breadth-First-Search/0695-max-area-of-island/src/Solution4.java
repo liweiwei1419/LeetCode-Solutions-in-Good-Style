@@ -30,16 +30,15 @@ public class Solution4 {
         queue.offer(index);
         visited[index] = true;
         while (!queue.isEmpty()) {
-            int top = queue.poll();
-            int curX = top / cols;
-            int curY = top % cols;
+            int front = queue.poll();
+            int curX = front / cols;
+            int curY = front % cols;
             count++;
             for (int[] direction : DIRECTIONS) {
                 int newX = curX + direction[0];
                 int newY = curY + direction[1];
 
                 int newIndex = getIndex(newX, newY, cols);
-
                 if (inArea(newX, newY, rows, cols) && grid[newX][newY] == 1 && !visited[newIndex]) {
                     queue.offer(newIndex);
                     visited[newIndex] = true;
