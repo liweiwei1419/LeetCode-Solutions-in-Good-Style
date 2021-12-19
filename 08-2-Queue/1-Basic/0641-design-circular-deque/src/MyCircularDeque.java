@@ -46,7 +46,7 @@ public class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        front = (front + 1 + capacity) % capacity;
+        front = (front + 1) % capacity;
         return true;
     }
 

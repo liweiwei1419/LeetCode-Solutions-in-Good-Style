@@ -6,16 +6,14 @@ public class Solution {
 
     public boolean isValid(String s) {
         int len = s.length();
-        if (len == 0) {
-            return true;
-        }
+        // 特殊情况判断
         if ((len % 2) == 1) {
             return false;
         }
 
         char[] charArray = s.toCharArray();
         Deque<Character> stack = new ArrayDeque<>();
-        for (char c:charArray) {
+        for (char c : charArray) {
             switch (c) {
                 case '(':
                     stack.addLast(')');

@@ -3,6 +3,8 @@ import java.util.Deque;
 
 public class Solution {
 
+    // 思路：数字就加入栈，运算符就计算
+
     public int evalRPN(String[] tokens) {
         int len = tokens.length;
         if (len == 0) {
@@ -16,7 +18,7 @@ public class Solution {
         int c = 0;
         String operators = "+-*/";
         for (int i = 0; i < len; i++) {
-            // 是运算符
+            // 是运算符，问题 contains 这个方法好不好？
             if (operators.contains(tokens[i])) {
                 // 第 2 个数
                 a = stack.removeLast();

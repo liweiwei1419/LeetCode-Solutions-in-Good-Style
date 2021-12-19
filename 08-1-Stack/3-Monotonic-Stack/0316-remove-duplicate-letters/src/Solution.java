@@ -10,6 +10,9 @@ public class Solution {
         if (len < 2) {
             return s;
         }
+
+        // 转成字符数组是因为，s.charAt(i) 会检查字符串的下标是否越界，事实上没有必要
+        // 遍历字符串之前，先转换成字符数组是常见的做饭
         char[] charArray = s.toCharArray();
 
         // 第 1 步：记录每个字符出现的最后一个位置
@@ -24,14 +27,13 @@ public class Solution {
         boolean[] visited = new boolean[26];
         for (int i = 0; i < len; i++) {
             char currentChar = charArray[i];
-            // 如果栈中已经存在，就跳过
             if (visited[currentChar - 'a']) {
                 continue;
             }
 
-            // 在 ① 栈非空，② 当前元素字典序 < 栈顶元素，并且 ③ 栈顶元素在以后还会出现，弹出栈元素
             while (!stack.isEmpty() && currentChar < stack.peekLast() && lastIndex[stack.peekLast() - 'a'] > i) {
                 char top = stack.removeLast();
+                // 在出栈、入栈的时候，都需要维护 visited 数组的定义
                 visited[top - 'a'] = false;
             }
 
@@ -41,8 +43,8 @@ public class Solution {
 
         // 第 3 步：此时 stack 就是题目要求字典序最小的字符串
         StringBuilder stringBuilder = new StringBuilder();
-        while (!stack.isEmpty()) {
-            stringBuilder.insert(0, stack.removeLast());
+        for (char c : stack) {
+            stringBuilder.append(c);
         }
         return stringBuilder.toString();
     }
