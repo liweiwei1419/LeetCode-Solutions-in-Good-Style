@@ -5,6 +5,8 @@ import java.util.Queue;
 
 public class Solution4 {
 
+    // BFS
+
     public List<Integer> rightSideView(TreeNode root) {
         // 创建一维数组接收结果值
         List<Integer> ans = new ArrayList<>();

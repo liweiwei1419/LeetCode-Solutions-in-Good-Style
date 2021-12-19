@@ -1,6 +1,7 @@
 public class Solution {
 
     // 根据左子树和右子树的深度来计算完全二叉树的结点个数
+    // 图解可以参考：https://leetcode-cn.com/problems/count-complete-tree-nodes/solution/c-san-chong-fang-fa-jie-jue-wan-quan-er-cha-shu-de/
 
     public int countNodes(TreeNode root) {
         if (root == null) {

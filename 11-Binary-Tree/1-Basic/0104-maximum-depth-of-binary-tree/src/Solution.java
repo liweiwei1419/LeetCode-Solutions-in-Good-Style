@@ -6,6 +6,9 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+
+        int leftMaxDepth = maxDepth(root.left);
+        int rightMaxDepth = maxDepth(root.right);
+        return Math.max(leftMaxDepth, rightMaxDepth) + 1;
     }
 }

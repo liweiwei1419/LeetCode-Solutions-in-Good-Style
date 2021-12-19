@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class Solution3 {
 
-    // 使用层序遍历的思想
+    // BFS
 
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new ArrayList<>();

@@ -4,10 +4,13 @@ import java.util.Deque;
 
 public class BSTIterator {
 
-    // 参考「力扣」第 94 题
-
     private Deque<TreeNode> stack;
 
+    /**
+     * 构造函数
+     *
+     * @param root
+     */
     public BSTIterator(TreeNode root) {
         stack = new ArrayDeque<>();
 
