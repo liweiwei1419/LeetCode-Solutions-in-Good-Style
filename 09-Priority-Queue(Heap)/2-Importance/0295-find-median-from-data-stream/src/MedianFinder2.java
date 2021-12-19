@@ -2,11 +2,6 @@ import java.util.PriorityQueue;
 
 public class MedianFinder2 {
 
-    /**
-     * 当前大顶堆和小顶堆的元素个数之和
-     */
-    private int count;
-
     private PriorityQueue<Integer> maxheap;
     private PriorityQueue<Integer> minheap;
 
@@ -19,7 +14,6 @@ public class MedianFinder2 {
     }
 
     public void addNum(int num) {
-        count += 1;
         maxheap.offer(num);
         minheap.offer(maxheap.poll());
         if (maxheap.size() < minheap.size()) {

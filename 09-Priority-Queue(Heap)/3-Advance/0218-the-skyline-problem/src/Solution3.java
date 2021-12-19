@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.PriorityQueue;
+import java.util.TreeSet;
 
-public class Solution2 {
+public class Solution3 {
+
+    // 不可以用二叉搜索树的原因是：相同的 key 在二叉搜索树中会被覆盖
 
     public List<List<Integer>> getSkyline(int[][] buildings) {
-
         List<int[]> buildLines = new ArrayList<>();
-
         // building 格式：横坐标、纵坐标、高度
         for (int[] building : buildings) {
             buildLines.add(new int[]{building[0], -building[2]});
@@ -24,28 +24,23 @@ public class Solution2 {
             return o1[1] - o2[1];
         });
 
-        for(int[] b:buildLines){
-            System.out.println(Arrays.toString(b));
-        }
 
-
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
-        maxHeap.offer(0);
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        treeSet.add(0);
         int preHeight = 0;
 
         List<List<Integer>> res = new ArrayList<>();
         for (int[] buildLine : buildLines) {
             if (buildLine[1] < 0) {
-                maxHeap.offer(-buildLine[1]);
+                treeSet.add(-buildLine[1]);
             } else {
-                maxHeap.remove(buildLine[1]);
+                treeSet.remove(buildLine[1]);
             }
 
+            int curHeight = treeSet.last();
+            System.out.println(treeSet);
+            System.out.println(treeSet.last());
 
-            int curHeight = maxHeap.peek();
-
-            System.out.println(maxHeap);
-            System.out.println(curHeight);
             if (curHeight != preHeight) {
                 res.add(Arrays.asList(buildLine[0], curHeight));
                 preHeight = curHeight;
@@ -55,10 +50,10 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
+        int[][] buildings = new int[][]{{0, 2147483647, 2147483647}};
         // int[][] buildings = new int[][]{{0, 2, 3}, {2, 5, 3}};
-        int[][] buildings = new int[][]{{3, 5, 9}, {3, 8, 7}};
-        Solution2 solution2 = new Solution2();
-        List<List<Integer>> res = solution2.getSkyline(buildings);
+        Solution3 solution3 = new Solution3();
+        List<List<Integer>> res = solution3.getSkyline(buildings);
         System.out.println(res);
     }
 }

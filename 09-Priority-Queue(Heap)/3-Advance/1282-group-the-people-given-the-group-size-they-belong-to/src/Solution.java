@@ -14,8 +14,7 @@ public class Solution {
             return res;
         }
 
-        // 默认就是最小堆，int[] 的长度为 2，第 1 个数是数组元素，第 2 个数是数组下标
-        // 其实就是把数和索引绑定在了一起，在堆中参与比较的是数，下标是依附于数的
+        // 使用最小堆，int[] 的长度为 2，第 1 个数是数组元素，第 2 个数是数组下标，把数和下标绑定在了一起，在堆中参与比较的是数，下标是依附于数的
         PriorityQueue<int[]> minHeap = new PriorityQueue<>(len, Comparator.comparingInt(o -> o[0]));
         for (int i = 0; i < len; i++) {
             minHeap.add(new int[]{groupSizes[i], i});
@@ -24,12 +23,12 @@ public class Solution {
         while (!minHeap.isEmpty()) {
             int curSize = minHeap.peek()[0];
 
-            List<Integer> current = new ArrayList<>();
+            List<Integer> currList = new ArrayList<>();
             for (int i = 0; i < curSize; i++) {
-                current.add(Objects.requireNonNull(minHeap.poll())[1]);
+                currList.add(minHeap.poll()[1]);
             }
 
-            res.add(current);
+            res.add(currList);
         }
         return res;
     }

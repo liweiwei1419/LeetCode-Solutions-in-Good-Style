@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 
-public class Solution {
+public class Solution6 {
 
     public List<List<Integer>> getSkyline(int[][] buildings) {
         // 第 1 步：预处理
@@ -26,6 +28,9 @@ public class Solution {
 
         // 第 3 步：扫描一遍动态计算出结果
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        // 哈希表，记录「延迟删除」的元素，key 为元素，value 为需要删除的次数
+        Map<Integer, Integer> delayed = new HashMap<>();
+
         // 最开始的时候，需要产生高度差，所以需要加上一个高度为 0，宽度为 0 的矩形
         maxHeap.offer(0);
         // 为了计算高度差，需要保存之前最高的高度
@@ -36,10 +41,22 @@ public class Solution {
                 // 说明此时是「从下到上」，纵坐标参与选拔最大值，请见「规则 1」
                 maxHeap.offer(-buildingPoint[1]);
             } else {
-                // 说明此时是「从上到到」，纵坐标不参与选拔最大值，请见「规则 2」
-                // 注意：Java 里优先队列的 remove 需要线性扫描到这个元素，然后移除
-                // 时间复杂度为 O(N \log N)，这一步是耗时操作
-                maxHeap.remove(buildingPoint[1]);
+                // 不是真的删除 buildingPoint[1]，把它放进 delayed，等到堆顶元素是 buildingPoint[1] 的时候，才真的删除
+                delayed.put(buildingPoint[1], delayed.getOrDefault(buildingPoint[1], 0) + 1);
+            }
+
+            // 如果堆顶元素在延迟删除集合中，才真正删除，这一步可能执行多次，所以放在 while 中
+            while (true) {
+                int curHeight = maxHeap.peek();
+                if (delayed.containsKey(curHeight)) {
+                    delayed.put(curHeight, delayed.get(curHeight) - 1);
+                    if (delayed.get(curHeight) == 0) {
+                        delayed.remove(curHeight);
+                    }
+                    maxHeap.poll();
+                } else {
+                    break;
+                }
             }
 
             int curHeight = maxHeap.peek();
@@ -52,5 +69,12 @@ public class Solution {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        Solution6 solution6 = new Solution6();
+        int[][] buildings = new int[][]{{0, 2, 3}, {2, 5, 3}};
+        List<List<Integer>> res = solution6.getSkyline(buildings);
+        System.out.println(res);
     }
 }
