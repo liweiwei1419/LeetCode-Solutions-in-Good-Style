@@ -1,9 +1,9 @@
 public class Solution4 {
 
-    public int fib(int N) {
-        if (N < 2) {
-            return N;
+    public int fib(int n) {
+        if (n < 2) {
+            return n;
         }
-        return fib(N - 1) + fib(N - 2);
+        return fib(n - 1) + fib(n - 2);
     }
 }

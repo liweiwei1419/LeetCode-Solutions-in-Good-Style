@@ -3,7 +3,6 @@ public class Solution {
     // 暴力解法
 
     public int mySqrt(int x) {
-        // 特判
         if (x <= 1) {
             return x;
         }

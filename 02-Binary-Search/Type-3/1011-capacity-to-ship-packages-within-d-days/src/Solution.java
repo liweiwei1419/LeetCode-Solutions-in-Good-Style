@@ -58,4 +58,12 @@ public class Solution {
         }
         return days;
     }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] weights = new int[]{5,5,5,5,5,5,5,5,5,5};
+        int D = 8;
+        int res = solution.shipWithinDays(weights, D);
+        System.out.println(res);
+    }
 }
