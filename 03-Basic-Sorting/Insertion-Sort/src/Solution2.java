@@ -5,7 +5,7 @@ public class Solution2 {
 
     public int[] sortArray(int[] nums) {
         int len = nums.length;
-        // 循环不变量：将 nums[i] 插入到区间 [0, i) 使之成为有序数组
+        // 循环不变量：将 nums[i] 插入到区间 [0..i) 使之成为有序数组
         for (int i = 1; i < len; i++) {
             // 先暂存这个元素，然后之前数值严格小于 temp 的所有元素逐个后移
             int temp = nums[i];

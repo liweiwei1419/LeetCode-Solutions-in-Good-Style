@@ -1,6 +1,6 @@
 public class Solution2 {
 
-    // 冒泡排序：超时
+    // 冒泡排序的优化：超时
 
     public int[] sortArray(int[] nums) {
         int len = nums.length;

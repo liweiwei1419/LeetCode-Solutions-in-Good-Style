@@ -14,7 +14,7 @@ public class Solution3 {
         }
         swap(nums, 0, minIndex);
 
-        // 循环不变量：将 nums[i] 插入到区间 [0, i) 使之成为有序数组
+        // 循环不变量：将 nums[i] 插入到区间 [0..i) 使之成为有序数组
         for (int i = 1; i < len; i++) {
             int temp = nums[i];
             int j = i;
