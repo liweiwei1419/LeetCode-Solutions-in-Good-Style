@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution3 {
 
     // 方法一：动态规划（推荐）
@@ -15,11 +17,20 @@ public class Solution3 {
             dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
         }
 
+        System.out.println(Arrays.toString(dp));
+
         // 遍历 dp 数组，找出最大值，即连续子数组的最大和
         int res = dp[0];
         for (int i = 1; i < len; i++) {
             res = Math.max(res, dp[i]);
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        Solution3 solution3 = new Solution3();
+        int[] nums = new int[]{8, -19, 5, -4, 20};
+        int res = solution3.maxSubArray(nums);
+        System.out.println(res);
     }
 }

@@ -2,6 +2,8 @@ import java.util.Arrays;
 
 public class Solution2 {
 
+    // 普通的动态规划
+
     public int numSquares(int n) {
         // 0 要占用一个位置
         int[] dp = new int[n + 1];
