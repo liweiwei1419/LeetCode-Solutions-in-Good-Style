@@ -4,19 +4,25 @@ public class Solution {
         int len = row.length;
         int N = len / 2;
         UnionFind unionFind = new UnionFind(N);
-        for (int i = 0; i < N; i++) {
-            unionFind.union(row[2 * i] / 2, row[2 * i + 1] / 2);
+        for (int i = 0; i < len; i += 2) {
+            unionFind.union(row[i] / 2, row[i + 1] / 2);
         }
-        return N - unionFind.count;
+        return N - unionFind.getCount();
     }
 
     private class UnionFind {
+
         private int[] parent;
+
         private int count;
 
+        public int getCount() {
+            return count;
+        }
+
         public UnionFind(int n) {
-            count = n;
-            parent = new int[n];
+            this.count = n;
+            this.parent = new int[n];
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
             }
@@ -36,8 +42,13 @@ public class Solution {
             if (rootX == rootY) {
                 return;
             }
+
             parent[rootX] = rootY;
             count--;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println((int)'z');
     }
 }

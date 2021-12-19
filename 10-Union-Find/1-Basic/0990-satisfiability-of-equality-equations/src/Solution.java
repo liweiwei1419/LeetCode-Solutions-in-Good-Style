@@ -1,3 +1,5 @@
+import java.util.PriorityQueue;
+
 public class Solution {
 
     public boolean equationsPossible(String[] equations) {
@@ -18,7 +20,7 @@ public class Solution {
                 int index1 = charArray[0] - 'a';
                 int index2 = charArray[3] - 'a';
                 if (unionFind.isConnected(index1, index2)) {
-                    // 如果合并失败，表示等式有矛盾，根据题意，返回 false
+                    // 如果不在一个连通分量中，表示等式有矛盾，根据题意，返回 false
                     return false;
                 }
             }
