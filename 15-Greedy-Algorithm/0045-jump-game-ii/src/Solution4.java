@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution {
+public class Solution4 {
 
     // 方法：广度优先遍历
 

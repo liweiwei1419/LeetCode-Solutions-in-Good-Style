@@ -4,15 +4,19 @@ public class Solution {
 
     public int minimumSwap(String s1, String s2) {
         int len = s1.length();
+        char[] charArray1 = s1.toCharArray();
+        char[] charArray2 = s2.toCharArray();
+
         // 在 s1 是 x，在 s2 是 y 的情况
         int x2y = 0;
         // 在 s2 是 y，在 s2 是 x 的情况
         int y2x = 0;
+
         for (int i = 0; i < len; i++) {
-            if (s1.charAt(i) == 'x' && s2.charAt(i) == 'y') {
+            if (charArray1[i] == 'x' && charArray2[i] == 'y') {
                 x2y++;
             }
-            if (s1.charAt(i) == 'y' && s2.charAt(i) == 'x') {
+            if (charArray1[i] == 'y' && charArray2[i] == 'x') {
                 y2x++;
             }
         }
