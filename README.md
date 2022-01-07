@@ -164,9 +164,9 @@
 
 ## 我的个人网站和算法学习笔记
 
-+ 个人主页：https://liweiwei1419.gitee.io/leetcode-algo/；
-+ 语雀笔记：https://www.yuque.com/liweiwei1419/algo；
-+ CSDN 博客：https://blog.csdn.net/lw_power；
++ 个人主页：https://liweiwei1419.gitee.io/leetcode-algo
++ 语雀笔记：https://www.yuque.com/liweiwei1419/algo
++ CSDN 博客：https://blog.csdn.net/lw_power
 + 微信公众号：力扣图解可能没有图（目前佛系运营）。
 
 ![](https://liweiwei1419.gitee.io/visualgo/author/qrcode_for_gh_246ffacb3679_258.jpg)
@@ -184,7 +184,7 @@
 
 **说明**：
 
-+ 该 LeetBook 的前两章（ [时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 阅读，非会员价 99 元，会员价 69 元，您当前看到的主页目录与 LeetBook 是一样的，只有多出来的部分，不会更少；
++ 该 LeetBook 的前两章（[时间复杂度](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/553v4h/)、[二分查找](https://leetcode-cn.com/leetbook/read/learning-algorithms-with-leetcode/xsq0b7/)）是免费阅读的，后面的章节 **需要付费** 阅读，非会员价 99 元，会员价 69 元，您当前看到的主页目录与 LeetBook 是一样的，只有多出来的部分，不会更少；
 + LeetBook 的课程标题、例题、练习、配套代码仓库（就是您当前看到的这个仓库）是完全公开的，如果 LeetBook 里设计的内容（包括练习）您已经掌握，就不太建议购买；
 + 投入精力与平时写题解是一样的，只不过 LeetBook 在制作图表上会更细致一点。付费内容是：制作教程的时间精力付出、「力扣」的工作人员和高手参与制作和审核，阅读体验会更好一些。不排除平时写的题解知识点比 LeetBook 还要多；
 + **中、高阶用户请谨慎购买**；
